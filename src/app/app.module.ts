@@ -9,6 +9,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogSuccessComponent} from './notification/dialog-success/dialog-success.component';
 import {MaterialModule} from "./material/material.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UploadComponent } from './upload/upload.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 const DialogComponents = [
   DialogSuccessComponent
@@ -18,7 +22,8 @@ const DialogComponents = [
   declarations: [
     AppComponent,
     ToastrTestComponent,
-    DialogComponents
+    DialogComponents,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,8 @@ const DialogComponents = [
     BrowserAnimationsModule,
     MaterialModule,
     NgbModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [],
   bootstrap: [AppComponent]
