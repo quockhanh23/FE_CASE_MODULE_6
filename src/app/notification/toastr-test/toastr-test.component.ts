@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
-import {DialogSuccessComponent} from "../notification/dialog-success/dialog-success.component";
+import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {DialogRulesComponent} from "../dialog-rules/dialog-rules.component";
 
 @Component({
   selector: 'app-toastr-test',
@@ -38,8 +39,11 @@ export class ToastrTestComponent implements OnInit {
   openToarts() {
     this.toarts.success('mes', 'title')
   }
-  openDialogLoginSuccess() {
+  openDialogSuccess() {
     this.dialog.open(DialogSuccessComponent);
+  }
+  openDialogRules() {
+    this.dialog.open(DialogRulesComponent);
   }
 
 }
