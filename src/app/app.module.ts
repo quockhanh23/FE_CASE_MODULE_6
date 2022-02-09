@@ -18,6 +18,8 @@ import { DialogFailComponent } from './notification/dialog-fail/dialog-fail.comp
 import { ModalOptionsComponent } from './notification/modal-options/modal-options.component';
 import {HomePageModule} from "./module/home-page/home-page.module";
 import {ListRecruitmentsComponent} from "./module/home-page/recruitments/list-recruitments/list-recruitments.component";
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 
 const DialogComponents = [
@@ -33,6 +35,8 @@ const DialogComponents = [
     DialogComponents,
     UploadComponent,
     ModalOptionsComponent,
+    FooterComponent,
+    HeaderComponent,
 
   ],
   imports: [
