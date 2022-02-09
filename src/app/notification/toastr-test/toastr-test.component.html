@@ -1,6 +1,7 @@
-<button (click)="openToarts()">Toastr</button>
-<button (click)="openDialogLoginSuccess()">Material</button>
-<button></button>
+<button mat-button (click)="openToarts()">Toastr</button>
+<button mat-button (click)="openDialogSuccess()">Material</button>
+<button mat-button (click)="openDialogRules()">Material 2</button>
+
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
@@ -31,3 +32,4 @@
 <hr>
 
 <pre>{{ closeResult }}</pre>
+

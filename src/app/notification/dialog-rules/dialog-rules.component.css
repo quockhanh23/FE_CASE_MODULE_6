@@ -1,0 +1,11 @@
+.a1:hover{
+  color: #ffc107;
+}
+.a2:hover{
+  color: white;
+}
+.fontDialog {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #1f223e;
+}
