@@ -3,7 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../services/authentication.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 
 @Component({
@@ -16,9 +16,9 @@ export class LoginUserComponent implements OnInit {
   hide = true;
 
   loginForm: FormGroup = new FormGroup({
-    id: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl('')
+    email: new FormControl('',
+      [Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required])
   });
 
   returnUrl?: string;
