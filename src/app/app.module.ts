@@ -16,6 +16,11 @@ import {environment} from "../environments/environment";
 import { DialogRulesComponent } from './notification/dialog-rules/dialog-rules.component';
 import { DialogFailComponent } from './notification/dialog-fail/dialog-fail.component';
 import { ModalOptionsComponent } from './notification/modal-options/modal-options.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginUserComponent } from './login-user/login-user.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 
 const DialogComponents = [
@@ -31,6 +36,9 @@ const DialogComponents = [
     DialogComponents,
     UploadComponent,
     ModalOptionsComponent,
+    FooterComponent,
+    HeaderComponent,
+    LoginUserComponent,
 
   ],
   imports: [
@@ -39,6 +47,8 @@ const DialogComponents = [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     NgbModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
