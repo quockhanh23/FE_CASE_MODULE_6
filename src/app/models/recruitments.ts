@@ -13,9 +13,9 @@ export interface Recruitments {
   numberOfRecruitments?: string,
   dateEnd?: Date,
   gender?: string,
-  statusRecruitment?: StatusRecruitment,
-  work?: Work,
-  position?: Position,
+  statusRecruitmentId?: StatusRecruitment,
+  workId?: Work,
+  positionId?: Position,
   profileEnterprise?: ProfileEnterprise
 }
 
