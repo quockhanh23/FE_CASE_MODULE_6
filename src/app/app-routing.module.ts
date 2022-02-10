@@ -18,6 +18,7 @@ const routes: Routes = [
     path: "admin",
     loadChildren: () => import('./main/admin/admin.module').then(module => module.AdminModule)
   },
+
 ];
 
 @NgModule({

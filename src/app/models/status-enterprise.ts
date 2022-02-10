@@ -1,4 +1,4 @@
 export interface StatusEnterprise {
-  id?: string
+  id?: string,
   name?: string
 }
