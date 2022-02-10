@@ -1,12 +1,30 @@
+
 <mat-card class="example-card" *ngFor="let en of enterprise">
   <mat-card-title-group>
-    <mat-card-title>{{en.nameCompany}}</mat-card-title>
-
+    <mat-card-title class="alo2">
+      <sub class="alo2"><span class="material-icons">home_repair_service</span></sub>
+      &ensp;{{en.nameCompany}}</mat-card-title>
     <mat-card-subtitle>{{en.description}}</mat-card-subtitle>
     <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
   </mat-card-title-group>
   <mat-card-content>
-    Trạng thái:
-    {{en.statusEnterpriseId?.name}}
+    <div class="row">
+      <div class="col-1">
+        <sub><span style="color: #007fff" class="material-icons">info</span></sub>
+      </div>
+      <div class="col-5">
+        <h2>{{en.statusEnterpriseId?.name}}</h2>
+      </div>
+    </div>
   </mat-card-content>
+  <mat-card-footer>
+    <div class="row">
+      <div class="col" style="margin-left: 30px">
+        <button class="alo1" mat-button (click)="changeStatusActive(en?.id)">Kích hoạt tài khoản</button>
+      </div>
+      <div class="col">
+        <button class="alo1" mat-button (click)="changeStatusLock(en?.id)">Khóa tài khoản</button>
+      </div>
+    </div>
+  </mat-card-footer>
 </mat-card>

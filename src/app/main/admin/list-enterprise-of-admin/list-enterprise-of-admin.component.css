@@ -2,3 +2,12 @@
   max-width: 400px;
   margin-bottom: 8px;
 }
+.alo1:hover {
+  color: #ffc107;
+}
+.alo2{
+  color: #0A8CFF;
+}
+.alo2:hover{
+  color: #ffc107;
+}

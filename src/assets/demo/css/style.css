@@ -2230,8 +2230,8 @@ h3 {
 
 /* line 10, ../../Arafath/CL/December/235. Job board/HTML/scss/_footer.scss */
 .footer .footer_top {
-  padding-top: 145px;
-  padding-bottom: 129px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 767px) {

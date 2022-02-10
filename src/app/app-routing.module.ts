@@ -1,7 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {RecruitmentsListComponent} from "./main/enterprise/recruitments/recruitments-list/recruitments-list.component";
 
 const routes: Routes = [
+
+  {path: '', pathMatch: 'full', redirectTo: '/listJob'},
+  {
+    path: 'listJob',
+    component: RecruitmentsListComponent
+  },
   {
     path: "login",
     loadChildren: () => import('./login/login.module').then(module => module.LoginModule)

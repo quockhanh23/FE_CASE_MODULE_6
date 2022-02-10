@@ -15,6 +15,6 @@ import { RecruitmentsListComponent } from './recruitments/recruitments-list/recr
     imports: [
         CommonModule,
         EnterpriseRoutingModule
-    ]
+    ],
 })
 export class EnterpriseModule { }

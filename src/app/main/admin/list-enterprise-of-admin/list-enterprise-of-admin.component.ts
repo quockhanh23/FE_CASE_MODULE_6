@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {ProfileEnterpriseOfAdminService} from "../../../services/profile-enterprise-of-admin.service";
 import {MatDialog} from "@angular/material/dialog";
-import {StatusEnterpriseService} from "../../../services/status-enterprise.service";
+import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-list-enterprise-of-admin',
@@ -17,6 +17,8 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
+              private toarts: ToastrService,
+              private router: Router,
   ) {
   }
 
@@ -28,5 +30,31 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+  }
+
+  changeStatusLock(id: any) {
+    this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
+      console.log(result)
+      this.router.navigate([""]).then(r => {
+        console.log('hoạt động' + r);
+      },);
+    }, error => {
+      console.log("Lỗi", error)
+    })
+  }
+
+  changeStatusActive(id: any) {
+    this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
+      console.log(result)
+      this.router.navigate([""]).then(r => {
+        console.log('hoạt động' + r);
+      });
+    }, error => {
+      console.log("Lỗi", error)
+    })
+  }
+
+  openToarts() {
+    this.toarts.success('mes', 'title')
   }
 }
