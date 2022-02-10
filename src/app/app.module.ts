@@ -23,6 +23,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
 import { ListEnterpriseOfAdminComponent } from './main/admin/list-enterprise-of-admin/list-enterprise-of-admin.component';
+import { EditStatusEnterpriseComponent } from './main/admin/edit-status-enterprise/edit-status-enterprise.component';
 
 
 const DialogComponents = [
@@ -43,6 +44,7 @@ const DialogComponents = [
     LoginUserComponent,
     LoginEnterpriseComponent,
     ListEnterpriseOfAdminComponent,
+    EditStatusEnterpriseComponent,
 
   ],
   imports: [
