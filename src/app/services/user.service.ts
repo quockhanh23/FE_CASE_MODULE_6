@@ -16,4 +16,7 @@ export class UserService {
   login(user: ProfileUser): Observable<ProfileUser> {
     return this.http.post<ProfileUser>(API_URL + '/login/user', user);
   }
+  register(user: ProfileUser): Observable<ProfileUser> {
+    return this.http.post<ProfileUser>(API_URL + '/register/enterprise', user);
+  }
 }
