@@ -29,4 +29,7 @@ export class RecruitmentsListComponent implements OnInit {
       console.log(loi);
     })
   }
+  showDetails(id: string){
+    this.router.navigate([id+'/details'])
+  }
 }
