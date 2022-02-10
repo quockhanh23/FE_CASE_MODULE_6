@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Recruitments} from "../../../../models/recruitments";
+import {RecruitmentsService} from "../../../../services/recruitments.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recruitments-list',
@@ -6,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recruitments-list.component.css']
 })
 export class RecruitmentsListComponent implements OnInit {
+  listJob: Recruitments[] = []
 
-  constructor() { }
+  constructor(
+    private recruitmentsService: RecruitmentsService,
+    private router: Router
+  ) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+    this.loadListAll()
+  }
+  loadListAll(){
+    this.recruitmentsService.listRecruitmentsAll().subscribe(result => {
+      console.log(result);
+      this.listJob = result;
+    }, loi => {
+      console.log(loi);
+    })
+  }
 }

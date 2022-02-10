@@ -16,7 +16,7 @@ export class RecruitmentsService {
 
   // @ts-ignore
   listRecruitmentsAll(): Observable<Recruitments[]> {
-  return  this.http.get<Recruitments[]>(API_URL+'api/recruitments')
+  return  this.http.get<Recruitments[]>(API_URL+'/api/recruitments')
   }
 }
 
