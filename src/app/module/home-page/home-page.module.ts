@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomePageRoutingModule } from './home-page-routing.module';
-import { ListRecruitmentsComponent } from './list-recruitments/list-recruitments.component';
-import { RecruitmentsComponent } from './recruitments/recruitments.component';
+import {ListRecruitmentsComponent} from "./recruitments/list-recruitments/list-recruitments.component";
 
 
 @NgModule({
   declarations: [
     ListRecruitmentsComponent,
-    RecruitmentsComponent
+  ],
+  exports:[
+    ListRecruitmentsComponent
   ],
   imports: [
     CommonModule,
