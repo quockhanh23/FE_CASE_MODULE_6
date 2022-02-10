@@ -1,10 +1,14 @@
-<div class="container" style="text-align: center">
 
+<div class="container" style="text-align: center">
   <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="row">
+      <div class="col-2">
+        <h2 style="color: #0f1ba1">Người dùng</h2>
+        <span style="font-size: 40px; color: #0f1ba1" class="material-icons">assignment</span>
+      </div>
       <div class="col-3">
         <h2 style="color: deeppink">
-          <sub><span class="material-icons">account_box</span></sub>&nbsp;Email đăng nhập</h2>
+          <sub><span class="material-icons" style="color: #0f1ba1;">account_box</span></sub>&nbsp;Email đăng nhập</h2>
         <mat-form-field hideRequiredMarker appearance="outline" color="primary">
           <mat-label>Email đăng nhập</mat-label>
           <input matInput required formControlName="email">
@@ -13,19 +17,46 @@
       </div>
       <div class="col-3">
         <h2 style="color: deeppink">
-          <sub><span class="material-icons">https</span></sub>&nbsp;Mật khẩu</h2>
+          <sub><span class="material-icons" style="color: #0f1ba1;">https</span></sub>&nbsp;Mật khẩu</h2>
         <mat-form-field appearance="outline">
           <mat-label>Nhập mật khẩu</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
           <mat-hint align="end">Mật khẩu là bắt buộc</mat-hint>
         </mat-form-field>
       </div>
+      <div class="col-4">
+        <div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="loginForm.controls['email'].errors?.['required']
+         && loginForm.controls['email'].touched">
+            Email là bắt buộc!
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="loginForm.controls['email'].errors?.['email']
+         && loginForm.controls['email'].touched">
+            Không phải là một email hợp lệ
+          </div>
+          <div class="col alert alert-danger" role="alert"
+               *ngIf="loginForm.controls['password'].errors?.['required']
+                    && loginForm.controls['password'].touched">
+            Mật khẩu là bắt buộc!
+          </div>
+          <div class="col alert alert-success" role="alert"
+               *ngIf="loginForm.valid">
+            Email và mật khẩu xác nhận đã hợp lệ
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
+      <div class="col-2" style="width: 100px"></div>
       <div class="col-3">
         <h2 class="a" style="color: purple">
-          <a class="a"><sub><span class="material-icons">help</span></sub>
+          <a class="a"><sub><span class="material-icons" style="color: #0f1ba1;">help</span></sub>
             Bạn chưa có tài khoản?</a></h2>
       </div>
       <div class="col-3">
@@ -35,27 +66,6 @@
             <span class="material-icons">touch_app</span>Đăng nhập
           </button>
         </div>
-      </div>
-    </div>
-    <div>
-      <div class="col alert alert-danger" role="alert"
-           *ngIf="loginForm.controls['email'].errors?.['required']
-         && loginForm.controls['email'].touched">
-        Email là bắt buộc!
-      </div>
-      <div class="col alert alert-danger" role="alert"
-           *ngIf="loginForm.controls['email'].errors?.['email']
-         && loginForm.controls['email'].touched">
-        Không phải là một email hợp lệ
-      </div>
-      <div class="col alert alert-danger" role="alert"
-           *ngIf="loginForm.controls['password'].errors?.['required']
-                    && loginForm.controls['password'].touched">
-        Mật khẩu là bắt buộc!
-      </div>
-      <div class="col alert alert-success" role="alert"
-           *ngIf="loginForm.valid">
-        Email và mật khẩu xác nhận đã hợp lệ
       </div>
     </div>
   </form>
