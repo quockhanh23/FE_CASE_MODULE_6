@@ -18,8 +18,8 @@ export class LoginEnterpriseComponent implements OnInit {
   hide = true;
 
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('',),
-    password: new FormControl('')
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
   });
   returnUrl?: string;
   adminUrl?: string;
@@ -37,8 +37,9 @@ export class LoginEnterpriseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/list';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '';
   }
+
   login() {
     this.submitted = true;
     this.loading = true;
@@ -65,6 +66,7 @@ export class LoginEnterpriseComponent implements OnInit {
           this.loading = false;
         });
   }
+
   openDialogSuccess() {
     this.dialog.open(DialogSuccessComponent);
   }
