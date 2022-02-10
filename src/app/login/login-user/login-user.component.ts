@@ -52,6 +52,7 @@ export class LoginUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.log(data)
           // @ts-ignore
           localStorage.setItem('ACCESS_TOKEN', data.accessToken);
           // @ts-ignore
