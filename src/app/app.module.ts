@@ -18,9 +18,10 @@ import { DialogFailComponent } from './notification/dialog-fail/dialog-fail.comp
 import { ModalOptionsComponent } from './notification/modal-options/modal-options.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { LoginUserComponent } from './login-user/login-user.component';
+import { LoginUserComponent } from './login/login-user/login-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
 
 
 const DialogComponents = [
@@ -39,6 +40,7 @@ const DialogComponents = [
     FooterComponent,
     HeaderComponent,
     LoginUserComponent,
+    LoginEnterpriseComponent,
 
   ],
   imports: [

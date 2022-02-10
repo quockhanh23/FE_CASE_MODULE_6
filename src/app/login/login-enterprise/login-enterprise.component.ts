@@ -1,28 +1,26 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../../services/authentication.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
 
 @Component({
-  selector: 'app-login-user',
-  templateUrl: './login-user.component.html',
-  styleUrls: ['./login-user.component.css']
+  selector: 'app-login-enterprise',
+  templateUrl: './login-enterprise.component.html',
+  styleUrls: ['./login-enterprise.component.css']
 })
-export class LoginUserComponent implements OnInit {
+export class LoginEnterpriseComponent implements OnInit {
 
   hide = true;
 
   loginForm: FormGroup = new FormGroup({
-    email: new FormControl('',
-      [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
+    email: new FormControl('',),
+    password: new FormControl('')
   });
-
   returnUrl?: string;
   adminUrl?: string;
   error = '';
@@ -40,13 +38,11 @@ export class LoginUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/list';
-    this.adminUrl = '/admin'
   }
-
   login() {
     this.submitted = true;
     this.loading = true;
-    this.authenticationService.login(
+    this.authenticationService.loginEnterprise(
       this.loginForm.value.email,
       this.loginForm.value.password,)
       .pipe(first())
@@ -60,11 +56,6 @@ export class LoginUserComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
 
-          if (data.roles[0].authority == "ROLE_ADMIN") {
-            this.router.navigate([this.adminUrl]).then()
-          } else {
-            this.router.navigate([this.returnUrl]).then()
-          }
           console.log(data)
           this.openDialogSuccess()
         },
@@ -74,7 +65,6 @@ export class LoginUserComponent implements OnInit {
           this.loading = false;
         });
   }
-
   openDialogSuccess() {
     this.dialog.open(DialogSuccessComponent);
   }

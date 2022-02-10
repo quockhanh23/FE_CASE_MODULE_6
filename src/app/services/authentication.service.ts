@@ -36,6 +36,15 @@ export class AuthenticationService {
         return user;
       }));
   }
+  loginEnterprise(email: string, password: string) {
+    return this.http.post<any>(API_URL + '/login/enterprise', {email, password})
+      .pipe(map(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+
+  }
 
   logout() {
     localStorage.removeItem('currentUser');
