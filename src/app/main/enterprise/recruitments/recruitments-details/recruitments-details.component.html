@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-xl-12">
         <div class="bradcam_text">
-          <h3>Software Engineer</h3>
+          <h2>{{recruitments.title}}</h2>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
           <div class="single_jobs white-bg d-flex justify-content-between">
             <div class="jobs_left d-flex align-items-center">
               <div class="thumb">
-                <img src="{{recruitments.profileEnterprise?.image}}" alt="">
+                <img src="{{recruitments.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
               </div>
               <div class="jobs_conetent">
                 <a href="#"><h4>{{recruitments.title}}</h4></a>
@@ -45,27 +45,22 @@
         <div class="descript_wrap white-bg">
           <div class="single_wrap">
             <h4>Job description</h4>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
-            <p>Variations of passages of lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
+            <p>
+              {{recruitments.description}}
+            </p>
+            <p>
+            </p>
           </div>
           <div class="single_wrap">
-            <h4>Responsibility</h4>
+            <h4>Experience</h4>
             <ul>
-              <li>The applicants should have experience in the following areas.
-              </li>
-              <li>Have sound knowledge of commercial activities.</li>
-              <li>Leadership, analytical, and problem-solving abilities.</li>
-              <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+              <li>{{recruitments.experience}}</li>
             </ul>
           </div>
           <div class="single_wrap">
             <h4>Qualifications</h4>
             <ul>
-              <li>The applicants should have experience in the following areas.
-              </li>
-              <li>Have sound knowledge of commercial activities.</li>
-              <li>Leadership, analytical, and problem-solving abilities.</li>
-              <li>Should have vast knowledge in IAS/ IFRS, Company Act, Income Tax, VAT.</li>
+              <li>The applicants should have experience in the following areas.=</li>
             </ul>
           </div>
           <div class="single_wrap">
@@ -125,11 +120,11 @@
           </div>
           <div class="job_content">
             <ul>
-              <li>Published on: <span>12 Nov, 2019</span></li>
-              <li>Vacancy: <span>2 Position</span></li>
-              <li>Salary: <span>50k - 120k/y</span></li>
-              <li>Location: <span>California, USA</span></li>
-              <li>Job Nature: <span> Full-time</span></li>
+              <li>Published on: <span>{{recruitments.dateEnd}}</span></li>
+              <li>Vacancy: <span>{{recruitments.numberOfRecruitments}} Position</span></li>
+              <li>Salary: <span>{{recruitments.salary}}k/y</span></li>
+              <li>Location: <span>{{recruitments.address}}</span></li>
+              <li>Job Nature: <span> {{recruitments.workId?.name}}</span></li>
             </ul>
           </div>
         </div>

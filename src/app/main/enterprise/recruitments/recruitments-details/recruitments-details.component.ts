@@ -45,7 +45,7 @@ export class RecruitmentsDetailsComponent implements OnInit {
       // @ts-ignore
       this.recruitmentsService.findById(id).subscribe(res => {
         console.log(res)
-        // this.recruitments = res
+        this.recruitments = res
       })
     })
   }
