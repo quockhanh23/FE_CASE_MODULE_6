@@ -1,4 +1,3 @@
-
 <div class="container" style="text-align: center">
   <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="row">
@@ -30,6 +29,7 @@
       </div>
       <div class="col-4">
         <div>
+          <!--Khu vực valid-->
           <div class="col alert alert-danger" role="alert"
                *ngIf="loginForm.controls['email'].errors?.['required']
          && loginForm.controls['email'].touched">
@@ -49,6 +49,7 @@
                *ngIf="loginForm.valid">
             Email và mật khẩu xác nhận đã hợp lệ
           </div>
+          <!--Hết khu vực valid-->
         </div>
       </div>
     </div>
@@ -70,6 +71,4 @@
     </div>
   </form>
 </div>
-
-
 
