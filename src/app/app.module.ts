@@ -16,10 +16,12 @@ import {environment} from "../environments/environment";
 import { DialogRulesComponent } from './notification/dialog-rules/dialog-rules.component';
 import { DialogFailComponent } from './notification/dialog-fail/dialog-fail.component';
 import { ModalOptionsComponent } from './notification/modal-options/modal-options.component';
-import {HomePageModule} from "./module/home-page/home-page.module";
-import {ListRecruitmentsComponent} from "./module/home-page/recruitments/list-recruitments/list-recruitments.component";
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { LoginUserComponent } from './login/login-user/login-user.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
 
 
 const DialogComponents = [
@@ -37,6 +39,8 @@ const DialogComponents = [
     ModalOptionsComponent,
     FooterComponent,
     HeaderComponent,
+    LoginUserComponent,
+    LoginEnterpriseComponent,
 
   ],
   imports: [
@@ -45,10 +49,11 @@ const DialogComponents = [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     NgbModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    HomePageModule
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
   ],
   providers: [],
   bootstrap: [AppComponent]
