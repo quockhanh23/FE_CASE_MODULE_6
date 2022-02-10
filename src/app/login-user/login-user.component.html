@@ -1,4 +1,5 @@
 <div class="container" style="text-align: center">
+
   <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="row">
       <div class="col-3">
@@ -7,7 +8,7 @@
         <mat-form-field hideRequiredMarker appearance="outline" color="primary">
           <mat-label>Email đăng nhập</mat-label>
           <input matInput required formControlName="email">
-          <mat-hint align="end">alo123</mat-hint>
+          <mat-hint align="end">Ví dụ: khanh@gmail.com</mat-hint>
         </mat-form-field>
       </div>
       <div class="col-3">
@@ -16,11 +17,8 @@
         <mat-form-field appearance="outline">
           <mat-label>Nhập mật khẩu</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-hint align="end">alo123</mat-hint>
+
+          <mat-hint align="end">Mật khẩu là bắt buộc</mat-hint>
         </mat-form-field>
       </div>
     </div>
@@ -54,6 +52,10 @@
            *ngIf="loginForm.controls['password'].errors?.['required']
                     && loginForm.controls['password'].touched">
         Mật khẩu là bắt buộc!
+      </div>
+      <div class="col alert alert-success" role="alert"
+           *ngIf="loginForm.valid">
+        Email và mật khẩu xác nhận đã hợp lệ
       </div>
     </div>
   </form>

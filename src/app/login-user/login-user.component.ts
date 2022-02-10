@@ -5,6 +5,8 @@ import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../services/authentication.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
+import {DialogSuccessComponent} from "../notification/dialog-success/dialog-success.component";
+import {DialogFailComponent} from "../notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-login-user',
@@ -17,8 +19,8 @@ export class LoginUserComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('',
-      [Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required])
+      [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
   });
 
   returnUrl?: string;
@@ -46,7 +48,7 @@ export class LoginUserComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(
       this.loginForm.value.email,
-      this.loginForm.value.password)
+      this.loginForm.value.password,)
       .pipe(first())
       .subscribe(
         data => {
@@ -63,12 +65,20 @@ export class LoginUserComponent implements OnInit {
             this.router.navigate([this.returnUrl]).then()
           }
           console.log(data)
-          console.log("ok rồi")
-
+          this.openDialogSuccess()
         },
         error => {
           console.log('error:' + error)
+          this.openDialogFail()
           this.loading = false;
         });
+  }
+
+  openDialogSuccess() {
+    this.dialog.open(DialogSuccessComponent);
+  }
+
+  openDialogFail() {
+    this.dialog.open(DialogFailComponent);
   }
 }
