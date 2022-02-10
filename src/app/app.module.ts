@@ -38,6 +38,8 @@ const DialogComponents = [
         ModalOptionsComponent,
         FooterComponent,
         HeaderComponent,
+      LoginUserComponent,
+      LoginEnterpriseComponent,
     ],
     imports: [
         BrowserModule,
