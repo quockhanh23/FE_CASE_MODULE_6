@@ -6,12 +6,15 @@ import { RecruitmentsListComponent } from './recruitments/recruitments-list/recr
 
 
 @NgModule({
-  declarations: [
-    RecruitmentsListComponent
-  ],
-  imports: [
-    CommonModule,
-    EnterpriseRoutingModule
-  ]
+    declarations: [
+        RecruitmentsListComponent
+    ],
+    exports: [
+        RecruitmentsListComponent
+    ],
+    imports: [
+        CommonModule,
+        EnterpriseRoutingModule
+    ]
 })
 export class EnterpriseModule { }

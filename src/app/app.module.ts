@@ -24,6 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
 import { ListEnterpriseOfAdminComponent } from './main/admin/list-enterprise-of-admin/list-enterprise-of-admin.component';
 import { EditStatusEnterpriseComponent } from './main/admin/edit-status-enterprise/edit-status-enterprise.component';
+import {EnterpriseModule} from "./main/enterprise/enterprise.module";
 
 
 const DialogComponents = [
@@ -57,7 +58,8 @@ const DialogComponents = [
     ReactiveFormsModule,
     NgbModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    EnterpriseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
