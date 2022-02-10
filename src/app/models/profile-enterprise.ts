@@ -1,4 +1,5 @@
 import {Role} from "./role";
+import {StatusEnterprise} from "./status-enterprise";
 
 export interface ProfileEnterprise {
   id?: string,
@@ -14,5 +15,6 @@ export interface ProfileEnterprise {
   email?: string
   password?: string
   confirmPassword?: string
-  roles: Role[];
+  statusEnterpriseId?: StatusEnterprise
+  roles?: Role[];
 }

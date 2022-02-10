@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatBottomSheetModule} from "@angular/material/bottom-sheet";
@@ -8,6 +7,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatCardModule} from '@angular/material/card';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -17,7 +17,8 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule
 ]
 
 @NgModule({
