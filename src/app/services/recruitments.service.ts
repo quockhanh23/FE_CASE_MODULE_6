@@ -22,5 +22,8 @@ export class RecruitmentsService {
   findById(id: String): Observable<Recruitments> {
     return this.http.get<Recruitments>(API_URL + '/api/recruitments' + `/${id}`)
   }
+  listRecruitmentsAllOrderByDate(): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_URL + '/api/recruitments/sort')
+  }
 }
 
