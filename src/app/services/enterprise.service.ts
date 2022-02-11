@@ -18,4 +18,7 @@ export class EnterpriseService {
   login(enterprise: ProfileEnterprise): Observable<ProfileEnterprise> {
     return this.http.post<ProfileEnterprise>(API_URL + '/login/enterprise', enterprise);
   }
+  register(enterprise: ProfileEnterprise): Observable<ProfileEnterprise> {
+    return this.http.post<ProfileEnterprise>(API_URL + '/register/enterprise', enterprise);
+  }
 }

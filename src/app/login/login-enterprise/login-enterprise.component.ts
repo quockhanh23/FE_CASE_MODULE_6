@@ -21,7 +21,6 @@ export class LoginEnterpriseComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
-  returnUrl?: string;
   adminUrl?: string;
   error = '';
   loading = false;
@@ -37,7 +36,6 @@ export class LoginEnterpriseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '';
   }
 
   login() {
@@ -56,9 +54,9 @@ export class LoginEnterpriseComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
-
           console.log(data)
           this.openDialogSuccess()
+          this.router.navigate([""]).then()
         },
         error => {
           console.log('error:' + error)

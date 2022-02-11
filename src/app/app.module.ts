@@ -22,9 +22,6 @@ import { LoginUserComponent } from './login/login-user/login-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
-import { ListEnterpriseOfAdminComponent } from './main/admin/list-enterprise-of-admin/list-enterprise-of-admin.component';
-import { EditStatusEnterpriseComponent } from './main/admin/edit-status-enterprise/edit-status-enterprise.component';
-import {EnterpriseModule} from "./main/enterprise/enterprise.module";
 
 
 const DialogComponents = [
@@ -38,15 +35,11 @@ const DialogComponents = [
     AppComponent,
     ToastrTestComponent,
     DialogComponents,
-    UploadComponent,
     ModalOptionsComponent,
     FooterComponent,
     HeaderComponent,
     LoginUserComponent,
     LoginEnterpriseComponent,
-    ListEnterpriseOfAdminComponent,
-    EditStatusEnterpriseComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -59,7 +52,6 @@ const DialogComponents = [
     NgbModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    EnterpriseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
