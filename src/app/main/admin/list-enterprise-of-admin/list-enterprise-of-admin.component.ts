@@ -3,7 +3,7 @@ import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {ProfileEnterpriseOfAdminService} from "../../../services/profile-enterprise-of-admin.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
@@ -42,7 +42,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       console.log(result)
       this.router.navigateByUrl("/admin/list").then()
       this.ngOnInit()
-      this.openDialogSuccess()
+      this.openToartSuccessLock()
     }, error => {
       console.log("Lỗi", error)
       this.openDialogFail()
@@ -54,19 +54,27 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       console.log(result)
       this.router.navigateByUrl("/admin/list").then()
       this.ngOnInit()
-      this.openDialogSuccess()
+      this.openToartSuccessActive()
     }, error => {
       console.log("Lỗi", error)
       this.openDialogFail()
     })
   }
 
-  openToartSuccess() {
-    this.toarts.success('mes', 'title')
+  openToartSuccessLock() {
+    this.toarts.success('Thông báo', 'Bạn đã khóa thành công!')
+  }
+
+  openToartSuccessActive() {
+    this.toarts.success('Thông báo', 'Bạn đã kích hoạt thành công!')
+  }
+
+  openToartWarn() {
+    this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
   }
 
   openToartError() {
-    this.toarts.error('mes', 'title')
+    this.toarts.error('Có lỗi xảy ra', 'Èo')
   }
 
   openToartInFor() {
