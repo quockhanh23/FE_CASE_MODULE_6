@@ -14,9 +14,7 @@ export class RecruitmentsListComponent implements OnInit {
   constructor(
     private recruitmentsService: RecruitmentsService,
     private router: Router
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.loadListAll()
