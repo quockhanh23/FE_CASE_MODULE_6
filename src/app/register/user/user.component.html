@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10">
@@ -19,7 +18,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <input class="form-control " type="text" placeholder='Nhập email' formControlName="email">
+                <input class="form-control " type="text" placeholder='Nhập email *' formControlName="email">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="userForm.controls['email'].errors?.['required']
          && userForm.controls['email'].touched">
@@ -34,7 +33,7 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập mật khẩu"
+                <input type="password" class="form-control" placeholder="Nhập mật khẩu *"
                        formControlName="password">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="userForm.controls['password'].errors?.['required']
@@ -47,7 +46,7 @@
 
             <div class="col-12">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu"
+                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *"
                        formControlName="confirmPassword">
 
                 <div class="col alert alert-danger mt-2" role="alert"
@@ -69,14 +68,14 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Số nhân viên" formControlName="fullName">
+                <input class="form-control" type="text" placeholder="Họ và tên" formControlName="fullName">
               </div>
             </div>
-          <div class="form-group mt-3">
-            <button type="submit" [disabled]="!userForm.valid" class="button button-contactForm btn_4 boxed-btn">
-              Đăng ký
-            </button>
-          </div>
+            <div class="form-group mt-3">
+              <button type="submit" [disabled]="!userForm.valid" class="button button-contactForm btn_4 boxed-btn">
+                Đăng ký
+              </button>
+            </div>
           </div>
         </form>
       </div>

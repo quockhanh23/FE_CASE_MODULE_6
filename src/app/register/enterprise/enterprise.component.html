@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <input class="form-control " type="text" placeholder='Nhập email' formControlName="email">
+                <input class="form-control " type="text" placeholder='Nhập email *' formControlName="email">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['email'].errors?.['required']
          && enterpriseForm.controls['email'].touched">
@@ -28,7 +28,7 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập mật khẩu"
+                <input type="password" class="form-control" placeholder="Nhập mật khẩu *"
                        formControlName="password">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['password'].errors?.['required']
@@ -41,7 +41,7 @@
 
             <div class="col-12">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu"
+                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *"
                        formControlName="confirmPassword">
 
                 <div class="col alert alert-danger mt-2" role="alert"
@@ -63,7 +63,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Tên công ty" formControlName="nameCompany">
+                <input class="form-control" type="text" placeholder="Tên công ty *" formControlName="nameCompany">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['nameCompany'].errors?.['required']
          && enterpriseForm.controls['nameCompany'].touched">
@@ -78,7 +78,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Số điện thoại" formControlName="phoneNumbers">
+                <input class="form-control" type="text" placeholder="Số điện thoại *" formControlName="phoneNumbers">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['phoneNumbers'].errors?.['required']
          && enterpriseForm.controls['phoneNumbers'].touched">
