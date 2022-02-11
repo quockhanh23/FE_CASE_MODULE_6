@@ -21,22 +21,21 @@
                         <li><a href="elements.html">Thuộc tính</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                      <ul class="submenu">
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="single-blog.html">single-blog</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">{{username}}</h2></li>
+
                   </ul>
                 </nav>
               </div>
+            </div>
+            <div class="col-2" class="alo1"><sup>
+                  <span style="color: #084488; font-size: 45px" *ngIf="isLoggedIn()" (click)="logOut()"
+                        class="material-icons">power_settings_new</span></sup>
             </div>
             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
               <div class="row">
                 <div class="col-5">
                   <div class="Appointment">
-                    <div class="col">
+                    <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
                                 ngbDropdownToggle>Đăng nhập
@@ -51,7 +50,7 @@
                 </div>
                 <div class="col-5">
                   <div class="Appointment">
-                    <div class="col">
+                    <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
                                 id="dropdownBasic1" ngbDropdownToggle>Đăng kí
@@ -64,6 +63,7 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
