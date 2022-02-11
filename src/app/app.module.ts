@@ -31,33 +31,30 @@ const DialogComponents = [
 ]
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ToastrTestComponent,
-        DialogComponents,
-        ModalOptionsComponent,
-        FooterComponent,
-        HeaderComponent,
-      LoginUserComponent,
-      LoginEnterpriseComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ToastrModule.forRoot(),
-        BrowserAnimationsModule,
-        MaterialModule,
-        NgbModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-        HttpClientModule,
-        ReactiveFormsModule,
-    ],
-    providers: [],
-    exports: [
-
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ToastrTestComponent,
+    DialogComponents,
+    ModalOptionsComponent,
+    FooterComponent,
+    HeaderComponent,
+    LoginUserComponent,
+    LoginEnterpriseComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

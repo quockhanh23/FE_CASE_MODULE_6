@@ -4,7 +4,8 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {EnterpriseService} from "../../services/enterprise.service";
 
 @Component({
   selector: 'app-enterprise',
@@ -13,18 +14,18 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class EnterpriseComponent implements OnInit {
   enterpriseForm: FormGroup = new FormGroup({
-    nameCompany: new FormControl(""),
+    nameCompany: new FormControl("",[Validators.required]),
     description: new FormControl(""),
-    image: new FormControl(""),
+    image: new FormControl("",[Validators.required]),
     addressCompany: new FormControl(""),
     numberOfEmployees: new FormControl(""),
-    phoneNumbers: new FormControl(""),
+    phoneNumbers: new FormControl("",[Validators.required]),
     linkWebsites: new FormControl(""),
     linkFacebook: new FormControl(""),
     linkGoogleMaps: new FormControl(""),
-    email: new FormControl(""),
-    password: new FormControl(""),
-    confirmPassword: new FormControl(""),
+    email: new FormControl("",[Validators.required, Validators.email]),
+    password: new FormControl("",[Validators.required]),
+    confirmPassword: new FormControl("",[Validators.required]),
   });
   title = "cloudsSorage";
   // @ts-ignore
@@ -35,7 +36,7 @@ export class EnterpriseComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService,
-              private userService: UserService,
+              private enterprise: EnterpriseService,
               ) {
     console.log(this.authenticationService.currentUserValue);
   }
@@ -68,11 +69,11 @@ export class EnterpriseComponent implements OnInit {
       });
   }
   register(){
-    const user = this.enterpriseForm.value;
-    console.log(user)
-    this.userService.register(user).subscribe(() => {
+    const enterprise = this.enterpriseForm.value;
+    console.log(enterprise)
+    this.enterprise.register(enterprise).subscribe(() => {
       alert("Tạo tài khoản thành công! Hãy đăng nhập !")
-      this.router.navigate(["login/user"])
+      this.router.navigate(["login/enterprise"])
     },error => {
       console.log(error)
     })
