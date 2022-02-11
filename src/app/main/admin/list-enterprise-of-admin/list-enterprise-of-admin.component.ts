@@ -36,6 +36,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
       console.log(result)
       this.router.navigateByUrl("/admin/list")
+      location.reload()
     }, error => {
       console.log("Lỗi", error)
     })
@@ -45,6 +46,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
       console.log(result)
       this.router.navigateByUrl("/admin/list")
+      location.reload()
     }, error => {
       console.log("Lỗi", error)
     })
