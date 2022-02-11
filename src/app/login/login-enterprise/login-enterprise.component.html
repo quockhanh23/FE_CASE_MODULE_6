@@ -1,76 +1,77 @@
-<div class="al1" style="height: 500px;margin-top: 2px; margin-bottom: 2px">
-  <div class="row">
-    <div class="container" style="text-align: center;margin-top: 160px; margin-bottom: 160px">
-      <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
-        <div class="row">
-          <div class="col-2">
-            <h2 style="color: white">Doanh Nghiệp</h2>
-            <span style="font-size: 40px; color: #0f1ba1" class="material-icons">assignment</span>
-          </div>
-          <div class="col-3">
-            <h2 style="color: white">
-              <sub><span class="material-icons" style="color: #0f1ba1;">account_box</span></sub>&nbsp;Email đăng nhập
-            </h2>
-            <mat-form-field hideRequiredMarker appearance="outline" color="primary">
-              <mat-label style="color: white">Email đăng nhập</mat-label>
-              <input matInput required formControlName="email">
-              <mat-hint style="color: white" align="end">Ví dụ: khanh@gmail.com</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-3">
-            <h2 style="color: white">
-              <sub><span class="material-icons" style="color: #0f1ba1;">https</span></sub>&nbsp;Mật khẩu</h2>
-            <mat-form-field appearance="outline">
-              <mat-label style="color: white">Nhập mật khẩu</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                      [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-              <mat-hint style="color: white" align="end">Mật khẩu là bắt buộc</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="col-4">
-            <div>
-              <div class="col alert alert-danger" role="alert"
-                   *ngIf="loginForm.controls['email'].errors?.['required']
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="al1" style="height: 500px;margin-top: 2px; margin-bottom: 2px">
+      <div class="row">
+        <div class="container" style="text-align: center;margin-top: 30px; margin-bottom: 160px">
+          <h1>Đăng nhập Doanh Nghiệp</h1>
+          <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                  <div class="col-12">
+                    <h2 style="color: #007fff;text-align: left;">
+                      <sub><span class="material-icons" style="color: #0f1ba1;">account_box</span></sub>&nbsp;Email đăng nhập
+                    </h2>
+                    <div hideRequiredMarker appearance="outline" color="primary">
+                      <input class="form-control"  placeholder="Email đăng nhập"  formControlName="email">
+                      <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
+                           *ngIf="loginForm.controls['email'].errors?.['required']
          && loginForm.controls['email'].touched">
-                Email là bắt buộc!
-              </div>
-              <div class="col alert alert-danger" role="alert"
-                   *ngIf="loginForm.controls['email'].errors?.['email']
+                        Email là bắt buộc!
+                      </div>
+                      <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
+                           *ngIf="loginForm.controls['email'].errors?.['email']
          && loginForm.controls['email'].touched">
-                Không phải là một email hợp lệ
-              </div>
-              <div class="col alert alert-danger" role="alert"
-                   *ngIf="loginForm.controls['password'].errors?.['required']
+                        Không phải là một email hợp lệ
+                      </div>
+                      <mat-hint style="color: black;text-align: left" align="end">Ví dụ: khanh@gmail.com</mat-hint>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-3">
+                    <h2 style="color: #007fff;text-align: left">
+                      <sub><span class="material-icons" style="color: #0f1ba1;">https</span></sub>&nbsp;Mật khẩu</h2>
+                    <div appearance="outline">
+                      <input class="form-control" placeholder="Nhập mật khẩu" [type]="hide ? 'password' : 'text'" formControlName="password" >
+                      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-hint style="color: black" align="end">Mật khẩu là bắt buộc</mat-hint>
+                      <div class="col alert alert-danger" role="alert" style="width: 514px;height: 40px"
+                           *ngIf="loginForm.controls['password'].errors?.['required']
                     && loginForm.controls['password'].touched">
-                Mật khẩu là bắt buộc!
-              </div>
-              <div class="col alert alert-success" role="alert"
-                   *ngIf="loginForm.valid">
-                Email và mật khẩu xác nhận đã hợp lệ
+                        Mật khẩu là bắt buộc!
+                      </div>
+                      <div class="col alert alert-success" role="alert" style="width: 514px;height: 40px"
+                           *ngIf="loginForm.valid">
+                        Email và mật khẩu xác nhận đã hợp lệ
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-2" style="width: 100px"></div>
-          <div class="col-3">
-            <h2 class="a" style="color: greenyellow">
-              <a class="a"><sub><span class="material-icons" style="color: #0f1ba1;">help</span></sub>
-                Bạn chưa có tài khoản?</a></h2>
-          </div>
-          <div class="col-3">
-            <div class="example-button-row">
-              <button mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
-                      class="btn-primary btn" mat-button color="primary">
-                <span class="material-icons">touch_app</span>Đăng nhập
-              </button>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-4" style="margin-left: 11px">
+                <h2 class="a" style="color: greenyellow;" >
+                  <a href="#" routerLink="register/enterprise" class="a" ><sub><span class="material-icons" style="color: #007fff;">help</span></sub>
+                    Bạn chưa có tài khoản?</a></h2>
+              </div>
+              <div class="col-4">
+                <div class="example-button-row">
+                  <button style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
+                          class="btn-primary btn" mat-button color="primary">
+                    <span class="material-icons">touch_app</span>Đăng nhập
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
+  <div class="col-3"></div>
 </div>
+

@@ -5,7 +5,7 @@ import {LoginEnterpriseComponent} from "./login-enterprise/login-enterprise.comp
 
 const routes: Routes = [
   {
-    path: 'user',
+    path: '',
     component: LoginUserComponent
   },
   {
