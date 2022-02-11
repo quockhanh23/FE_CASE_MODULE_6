@@ -1,0 +1,146 @@
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="contact-title">Đăng ký doanh nghiệp</h2>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-lg-8">
+        <form class="form-contact contact_form" action="contact_process.php" [formGroup]="enterpriseForm"
+              (ngSubmit)="register()" id="contactForm">
+          <div>
+            <div class="col alert alert-success" role="alert"
+                 *ngIf="enterpriseForm.valid">
+              Email và mật khẩu xác nhận đã hợp lệ
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <input class="form-control " type="text" placeholder='Nhập email' formControlName="email">
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['email'].errors?.['required']
+         && enterpriseForm.controls['email'].touched">
+                  Email là bắt buộc!
+                </div>
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['email'].errors?.['email']
+         && enterpriseForm.controls['email'].touched">
+                  Không phải là một email hợp lệ
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Nhập mật khẩu"
+                       formControlName="password">
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['password'].errors?.['required']
+                    && enterpriseForm.controls['password'].touched">
+                  Mật khẩu là bắt buộc!
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Nhập lại mật khẩu"
+                       formControlName="confirmPassword">
+
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['confirmPassword'].errors?.['required']
+         && enterpriseForm.controls['confirmPassword'].touched">
+                  Mật khẩu là bắt buộc!
+                </div>
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['confirmPassword'].value != enterpriseForm.controls['password'].value
+         && enterpriseForm.controls['confirmPassword'].touched">
+                  Mật khẩu không trùng khớp!
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Địa chỉ" formControlName="addressCompany">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Tên công ty" formControlName="nameCompany">
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['nameCompany'].errors?.['required']
+         && enterpriseForm.controls['nameCompany'].touched">
+                  Tên công ty là bắt buộc!
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Số nhân viên" formControlName="numberOfEmployees">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Số điện thoại" formControlName="phoneNumbers">
+                <div class="col alert alert-danger mt-2" role="alert"
+                     *ngIf="enterpriseForm.controls['phoneNumbers'].errors?.['required']
+         && enterpriseForm.controls['phoneNumbers'].touched">
+                  Số điện thoại là bắt buộc!
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="linkWebsites" formControlName="linkWebsites">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="linkFacebook" formControlName="linkFacebook">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="linkGoogleMaps" formControlName="linkGoogleMaps">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Mô tả" formControlName="description">
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <p>Ảnh công ty</p>
+            <input type="file"
+                   id="file"
+                   #userPhoto
+                   (change)="onFileSelected1($event)"
+                   name="image"
+                   autocomplete="off"
+                   formControlName="image"
+            />
+            <div class="col alert alert-danger mt-2" role="alert"
+                 *ngIf="enterpriseForm.controls['image'].errors?.['required']
+         && enterpriseForm.controls['image'].touched">
+              Ảnh công ty là bắt buộc!
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" [disabled]="!enterpriseForm.valid" class="button button-contactForm btn_4 boxed-btn">
+              Đăng ký
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
