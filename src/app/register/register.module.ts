@@ -7,6 +7,8 @@ import { EnterpriseComponent } from './enterprise/enterprise.component';
 import {AppModule} from "../app.module";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     UserComponent,
     EnterpriseComponent,
   ],
-    imports: [
-        CommonModule,
-        RegisterRoutingModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-    ]
+  imports: [
+    CommonModule,
+    RegisterRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatTooltipModule,
+  ]
 })
 export class RegisterModule { }

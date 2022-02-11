@@ -1,10 +1,10 @@
-
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="contact-title">Đăng ký doanh nghiệp</h2>
+        <h1 class="contact-title"><sub style="color: black">
+          <span class="material-icons">assignment</span></sub>&ensp;Đăng Ký Doanh Nghiệp</h1>
       </div>
       <div class="col-2"></div>
       <div class="col-lg-8">
@@ -115,8 +115,7 @@
                    (change)="onFileSelected1($event)"
                    name="image"
                    autocomplete="off"
-                   formControlName="image"
-            />
+                   formControlName="image"/>
             <div class="col alert alert-danger mt-2" role="alert"
                  *ngIf="enterpriseForm.controls['image'].errors?.['required']
          && enterpriseForm.controls['image'].touched">
@@ -127,17 +126,16 @@
                *ngIf="enterpriseForm.valid">
             Email và mật khẩu xác nhận đã hợp lệ
           </div>
-          <div class="form-group mt-3">
-            <button type="submit" [disabled]="!enterpriseForm.valid" class="button button-contactForm btn_4 boxed-btn">
-              Đăng ký
+          <div style="margin-top: 10px">
+            <button style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!enterpriseForm.valid"
+                    class="btn-primary btn" mat-button color="primary">
+              <span class="material-icons">touch_app</span>Đăng ký
             </button>
           </div>
-
         </form>
       </div>
     </div>
   </div>
-
 </div>
 
 

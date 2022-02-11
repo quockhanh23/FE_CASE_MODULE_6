@@ -3,7 +3,9 @@
   <div class="col-10">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="contact-title">Đăng ký người dùng</h2>
+        <h1 class="contact-title"><sub style="color: black">
+          <span class="material-icons">assignment</span></sub>&ensp;Đăng Ký Người Dùng</h1>
+
       </div>
       <div class="col-2"></div>
       <div class="col-lg-8">
@@ -18,7 +20,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <input class="form-control " type="text" placeholder='Nhập email *' formControlName="email">
+                <input class="form-control" type="text" placeholder='Nhập email *' formControlName="email">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="userForm.controls['email'].errors?.['required']
          && userForm.controls['email'].touched">
@@ -40,10 +42,8 @@
                     && userForm.controls['password'].touched">
                   Mật khẩu là bắt buộc!
                 </div>
-
               </div>
             </div>
-
             <div class="col-12">
               <div class="form-group">
                 <input type="password" class="form-control" placeholder="Nhập lại mật khẩu *"
@@ -72,9 +72,12 @@
               </div>
             </div>
             <div class="form-group mt-3">
-              <button type="submit" [disabled]="!userForm.valid" class="button button-contactForm btn_4 boxed-btn">
-                Đăng ký
-              </button>
+              <div style="margin-top: 10px; margin-left: 10px">
+                <button style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!userForm.valid"
+                        class="btn-primary btn" mat-button color="primary">
+                  <span class="material-icons">touch_app</span>Đăng ký
+                </button>
+              </div>
             </div>
           </div>
         </form>
