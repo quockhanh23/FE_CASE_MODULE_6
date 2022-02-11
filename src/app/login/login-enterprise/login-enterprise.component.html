@@ -4,25 +4,27 @@
     <div class="al1" style="height: 500px;margin-top: 2px; margin-bottom: 2px">
       <div class="row">
         <div class="container" style="text-align: center;margin-top: 30px; margin-bottom: 160px">
-          <h1><sub style="color: black"><span class="material-icons">supervisor_account</span></sub>&nbsp;Đăng Nhập Doanh Nghiệp</h1>
+          <h1><sub style="color: black">
+            <span class="material-icons">supervisor_account</span></sub>&nbsp;Đăng Nhập Doanh Nghiệp</h1>
           <form action="#" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="row">
               <div class="col-2"></div>
               <div class="col-8">
                   <div class="col-12">
                     <h2 style="color: #007fff;text-align: left;">
-                      <sub><span class="material-icons" style="color: #0f1ba1;">account_box</span></sub>&nbsp;Email đăng nhập
+                      <sub><span class="material-icons"
+                                 style="color: #0f1ba1;">account_box</span></sub>&nbsp;Email đăng nhập
                     </h2>
                     <div hideRequiredMarker appearance="outline" color="primary">
                       <input class="form-control"  placeholder="Email đăng nhập"  formControlName="email">
                       <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
                            *ngIf="loginForm.controls['email'].errors?.['required']
-         && loginForm.controls['email'].touched">
+                           && loginForm.controls['email'].touched">
                         Email là bắt buộc!
                       </div>
                       <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
                            *ngIf="loginForm.controls['email'].errors?.['email']
-         && loginForm.controls['email'].touched">
+                            && loginForm.controls['email'].touched">
                         Không phải là một email hợp lệ
                       </div>
                       <mat-hint style="color: black;text-align: left" align="end">Ví dụ: khanh@gmail.com</mat-hint>
@@ -32,15 +34,17 @@
                     <h2 style="color: #007fff;text-align: left">
                       <sub><span class="material-icons" style="color: #0f1ba1;">https</span></sub>&nbsp;Mật khẩu</h2>
                     <div appearance="outline">
-                      <input class="form-control" placeholder="Nhập mật khẩu" [type]="hide ? 'password' : 'text'" formControlName="password" >
-                      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      <input class="form-control" placeholder="Nhập mật khẩu"
+                             [type]="hide ? 'password' : 'text'" formControlName="password" >
+                      <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                              [attr.aria-label]="'Hide password'"
                               [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>
                       <mat-hint style="color: black" align="end">Mật khẩu là bắt buộc</mat-hint>
                       <div class="col alert alert-danger" role="alert" style="width: 514px;height: 40px"
                            *ngIf="loginForm.controls['password'].errors?.['required']
-                    && loginForm.controls['password'].touched">
+                           && loginForm.controls['password'].touched">
                         Mật khẩu là bắt buộc!
                       </div>
                       <div class="col alert alert-success" role="alert" style="width: 514px;height: 40px"
