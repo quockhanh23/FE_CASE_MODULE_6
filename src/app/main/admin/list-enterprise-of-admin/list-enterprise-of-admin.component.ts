@@ -35,9 +35,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   changeStatusLock(id: any) {
     this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
       console.log(result)
-      this.router.navigate([""]).then(r => {
-        console.log('hoạt động' + r);
-      },);
+      this.router.navigateByUrl("/admin/list")
     }, error => {
       console.log("Lỗi", error)
     })
@@ -46,15 +44,19 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   changeStatusActive(id: any) {
     this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
       console.log(result)
-      this.router.navigate([""]).then(r => {
-        console.log('hoạt động' + r);
-      });
+      this.router.navigateByUrl("/admin/list")
     }, error => {
       console.log("Lỗi", error)
     })
   }
 
-  openToarts() {
+  openToartSuccess() {
     this.toarts.success('mes', 'title')
+  }
+  openToartError() {
+    this.toarts.error('mes', 'title')
+  }
+  openToartInFor() {
+    this.toarts.info('mes', 'title')
   }
 }
