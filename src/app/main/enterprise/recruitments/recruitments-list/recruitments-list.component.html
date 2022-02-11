@@ -110,7 +110,8 @@
                     <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a href="job_details.html"><h4>{{job.title}}</h4></a>
+                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
+<!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
                         <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
@@ -124,7 +125,8 @@
                 <div class="jobs_right">
                   <div class="apply_now">
                     <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                    <a href="job_details.html" class="boxed-btn3">Apply Now</a>
+<!--                    <a href="enterprise/{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
+                    <a routerLink="{{job.id}}/details" class="boxed-btn3">Apply Now</a>
                   </div>
                   <div class="date">
                     <p>Date line: 31 Jan 2020</p>
