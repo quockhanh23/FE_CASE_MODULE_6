@@ -5,7 +5,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
 
@@ -23,7 +22,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
               public dialog: MatDialog,
               private toarts: ToastrService,
               private router: Router,
-
+              private activatedRoute: ActivatedRoute,
   ) {
   }
 
@@ -35,42 +34,61 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+    this.activatedRoute.paramMap.subscribe(paraMap => {
+      const id = paraMap.get('id')
+      console.log(id);
+    })
+  }
+
+  getAllStatusNotActive() {
+    this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
+      console.log(res)
+      this.ngOnInit()
+    })
+  }
+
+  getOne(id: any) {
+    this.enterpriseOfAdminService.getById(id).subscribe(res => {
+      console.log(res)
+    })
   }
 
   changeStatusLock(id: any) {
-    this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
-      console.log(result)
-      this.router.navigateByUrl("/admin/list").then()
-      this.ngOnInit()
-      this.openToartSuccessLock()
-    }, error => {
-      console.log("Lỗi", error)
-      this.openDialogFail()
+    this.enterpriseOfAdminService.getById(id).subscribe(res => {
+      console.log(res)
+      this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
+        console.log(result)
+        this.router.navigateByUrl("/admin/list").then()
+        if (res.statusEnterpriseId?.id == '3') {
+          this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
+        } else {
+          this.toarts.success('Thông báo', 'Bạn đã khóa thành công!')
+        }
+        this.ngOnInit()
+      }, error => {
+        console.log("Lỗi", error)
+        this.dialog.open(DialogFailComponent);
+      })
     })
   }
 
   changeStatusActive(id: any) {
-    this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
-      console.log(result)
-      this.router.navigateByUrl("/admin/list").then()
-      this.ngOnInit()
-      this.openToartSuccessActive()
-    }, error => {
-      console.log("Lỗi", error)
-      this.openDialogFail()
+    this.enterpriseOfAdminService.getById(id).subscribe(res => {
+      console.log(res)
+      this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
+        console.log(result)
+        this.router.navigateByUrl("/admin/list").then()
+        if (res.statusEnterpriseId?.id == '2') {
+          this.toarts.error('Cảnh báo', 'Tài khoản đã được kích khóa rồi!')
+        } else {
+          this.toarts.success('Thông báo', 'Bạn đã kích hoạt thành công!')
+        }
+        this.ngOnInit()
+      }, error => {
+        console.log("Lỗi", error)
+        this.dialog.open(DialogFailComponent);
+      })
     })
-  }
-
-  openToartSuccessLock() {
-    this.toarts.success('Thông báo', 'Bạn đã khóa thành công!')
-  }
-
-  openToartSuccessActive() {
-    this.toarts.success('Thông báo', 'Bạn đã kích hoạt thành công!')
-  }
-
-  openToartWarn() {
-    this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
   }
 
   openToartError() {
@@ -79,13 +97,5 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
 
   openToartInFor() {
     this.toarts.info('mes', 'title')
-  }
-
-  openDialogSuccess() {
-    this.dialog.open(DialogSuccessComponent);
-  }
-
-  openDialogFail() {
-    this.dialog.open(DialogFailComponent);
   }
 }
