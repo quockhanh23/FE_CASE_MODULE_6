@@ -43,7 +43,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   getAllStatusNotActive() {
     this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
       console.log(res)
-      this.ngOnInit()
+      this.router.navigate(["admin/list"]).then()
     })
   }
 
@@ -79,7 +79,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
         console.log(result)
         this.router.navigateByUrl("/admin/list").then()
         if (res.statusEnterpriseId?.id == '2') {
-          this.toarts.error('Cảnh báo', 'Tài khoản đã được kích khóa rồi!')
+          this.toarts.error('Cảnh báo', 'Tài khoản đã được kích hoạt rồi!')
         } else {
           this.toarts.success('Thông báo', 'Bạn đã kích hoạt thành công!')
         }

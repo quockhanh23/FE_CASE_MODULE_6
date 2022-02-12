@@ -1,9 +1,8 @@
-
-<a (click)="getAllStatusNotActive()">Danh sách doanh nghiệp chưa kích hoạt tài khoản</a>
 <div class="container">
+  <h1 style="text-align: center; color: #1a237e">Danh sách toàn bộ các doanh nghiệp</h1>
   <div class="card" *ngFor="let en of enterprise" style="margin-top: 5px">
     <div class="card-header">
-          <h2>{{en.nameCompany}}</h2>
+      <h2>{{en.nameCompany}}</h2>
     </div>
     <div class="card-body">
       <h2 class="card-title">
@@ -12,69 +11,71 @@
       <p class="card-text">{{en.description}}</p>
 
       <!-- Button trigger modal 1 -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary" data-toggle="modal"
+              data-target="#exampleModal">
         <!-- Button trigger modal 1 -->
         Kích hoạt doanh nghiệp
       </button>
       <!-- Button trigger modal 2 -->
-      <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal"
+      <button style="margin-left: 20px" type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary"
+              data-toggle="modal"
               data-target="#staticBackdrop">
         Khóa doanh nghiệp
       </button>
       <!-- Button trigger modal 2 -->
     </div>
 
-    <!-- Modal 1 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLabel">
-              <sub style="color: #1a4bb4"><span class="material-icons">notifications</span></sub>
-              &nbsp;Kích hoạt doanh nghiệp</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h3>Bạn chắc chắn chứ?</h3>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary"
-                    data-dismiss="modal">Thay đổi
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 1 -->
+    <!--    &lt;!&ndash; Modal 1 &ndash;&gt;-->
+    <!--    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+    <!--      <div class="modal-dialog">-->
+    <!--        <div class="modal-content">-->
+    <!--          <div class="modal-header">-->
+    <!--            <h2 class="modal-title" id="exampleModalLabel">-->
+    <!--              <sub style="color: #1a4bb4"><span class="material-icons">notifications</span></sub>-->
+    <!--              &nbsp;Kích hoạt doanh nghiệp</h2>-->
+    <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--              <span aria-hidden="true">&times;</span>-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--          <div class="modal-body">-->
+    <!--            <h3>Bạn chắc chắn chứ?</h3>-->
+    <!--          </div>-->
+    <!--          <div class="modal-footer">-->
+    <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>-->
+    <!--            <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary"-->
+    <!--                    data-dismiss="modal">Thay đổi-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; Modal 1 &ndash;&gt;-->
 
-    <!-- Modal 2 -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="staticBackdropLabel"><sub style="color: #1a4bb4">
-              <span class="material-icons">notifications</span></sub>&nbsp;Khóa doanh nghiệp</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <h3>Bạn chắc chắn chứ?</h3>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary" data-dismiss="modal">
-              Xác nhận
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 2 -->
+    <!--    &lt;!&ndash; Modal 2 &ndash;&gt;-->
+    <!--    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"-->
+    <!--         aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+    <!--      <div class="modal-dialog">-->
+    <!--        <div class="modal-content">-->
+    <!--          <div class="modal-header">-->
+    <!--            <h2 class="modal-title" id="staticBackdropLabel"><sub style="color: #1a4bb4">-->
+    <!--              <span class="material-icons">notifications</span></sub>&nbsp;Khóa doanh nghiệp</h2>-->
+    <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--              <span aria-hidden="true">&times;</span>-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--          <div class="modal-body">-->
+    <!--            <h3>Bạn chắc chắn chứ?</h3>-->
+    <!--          </div>-->
+    <!--          <div class="modal-footer">-->
+    <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>-->
+    <!--            <button type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary" data-dismiss="modal">-->
+    <!--              Xác nhận-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; Modal 2 &ndash;&gt;-->
   </div>
 </div>
 
