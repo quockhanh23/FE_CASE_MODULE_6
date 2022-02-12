@@ -24,7 +24,7 @@
                 <img src="{{recruitments.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
               </div>
               <div class="jobs_conetent">
-                <a href="#"><h4>{{recruitments.title}}</h4></a>
+                <a href="#"><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
                     <p> <i class="fa fa-map-marker"></i> {{recruitments?.profileEnterprise?.addressCompany}}</p>
@@ -44,7 +44,7 @@
         </div>
         <div class="descript_wrap white-bg">
           <div class="single_wrap">
-            <h4>Job description</h4>
+            <h4>Mô tả công việc:  </h4>
             <p>
               {{recruitments.description}}
             </p>
