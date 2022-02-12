@@ -122,12 +122,12 @@
             <input type="file" id="file" #userPhoto
                    (change)="onFileSelected1($event)"
                    name="image" autocomplete="off"
-                   formControlName="image"/>
-            <div class="col alert alert-danger mt-2" role="alert"
-                 *ngIf="enterpriseForm.controls['image'].errors?.['required']
-                 && enterpriseForm.controls['image'].touched">
-              Ảnh công ty là bắt buộc!
-            </div>
+                   />
+<!--            <div class="col alert alert-danger mt-2" role="alert"-->
+<!--                 *ngIf="enterpriseForm.controls['image'].errors?.['required']-->
+<!--                 && enterpriseForm.controls['image'].touched">-->
+<!--              Ảnh công ty là bắt buộc!-->
+<!--            </div>-->
           </div>
           <div class="col alert alert-success" role="alert"
                *ngIf="enterpriseForm.valid">
