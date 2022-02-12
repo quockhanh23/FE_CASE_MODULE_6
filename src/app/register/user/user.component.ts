@@ -14,7 +14,8 @@ export class UserComponent implements OnInit {
     email: new FormControl("", [Validators.required]),
     password: new FormControl("", [Validators.required]),
     fullName: new FormControl("", [Validators.required]),
-    phoneNumber: new FormControl("", [Validators.required]),
+    phoneNumber: new FormControl("", [Validators.required,
+      Validators.pattern('(84|0[3|4|5|6|7|8|9])+([0-9]{8})\\b')]),
     confirmPassword: new FormControl("", [Validators.required]),
   });
 
