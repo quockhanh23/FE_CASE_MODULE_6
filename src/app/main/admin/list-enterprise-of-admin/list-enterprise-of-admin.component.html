@@ -2,11 +2,11 @@
   <h1 style="text-align: center; color: #1a237e">Danh sách toàn bộ các doanh nghiệp</h1>
   <div class="card" *ngFor="let en of enterprise" style="margin-top: 5px">
     <div class="card-header">
-      <h2>{{en.nameCompany}}</h2>
+      <h2 style="margin-top: 8px;"><sub style="color: #3c32bb"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}</h2>
     </div>
     <div class="card-body">
       <h2 class="card-title">
-        <sub style="color: #3c32bb"><span style="margin-top: 11px" class="material-icons">lock_reset</span></sub>
+        <sub style="color: #3c32bb"><span class="material-icons">lock_reset</span></sub>
         {{en.statusEnterpriseId?.name}}</h2>
       <p class="card-text">{{en.description}}</p>
 
