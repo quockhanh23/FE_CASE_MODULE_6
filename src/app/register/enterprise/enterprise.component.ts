@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {finalize, Observable} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -6,6 +6,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {EnterpriseService} from "../../services/enterprise.service";
+import {ProfileEnterprise} from "../../models/profile-enterprise";
 
 @Component({
   selector: 'app-enterprise',
@@ -14,36 +15,40 @@ import {EnterpriseService} from "../../services/enterprise.service";
 })
 export class EnterpriseComponent implements OnInit {
   enterpriseForm: FormGroup = new FormGroup({
-    nameCompany: new FormControl("",[Validators.required]),
+    nameCompany: new FormControl("", [Validators.required]),
     description: new FormControl(""),
-    image: new FormControl("",[Validators.required]),
+    // image: new FormControl("", [Validators.required]),
     addressCompany: new FormControl(""),
     numberOfEmployees: new FormControl(""),
-    phoneNumbers: new FormControl("",[Validators.required]),
+    phoneNumbers: new FormControl("", [Validators.required,
+      Validators.pattern('(84|0[3|4|5|6|7|8|9])+([0-9]{8})\\b')]),
     linkWebsites: new FormControl(""),
     linkFacebook: new FormControl(""),
     linkGoogleMaps: new FormControl(""),
-    email: new FormControl("",[Validators.required, Validators.email]),
-    password: new FormControl("",[Validators.required]),
-    confirmPassword: new FormControl("",[Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required]),
+    confirmPassword: new FormControl("", [Validators.required]),
   });
   title = "cloudsSorage";
   // @ts-ignore
   selectedFile: File = null;
   fb: any;
   downloadURL!: Observable<string>;
+  enterprise1!: ProfileEnterprise
+
   constructor(private storage: AngularFireStorage,
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService,
               private enterprise: EnterpriseService,
-              ) {
+  ) {
     console.log(this.authenticationService.currentUserValue);
   }
 
   ngOnInit(): void {
   }
-  onFileSelected1(event:any) {
+
+  onFileSelected1(event: any) {
     let n = Date.now();
     const file = event.target.files[0];
     const filePath = `RoomsImages/${n}`;
@@ -59,6 +64,7 @@ export class EnterpriseComponent implements OnInit {
               this.fb = url;
             }
             console.log(this.fb);
+            console.log("alo")
           });
         })
       )
@@ -68,13 +74,17 @@ export class EnterpriseComponent implements OnInit {
         }
       });
   }
-  register(){
+
+  register() {
     const enterprise = this.enterpriseForm.value;
+    this.enterprise1 = enterprise
+    this.enterprise1.image = this.fb
+    console.log(this.enterprise1)
     console.log(enterprise)
-    this.enterprise.register(enterprise).subscribe(() => {
+    this.enterprise.register(this.enterprise1).subscribe(() => {
       alert("Tạo tài khoản thành công! Hãy đăng nhập !")
-      this.router.navigate(["login/enterprise"])
-    },error => {
+      this.router.navigate(["login/enterprise"]).then()
+    }, error => {
       console.log(error)
     })
   }
