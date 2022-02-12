@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MaterialModule} from "../material/material.module";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {MaterialModule} from "../material/material.module";
         MatButtonModule,
         MatTooltipModule,
         MaterialModule,
+        NgbTooltipModule,
     ]
 })
 export class RegisterModule { }
