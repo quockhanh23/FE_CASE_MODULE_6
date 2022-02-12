@@ -11,6 +11,7 @@ export interface Recruitments {
   description?: string,
   experience?: string,
   numberOfRecruitments?: string,
+  dateBegin?: Date,
   dateEnd?: Date,
   gender?: string,
   statusRecruitmentId?: StatusRecruitment,
