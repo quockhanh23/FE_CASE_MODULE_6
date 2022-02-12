@@ -1,6 +1,7 @@
-<div class="row">
+<div class="row al1">
   <div class="col-1"></div>
   <div class="col-10">
+    <div class="row" style="height: 20px"></div>
     <div class="row">
       <div class="col-12 text-center">
         <h1 class="contact-title"><sub style="color: black">
@@ -20,6 +21,7 @@
             <div class="col-12">
               <div class="form-group">
                 <input class="form-control" type="text" placeholder='Nhập email *' formControlName="email">
+                <mat-hint style="color: black;text-align: left" align="end">Ví dụ: khanh@gmail.com</mat-hint>
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="userForm.controls['email'].errors?.['required']
          && userForm.controls['email'].touched">
@@ -62,7 +64,19 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="text" placeholder="Số điện thoại" formControlName="phoneNumber">
+                <input class="form-control" type="text" placeholder="Số điện thoại *" formControlName="phoneNumber">
+                <mat-hint style="color: black;text-align: left" align="end">
+                  Ví dụ: 0353413219 (10 chữ số, bắt đầu bằng số 03 đến 09)</mat-hint>
+              </div>
+              <div class="col alert alert-danger mt-2" role="alert"
+                   *ngIf="userForm.controls['phoneNumber'].errors?.['required']
+                      && userForm.controls['phoneNumber'].touched">
+                Số điện thoại là bắt buộc!
+              </div>
+              <div class="col alert alert-danger" role="alert"
+                   *ngIf="userForm.controls['phoneNumber'].errors?.['pattern']
+                     && userForm.controls['phoneNumber'].touched">
+                Không phải là một số điện thoại hợp lệ
               </div>
             </div>
             <div class="col-sm-6">

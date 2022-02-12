@@ -17,12 +17,12 @@
                   </h2>
                   <div hideRequiredMarker appearance="outline" color="primary">
                     <input class="form-control"  placeholder="Email đăng nhập"  formControlName="email">
-                    <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
+                    <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
                          *ngIf="loginForm.controls['email'].errors?.['required']
                          && loginForm.controls['email'].touched">
                       Email là bắt buộc!
                     </div>
-                    <div class="col alert alert-danger mt-2" role="alert" style="width: 514px;height: 40px"
+                    <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
                          *ngIf="loginForm.controls['email'].errors?.['email']
                           && loginForm.controls['email'].touched">
                       Không phải là một email hợp lệ
@@ -41,12 +41,12 @@
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                     <mat-hint style="color: black" align="end">Mật khẩu là bắt buộc</mat-hint>
-                    <div class="col alert alert-danger" role="alert" style="width: 514px;height: 40px"
+                    <div class="col alert alert-danger" role="alert" style="width: 100%;height: 40px"
                          *ngIf="loginForm.controls['password'].errors?.['required']
                           && loginForm.controls['password'].touched">
                       Mật khẩu là bắt buộc!
                     </div>
-                    <div class="col alert alert-success" role="alert" style="width: 514px;height: 40px"
+                    <div class="col alert alert-success" role="alert" style="width: 100%;height: 40px"
                          *ngIf="loginForm.valid">
                       Email và mật khẩu xác nhận đã hợp lệ
                     </div>

@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MaterialModule} from "../material/material.module";
 
 
 @NgModule({
@@ -16,13 +17,14 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     UserComponent,
     EnterpriseComponent,
   ],
-  imports: [
-    CommonModule,
-    RegisterRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ]
+    imports: [
+        CommonModule,
+        RegisterRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MaterialModule,
+    ]
 })
 export class RegisterModule { }
