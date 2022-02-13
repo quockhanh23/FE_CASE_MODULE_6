@@ -12,7 +12,7 @@
                 <img src="{{recruitments.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
               </div>
               <div class="jobs_conetent">
-                <a href="#"><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
+                <a><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
                     <p><i class="fa fa-map-marker"></i> {{recruitments?.profileEnterprise?.addressCompany}}</p>
@@ -28,7 +28,6 @@
                 <sub *ngIf="check" (click)="report()" style="color: red">
                   <span style="font-size: 30px" class="material-icons">flag</span>
                 </sub>
-
               </div>
             </div>
           </div>
@@ -38,8 +37,6 @@
             <h4>Mô tả công việc: </h4>
             <p>
               {{recruitments.description}}
-            </p>
-            <p>
             </p>
           </div>
           <div class="single_wrap">
