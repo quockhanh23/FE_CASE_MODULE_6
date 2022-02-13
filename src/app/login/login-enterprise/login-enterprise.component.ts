@@ -5,8 +5,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
-import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
-import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 
@@ -59,7 +57,7 @@ export class LoginEnterpriseComponent implements OnInit {
           console.log(data)
           this.openDialogRules()
           this.openToartsLogoIn()
-          this.router.navigate([""]).then()
+          this.router.navigate(["/enterprise/listJob"]).then()
         },
         error => {
           console.log('error:' + error)
