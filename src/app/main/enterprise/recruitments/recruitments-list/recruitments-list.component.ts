@@ -46,4 +46,9 @@ export class RecruitmentsListComponent implements OnInit {
       this.listJob = res
     },)
   }
+  sortByNewRecruitments() {
+    this.recruitmentsService.sortByNewRecruitments().subscribe(res => {
+      this.listJob = res
+    })
+  }
 }

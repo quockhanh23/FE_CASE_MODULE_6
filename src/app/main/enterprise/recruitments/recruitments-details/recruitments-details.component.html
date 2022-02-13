@@ -70,12 +70,12 @@
           </div>
           <div class="job_content">
             <ul>
-              <li>Ngày đăng tin: <span>{{recruitments.dateBegin}}</span></li>
-              <li>Ngày hết hạn: <span>{{recruitments.dateEnd}}</span></li>
+              <li>Ngày đăng tin: <span>{{recruitments.dateBegin | date:"dd/MM/yyyy"}}</span></li>
+              <li>Ngày hết hạn: <span>{{recruitments.dateEnd | date:"dd/MM/yyyy"}}</span></li>
               <li>Vị trí còn trống: <span>{{recruitments.numberOfRecruitments}}</span></li>
-              <li>Lương: <span>{{recruitments.salary}} VNĐ</span></li>
+              <li>Lương: <span>{{recruitments.salary | currency}}</span></li>
               <li>Địa điểm: <span>{{recruitments.address}}</span></li>
-              <li>Tên công việc: <span> {{recruitments.workId?.name}}</span></li>
+              <li>Thời gian: <span> {{recruitments.workId?.name}}</span></li>
             </ul>
           </div>
         </div>

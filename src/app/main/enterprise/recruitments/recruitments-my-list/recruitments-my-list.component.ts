@@ -38,14 +38,14 @@ export class RecruitmentsMyListComponent implements OnInit {
   changeStatusHidden(id: any) {
     this.recruitmentsService.changeStatusHidden(id).subscribe(() => {
       this.loadMyListAll()
-     this.toarts.success('Đã ẩn bài đăng','Thông báo')
+      this.toarts.success('Đã ẩn bài đăng', 'Thông báo')
     })
   }
 
   changeStatusPublic(id: any) {
     this.recruitmentsService.changeStatusPublic(id).subscribe(() => {
       this.loadMyListAll()
-      this.toarts.success('Bài đăng đã công khai','Thông báo')
+      this.toarts.success('Bài đăng đã công khai', 'Thông báo')
     })
   }
 }

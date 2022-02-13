@@ -16,15 +16,25 @@
             <a style="font-size: 20px" class="nav-link">Tìm kiếm</a>
           </li>
           <li style="font-size: 20px" class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" id="" role="button" data-toggle="dropdown"
+               aria-expanded="false">
+              Tìm theo thành phố
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item">Hà Nội</a>
+              <a class="dropdown-item">Lào Cai</a>
+              <a class="dropdown-item">Hải Phòng</a>
+              <a class="dropdown-item">Bình Dương</a>
+            </div>
+          </li>
+          <li style="font-size: 20px" class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-expanded="false">
               Sắp xếp
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item">Sắp xếp 1</a>
-              <a class="dropdown-item">Sắp xếp 2</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item">Sắp xếp 3</a>
+              <a (click)="sortByNewRecruitments()" class="dropdown-item">Tin mới nhất</a>
+              <a class="dropdown-item">Tin cũ nhất</a>
             </div>
           </li>
         </ul>
@@ -108,7 +118,7 @@
                     <a routerLink="{{job.id}}/details" class="boxed-btn3">Nộp đơn ngay</a>
                   </div>
                   <div class="date">
-                    <p>Ngày hết hạn: {{job.dateEnd | date:"MM/dd/yyyy" }}</p>
+                    <p>Ngày hết hạn: {{job.dateEnd | date:"dd/MM/yyyy" }}</p>
                   </div>
                 </div>
               </div>
