@@ -6,6 +6,7 @@ import { RecruitmentsListComponent } from './recruitments/recruitments-list/recr
 import { RecruitmentsDetailsComponent } from './recruitments/recruitments-details/recruitments-details.component';
 import { HomePageEnterpriseComponent } from './home-page-enterprise/home-page-enterprise.component';
 import { RecruitmentsMyListComponent } from './recruitments/recruitments-my-list/recruitments-my-list.component';
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RecruitmentsMyListComponent } from './recruitments/recruitments-my-list
     ],
     imports: [
         CommonModule,
-        EnterpriseRoutingModule
+        EnterpriseRoutingModule,
+        NgbTooltipModule
     ],
 })
 export class EnterpriseModule { }

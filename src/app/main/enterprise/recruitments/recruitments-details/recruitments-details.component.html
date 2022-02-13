@@ -1,5 +1,8 @@
 <div class="job_details_area">
   <div class="container">
+    <span ngbTooltip="Quay lại danh sách"
+          style="font-size: 25px" [routerLink]="['/enterprise/listJob']"
+          class="material-icons a1">keyboard_backspace</span>
     <div class="row">
       <div class="col-lg-8">
         <div class="job_details_header">
@@ -21,8 +24,11 @@
               </div>
             </div>
             <div class="jobs_right">
-              <div class="apply_now">
-                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+              <div class="a2 apply_now" ngbTooltip="Báo cáo vi phạm">
+                <sub style="color: red">
+                  <span style="font-size: 30px" class="material-icons">flag</span>
+                </sub>
+
               </div>
             </div>
           </div>

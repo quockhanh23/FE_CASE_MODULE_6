@@ -31,7 +31,7 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input (input)="searchByName()" id="search"  class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+          <input ngbTooltip="Tìm theo tên, địa chỉ, lương" (input)="searchByName()" id="search"  class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
           <span style="font-size: 45px; color: deeppink" class="material-icons">content_paste_search</span>
         </form>
       </div>
@@ -88,17 +88,17 @@
               <div class="single_jobs white-bg d-flex justify-content-between">
                 <div class="jobs_left d-flex align-items-center">
                   <div class="thumb">
-                    <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+                    <img class="a1" ngbTooltip="Xem thông tin doanh nghiệp" src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
+                    <a ngbTooltip="Xem chi tiết" routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
 <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
-                        <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
+                        <p style="color: #f7941d"><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
                       </div>
                       <div class="location">
-                        <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
+                        <p style="color: #f7941d"><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
                       </div>
                     </div>
                   </div>
