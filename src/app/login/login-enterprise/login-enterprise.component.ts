@@ -53,6 +53,8 @@ export class LoginEnterpriseComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
+          localStorage.setItem('ENTERPRISE_ID' , data.id)
+          // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
           console.log(data)
           this.openDialogRules()
