@@ -1,3 +1,4 @@
+
 <div class="container">
   <form class="form-inline my-2 my-lg-0" style="padding-top: 20px">
     <input class="form-control " type="search" placeholder="Tìm kiếm tên doanh nghiệp" aria-label="Search">
@@ -8,15 +9,21 @@
 
   <div class="card" *ngFor="let en of enterprise" style="margin-top: 5px;">
     <div class="card-header">
-      <h2 style="margin-top: 8px;"><sub style="color: #3c32bb"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}
-      </h2>
+      <div class="row">
+        <div class="col-1">
+          <img style="width: 50px; height: 50px" src="{{en?.image}}" alt="">
+        </div>
+        <div class="col-10">
+          <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}
+          </h2>
+        </div>
+      </div>
     </div>
     <div class="card-body">
       <h2 class="card-title">
         <sub style="color: #3c32bb"><span ngbTooltip="Trạng thái" class="material-icons">lock_reset</span></sub>
         {{en.statusEnterpriseId?.name}}</h2>
       <p class="card-text">{{en.description}}</p>
-
       <!-- Button trigger modal 1 -->
       <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary" data-toggle="modal"
               data-target="#exampleModal">
