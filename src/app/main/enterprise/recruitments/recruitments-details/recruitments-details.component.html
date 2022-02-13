@@ -25,7 +25,7 @@
             </div>
             <div class="jobs_right">
               <div class="a2 apply_now" ngbTooltip="Báo cáo vi phạm">
-                <sub style="color: red">
+                <sub *ngIf="check" (click)="report()" style="color: red">
                   <span style="font-size: 30px" class="material-icons">flag</span>
                 </sub>
 

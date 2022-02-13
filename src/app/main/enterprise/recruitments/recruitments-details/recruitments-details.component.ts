@@ -2,11 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Recruitments} from "../../../../models/recruitments";
-import {FormControl, FormGroup} from "@angular/forms";
-import {StatusRecruitment} from "../../../../models/status-recruitment";
-import {Work} from "../../../../models/work";
-import {Position} from "../../../../models/position";
-import {ProfileEnterprise} from "../../../../models/profile-enterprise";
+import {MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
+
 
 @Component({
   selector: 'app-recruitments-details',
@@ -15,27 +13,14 @@ import {ProfileEnterprise} from "../../../../models/profile-enterprise";
 })
 export class RecruitmentsDetailsComponent implements OnInit {
 
-  // @ts-ignore
-  recruitments: Recruitments;
-  // formRecruitments = new FormGroup({
-  //   id: new FormControl(''),
-  //   title: new FormControl(''),
-  //   salary: new FormControl(''),
-  //   address: new FormControl(''),
-  //   description: new FormControl(''),
-  //   experience: new FormControl(''),
-  //   numberOfRecruitments: new FormControl(''),
-  //   dateEnd: Date,
-  //   gender: new FormControl(''),
-  //   statusRecruitmentId?: StatusRecruitment,
-  //   workId: Work,
-  //   positionId: Position,
-  //   profileEnterprise: ProfileEnterprise
-  // })
+  recruitments!: Recruitments;
+  check = true
 
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
-              private router: Router
+              private router: Router,
+              public dialog: MatDialog,
+              private toarts: ToastrService,
   ) {
   }
 
@@ -50,4 +35,8 @@ export class RecruitmentsDetailsComponent implements OnInit {
     })
   }
 
+  report() {
+    this.check = false
+    this.toarts.info("Cảm ơn bạn đã trợ giúp. Chúng tôi sẽ xem xét lại thông tin", 'Thông báo !')
+  }
 }
