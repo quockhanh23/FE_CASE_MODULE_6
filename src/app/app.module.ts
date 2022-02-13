@@ -25,6 +25,7 @@ import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterpr
 import { DialogRegisterFailComponent } from './notification/dialog-register-fail/dialog-register-fail.component';
 import { DialogRegisterSuccessComponent } from './notification/dialog-register-success/dialog-register-success.component';
 import { DialogRegisterImageComponent } from './notification/dialog-register-image/dialog-register-image.component';
+import { DialogLoginFailComponent } from './notification/dialog-login-fail/dialog-login-fail.component';
 
 
 const DialogComponents = [
@@ -46,6 +47,7 @@ const DialogComponents = [
     LoginUserComponent,
     LoginEnterpriseComponent,
     DialogRegisterImageComponent,
+    DialogLoginFailComponent,
 
   ],
   imports: [

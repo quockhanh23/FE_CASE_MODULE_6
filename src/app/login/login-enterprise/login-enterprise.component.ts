@@ -8,6 +8,7 @@ import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
+import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 
 @Component({
   selector: 'app-login-enterprise',
@@ -62,7 +63,7 @@ export class LoginEnterpriseComponent implements OnInit {
         },
         error => {
           console.log('error:' + error)
-          this.openDialogFail()
+          this.openDialogLoginFail()
           this.loading = false;
         });
   }
@@ -78,7 +79,7 @@ export class LoginEnterpriseComponent implements OnInit {
     }, 1000)
   }
 
-  openDialogFail() {
-    this.dialog.open(DialogFailComponent);
+  openDialogLoginFail() {
+    this.dialog.open(DialogLoginFailComponent);
   }
 }
