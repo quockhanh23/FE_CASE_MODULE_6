@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
     console.log(user)
     this.user.register(user).subscribe(() => {
       this.dialog.open(DialogRegisterSuccessComponent)
-      this.router.navigate(["login/user"]).then()
+      this.router.navigate(["login"]).then()
     }, error => {
       console.log("lỗi nè" + error)
       this.dialog.open(DialogRegisterFailComponent)
