@@ -1,8 +1,8 @@
 
 .menu{
   animation: color 0.5s infinite;
-  -webkit-animation: color 5s infinite;
-  -moz-animation: color 5s infinite;
+  -webkit-animation: color 3s infinite;
+  -moz-animation: color 3s infinite;
   -o-animation: color 0.5s infinite
 }
 @keyframes color {

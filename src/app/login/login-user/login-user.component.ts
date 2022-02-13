@@ -9,6 +9,10 @@ import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-s
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
+import {DialogLogoutComponent} from "../../notification/dialog-logout/dialog-logout.component";
+import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
+import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
+import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 
 @Component({
   selector: 'app-login-user',
@@ -88,7 +92,7 @@ export class LoginUserComponent implements OnInit {
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);
-    }, 1000)
+    }, 800)
   }
 
   openDialogLoginFail() {
