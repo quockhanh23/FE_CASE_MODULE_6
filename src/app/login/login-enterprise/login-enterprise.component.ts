@@ -5,8 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
-import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
-import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
+import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
+import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 
 @Component({
   selector: 'app-login-enterprise',
@@ -55,21 +55,29 @@ export class LoginEnterpriseComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
           console.log(data)
-          this.openDialogSuccess()
-          this.router.navigate([""]).then()
+          this.openDialogRules()
+          this.openToartsLogoIn()
+          this.router.navigate(["/enterprise/listJob"]).then()
         },
         error => {
           console.log('error:' + error)
-          this.openDialogFail()
+          this.openDialogLoginFail()
           this.loading = false;
         });
   }
 
-  openDialogSuccess() {
-    this.dialog.open(DialogSuccessComponent);
+  openToartsLogoIn() {
+    setTimeout(() => {
+      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
+    }, 0)
+  }
+  openDialogRules() {
+    setTimeout(() => {
+      this.dialog.open(DialogRulesComponent);
+    }, 1000)
   }
 
-  openDialogFail() {
-    this.dialog.open(DialogFailComponent);
+  openDialogLoginFail() {
+    this.dialog.open(DialogLoginFailComponent);
   }
 }

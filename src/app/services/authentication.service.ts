@@ -59,6 +59,6 @@ export class AuthenticationService {
   openToartsLogout() {
     setTimeout(() => {
       this.toarts.info('Đăng nhập để có thể sử dụng các dịch vụ của chúng tôi', 'Chú ý !')
-    }, 3000)
+    }, 5000)
   }
 }

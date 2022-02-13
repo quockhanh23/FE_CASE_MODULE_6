@@ -7,6 +7,11 @@ import {UserService} from "../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {EnterpriseService} from "../../services/enterprise.service";
 import {ProfileEnterprise} from "../../models/profile-enterprise";
+import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
+import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
+import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
 
 @Component({
   selector: 'app-enterprise',
@@ -41,6 +46,8 @@ export class EnterpriseComponent implements OnInit {
               private router: Router,
               private authenticationService: AuthenticationService,
               private enterprise: EnterpriseService,
+              private toarts: ToastrService,
+              public dialog: MatDialog,
   ) {
     console.log(this.authenticationService.currentUserValue);
   }
@@ -82,10 +89,18 @@ export class EnterpriseComponent implements OnInit {
     console.log(this.enterprise1)
     console.log(enterprise)
     this.enterprise.register(this.enterprise1).subscribe(() => {
-      alert("Tạo tài khoản thành công! Hãy đăng nhập !")
+      this.dialog.open(DialogRegisterSuccessComponent)
       this.router.navigate(["login/enterprise"]).then()
     }, error => {
-      console.log(error)
+      console.log("lỗi nè"+ error)
+      if (this.enterprise1.image == undefined) {
+        this.dialog.open(DialogRegisterImageComponent)
+      } else {
+        this.dialog.open(DialogRegisterFailComponent)
+      }
     })
+  }
+  openDialogRegisterSuccess() {
+    this.dialog.open(DialogRegisterSuccessComponent)
   }
 }
