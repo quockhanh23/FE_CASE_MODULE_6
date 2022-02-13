@@ -12,12 +12,11 @@
                 <nav>
                   <ul id="navigation">
                     <li><a href="#" routerLink="enterprise/listJob">Trang chủ</a></li>
-                    <li><a href="jobs.html">Cộng đồng</a></li>
+                    <li><a href="#">Cộng đồng</a></li>
                     <li><a href="#">Trang <i class="ti-angle-down"></i></a>
-                      <ul class="submenu">
-                        <li><a href="candidate.html"> </a></li>
-                        <li><a href="job_details.html">Chi tết </a></li>
-                        <li><a href="elements.html">Thuộc tính</a></li>
+                      <ul class="submenu" style="border-radius: 5px">
+                        <li><a href="#" [routerLink]="['/enterprise/listJob']">Người dùng</a></li>
+                        <li><a href="#" [routerLink]="['/enterprise/listJob']">Doanh nghiệp</a></li>
                       </ul>
                     </li>
                     <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">

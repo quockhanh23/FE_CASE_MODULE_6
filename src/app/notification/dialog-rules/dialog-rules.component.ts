@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dialog-rules',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogRulesComponent implements OnInit {
 
-  constructor() { }
+  username: string | null = ''
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('EMAIL') != null) {
+      this.username = localStorage.getItem('EMAIL');
+      return true;
+    }
+    return false
+  }
 }

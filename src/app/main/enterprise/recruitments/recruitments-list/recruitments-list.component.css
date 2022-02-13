@@ -1,0 +1,18 @@
+
+.menu{
+  animation: color 0.5s infinite;
+  -webkit-animation: color 3s infinite;
+  -moz-animation: color 3s infinite;
+  -o-animation: color 0.5s infinite
+}
+@keyframes color {
+  0% {
+
+    color: #d5b90b;
+  }
+  50% {
+    color: #14409f;
+  }
+}
+
+
