@@ -68,7 +68,9 @@ export class EnterpriseComponent implements OnInit {
         }
       });
   }
+
   register(){
+    this.enterpriseForm.value.image = this.fb;
     const enterprise = this.enterpriseForm.value;
     console.log(enterprise)
     this.enterprise.register(enterprise).subscribe(() => {

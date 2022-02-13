@@ -54,9 +54,11 @@ export class LoginEnterpriseComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
+          // @ts-ignore
+          localStorage.setItem('idEn', data.id);
           console.log(data)
           this.openDialogSuccess()
-          this.router.navigate([""]).then()
+          setTimeout(() => {this.router.navigate([""]).then()},1000)
         },
         error => {
           console.log('error:' + error)
