@@ -7,6 +7,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
+import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 
 @Component({
   selector: 'app-login-enterprise',
@@ -55,7 +56,8 @@ export class LoginEnterpriseComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
           console.log(data)
-          this.openDialogSuccess()
+          this.openDialogRules()
+          this.openToartsLogoIn()
           this.router.navigate([""]).then()
         },
         error => {
@@ -65,8 +67,15 @@ export class LoginEnterpriseComponent implements OnInit {
         });
   }
 
-  openDialogSuccess() {
-    this.dialog.open(DialogSuccessComponent);
+  openToartsLogoIn() {
+    setTimeout(() => {
+      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
+    }, 0)
+  }
+  openDialogRules() {
+    setTimeout(() => {
+      this.dialog.open(DialogRulesComponent);
+    }, 1000)
   }
 
   openDialogFail() {

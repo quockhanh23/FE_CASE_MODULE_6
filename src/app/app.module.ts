@@ -22,12 +22,17 @@ import { LoginUserComponent } from './login/login-user/login-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
+import { DialogRegisterFailComponent } from './notification/dialog-register-fail/dialog-register-fail.component';
+import { DialogRegisterSuccessComponent } from './notification/dialog-register-success/dialog-register-success.component';
+import { DialogRegisterImageComponent } from './notification/dialog-register-image/dialog-register-image.component';
 
 
 const DialogComponents = [
   DialogSuccessComponent,
   DialogRulesComponent,
-  DialogFailComponent
+  DialogFailComponent,
+  DialogRegisterFailComponent,
+  DialogRegisterSuccessComponent,
 ]
 
 @NgModule({
@@ -40,6 +45,8 @@ const DialogComponents = [
     HeaderComponent,
     LoginUserComponent,
     LoginEnterpriseComponent,
+    DialogRegisterImageComponent,
+
   ],
   imports: [
     BrowserModule,

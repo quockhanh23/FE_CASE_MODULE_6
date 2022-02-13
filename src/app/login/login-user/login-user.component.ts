@@ -7,6 +7,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
+import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 
 @Component({
   selector: 'app-login-user',
@@ -62,17 +63,31 @@ export class LoginUserComponent implements OnInit {
 
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
+            this.openToartsLogoIn()
           } else {
             this.router.navigate([this.returnUrl]).then()
+            this.openToartsLogoIn()
+            this.openDialogRules()
+
           }
           console.log(data)
-          this.openDialogSuccess()
         },
         error => {
           console.log('error:' + error)
           this.openDialogFail()
           this.loading = false;
         });
+  }
+
+  openToartsLogoIn() {
+    setTimeout(() => {
+      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
+    }, 0)
+  }
+  openDialogRules() {
+    setTimeout(() => {
+      this.dialog.open(DialogRulesComponent);
+    }, 1000)
   }
 
   openDialogSuccess() {
