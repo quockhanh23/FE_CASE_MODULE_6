@@ -6,40 +6,37 @@
         <div class="header_bottom_border">
           <div class="row align-items-center">
             <div class="col-xl-3 col-lg-2">
-
             </div>
             <div class="col-xl-6 col-lg-7">
               <div class="main-menu  d-none d-lg-block">
                 <nav>
                   <ul id="navigation">
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="jobs.html">Cộng đồng</a></li>
-                    <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                      <ul class="submenu">
-                        <li><a href="candidate.html"> </a></li>
-                        <li><a href="job_details.html">Chi tết </a></li>
-                        <li><a href="elements.html">Thuộc tính</a></li>
+                    <li><a href="#" routerLink="enterprise/listJob">Trang chủ</a></li>
+                    <li><a href="#">Cộng đồng</a></li>
+                    <li><a href="#">Trang <i class="ti-angle-down"></i></a>
+                      <ul class="submenu" style="border-radius: 5px">
+                        <li><a href="#" [routerLink]="['/enterprise/listJob']">Người dùng</a></li>
+                        <li><a href="#" [routerLink]="['/enterprise/listJob']">Doanh nghiệp</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                      <ul class="submenu">
-                        <li><a href="blog.html">blog</a></li>
-                        <li><a href="single-blog.html">single-blog</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">
+                     <sub style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2></li>
                   </ul>
                 </nav>
               </div>
+            </div>
+            <div class="col-2" class="alo1"><sup>
+                  <span style="color: #084488; font-size: 45px" *ngIf="isLoggedIn()" (click)="logOut()"
+                        ngbTooltip="Đăng xuất" class="material-icons">power_settings_new</span></sup>
             </div>
             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
               <div class="row">
                 <div class="col-5">
                   <div class="Appointment">
-                    <div class="col">
+                    <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
-                                ngbDropdownToggle>Đăng nhập
+                                ngbTooltip="Đăng nhập"  ngbDropdownToggle>Đăng nhập
                         </button>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                           <a class="changeColor" routerLink="/login" ngbDropdownItem>Người dùng</a>
@@ -51,10 +48,10 @@
                 </div>
                 <div class="col-5">
                   <div class="Appointment">
-                    <div class="col">
+                    <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
-                                id="dropdownBasic1" ngbDropdownToggle>Đăng kí
+                                id="dropdownBasic1" ngbTooltip="Đăng ký"  ngbDropdownToggle>Đăng ký
                         </button>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                           <a class="changeColor" routerLink="/register/user" ngbDropdownItem>Người dùng</a>
@@ -78,19 +75,16 @@
 <div class="slider_area">
   <div class="single_slider  d-flex align-items-center slider_bg_1" style="height: 300px">
     <div class="container">
+      <img style="width: 150px; height: 100px;" src="https://www.tourchauau.net/images/news/van-hoa-am-thuc/nhung-bieu-tuong-dac-trung-cua-nuoc-duc-9.png" alt="">
       <div class="row align-items-center">
         <div class="col-lg-7 col-md-6">
           <div class="slider_text">
-            <h5 style="color: indigo" class="wow fadeInLeft"
-                data-wow-duration="1s" data-wow-delay=".2s">4536+ Công việc</h5>
-            <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Phù hợp mọi lứa tuổi&nbsp;<span
-              style="font-size: 39px" class="material-icons">mood</span></h3>
             <p class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">
               Chúng tôi cung cấp các dịch vụ về
               công việc tức thời trực tuyến phù hợp với bạn</p>
             <div class="sldier_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
-              <a href="#" class="boxed-btn3"><sub style="color: #9d1414"><span
-                class="material-icons">thumb_up</span></sub>&ensp;Việc làm hôm nay</a>
+              <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Phù hợp mọi lứa tuổi&nbsp;<span
+                style="font-size: 39px" class="material-icons">mood</span></h3>
             </div>
           </div>
         </div>
@@ -102,3 +96,6 @@
   </div>
 </div>
 <!-- slider_area_end -->
+
+<div class="row" style="background-color: palegoldenrod; height: 5px; width: 101%"></div>
+<div class="row" style="height: 20px"></div>

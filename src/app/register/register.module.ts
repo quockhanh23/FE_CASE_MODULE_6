@@ -7,6 +7,10 @@ import { EnterpriseComponent } from './enterprise/enterprise.component';
 import {AppModule} from "../app.module";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MaterialModule} from "../material/material.module";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -19,6 +23,10 @@ import {ReactiveFormsModule} from "@angular/forms";
         RegisterRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MaterialModule,
+        NgbTooltipModule,
     ]
 })
 export class RegisterModule { }

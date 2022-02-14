@@ -1,30 +1,96 @@
+<div class="container">
+  <form class="form-inline my-2 my-lg-0" style="padding-top: 20px">
+    <input class="form-control " type="search" placeholder="Tìm kiếm tên doanh nghiệp" aria-label="Search">
+    <button ngbTooltip="Tìm kiếm" mat-button type="submit"><span style="font-size: 45px; color: deeppink" class="alo1 material-icons">person_search</span></button>
+  </form>
+  <hr>
+  <h1 style="text-align: center; color: #1a237e">Danh sách toàn bộ các doanh nghiệp</h1>
 
-<mat-card class="example-card" *ngFor="let en of enterprise">
-  <mat-card-title-group>
-    <mat-card-title class="alo2">
-      <sub class="alo2"><span class="material-icons">home_repair_service</span></sub>
-      &ensp;{{en.nameCompany}}</mat-card-title>
-    <mat-card-subtitle>{{en.description}}</mat-card-subtitle>
-    <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-  </mat-card-title-group>
-  <mat-card-content>
-    <div class="row">
-      <div class="col-1">
-        <sub><span style="color: #007fff" class="material-icons">info</span></sub>
-      </div>
-      <div class="col-5">
-        <h2>{{en.statusEnterpriseId?.name}}</h2>
-      </div>
+  <div class="card" *ngFor="let en of enterprise" style="margin-top: 5px;">
+    <div class="card-header">
+      <h2 style="margin-top: 8px;"><sub style="color: #3c32bb"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}
+      </h2>
     </div>
-  </mat-card-content>
-  <mat-card-footer>
-    <div class="row">
-      <div class="col" style="margin-left: 30px">
-        <button class="alo1" mat-button (click)="changeStatusActive(en?.id)">Kích hoạt tài khoản</button>
-      </div>
-      <div class="col">
-        <button class="alo1" mat-button (click)="changeStatusLock(en?.id)">Khóa tài khoản</button>
-      </div>
+    <div class="card-body">
+      <h2 class="card-title">
+        <sub style="color: #3c32bb"><span ngbTooltip="Trạng thái" class="material-icons">lock_reset</span></sub>
+        {{en.statusEnterpriseId?.name}}</h2>
+      <p class="card-text">{{en.description}}</p>
+
+      <!-- Button trigger modal 1 -->
+      <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary" data-toggle="modal"
+              data-target="#exampleModal">
+        <!-- Button trigger modal 1 -->
+        Kích hoạt doanh nghiệp
+      </button>
+      <!-- Button trigger modal 2 -->
+      <button style="margin-left: 20px" type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#staticBackdrop">
+        Khóa doanh nghiệp
+      </button>
+      <!-- Button trigger modal 2 -->
     </div>
-  </mat-card-footer>
-</mat-card>
+
+    <!--    &lt;!&ndash; Modal 1 &ndash;&gt;-->
+    <!--    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+    <!--      <div class="modal-dialog">-->
+    <!--        <div class="modal-content">-->
+    <!--          <div class="modal-header">-->
+    <!--            <h2 class="modal-title" id="exampleModalLabel">-->
+    <!--              <sub style="color: #1a4bb4"><span class="material-icons">notifications</span></sub>-->
+    <!--              &nbsp;Kích hoạt doanh nghiệp</h2>-->
+    <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--              <span aria-hidden="true">&times;</span>-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--          <div class="modal-body">-->
+    <!--            <h3>Bạn chắc chắn chứ?</h3>-->
+    <!--          </div>-->
+    <!--          <div class="modal-footer">-->
+    <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>-->
+    <!--            <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary"-->
+    <!--                    data-dismiss="modal">Thay đổi-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; Modal 1 &ndash;&gt;-->
+
+    <!--    &lt;!&ndash; Modal 2 &ndash;&gt;-->
+    <!--    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"-->
+    <!--         aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+    <!--      <div class="modal-dialog">-->
+    <!--        <div class="modal-content">-->
+    <!--          <div class="modal-header">-->
+    <!--            <h2 class="modal-title" id="staticBackdropLabel"><sub style="color: #1a4bb4">-->
+    <!--              <span class="material-icons">notifications</span></sub>&nbsp;Khóa doanh nghiệp</h2>-->
+    <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+    <!--              <span aria-hidden="true">&times;</span>-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--          <div class="modal-body">-->
+    <!--            <h3>Bạn chắc chắn chứ?</h3>-->
+    <!--          </div>-->
+    <!--          <div class="modal-footer">-->
+    <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>-->
+    <!--            <button type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary" data-dismiss="modal">-->
+    <!--              Xác nhận-->
+    <!--            </button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash; Modal 2 &ndash;&gt;-->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

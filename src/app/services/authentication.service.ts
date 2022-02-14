@@ -6,6 +6,8 @@ import {map} from 'rxjs/operators';
 import {UserToken} from "../models/user-token";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
+import {DialogLogoutComponent} from "../notification/dialog-logout/dialog-logout.component";
 
 const API_URL = environment.apiUrl;
 
@@ -18,7 +20,8 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient,
               public dialog: MatDialog,
-              private toarts: ToastrService,) {
+              private toarts: ToastrService,
+              private router: Router,) {
     // @ts-ignore
     this.currentUserSubject = new BehaviorSubject<UserToken>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -36,6 +39,7 @@ export class AuthenticationService {
         return user;
       }));
   }
+
   loginEnterprise(email: string, password: string) {
     return this.http.post<any>(API_URL + '/login/enterprise', {email, password})
       .pipe(map(user => {
@@ -43,19 +47,20 @@ export class AuthenticationService {
         this.currentUserSubject.next(user);
         return user;
       }));
-
   }
 
   logout() {
     localStorage.removeItem('currentUser');
     // @ts-ignore
     this.currentUserSubject.next(null);
+    this.router.navigate(["/login"]).then();
+    this.dialog.open(DialogLogoutComponent)
     this.openToartsLogout()
   }
 
   openToartsLogout() {
     setTimeout(() => {
       this.toarts.info('Đăng nhập để có thể sử dụng các dịch vụ của chúng tôi', 'Chú ý !')
-    }, 5000)
+    }, 6000)
   }
 }

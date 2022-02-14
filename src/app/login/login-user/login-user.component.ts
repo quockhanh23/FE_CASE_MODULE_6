@@ -7,6 +7,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
+import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
+import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
+import {DialogLogoutComponent} from "../../notification/dialog-logout/dialog-logout.component";
+import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
+import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
+import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 
 @Component({
   selector: 'app-login-user',
@@ -39,7 +45,7 @@ export class LoginUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/enterprise/listJob';
     this.adminUrl = '/admin/list'
   }
 
@@ -62,24 +68,34 @@ export class LoginUserComponent implements OnInit {
 
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
+            this.openToartsLogoIn()
           } else {
             this.router.navigate([this.returnUrl]).then()
+            this.openToartsLogoIn()
+            this.openDialogRules()
+
           }
           console.log(data)
-          this.openDialogSuccess()
         },
         error => {
           console.log('error:' + error)
-          this.openDialogFail()
+          this.openDialogLoginFail()
           this.loading = false;
         });
   }
 
-  openDialogSuccess() {
-    this.dialog.open(DialogSuccessComponent);
+  openToartsLogoIn() {
+    setTimeout(() => {
+      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
+    }, 0)
+  }
+  openDialogRules() {
+    setTimeout(() => {
+      this.dialog.open(DialogRulesComponent);
+    }, 800)
   }
 
-  openDialogFail() {
-    this.dialog.open(DialogFailComponent);
+  openDialogLoginFail() {
+    this.dialog.open(DialogLoginFailComponent);
   }
 }

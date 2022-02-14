@@ -10,48 +10,21 @@
       <div class="col-lg-8 mt-3">
         <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
               (ngSubmit)="register()" id="contactForm">
-          <input type="hidden" formControlName="idEnterprise">
           <div class="row">
             <div class="col-12">
               <div class="form-group">
                 <input class="form-control " type="text" placeholder='Nhập lĩnh vực' formControlName="title">
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['email'].errors?.['required']
-         && recruitmentForm.controls['email'].touched">
-                  Email là bắt buộc!
-                </div>
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['email'].errors?.['email']
-         && recruitmentForm.controls['email'].touched">
-                  Không phải là một email hợp lệ
-                </div>
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập Địa chỉ làm việc"
+                <input type="text" class="form-control" placeholder="Nhập Địa chỉ làm việc"
                        formControlName="address">
-
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['confirmPassword'].errors?.['required']
-         && recruitmentForm.controls['confirmPassword'].touched">
-                  Mật khẩu là bắt buộc!
-                </div>
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['confirmPassword'].value != recruitmentForm.controls['password'].value
-         && recruitmentForm.controls['confirmPassword'].touched">
-                  Mật khẩu không trùng khớp!
-                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <input class="form-control" type="text" placeholder="Yêu cầu kinh nghiệm" formControlName="experience">
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['nameCompany'].errors?.['required']
-         && recruitmentForm.controls['nameCompany'].touched">
-                  Tên công ty là bắt buộc!
-                </div>
               </div>
             </div>
             <div class="col-sm-6">
@@ -66,14 +39,8 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Nhập mức lương"
+                <input type="text" class="form-control" placeholder="Nhập mức lương"
                        formControlName="salary">
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['password'].errors?.['required']
-                    && recruitmentForm.controls['password'].touched">
-                  Mật khẩu là bắt buộc!
-                </div>
-
               </div>
             </div>
             <div class="col-12">
@@ -87,25 +54,20 @@
                 <p>Ngày kết thúc</p>
                 <label for="monthEnd" class="sr-only"></label>
                 <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date" formControlName="dateEnd">
-                <div class="col alert alert-danger mt-2" role="alert"
-                     *ngIf="recruitmentForm.controls['phoneNumbers'].errors?.['required']
-         && recruitmentForm.controls['phoneNumbers'].touched">
-                  Số điện thoại là bắt buộc!
-                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <p>Hình thức làm việc</p>
-              <select style="width: 150px">
-                <option>Full time</option>
-                <option>PartTime</option>
+              <select style="width: 150px" formControlName="workId">
+                <option>Chọn</option>
+                <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
               </select>
             </div>
             <div class="col-sm-6">
               <p>Vị trí tuyển dụng</p>
-              <select>
-                <option>Giám đốc</option>
-                <option>Dev</option>
+              <select style="width: 150px" formControlName="positionId">
+                <option>Chọn</option>
+                <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
               </select>
             </div>
           </div>
@@ -116,7 +78,7 @@
           </div>
           <div class="form-group mt-3">
             <button type="submit" [disabled]="!recruitmentForm.valid" class="button button-contactForm btn_4 boxed-btn">
-              Đăng ký
+              Tạo Job
             </button>
           </div>
 
