@@ -27,6 +27,7 @@ import { DialogRegisterSuccessComponent } from './notification/dialog-register-s
 import { DialogRegisterImageComponent } from './notification/dialog-register-image/dialog-register-image.component';
 import { DialogLoginFailComponent } from './notification/dialog-login-fail/dialog-login-fail.component';
 import { DialogLogoutComponent } from './notification/dialog-logout/dialog-logout.component';
+import {UserCreateCvComponent} from "./main/user/user-create-cv/user-create-cv.component";
 
 
 const DialogComponents = [
@@ -38,6 +39,7 @@ const DialogComponents = [
   DialogRegisterImageComponent,
   DialogLoginFailComponent,
   DialogLogoutComponent,
+  UserCreateCvComponent
 ]
 
 @NgModule({

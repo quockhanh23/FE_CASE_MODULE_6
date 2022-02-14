@@ -12,8 +12,8 @@
                 <nav>
                   <ul id="navigation">
                     <li><a routerLink="enterprise/listJob">Trang chủ</a></li>
-                    <li><a >Cộng đồng</a></li>
-                    <li><a >Trang <i class="ti-angle-down"></i></a>
+                    <li><a>Cộng đồng</a></li>
+                    <li><a>Trang <i class="ti-angle-down"></i></a>
                       <ul class="submenu" style="border-radius: 5px">
                         <li><a [routerLink]="['/enterprise/listJob']">Người dùng</a></li>
                         <li><a [routerLink]="['/enterprise/listJob']">Doanh nghiệp</a></li>
@@ -21,7 +21,8 @@
                       </ul>
                     </li>
                     <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">
-                     <sub [routerLink]="['/user/detail/:id']" style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2></li>
+                      <sub style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -37,7 +38,7 @@
                     <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
-                                ngbTooltip="Đăng nhập"  ngbDropdownToggle>Đăng nhập
+                                ngbTooltip="Đăng nhập" ngbDropdownToggle>Đăng nhập
                         </button>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                           <a class="changeColor" routerLink="/login" ngbDropdownItem>Người dùng</a>
@@ -52,7 +53,7 @@
                     <div class="col" *ngIf="!isLoggedIn()">
                       <div ngbDropdown class="d-inline-block">
                         <button style="background-color:#00D363; color: white" class="btn btn-outline-primary"
-                                id="dropdownBasic1" ngbTooltip="Đăng ký"  ngbDropdownToggle>Đăng ký
+                                id="dropdownBasic1" ngbTooltip="Đăng ký" ngbDropdownToggle>Đăng ký
                         </button>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                           <a class="changeColor" routerLink="/register/user" ngbDropdownItem>Người dùng</a>
@@ -76,7 +77,9 @@
 <div class="slider_area">
   <div class="single_slider  d-flex align-items-center slider_bg_1" style="height: 300px">
     <div class="container">
-      <img style="width: 150px; height: 100px;" src="https://www.tourchauau.net/images/news/van-hoa-am-thuc/nhung-bieu-tuong-dac-trung-cua-nuoc-duc-9.png" alt="">
+      <img style="width: 150px; height: 100px;"
+           src="https://www.tourchauau.net/images/news/van-hoa-am-thuc/nhung-bieu-tuong-dac-trung-cua-nuoc-duc-9.png"
+           alt="">
       <div class="row align-items-center">
         <div class="col-lg-7 col-md-6">
           <div class="slider_text">

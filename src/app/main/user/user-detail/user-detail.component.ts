@@ -11,7 +11,7 @@ import {ProfileUser} from "../../../models/profile-user";
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-
+  id = localStorage.getItem('currentUser');
   userProfile!: ProfileUser
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -22,14 +22,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(param => {
-      const id = param.get('id')
-      // @ts-ignore
-      this.recruitmentsService.findById(id).subscribe(res => {
-        console.log(res)
-        this.userProfile = res
-      })
+    this.userService.getById(this.id).subscribe(res => {
+      console.log(res)
+      this.userProfile = res
     })
   }
-
 }
