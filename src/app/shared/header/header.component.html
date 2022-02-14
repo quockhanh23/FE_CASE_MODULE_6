@@ -21,7 +21,7 @@
                       </ul>
                     </li>
                     <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">
-                     <sub style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2></li>
+                     <sub [routerLink]="['/user/detail/:id']" style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2></li>
                   </ul>
                 </nav>
               </div>
