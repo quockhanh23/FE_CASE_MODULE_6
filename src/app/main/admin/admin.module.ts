@@ -7,14 +7,14 @@ import {ListEnterpriseOfAdminComponent} from "./list-enterprise-of-admin/list-en
 import {MatCardModule} from "@angular/material/card";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatButtonModule} from "@angular/material/button";
-import { AdminRecruitmenttsListComponent } from './admin-recruitmentts-list/admin-recruitmentts-list.component';
+import { AdminRecruitmentsListComponent } from './admin-recruitments-list/admin-recruitments-list.component';
 
 
 @NgModule({
   declarations: [
     EditStatusEnterpriseComponent,
     ListEnterpriseOfAdminComponent,
-    AdminRecruitmenttsListComponent
+    AdminRecruitmentsListComponent
   ],
   imports: [
     CommonModule,

@@ -7,10 +7,10 @@ import {Recruitments} from "../../../models/recruitments";
 
 @Component({
   selector: 'app-admin-recruitmentts-list',
-  templateUrl: './admin-recruitmentts-list.component.html',
-  styleUrls: ['./admin-recruitmentts-list.component.css']
+  templateUrl: './admin-recruitments-list.component.html',
+  styleUrls: ['./admin-recruitments-list.component.css']
 })
-export class AdminRecruitmenttsListComponent implements OnInit {
+export class AdminRecruitmentsListComponent implements OnInit {
   listJob: Recruitments[] = [];
 
   constructor(
