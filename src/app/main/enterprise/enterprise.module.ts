@@ -18,7 +18,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
     RecruitmentsDetailsComponent,
     HomePageEnterpriseComponent,
     RecruitmentsMyListComponent,
-    RecruitmentsCreateComponent
+    RecruitmentsCreateComponent,
   ],
   exports: [
     RecruitmentsListComponent

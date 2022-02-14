@@ -25,9 +25,11 @@ export class RecruitmentsService {
   findById(id: String): Observable<Recruitments> {
     return this.http.get<Recruitments>(API_URL + '/api/recruitments' + `/${id}`)
   }
-  register(recruitment: Recruitments,idEnterprise : any): Observable<Recruitments> {
+
+  register(recruitment: Recruitments, idEnterprise: any): Observable<Recruitments> {
     return this.http.post<Recruitments>(API_URL + '/api/recruitments/create' + `?idEnterprise=${idEnterprise}`, recruitment);
   }
+
   searchByName(name: string): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name/?q=${name}`)
   }
@@ -49,7 +51,53 @@ export class RecruitmentsService {
   }
 
   sortByNewRecruitments() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sort')
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sortNewJob')
+  }
+  sortByOldRecruitments() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sortOddJob')
+  }
+  findRecruitmentLikeId(id:string) {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/findRecruitmentLikeId' + `/${id}`)
+  }
+
+  searchByAddress1() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address1')
+  }
+
+  searchByAddress2() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address2')
+  }
+
+  searchByAddress3() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address3')
+  }
+
+  searchByAddress4() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address4')
+  }
+
+  searchByAddress5() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address5')
+  }
+
+  searchByAddress6() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address6')
+  }
+
+  searchByAddress7() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address7')
+  }
+
+  searchByAddress8() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address8')
+  }
+
+  searchByAddress9() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address9')
+  }
+
+  searchByAddress10() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address10')
   }
 }
 

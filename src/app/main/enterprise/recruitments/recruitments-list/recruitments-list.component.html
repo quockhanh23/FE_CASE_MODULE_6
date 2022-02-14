@@ -2,7 +2,7 @@
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 45px">
-<!--      <a style="font-size: 20px" class="navbar-brand">Tìm kiếm</a>-->
+      <!--      <a style="font-size: 20px" class="navbar-brand">Tìm kiếm</a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a style="font-size: 20px" routerLink="/enterprise/create" class="nav-link">Đăng công việc<span class="sr-only">(current)</span></a>
+            <a style="font-size: 20px" routerLink="/enterprise/create" class="nav-link">Đăng công việc<span
+              class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
             <a style="font-size: 20px" class="nav-link">Tìm kiếm</a>
@@ -18,13 +19,19 @@
           <li style="font-size: 20px" class="nav-item active dropdown">
             <a class="nav-link dropdown-toggle" id="" role="button" data-toggle="dropdown"
                aria-expanded="false">
-              Tìm theo thành phố
+              Tìm theo nơi làm việc
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item">Hà Nội</a>
-              <a class="dropdown-item">Lào Cai</a>
-              <a class="dropdown-item">Hải Phòng</a>
-              <a class="dropdown-item">Bình Dương</a>
+              <a (click)="searchByAddress1()" class="dropdown-item">Hà Nội</a>
+              <a (click)="searchByAddress2()" class="dropdown-item">Bắc Ninh</a>
+              <a (click)="searchByAddress3()" class="dropdown-item">Hà Nam</a>
+              <a (click)="searchByAddress4()" class="dropdown-item">Hải Dương</a>
+              <a (click)="searchByAddress5()" class="dropdown-item">Hải Phòng</a>
+              <a (click)="searchByAddress6()" class="dropdown-item">Hưng Yên</a>
+              <a (click)="searchByAddress7()" class="dropdown-item">Nam Định</a>
+              <a (click)="searchByAddress8()" class="dropdown-item">Ninh Bình</a>
+              <a (click)="searchByAddress9()" class="dropdown-item">Thái Bình</a>
+              <a (click)="searchByAddress10()" class="dropdown-item">Vĩnh Phúc</a>
             </div>
           </li>
           <li style="font-size: 20px" class="nav-item active dropdown">
@@ -34,7 +41,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a (click)="sortByNewRecruitments()" class="dropdown-item">Tin mới nhất</a>
-              <a class="dropdown-item">Tin cũ nhất</a>
+              <a (click)="sortByOldRecruitments()" class="dropdown-item">Tin cũ nhất</a>
             </div>
           </li>
         </ul>
