@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RecruitmentsService} from "../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {Recruitments} from "../../../models/recruitments";
@@ -10,18 +10,32 @@ import {Recruitments} from "../../../models/recruitments";
 })
 export class HomePageEnterpriseComponent implements OnInit {
   listJobOrderByDate: Recruitments[] = []
-  constructor( private recruitmentsService: RecruitmentsService,
-               private router: Router) { }
+  listJobVIPOrderByDate: Recruitments[] = []
+
+  constructor(private recruitmentsService: RecruitmentsService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loadListAllOrderByDate()
+    this.loadListVIPOrderByDate()
   }
-  loadListAllOrderByDate(){
+
+  loadListAllOrderByDate() {
     this.recruitmentsService.listRecruitmentsAllOrderByDate().subscribe(result => {
       console.log(result);
       this.listJobOrderByDate = result;
     }, loi => {
       console.log(loi);
+    })
+  }
+
+  loadListVIPOrderByDate() {
+    this.recruitmentsService.listRecruitmentsVIPOrderByDate().subscribe(result => {
+      console.log(result);
+      this.listJobVIPOrderByDate = result;
+    }, error => {
+      console.log(error);
     })
   }
 }

@@ -146,7 +146,7 @@ z
 
 <!-- job_listing_area_start  -->
 <div class="row">
-  <div class="col-9">
+  <div class="col-8">
     <div class="job_listing_area">
       <div class="container">
         <div class="row align-items-center">
@@ -205,8 +205,41 @@ z
       </div>
     </div>
   </div>
-  <div class="col-3">
-    <h1> Tốp Công ty truy cập</h1>
+  <div class="col-4">
+    <h2>Đề Xuất</h2>
+    <div class="row" *ngFor=" let job2 of listJobVIPOrderByDate ">
+      <div class="col-lg-12 col-md-12">
+        <div class="single_jobs white-bg d-flex justify-content-between">
+          <div class="jobs_left d-flex align-items-center">
+            <div class="thumb">
+              <img src="{{job2?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+            </div>
+            <div class="jobs_conetent">
+              <!--                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
+              <a href="enterprise/listJob/{{job2.id}}/details"><h4>{{job2.title}}</h4></a>
+              <div class="links_locat d-flex align-items-center">
+                <div class="location mr-5">
+                  <p><i class="fa fa-map-marker"></i> {{job2?.profileEnterprise?.addressCompany}}</p>
+                </div>
+                <div class="location">
+                  <p><i class="fa fa-clock-o"></i> {{job2?.workId?.name}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="jobs_right">
+            <div class="apply_now">
+<!--              <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>-->
+              <a href="enterprise/listJob/{{job2.id}}/details" class="boxed-btn3">Apply Now</a>
+              <!--                    <a routerLink="{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
+            </div>
+            <div class="date">
+              <p>Posting date: {{job2.dateBegin}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -26,15 +26,21 @@ export class RecruitmentsService {
   findById(id: String): Observable<Recruitments> {
     return this.http.get<Recruitments>(API_URL + '/api/recruitments' + `/${id}`)
   }
-  register(recruitment: Recruitments,idEnterprise : any): Observable<Recruitments> {
+
+  register(recruitment: Recruitments, idEnterprise: any): Observable<Recruitments> {
     return this.http.post<Recruitments>(API_URL + '/api/recruitments/create' + `?idEnterprise=${idEnterprise}`, recruitment);
   }
+
   searchByName(name: string): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name/?q=${name}`)
   }
 
   listRecruitmentsAllOrderByDate(): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_URL + '/api/recruitments/sort')
+  }
+
+  listRecruitmentsVIPOrderByDate(): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_URL + '/api/recruitments/topVIP')
   }
 
   myListRecruitments(id: any): Observable<Recruitments[]> {
