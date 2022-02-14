@@ -40,6 +40,12 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     })
   }
 
+  getAll() {
+    this.enterpriseOfAdminService.getAll().subscribe(result => {
+      this.enterprise = result
+    })
+  }
+
   getAllStatusNotActive() {
     this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
       console.log(res)
@@ -88,6 +94,12 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
         console.log("Lỗi", error)
         this.dialog.open(DialogFailComponent);
       })
+    })
+  }
+
+  getAllStatusByOne() {
+    this.enterpriseOfAdminService.getAllStatusByOne().subscribe(result => {
+      this.enterprise = result
     })
   }
 

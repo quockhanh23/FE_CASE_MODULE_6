@@ -37,7 +37,7 @@ export class RecruitmentsService {
   }
 
   myListRecruitments(id: any): Observable<Recruitments[]> {
-    return this.http.get<Recruitments[]>(API_URL + '/api/profileEnterprises'+ `/${id}`+'/myListRecruitment')
+    return this.http.get<Recruitments[]>(API_URL + '/api/profileEnterprises' + `/${id}` + '/myListRecruitment')
   }
 
   changeStatusHidden(id: any): Observable<ProfileEnterprise> {
@@ -46,6 +46,10 @@ export class RecruitmentsService {
 
   changeStatusPublic(id: any): Observable<ProfileEnterprise> {
     return this.http.delete<ProfileEnterprise>(API_URL_PUBLIC + `/${id}`)
+  }
+
+  sortByNewRecruitments() {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sort')
   }
 }
 

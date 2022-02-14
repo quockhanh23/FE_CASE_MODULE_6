@@ -1,37 +1,46 @@
-
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 45px">
-      <a style="font-size: 20px" class="navbar-brand" href="#">Tìm kiếm</a>
+<!--      <a style="font-size: 20px" class="navbar-brand">Tìm kiếm</a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a style="font-size: 20px" class="nav-link" href="#">Tìm kiếm<span class="sr-only">(current)</span></a>
+            <a style="font-size: 20px" routerLink="/enterprise/create" class="nav-link">Đăng công việc<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a style="font-size: 20px" class="nav-link" href="#">Tìm kiếm</a>
+            <a style="font-size: 20px" class="nav-link">Tìm kiếm</a>
           </li>
           <li style="font-size: 20px" class="nav-item active dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" id="" role="button" data-toggle="dropdown"
+               aria-expanded="false">
+              Tìm theo thành phố
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item">Hà Nội</a>
+              <a class="dropdown-item">Lào Cai</a>
+              <a class="dropdown-item">Hải Phòng</a>
+              <a class="dropdown-item">Bình Dương</a>
+            </div>
+          </li>
+          <li style="font-size: 20px" class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-expanded="false">
               Sắp xếp
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Sắp xếp 1</a>
-              <a class="dropdown-item" href="#">Sắp xếp 2</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Sắp xếp 3</a>
+              <a (click)="sortByNewRecruitments()" class="dropdown-item">Tin mới nhất</a>
+              <a class="dropdown-item">Tin cũ nhất</a>
             </div>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input (input)="searchByName()" id="search"  class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+          <input ngbTooltip="Tìm theo tên, địa chỉ, lương" (input)="searchByName()" id="search"
+                 class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
           <span style="font-size: 45px; color: deeppink" class="material-icons">content_paste_search</span>
         </form>
       </div>
@@ -46,7 +55,6 @@
               </div>
             </form>
           </div>
-
           <div class="range_wrap">
             <label for="amount">....</label>
             <div id="slider-range"></div>
@@ -65,8 +73,9 @@
           <div class="recent_joblist white-bg ">
             <div class="row align-items-center">
               <div class="col-md-6" style="margin-top: 15px">
-                <h1 class="menu"><sub style="color: deeppink"><span style="font-size: 26px" class="material-icons">feed</span></sub>&nbsp;Danh sách việc làm</h1>
-
+                <h1 class="menu"><sub style="color: deeppink">
+                  <span style="font-size: 26px" class="material-icons">
+                    feed</span></sub>&nbsp;Danh sách việc làm</h1>
               </div>
               <div class="col-md-6">
                 <div class="serch_cat d-flex justify-content-end">
@@ -81,21 +90,22 @@
             </div>
           </div>
         </div>
-
         <div class="job_lists m-0">
           <div class="row" *ngFor=" let job of listJob ">
             <div class="col-lg-12 col-md-12">
               <div class="single_jobs white-bg d-flex justify-content-between">
                 <div class="jobs_left d-flex align-items-center">
                   <div class="thumb">
-                    <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+                    <img class="a1" ngbTooltip="Xem thông tin doanh nghiệp" src="{{job?.profileEnterprise?.image}}"
+                         alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
-<!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
+                    <a ngbTooltip="Xem chi tiết" routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
+                    <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
-                        <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
+                        <p style="color: #f7941d"><i
+                          class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
                       </div>
                       <div class="location">
                         <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
@@ -105,12 +115,10 @@
                 </div>
                 <div class="jobs_right">
                   <div class="apply_now">
-                    <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                    <!--                    <a href="enterprise/{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
                     <a routerLink="{{job.id}}/details" class="boxed-btn3">Nộp đơn ngay</a>
                   </div>
                   <div class="date">
-                    <p>{{job.dateEnd}}</p>
+                    <p>Ngày hết hạn: {{job.dateEnd | date:"dd/MM/yyyy" }}</p>
                   </div>
                 </div>
               </div>
@@ -134,21 +142,3 @@
   </div>
 </div>
 <!-- job_listing_area_end  -->
-
-
-<!--<script>-->
-<!--  $(function () {-->
-<!--    $("#slider-range").slider({-->
-<!--      range: true,-->
-<!--      min: 0,-->
-<!--      max: 24600,-->
-<!--      values: [750, 24600],-->
-<!--      slide: function (event, ui) {-->
-<!--        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1] + "/ Year");-->
-<!--      }-->
-<!--    });-->
-<!--    $("#amount").val("$" + $("#slider-range").slider("values", 0) +-->
-<!--      " - $" + $("#slider-range").slider("values", 1) + "/ Year");-->
-<!--  });-->
-<!--</script>-->
-

@@ -3,6 +3,7 @@
   <div class="col-1"></div>
   <div class="col-10">
     <div class="row">
+      <a style="margin-left: 30px" class="button button-contactForm btn_4 boxed-btn" routerLink="/enterprise/listJob">Quay lại</a>
       <div class="col-12 text-center mt-3">
         <h2 class="contact-title" style="font-size: 30px">Tạo Job cần tuyển</h2>
       </div>
@@ -59,14 +60,14 @@
             <div class="col-sm-6">
               <p>Hình thức làm việc</p>
               <select style="width: 150px" formControlName="workId">
-                <option>Chọn</option>
+<!--                <option>Chọn</option>-->
                 <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
               </select>
             </div>
             <div class="col-sm-6">
               <p>Vị trí tuyển dụng</p>
               <select style="width: 150px" formControlName="positionId">
-                <option>Chọn</option>
+<!--                <option>Chọn</option>-->
                 <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
               </select>
             </div>
@@ -80,6 +81,7 @@
             <button type="submit" [disabled]="!recruitmentForm.valid" class="button button-contactForm btn_4 boxed-btn">
               Tạo Job
             </button>
+
           </div>
 
         </form>

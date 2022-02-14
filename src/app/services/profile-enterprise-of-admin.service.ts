@@ -35,4 +35,7 @@ export class ProfileEnterpriseOfAdminService {
   changeStatusActive(id: any): Observable<ProfileEnterprise> {
     return this.httpClient.delete<ProfileEnterprise>(API_URL_ACTIVE + `/${id}`)
   }
+  getAllStatusByOne(): Observable<ProfileEnterprise[]> {
+    return this.httpClient.get<ProfileEnterprise[]>(API_FIND_STATUS)
+  }
 }

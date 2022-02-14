@@ -1,15 +1,18 @@
 <div class="job_details_area">
   <div class="container">
+    <span ngbTooltip="Quay lại danh sách"
+          style="font-size: 25px" [routerLink]="['/enterprise/listJob']"
+          class="material-icons a1">keyboard_backspace</span>
     <div class="row">
       <div class="col-lg-8">
         <div class="job_details_header">
           <div class="single_jobs white-bg d-flex justify-content-between">
             <div class="jobs_left d-flex align-items-center">
               <div class="thumb">
-                <img src="{{recruitments.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+                <img ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
               </div>
               <div class="jobs_conetent">
-                <a href="#"><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
+                <a><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
                     <p><i class="fa fa-map-marker"></i> {{recruitments?.profileEnterprise?.addressCompany}}</p>
@@ -21,8 +24,10 @@
               </div>
             </div>
             <div class="jobs_right">
-              <div class="apply_now">
-                <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+              <div class="a2 apply_now" ngbTooltip="Báo cáo vi phạm">
+                <sub *ngIf="check" (click)="report()" style="color: red">
+                  <span style="font-size: 30px" class="material-icons">flag</span>
+                </sub>
               </div>
             </div>
           </div>
@@ -32,8 +37,6 @@
             <h4>Mô tả công việc: </h4>
             <p>
               {{recruitments.description}}
-            </p>
-            <p>
             </p>
           </div>
           <div class="single_wrap">
@@ -64,12 +67,12 @@
           </div>
           <div class="job_content">
             <ul>
-              <li>Ngày đăng tin: <span>{{recruitments.dateBegin}}</span></li>
-              <li>Ngày hết hạn: <span>{{recruitments.dateEnd}}</span></li>
+              <li>Ngày đăng tin: <span>{{recruitments.dateBegin | date:"dd/MM/yyyy"}}</span></li>
+              <li>Ngày hết hạn: <span>{{recruitments.dateEnd | date:"dd/MM/yyyy"}}</span></li>
               <li>Vị trí còn trống: <span>{{recruitments.numberOfRecruitments}}</span></li>
-              <li>Lương: <span>{{recruitments.salary}} VNĐ</span></li>
+              <li>Lương: <span>{{recruitments.salary | currency}}</span></li>
               <li>Địa điểm: <span>{{recruitments.address}}</span></li>
-              <li>Tên công việc: <span> {{recruitments.workId?.name}}</span></li>
+              <li>Thời gian: <span> {{recruitments.workId?.name}}</span></li>
             </ul>
           </div>
         </div>

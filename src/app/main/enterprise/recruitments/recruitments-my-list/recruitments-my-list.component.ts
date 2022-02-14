@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {Recruitments} from "../../../../models/recruitments";
+import {MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-recruitments-my-list',
@@ -15,6 +17,8 @@ export class RecruitmentsMyListComponent implements OnInit {
   constructor(
     private recruitmentsService: RecruitmentsService,
     private router: Router,
+    public dialog: MatDialog,
+    private toarts: ToastrService,
   ) {
   }
 
@@ -34,14 +38,14 @@ export class RecruitmentsMyListComponent implements OnInit {
   changeStatusHidden(id: any) {
     this.recruitmentsService.changeStatusHidden(id).subscribe(() => {
       this.loadMyListAll()
-      alert("Đã ẩn")
+      this.toarts.success('Đã ẩn bài đăng', 'Thông báo')
     })
   }
 
   changeStatusPublic(id: any) {
     this.recruitmentsService.changeStatusPublic(id).subscribe(() => {
       this.loadMyListAll()
-      alert("Đã Mở")
+      this.toarts.success('Bài đăng đã công khai', 'Thông báo')
     })
   }
 }
