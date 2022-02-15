@@ -4,6 +4,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {UserService} from "../../../services/user.service";
 import {ProfileUser} from "../../../models/profile-user";
+import {UserCreateCvComponent} from "../user-create-cv/user-create-cv.component";
+import {UserEditProfileComponent} from "../user-edit-profile/user-edit-profile.component";
 
 @Component({
   selector: 'app-user-detail',
@@ -26,5 +28,11 @@ export class UserDetailComponent implements OnInit {
       console.log(res)
       this.userProfile = res
     })
+  }
+  openDialogCV() {
+    this.dialog.open(UserCreateCvComponent)
+  }
+  openDialogEdit(){
+    this.dialog.open(UserEditProfileComponent)
   }
 }
