@@ -65,6 +65,8 @@ export class LoginUserComponent implements OnInit {
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
+          // @ts-ignore
+          localStorage.setItem('ID', data.id);
 
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
@@ -89,6 +91,7 @@ export class LoginUserComponent implements OnInit {
       this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
     }, 0)
   }
+
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);

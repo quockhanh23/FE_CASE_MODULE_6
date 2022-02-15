@@ -11,7 +11,7 @@ import {ProfileUser} from "../../../models/profile-user";
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  id = localStorage.getItem('currentUser');
+  id = localStorage.getItem('ID');
   userProfile!: ProfileUser
 
   constructor(private activatedRoute: ActivatedRoute,

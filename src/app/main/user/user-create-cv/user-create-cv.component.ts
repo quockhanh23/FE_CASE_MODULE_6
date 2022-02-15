@@ -31,5 +31,8 @@ export class UserCreateCvComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  createCV(){
+
+  }
 
 }
