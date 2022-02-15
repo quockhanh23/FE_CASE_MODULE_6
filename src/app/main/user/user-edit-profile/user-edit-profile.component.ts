@@ -14,8 +14,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class UserEditProfileComponent implements OnInit {
 
   id = localStorage.getItem('ID');
-  idURLDetail!:string;
-  // userProfile!: ProfileUser
+
   userProfileForm: FormGroup = new FormGroup({
     fullName: new FormControl(''),
     phoneNumber: new FormControl(''),
@@ -55,6 +54,5 @@ export class UserEditProfileComponent implements OnInit {
     }, error => {
       console.log("Lỗi")
     })
-
   }
 }
