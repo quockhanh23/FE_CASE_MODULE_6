@@ -1,4 +1,4 @@
-z
+
 <!-- header-end -->
 
 <!-- slider_area_start -->
@@ -185,6 +185,9 @@ z
                       <div class="location">
                         <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
                       </div>
+                      <div class="location">
+                        <p><i class="fas fa-dollar-sign"></i>{{job?.salary}}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -195,7 +198,8 @@ z
 <!--                    <a routerLink="{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
                   </div>
                   <div class="date">
-                    <p>Posting date: {{job.dateBegin}}</p>
+                    <p>Ngày đăng :{{job.dateBegin | date:"dd/MM/yyyy"}}</p>
+                    <p>Ngày hết hạn:{{job.dateEnd | date:"dd/MM/yyyy"}}</p>
                   </div>
                 </div>
               </div>
@@ -209,6 +213,7 @@ z
     <h2>Đề Xuất</h2>
     <div class="row" *ngFor=" let job2 of listJobVIPOrderByDate ">
       <div class="col-lg-12 col-md-12">
+        <a href="enterprise/listJob/{{job2.id}}/details">
         <div class="single_jobs white-bg d-flex justify-content-between">
           <div class="jobs_left d-flex align-items-center">
             <div class="thumb">
@@ -228,16 +233,18 @@ z
             </div>
           </div>
           <div class="jobs_right">
-            <div class="apply_now">
-<!--              <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>-->
-              <a href="enterprise/listJob/{{job2.id}}/details" class="boxed-btn3">Apply Now</a>
-              <!--                    <a routerLink="{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
-            </div>
+<!--            <div class="apply_now">-->
+<!--&lt;!&ndash;              <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>&ndash;&gt;-->
+<!--              <a href="enterprise/listJob/{{job2.id}}/details" class="boxed-btn3">Apply Now</a>-->
+<!--              &lt;!&ndash;                    <a routerLink="{{job.id}}/details" class="boxed-btn3">Apply Now</a>&ndash;&gt;-->
+<!--            </div>-->
             <div class="date">
-              <p>Posting date: {{job2.dateBegin}}</p>
+              <p>Ngày đăng : {{job2.dateBegin | date:"dd/MM/yyyy"}}</p>
+<!--              <p>Ngày hết hạn: {{job2.dateEnd | date:"dd/MM/yyyy"}}</p>-->
             </div>
           </div>
         </div>
+        </a>
       </div>
     </div>
   </div>
