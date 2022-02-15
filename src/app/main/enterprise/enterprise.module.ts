@@ -10,6 +10,7 @@ import {RecruitmentsCreateComponent} from "./recruitments/recruitments-create/re
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import { EnterpriseEditComponent } from './enterprise-edit/enterprise-edit.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
     HomePageEnterpriseComponent,
     RecruitmentsMyListComponent,
     RecruitmentsCreateComponent,
+    EnterpriseEditComponent,
   ],
   exports: [
     RecruitmentsListComponent
