@@ -5,6 +5,7 @@ import {Recruitments} from "../../../../models/recruitments";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {UserCreateCvComponent} from "../../../user/user-create-cv/user-create-cv.component";
+import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 
 
 @Component({
@@ -42,5 +43,8 @@ export class RecruitmentsDetailsComponent implements OnInit {
   }
   openDialogCV(){
     this.dialog.open(UserCreateCvComponent)
+  }
+  applyNow(){
+    this.dialog.open(DialogApplyNowComponent)
   }
 }

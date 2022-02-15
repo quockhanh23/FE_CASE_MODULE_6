@@ -42,7 +42,6 @@ export class RecruitmentsCreateComponent implements OnInit {
     this.loadListWork()
   }
   register(){
-
     const recruitment = {
       title: this.recruitmentForm.value.title,
       salary: this.recruitmentForm.value.salary,

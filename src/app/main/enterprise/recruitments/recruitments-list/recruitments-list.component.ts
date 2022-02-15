@@ -3,6 +3,8 @@ import {Recruitments} from "../../../../models/recruitments";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 
 @Component({
   selector: 'app-recruitments-list',
@@ -16,6 +18,7 @@ export class RecruitmentsListComponent implements OnInit {
     private recruitmentsService: RecruitmentsService,
     private router: Router,
     private toarts: ToastrService,
+    public dialog: MatDialog,
   ) {
 
   }
