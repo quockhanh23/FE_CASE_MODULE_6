@@ -5,6 +5,7 @@ import {ProfileUser} from "../models/profile-user";
 import {environment} from "../../environments/environment";
 
 const API_URL = environment.apiUrl;
+const API_URL_UPDATE = 'http://localhost:8080/users'
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class UserService {
 
   getAll(): Observable<ProfileUser[]> {
     return this.http.get<ProfileUser[]>(API_URL + '/users')
+  }
+
+  update(id: any, profileUser: ProfileUser): Observable<ProfileUser> {
+    return this.http.put<ProfileUser>(API_URL_UPDATE + `/${id}`, profileUser)
   }
 
   getById(id: any): Observable<ProfileUser> {
