@@ -17,15 +17,15 @@
                     <li><a>Trang <i class="ti-angle-down"></i></a>
                       <ul class="submenu" style="border-radius: 5px">
                         <li><a [routerLink]="['/enterprise/listJob']">Người dùng</a></li>
-                        <li><a [routerLink]="['/enterprise/listJob']">Doanh nghiệp</a></li>
+                        <li><a [routerLink]="['/enterprise/home-page']">Doanh nghiệp</a></li>
                         <li><a [routerLink]="['/enterprise/myListJob']">My List Job</a></li>
                         <li><a [routerLink]="['/admin/list']">Quản lý d/s doanh nghiệp</a></li>
                         <li><a [routerLink]="['/admin/listJob']">Quản lý d/s đăng tin</a></li>
                         <li><a [routerLink]="['/user/detail/:id']">Thông tin cá nhân</a></li>
                       </ul>
                     </li>
-                    <li><h2 class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">
-                      <sub style="color: black"><span class="material-icons">how_to_reg</span></sub>{{username}}</h2>
+                    <li><h2 [routerLink]="['/user/detail/:id']" class="changeColor" style="margin-left: 30px" *ngIf="isLoggedIn()">
+                      <sub style="color: black"><span  class="material-icons">how_to_reg</span></sub>{{username}}</h2>
                     </li>
                   </ul>
                 </nav>

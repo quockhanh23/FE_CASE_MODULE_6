@@ -6,6 +6,8 @@ import {UserDetailComponent} from "./user-detail/user-detail.component";
 import { UserEditCvComponent } from './user-edit-cv/user-edit-cv.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { UserListCvComponent } from './user-list-cv/user-list-cv.component';
+import {MatButtonModule} from "@angular/material/button";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -23,6 +25,8 @@ import { UserListCvComponent } from './user-list-cv/user-list-cv.component';
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    NgbTooltipModule,
   ]
 })
 export class UserModule { }
