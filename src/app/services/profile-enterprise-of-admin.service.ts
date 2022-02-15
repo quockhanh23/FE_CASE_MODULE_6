@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 const API_URL = 'http://localhost:8080/api/admins/findAllEnterprise';
 const API_URL_LOCK = 'http://localhost:8080/api/admins/changeLock';
 const API_URL_ACTIVE = 'http://localhost:8080/api/admins/changeActive';
+const API_URL_VIP = 'http://localhost:8080/api/admins/changeVIP';
 const API_FIND_ID = 'http://localhost:8080/api/profileEnterprises';
 const API_FIND_STATUS = 'http://localhost:8080/api/profileEnterprises/findStatus';
 
@@ -34,6 +35,10 @@ export class ProfileEnterpriseOfAdminService {
 
   changeStatusActive(id: any): Observable<ProfileEnterprise> {
     return this.httpClient.delete<ProfileEnterprise>(API_URL_ACTIVE + `/${id}`)
+  }
+
+  changeStatusVIP(id: any): Observable<ProfileEnterprise> {
+    return this.httpClient.delete<ProfileEnterprise>(API_URL_VIP + `/${id}`)
   }
   getAllStatusByOne(): Observable<ProfileEnterprise[]> {
     return this.httpClient.get<ProfileEnterprise[]>(API_FIND_STATUS)
