@@ -21,4 +21,12 @@ export class UserService {
   register(enterprise: ProfileUser): Observable<ProfileUser> {
     return this.http.post<ProfileUser>(API_URL + '/register/user', enterprise);
   }
+
+  getAll(): Observable<ProfileUser[]> {
+    return this.http.get<ProfileUser[]>(API_URL + '/users')
+  }
+
+  getById(id: any): Observable<ProfileUser> {
+    return this.http.get<ProfileUser>(API_URL + '/users' + `/${id}`)
+  }
 }

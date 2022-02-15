@@ -1,0 +1,54 @@
+<h1 style="color: indigo; width: 300px" mat-dialog-title></h1>
+<div mat-dialog-content></div>
+<div>
+  <form class="form-contact contact_form" [formGroup]="CVForm"
+        (ngSubmit)="createCV()" id="contactForm">
+    <div class="container">
+
+      <div class="row">
+        <div>
+          <div>
+            <div>
+              <h1 class="text-left">Thêm hồ sơ</h1>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label class="labels">Họ và tên</label>
+                <input formControlName="fullName" type="text" class="form-control" placeholder="Họ tên"></div>
+              <div class="col-md-6">
+                <label class="labels">Tuổi</label>
+                <input formControlName="age" type="text" class="form-control" placeholder="Tuổi"></div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label class="labels">Số điện thoại</label>
+                <input formControlName="numberPhone" type="text" class="form-control" placeholder="Số điện thoại"></div>
+              <div class="col-md-6">
+                <label class="labels">Kinh nghiệm</label>
+                <input formControlName="experience" type="text" class="form-control" placeholder="Kinh nghiệm"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label class="labels">Địa chỉ thường trú</label>
+                <input formControlName="address" type="text" class="form-control" placeholder="Địa chỉ thường trú">
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Nơi làm việc cũ</label>
+                <input formControlName="oldWorkplace" type="text" class="form-control" placeholder="Nơi làm việc cũ">
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Sở thích</label>
+                <input formControlName="interest" type="text" class="form-control" placeholder="Sở thích"></div>
+            </div>
+            <div class="mt-5 text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions align="end">
+      <button class="btn btn-primary profile-button hoverDialog" mat-button type="button">Lưu CV</button>
+      <button class="btn btn-primary profile-button hoverDialog" mat-button mat-dialog-close>Đóng</button>
+    </div>
+  </form>
+</div>
