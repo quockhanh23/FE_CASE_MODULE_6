@@ -70,4 +70,7 @@ export class UserCreateCvComponent implements OnInit {
       location.reload()
     }, 800)
   }
+  open(){
+    if (localStorage.getItem('ROLE') == 'ROLE_ADMIN'){}
+  }
 }
