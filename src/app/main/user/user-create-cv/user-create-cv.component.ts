@@ -26,7 +26,6 @@ export class UserCreateCvComponent implements OnInit {
     experience: new FormControl("",),
     oldWorkplace: new FormControl("",),
     interest: new FormControl("",),
-    // profileUserId: new FormControl(""),
   });
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -59,6 +58,7 @@ export class UserCreateCvComponent implements OnInit {
     // @ts-ignore
     this.fileCVService.create(CV, this.id).subscribe(() => {
       console.log("đã lưu cv")
+      location.reload()
     }, error => {
       console.log("lỗi")
     })

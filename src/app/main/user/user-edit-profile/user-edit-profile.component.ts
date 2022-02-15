@@ -13,10 +13,10 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class UserEditProfileComponent implements OnInit {
 
-  userProfile!: ProfileUser
+  id = localStorage.getItem('ID');
+  idURLDetail!:string;
+  // userProfile!: ProfileUser
   userProfileForm: FormGroup = new FormGroup({
-    id: new FormControl(''),
-    email: new FormControl(''),
     fullName: new FormControl(''),
     phoneNumber: new FormControl(''),
   });
@@ -29,34 +29,32 @@ export class UserEditProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paraMap => {
-      const id = paraMap.get('id')
-      console.log(id);
       // @ts-ignore
-      this.userService.getById(id).subscribe(result => {
+      this.userService.getById(this.id).subscribe(result => {
         this.userProfileForm = new FormGroup({
-          id: new FormControl(result.fullName),
+          id: new FormControl(result.id),
           fullName: new FormControl(result.fullName),
-          email: new FormControl(result.email),
           phoneNumber: new FormControl(result.phoneNumber),
         });
         console.log(result)
       }, error => {
         console.log(error);
       })
-    })
   }
 
   updateUser() {
-    let userNew = {
+    const userNew = {
       fullName: this.userProfileForm.value.fullName,
-      email: this.userProfileForm.value.email,
       phoneNumber: this.userProfileForm.value.phoneNumber,
     }
     console.log(userNew)
     // @ts-ignore
-    this.userService.update(this.userProfileForm.value.id, userNew).subscribe(() => {
+    this.userService.update(this.id, userNew).subscribe(r => {
+      location.reload()
+      console.log(r + '...')
     }, error => {
+      console.log("Lỗi")
     })
+
   }
 }
