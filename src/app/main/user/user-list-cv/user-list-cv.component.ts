@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FileCV} from "../../../models/file-cv";
+import {FileCVService} from "../../../services/file-cv.service";
+import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list-cv',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListCvComponent implements OnInit {
 
-  constructor() { }
+  id = localStorage.getItem('ID');
 
-  ngOnInit(): void {
+
+  constructor(private fileCVService: FileCVService,
+              private toarts: ToastrService,
+              public dialog: MatDialog,
+              private router: Router,) {
   }
 
+  ngOnInit(): void {
+
+  }
 }
+

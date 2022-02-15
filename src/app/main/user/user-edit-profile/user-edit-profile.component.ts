@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-edit-profile.component.css']
 })
 export class UserEditProfileComponent implements OnInit {
-
+  id = localStorage.getItem('ID');
   constructor() { }
 
   ngOnInit(): void {
