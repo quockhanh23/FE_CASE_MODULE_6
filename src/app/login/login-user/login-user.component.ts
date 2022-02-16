@@ -13,6 +13,7 @@ import {DialogLogoutComponent} from "../../notification/dialog-logout/dialog-log
 import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
 import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
 import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
+import {HeaderComponent} from "../../shared/header/header.component";
 
 @Component({
   selector: 'app-login-user',
@@ -39,7 +40,7 @@ export class LoginUserComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private router: Router,
               private toarts: ToastrService,
-              private authenticationService: AuthenticationService
+              private authenticationService: AuthenticationService,
   ) {
     console.log(this.authenticationService.currentUserValue);
   }
@@ -71,6 +72,7 @@ export class LoginUserComponent implements OnInit {
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
             this.openToartsLogoIn()
+            // window.open("http://localhost:4200/admin/list","","true");
           } else {
             this.router.navigate([this.returnUrl]).then()
             this.openToartsLogoIn()

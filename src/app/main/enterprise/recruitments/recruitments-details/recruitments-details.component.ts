@@ -17,7 +17,7 @@ export class RecruitmentsDetailsComponent implements OnInit {
 
   recruitments!: Recruitments;
   check = true
-
+  idRec!: string
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
@@ -29,6 +29,8 @@ export class RecruitmentsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(param => {
       const id = param.get('id')
+      this.idRec = "" + id
+      localStorage.setItem('idRec',this.idRec)
       // @ts-ignore
       this.recruitmentsService.findById(id).subscribe(res => {
         console.log(res)

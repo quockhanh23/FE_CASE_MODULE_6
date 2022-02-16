@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {FileCV} from "../models/file-cv";
+import {Recruitments} from "../models/recruitments";
 
 const API_URL = "http://localhost:8080/api/cvs";
 const API_URL_EDIT = "http://localhost:8080/api/cvs/editCV";
@@ -33,5 +34,8 @@ export class FileCVService {
 
   delete(id: any): Observable<FileCV> {
     return this.http.delete<FileCV>(API_URL + `/${id}`)
+  }
+  submitCv(idUser: any,recruitment: Recruitments): Observable<FileCV> {
+    return this.http.post<FileCV>(API_URL + '/submitCv' + `?idUser=${idUser}`,recruitment)
   }
 }
