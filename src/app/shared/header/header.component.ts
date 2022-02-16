@@ -8,12 +8,15 @@ import {AuthenticationService} from "../../services/authentication.service";
 })
 export class HeaderComponent implements OnInit {
   username: string | null = ''
+  role?: any
 
   constructor(private authService: AuthenticationService,
   ) {
   }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem("ROLE")
+    console.log(this.role)
   }
 
   isLoggedIn(): boolean {
