@@ -53,7 +53,10 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     // @ts-ignore
     this.currentUserSubject.next(null);
-    this.router.navigate(["/login"]).then();
+    // this.router.navigate(["/login"]).then();
+
+    //fix Logout header
+    window.location.href = 'http://localhost:4200/login';
     this.dialog.open(DialogLogoutComponent)
     this.openToartsLogout()
   }

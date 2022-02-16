@@ -59,7 +59,10 @@ export class LoginEnterpriseComponent implements OnInit {
           console.log(data)
           this.openDialogRules()
           this.openToartsLogoIn()
-          this.router.navigate(["/enterprise/listJob"]).then()
+          // this.router.navigate(["/enterprise/listJob"]).then()
+
+          // fix reload trang header
+          window.location.href = 'http://localhost:4200/enterprise/listJob';
         },
         error => {
           console.log('error:' + error)

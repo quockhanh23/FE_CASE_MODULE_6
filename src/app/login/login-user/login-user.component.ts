@@ -70,7 +70,10 @@ export class LoginUserComponent implements OnInit {
           localStorage.setItem('ID', data.id);
 
           if (data.roles[0].authority == "ROLE_ADMIN") {
-            this.router.navigate([this.adminUrl]).then()
+            // this.router.navigate([this.adminUrl]).then()
+
+            // fix reload trang header
+            window.location.href = 'http://localhost:4200/admin/list';
             this.openToartsLogoIn()
             // window.open("http://localhost:4200/admin/list","","true");
           } else {
