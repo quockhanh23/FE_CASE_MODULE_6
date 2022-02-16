@@ -129,10 +129,11 @@
             Email và mật khẩu xác nhận đã hợp lệ
           </div>
           <div style="margin-top: 10px">
-            <button style="width: 190px" mat-raised-button ngbTooltip="Đăng ký" [disabled]="!enterpriseForm.valid"
+            <button *ngIf="checkButton" style="width: 190px" mat-raised-button ngbTooltip="Đăng ký" [disabled]="!enterpriseForm.valid"
                     class="btn-primary btn" mat-button color="primary">
               <span class="material-icons">touch_app</span>Đăng ký
             </button>
+            <mat-spinner [diameter]="30" *ngIf="checkDone"></mat-spinner>
           </div>
         </form>
       </div>

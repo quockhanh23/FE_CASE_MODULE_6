@@ -12,6 +12,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
 import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
+import {DialogCheckRegisterComponent} from "../../notification/dialog-check-register/dialog-check-register.component";
 
 @Component({
   selector: 'app-enterprise',
@@ -40,6 +41,9 @@ export class EnterpriseComponent implements OnInit {
   fb: any;
   downloadURL!: Observable<string>;
   enterprise1!: ProfileEnterprise
+  checkDone = false
+  checkButton = true
+  checkDialog = false
 
   constructor(private storage: AngularFireStorage,
               private activatedRoute: ActivatedRoute,
@@ -83,15 +87,22 @@ export class EnterpriseComponent implements OnInit {
 
   register() {
     const enterprise = this.enterpriseForm.value;
+    this.openDialogRegisterCheck()
+    this.checkDone = true
+    this.checkButton = false
     this.enterprise1 = enterprise
     this.enterprise1.image = this.fb
     console.log(this.enterprise1)
     console.log(enterprise)
     this.enterprise.register(this.enterprise1).subscribe(() => {
-      this.dialog.open(DialogRegisterSuccessComponent)
+      this.dialog.closeAll()
       this.router.navigate(["login/enterprise"]).then()
+      this.dialog.open(DialogRegisterSuccessComponent)
     }, error => {
-      console.log("lỗi nè"+ error)
+      console.log("lỗi nè" + error)
+      this.checkButton = true
+      this.checkDone = false
+      this.dialog.closeAll()
       if (this.enterprise1.image == undefined) {
         this.dialog.open(DialogRegisterImageComponent)
       } else {
@@ -99,6 +110,10 @@ export class EnterpriseComponent implements OnInit {
       }
     })
   }
+  openDialogRegisterCheck() {
+    this.dialog.open(DialogCheckRegisterComponent)
+  }
+
   openDialogRegisterSuccess() {
     this.dialog.open(DialogRegisterSuccessComponent)
   }

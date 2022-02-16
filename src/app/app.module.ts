@@ -30,6 +30,8 @@ import { DialogLogoutComponent } from './notification/dialog-logout/dialog-logou
 import {UserCreateCvComponent} from "./main/user/user-create-cv/user-create-cv.component";
 import { DialogApplyNowComponent } from './notification/dialog-apply-now/dialog-apply-now.component';
 import { UserEditProfileComponent } from './main/user/user-edit-profile/user-edit-profile.component';
+import { DialogCheckRegisterComponent } from './notification/dialog-check-register/dialog-check-register.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 const DialogComponents = [
@@ -56,20 +58,22 @@ const DialogComponents = [
     LoginEnterpriseComponent,
     DialogApplyNowComponent,
     UserEditProfileComponent,
+    DialogCheckRegisterComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgbModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgbModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+        MatProgressBarModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
