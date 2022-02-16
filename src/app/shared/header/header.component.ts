@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
     this.authService.logout();
-    this.openReload()
   }
 
   openReload() {
