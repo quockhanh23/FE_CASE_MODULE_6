@@ -4,33 +4,29 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <div class="row" class="breadcrumb">
         <div class="col-8">
-          <li class="breadcrumb-item"><a href="index.html">Quay lại</a></li>
+          <span ngbTooltip="Quay lại danh sách"
+                style="font-size: 25px" [routerLink]="['/enterprise/listJob']"
+                class="material-icons a1">keyboard_backspace</span>
         </div>
         <div class="col-3" align="right">
-
         </div>
       </div>
     </nav>
     <!-- /Breadcrumb -->
-
     <div class="row gutters-sm">
       <div class="col-md-4 mb-3">
         <div class="card">
-          <div class="row"class="breadcrumb" style="height: 20px;" ></div>
           <div class="card-body">
-
             <div class="d-flex flex-column align-items-center text-center">
               <img src="{{enterprise?.image}}" alt="Admin" class="rounded-circle" width="150">
               <div class="mt-3">
-                <h4>{{enterprise?.nameCompany}}</h4>
+                <h3>{{enterprise?.nameCompany}}</h3>
                 <p class="text-secondary mb-1">{{enterprise?.description}}/p>
                 <p class="text-muted font-size-sm">{{enterprise?.addressCompany}}</p>
-                <button class="btn btn-primary">Theo dõi</button>
-
+                <button mat-button class="btn btn-primary">Theo dõi</button>
               </div>
             </div>
           </div>
-          <div class="row"class="breadcrumb" style="height: 20px;" ></div>
         </div>
         <div class="card mt-3">
           <ul class="list-group list-group-flush">
@@ -102,15 +98,6 @@
       <div class="col-md-8">
         <div class="card mb-3">
           <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <h3 class="mb-0">Tên công ty</h3>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                <h3 class="mb-0">{{enterprise?.addressCompany}}</h3>
-              </div>
-            </div>
-            <hr>
             <div class="row">
               <div class="col-sm-3">
                 <h3 class="mb-0">Email</h3>
