@@ -28,9 +28,10 @@ export class RecruitmentsListComponent implements OnInit {
     this.recruitmentsService.getAllRecruitment(0).subscribe(data => {
       // @ts-ignore
       this.listJob = data.content;
+      console.log(this.listJob)
     });
     this.recruitmentsService.getAll1().subscribe(data => {
-      console.log(data)
+      // console.log(data)
       this.listRecruitmentsNotPagination = data;
 
       // @ts-ignore
@@ -130,8 +131,7 @@ export class RecruitmentsListComponent implements OnInit {
   }
 
   nextPage() {
-   let totalPage= this.indexPagination ;
-    totalPage++
+   this.indexPagination++ ;
     let b = this.listRecruitmentsNotPagination.length
     let max = 0
     for (let i = 0; i < b; i++) {
@@ -141,13 +141,17 @@ export class RecruitmentsListComponent implements OnInit {
         }
       }
     }
-    if (totalPage > (max / 5)) {
-      totalPage -= 1;
+    console.log(max)
+    if (this.indexPagination > (max / 5)) {
+      this.indexPagination -= 1;
+      console.log("x")
     } else {
-      this.recruitmentsService.getAllRecruitment(this.indexPagination++).subscribe(data => {
+      this.recruitmentsService.getAllRecruitment(this.indexPagination).subscribe(data => {
         // @ts-ignore
         this.listJob = data.content;
+        console.log(this.indexPagination)
         console.error()
+        console.log(this.listJob)
 
       }, error => {
         console.log(error)
@@ -158,31 +162,13 @@ export class RecruitmentsListComponent implements OnInit {
 
   previousPage() {
     this.indexPagination = this.indexPagination - 1;
-    if (this.indexPagination == 0) {
-      this.indexPagination = 1;
+    if (this.indexPagination < 0) {
+      this.indexPagination = 0;
     } else {
-      this.recruitmentsService.getAllRecruitment(this.indexPagination - 1).subscribe((data: Recruitments[]) => {
+      this.recruitmentsService.getAllRecruitment(this.indexPagination).subscribe((data: Recruitments[]) => {
         // @ts-ignore
         this.listJob = data.content;
       })
     }
-  }
-
-  lastPage() {
-    let b = this.listRecruitmentsNotPagination.length
-    let max = 0
-    for (let i = 0; i < b; i++) {
-      if (i % 5 == 0) {
-        if (i > max) {
-          max = i;
-        }
-      }
-    }
-    this.recruitmentsService.getAllRecruitment(max/5-1).subscribe(data => {
-      // @ts-ignore
-      this.listJob = data.content;
-      // @ts-ignore
-      console.log( data.content)
-    })
   }
 }
