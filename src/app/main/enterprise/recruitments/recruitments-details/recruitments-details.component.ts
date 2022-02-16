@@ -14,10 +14,11 @@ import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now
   styleUrls: ['./recruitments-details.component.css']
 })
 export class RecruitmentsDetailsComponent implements OnInit {
-
+  currentUser = localStorage.getItem("currentUser");
   recruitments!: Recruitments;
   check = true
   idRec!: string
+
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
@@ -30,7 +31,7 @@ export class RecruitmentsDetailsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(param => {
       const id = param.get('id')
       this.idRec = "" + id
-      localStorage.setItem('idRec',this.idRec)
+      localStorage.setItem('idRec', this.idRec)
       // @ts-ignore
       this.recruitmentsService.findById(id).subscribe(res => {
         console.log(res)
@@ -43,10 +44,12 @@ export class RecruitmentsDetailsComponent implements OnInit {
     this.check = false
     this.toarts.info("Cảm ơn bạn đã trợ giúp. Chúng tôi sẽ xem xét lại thông tin", 'Thông báo !')
   }
-  openDialogCV(){
+
+  openDialogCV() {
     this.dialog.open(UserCreateCvComponent)
   }
-  applyNow(){
+
+  applyNow() {
     this.dialog.open(DialogApplyNowComponent)
   }
 }
