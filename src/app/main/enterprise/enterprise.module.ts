@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { EnterpriseEditComponent } from './enterprise-edit/enterprise-edit.component';
 import {MatButtonModule} from "@angular/material/button";
+import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MatButtonModule} from "@angular/material/button";
     RecruitmentsMyListComponent,
     RecruitmentsCreateComponent,
     EnterpriseEditComponent,
+    EnterpriseDetailComponent,
   ],
   exports: [
     RecruitmentsListComponent

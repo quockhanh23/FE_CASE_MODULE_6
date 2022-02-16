@@ -5,6 +5,8 @@ import {RecruitmentsDetailsComponent} from "./recruitments/recruitments-details/
 import {HomePageEnterpriseComponent} from "./home-page-enterprise/home-page-enterprise.component";
 import {RecruitmentsMyListComponent} from "./recruitments/recruitments-my-list/recruitments-my-list.component";
 import {RecruitmentsCreateComponent} from "./recruitments/recruitments-create/recruitments-create.component";
+import {EnterpriseEditComponent} from "./enterprise-edit/enterprise-edit.component";
+import {EnterpriseDetailComponent} from "./enterprise-detail/enterprise-detail.component";
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path :'home-page',
     component: HomePageEnterpriseComponent
+  },
+  {
+    path :'edit',
+    component: EnterpriseEditComponent
+  },
+  {
+    path :'detail',
+    component: EnterpriseDetailComponent
   },
 ];
 

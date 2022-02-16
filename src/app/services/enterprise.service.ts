@@ -7,6 +7,8 @@ import {ProfileEnterprise} from "../models/profile-enterprise";
 import {FileCV} from "../models/file-cv";
 
 const API_URL = environment.apiUrl;
+const API_URL_UPDATE = "http://localhost:8080/api/profileEnterprises/edit";
+const API_URL_GET_ONE = "http://localhost:8080/api/profileEnterprises";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,10 @@ export class EnterpriseService {
   }
 
   getById(id: any): Observable<ProfileEnterprise> {
-    return this.http.get<ProfileEnterprise>(API_URL + `/${id}`)
+    return this.http.get<ProfileEnterprise>(API_URL_GET_ONE + `/${id}`)
+  }
+
+  update(id: any, profileEnterprise: ProfileEnterprise): Observable<ProfileEnterprise> {
+    return this.http.put<ProfileEnterprise>(API_URL_UPDATE + `/${id}`, profileEnterprise)
   }
 }
