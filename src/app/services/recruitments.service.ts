@@ -30,6 +30,9 @@ export class RecruitmentsService {
   register(recruitment: Recruitments, idEnterprise: any): Observable<Recruitments> {
     return this.http.post<Recruitments>(API_URL + '/api/recruitments/create' + `?idEnterprise=${idEnterprise}`, recruitment);
   }
+  editRecruitment(recruitment: Recruitments, idRecruitment: any): Observable<Recruitments> {
+    return this.http.put<Recruitments>(API_URL + '/api/recruitments/edit' + `?idRecruitment=${idRecruitment}`, recruitment);
+  }
 
   searchByName(name: string): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name/?q=${name}`)

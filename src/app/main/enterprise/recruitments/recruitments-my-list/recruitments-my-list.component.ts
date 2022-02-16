@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RecruitmentsService} from "../../../../services/recruitments.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Recruitments} from "../../../../models/recruitments";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
@@ -15,6 +15,7 @@ export class RecruitmentsMyListComponent implements OnInit {
   myListJob: Recruitments[] = [];
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private recruitmentsService: RecruitmentsService,
     private router: Router,
     public dialog: MatDialog,
@@ -47,5 +48,9 @@ export class RecruitmentsMyListComponent implements OnInit {
       this.loadMyListAll()
       this.toarts.success('Bài đăng đã công khai', 'Thông báo')
     })
+  }
+
+  showEditForm(id: any) {
+    this.router.navigate(["/enterprise/" + id + "/edit"])
   }
 }

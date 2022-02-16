@@ -10,7 +10,7 @@ import {RecruitmentsCreateComponent} from "./recruitments/recruitments-create/re
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
-import { RecruitmentEditComponent } from './recruitment-edit/recruitment-edit.component';
+import { RecruitmentEditComponent } from './recruitments/recruitment-edit/recruitment-edit.component';
 
 
 @NgModule({

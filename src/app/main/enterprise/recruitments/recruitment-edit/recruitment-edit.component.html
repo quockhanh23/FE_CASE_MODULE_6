@@ -1,0 +1,92 @@
+<div class="row" style="height: 20px;background-color: gainsboro"></div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="row">
+      <a style="margin-left: 30px" class="button button-contactForm btn_4 boxed-btn" routerLink="/enterprise/myListJob">Quay lại</a>
+      <div class="col-12 text-center mt-3">
+        <h2 class="contact-title" style="font-size: 30px">Tạo Job cần tuyển</h2>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-lg-8 mt-3">
+        <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
+              (ngSubmit)="updateRecruitment()" id="contactForm">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <input class="form-control " type="text" placeholder='Nhập lĩnh vực' formControlName="title">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nhập Địa chỉ làm việc"
+                       formControlName="address">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Yêu cầu kinh nghiệm" formControlName="experience">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Số lượng tuyển" formControlName="numberOfRecruitments">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Giới tính yêu cầu" formControlName="gender">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nhập mức lương"
+                       formControlName="salary">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <p>Mô tả công việc</p>
+                <input class="form-control" type="text" style="height: 120px" formControlName="description">
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <p>Ngày kết thúc</p>
+                <label for="monthEnd" class="sr-only"></label>
+                <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date" formControlName="dateEnd">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <p>Hình thức làm việc</p>
+              <select style="width: 150px" formControlName="workId">
+                <!--                <option>Chọn</option>-->
+                <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <p>Vị trí tuyển dụng</p>
+              <select style="width: 150px" formControlName="positionId">
+                <!--                <option>Chọn</option>-->
+                <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col alert alert-success" role="alert"
+               *ngIf="recruitmentForm.valid">
+            Email và mật khẩu xác nhận đã hợp lệ
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" [disabled]="!recruitmentForm.valid" class="button button-contactForm btn_4 boxed-btn">
+              Update
+            </button>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

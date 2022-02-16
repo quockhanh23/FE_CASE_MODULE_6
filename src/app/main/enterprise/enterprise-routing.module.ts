@@ -5,6 +5,7 @@ import {RecruitmentsDetailsComponent} from "./recruitments/recruitments-details/
 import {HomePageEnterpriseComponent} from "./home-page-enterprise/home-page-enterprise.component";
 import {RecruitmentsMyListComponent} from "./recruitments/recruitments-my-list/recruitments-my-list.component";
 import {RecruitmentsCreateComponent} from "./recruitments/recruitments-create/recruitments-create.component";
+import {RecruitmentEditComponent} from "./recruitments/recruitment-edit/recruitment-edit.component";
 
 const routes: Routes = [
   {
@@ -24,8 +25,8 @@ const routes: Routes = [
     component: RecruitmentsCreateComponent
   },
   {
-    path :'edit',
-    component: RecruitmentsListComponent
+    path :':id/edit',
+    component: RecruitmentEditComponent
   },
   {
     path :'home-page',
