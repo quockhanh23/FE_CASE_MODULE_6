@@ -16,7 +16,7 @@ import {DialogCheckRegisterComponent} from "../../notification/dialog-check-regi
 })
 export class UserComponent implements OnInit {
   userForm: FormGroup = new FormGroup({
-    email: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required,Validators.email]),
     password: new FormControl("", [Validators.required]),
     fullName: new FormControl("", [Validators.required]),
     phoneNumber: new FormControl("", [Validators.required,

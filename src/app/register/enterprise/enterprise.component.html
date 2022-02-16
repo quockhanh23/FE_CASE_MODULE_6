@@ -19,7 +19,7 @@
             <div class="col-12">
               <div class="form-group">
                 <input class=" form-control " type="text" placeholder='Nhập email *' formControlName="email">
-                <mat-hint style="color: black;text-align: left" align="end">Ví dụ: khanh@gmail.com</mat-hint>
+                <mat-hint style="color: gray;text-align: left" align="end">Ví dụ: khanh@gmail.com</mat-hint>
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['email'].errors?.['required']
                      && enterpriseForm.controls['email'].touched">
@@ -82,7 +82,7 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <input class="form-control" type="text" placeholder="Số điện thoại *" formControlName="phoneNumbers">
-                <mat-hint style="color: black;text-align: left" align="end">
+                <mat-hint style="color: gray;text-align: left" align="end">
                   Ví dụ: 0353413219 (10 chữ số, bắt đầu bằng số 03 đến 09)</mat-hint>
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['phoneNumbers'].errors?.['required']
