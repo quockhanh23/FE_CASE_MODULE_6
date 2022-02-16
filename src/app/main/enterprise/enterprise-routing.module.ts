@@ -24,6 +24,10 @@ const routes: Routes = [
     component: RecruitmentsCreateComponent
   },
   {
+    path :'edit',
+    component: RecruitmentsListComponent
+  },
+  {
     path :'home-page',
     component: HomePageEnterpriseComponent
   },

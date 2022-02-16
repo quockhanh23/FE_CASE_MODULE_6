@@ -108,5 +108,6 @@ export class RecruitmentsService {
   searchByAddress10() {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address10')
   }
+
 }
 
