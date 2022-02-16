@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProfileUser} from "../../../models/profile-user";
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../../services/user.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ToastrService} from "ngx-toastr";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -7,9 +13,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditProfileComponent implements OnInit {
 
-  constructor() { }
+  id = localStorage.getItem('ID');
+  idURLDetail!:string;
+  // userProfile!: ProfileUser
+  userProfileForm: FormGroup = new FormGroup({
+    fullName: new FormControl(''),
+    phoneNumber: new FormControl(''),
+  });
 
-  ngOnInit(): void {
+  constructor(private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              private router: Router,
+              public dialog: MatDialog,
+              private toarts: ToastrService,) {
   }
 
+  ngOnInit(): void {
+      // @ts-ignore
+      this.userService.getById(this.id).subscribe(result => {
+        this.userProfileForm = new FormGroup({
+          id: new FormControl(result.id),
+          fullName: new FormControl(result.fullName),
+          phoneNumber: new FormControl(result.phoneNumber),
+        });
+        console.log(result)
+      }, error => {
+        console.log(error);
+      })
+  }
+
+  updateUser() {
+    const userNew = {
+      fullName: this.userProfileForm.value.fullName,
+      phoneNumber: this.userProfileForm.value.phoneNumber,
+    }
+    console.log(userNew)
+    // @ts-ignore
+    this.userService.update(this.id, userNew).subscribe(r => {
+      location.reload()
+      console.log(r + '...')
+    }, error => {
+      console.log("Lỗi")
+    })
+
+  }
 }

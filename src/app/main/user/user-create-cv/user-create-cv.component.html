@@ -1,10 +1,9 @@
-<h1 style="color: indigo; width: 300px" mat-dialog-title></h1>
-<div mat-dialog-content></div>
+<!--<h1 style="color: indigo; width: 300px" mat-dialog-title></h1>-->
+<!--<div mat-dialog-content></div>-->
 <div>
   <form class="form-contact contact_form" [formGroup]="CVForm"
         (ngSubmit)="createCV()" id="contactForm">
     <div class="container">
-
       <div class="row">
         <div>
           <div>
@@ -47,7 +46,7 @@
       </div>
     </div>
     <div mat-dialog-actions align="end">
-      <button class="btn btn-primary profile-button hoverDialog" mat-button type="button">Lưu CV</button>
+      <button class="btn btn-primary profile-button hoverDialog" type="submit" mat-button mat-dialog-close >Lưu CV</button>
       <button class="btn btn-primary profile-button hoverDialog" mat-button mat-dialog-close>Đóng</button>
     </div>
   </form>
