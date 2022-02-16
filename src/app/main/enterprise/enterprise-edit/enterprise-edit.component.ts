@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {EnterpriseService} from "../../../services/enterprise.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
+import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
+import {DialogLoginFailComponent} from "../../../notification/dialog-login-fail/dialog-login-fail.component";
 
 @Component({
   selector: 'app-enterprise-edit',
@@ -69,8 +71,11 @@ export class EnterpriseEditComponent implements OnInit {
     console.log("alo" + enterprise)
     // @ts-ignore
     this.enterpriseService.update(this.id, enterprise).subscribe(r => {
+      this.dialog.open(DialogSuccessComponent)
+      this.router.navigate(["/enterprise/detail"]).then()
       console.log(r + 'ok')
     }, error => {
+      this.dialog.open(DialogLoginFailComponent)
       console.log("Lỗi" + error)
     })
   }
