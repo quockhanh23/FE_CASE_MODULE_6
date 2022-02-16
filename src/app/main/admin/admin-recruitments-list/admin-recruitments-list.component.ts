@@ -37,7 +37,14 @@ export class AdminRecruitmentsListComponent implements OnInit {
   changeStatusVIP(id: any) {
     this.recruitmentsService.changeStatusVIP(id).subscribe(() => {
       this.loadListAll()
-      this.toarts.success('BẬT đề xuất VIP  bài đăng', 'Thông báo')
+      this.toarts.success('BẬT đề xuất VIP  tin tuyển dụng này', 'Thông báo')
+    })
+  }
+
+  changeStatusLock(id: any) {
+    this.recruitmentsService.changeStatusLock(id).subscribe(() => {
+      this.loadListAll()
+      this.toarts.success('Đã Khóa tin tuyển dụng này', 'Thông báo')
     })
   }
 
@@ -45,6 +52,12 @@ export class AdminRecruitmentsListComponent implements OnInit {
     this.recruitmentsService.changeStatusPublic(id).subscribe(() => {
       this.loadListAll()
       this.toarts.success('TẮT đề xuất VIP  bài đăng', 'Thông báo')
+    })
+  }
+  changeStatusLockOpen(id: any) {
+    this.recruitmentsService.changeStatusPublic(id).subscribe(() => {
+      this.loadListAll()
+      this.toarts.success('Đã Mở tin tuyển dụng này', 'Thông báo')
     })
   }
 }
