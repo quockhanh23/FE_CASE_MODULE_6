@@ -106,14 +106,15 @@
                   <div class="apply_now">
                     <div *ngIf="job?.statusRecruitmentId?.id == '1'" >
                       <a class="heart_mark" (click)="changeStatusPublic(job?.id)"><i class="fa-solid fa-eye"></i></a>
-                      <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+                      <a (click)="showEditForm(job?.id)" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
                     </div>
-                    <div *ngIf="job?.statusRecruitmentId?.id == '2'">
+                    <div *ngIf="job?.statusRecruitmentId?.id == '2' ||job?.statusRecruitmentId?.id == '3' ">
                       <a class="heart_mark" (click)="changeStatusHidden(job?.id)"><i class="fas fa-eye-slash"></i></a>
-                      <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+<!--                      <a routerLink="/enterprise{{job.id}}/edit" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
+                      <a (click)="showEditForm(job?.id)" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
                     </div>
 
-                    <!--                    <a href="enterprise/{{job.id}}/details" class="boxed-btn3">Apply Now</a>-->
+<!--                                        <a href="enterprise/{{job.id}}/edit" class="boxed-btn3">Edit</a>-->
 <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
                   </div>
                   <div class="date">

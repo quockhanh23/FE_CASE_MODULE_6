@@ -13,6 +13,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import { EnterpriseEditComponent } from './enterprise-edit/enterprise-edit.component';
 import {MatButtonModule} from "@angular/material/button";
 import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail.component';
+import { RecruitmentEditComponent } from './recruitments/recruitment-edit/recruitment-edit.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail
     RecruitmentsCreateComponent,
     EnterpriseEditComponent,
     EnterpriseDetailComponent,
+    RecruitmentEditComponent,
   ],
   exports: [
     RecruitmentsListComponent
