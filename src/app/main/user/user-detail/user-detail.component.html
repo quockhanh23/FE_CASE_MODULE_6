@@ -1,19 +1,22 @@
 <div class="page-content page-container" id="page-content">
   <div class="padding">
+     <span ngbTooltip="Quay lại danh sách"
+           style="font-size: 25px" [routerLink]="['/enterprise/listJob']"
+           class="material-icons a1">keyboard_backspace</span>
     <div class="card user-card-full">
       <div class="row m-l-0 m-r-0">
         <div class="col-sm-4 bg-c-lite-green user-profile">
           <div class="card-block text-center text-white">
             <div class="m-b-25"><img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
                                      alt="User-Profile-Image"></div>
-            <h1 class="f-w-600">{{userProfile.fullName}}</h1>
+            <h1 id="alo1" class="f-w-600">{{userProfile.fullName}}</h1>
             <p></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
           </div>
         </div>
         <div class="col-sm-8">
           <div class="card-block">
             <h1 class="m-b-20 p-b-5 b-b-default f-w-600">Thông tin cá nhân</h1>
-            <div class="row">
+            <div class="row" style="margin-left: 2px">
               <div class="col-sm-6">
                 <p class="m-b-10 f-w-600">Email</p>
                 <h6 class="text-muted f-w-400">{{userProfile.email}}</h6>
@@ -25,15 +28,15 @@
             </div>
             <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
             <div class="row">
-              <div class="col-sm-12">
-                <p class="m-b-10 f-w-600"></p>
-                <a><h3 (click)="openDialogEdit()" class="text-muted f-w-400">Sửa thông tin cá nhân</h3></a>
+              <div class="col-6">
+                <button mat-button class="button btn-primary" ngbTooltip="Sửa thông tin" (click)="openDialogEdit() ">Sửa
+                  thông tin
+                  cá nhân
+                </button>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p class="m-b-10 f-w-600"></p>
-                <a><h3 (click)="openDialogCV()" class="text-muted f-w-400">Tạo CV</h3></a>
+              <div class="col-6">
+                <button mat-button class="button btn-primary" ngbTooltip="Tạo CV" (click)="openDialogCV()">Tạo CV
+                </button>
               </div>
             </div>
           </div>
@@ -41,38 +44,59 @@
       </div>
     </div>
   </div>
-</div>
-<div>
-  <div class="row" align="center">
-    <div class="col-2"></div>
-    <div class="col-3">
-      <div class="d-flex flex-row mt-3 exp-container"><img src="https://i.imgur.com/azSfBM3.png" width="45" height="45">
-        <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
-          class="d-block text-black-50 labels">Twitter Inc.</span><span class="d-block text-black-50 labels">15/02,2017 - 15/2,2022</span>
+  <div>
+    <div class="row" align="center">
+      <div class="col-2"></div>
+      <div class="col-3">
+        <div class="d-flex flex-row mt-3 exp-container"><img src="https://i.imgur.com/azSfBM3.png" width="45"
+                                                             height="45">
+          <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
+            class="d-block text-black-50 labels">Twitter Inc.</span><span class="d-block text-black-50 labels">link</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="d-flex flex-row mt-3 exp-container"><img src="https://img.icons8.com/color/100/000000/facebook.png"
+                                                             width="45" height="45">
+          <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
+            class="d-block text-black-50 labels">Facebook Inc.</span><span class="d-block text-black-50 labels">link</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="d-flex flex-row mt-3 exp-container"><img
+          src="https://img.icons8.com/color/50/000000/google-logo.png"
+          width="45" height="45">
+          <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
+            class="d-block text-black-50 labels">Google Inc.</span><span class="d-block text-black-50 labels">link</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-3">
-      <div class="d-flex flex-row mt-3 exp-container"><img src="https://img.icons8.com/color/100/000000/facebook.png"
-                                                           width="45" height="45">
-        <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
-          class="d-block text-black-50 labels">Facebook Inc.</span><span class="d-block text-black-50 labels">15/02,2017 - 15/2,2022</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="d-flex flex-row mt-3 exp-container"><img src="https://img.icons8.com/color/50/000000/google-logo.png"
-                                                           width="45" height="45">
-        <div class="work-experience ml-1"><span class="font-weight-bold d-block"></span><span
-          class="d-block text-black-50 labels">Google Inc.</span><span class="d-block text-black-50 labels">15/02,2017 - 15/2,2022</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
-
-
-
+<!-- job_searcing_wrap  -->
+<div style="height: 20px"></div>
+<div class="job_searcing_wrap overlay" style="height: 300px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 offset-lg-1 col-md-6">
+        <div class="searching_text">
+          <h3>Tìm việc làm?</h3>
+          <p>Chúng tôi cung cấp các dịnh vụ việc làm nhanh chóng </p>
+          <a routerLink="/enterprise/listJob" class="boxed-btn3">Tìm kiếm công việc phù hợp</a>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1 col-md-6">
+        <div class="searching_text">
+          <h3>Tìm kiếm một chuyên gia?</h3>
+          <p>Chúng tôi cung cấp các khoản vay tiền mặt lập tức trực tuyến</p>
+          <a class="boxed-btn3">Đăng tuyển</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- job_searcing_wrap end  -->
 
 

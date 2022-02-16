@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 export class UserListCvComponent implements OnInit {
 
   id = localStorage.getItem('ID');
-
+  fileCVS!: FileCV[]
 
   constructor(private fileCVService: FileCVService,
               private toarts: ToastrService,
@@ -22,7 +22,12 @@ export class UserListCvComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.fileCVService.getAll().subscribe(result => {
+      this.fileCVS = result
+      console.log(result)
+    }, error => {
+      console.log(error)
+    })
   }
 }
 

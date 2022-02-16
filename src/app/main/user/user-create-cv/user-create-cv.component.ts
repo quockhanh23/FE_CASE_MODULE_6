@@ -54,14 +54,23 @@ export class UserCreateCvComponent implements OnInit {
       }
     }
     console.log(CV)
-
     // @ts-ignore
     this.fileCVService.create(CV, this.id).subscribe(() => {
       console.log("đã lưu cv")
-      location.reload()
+      this.toarts.success('Bạn đã tạo cv thành công', 'Thông báo')
+      this.openReload()
     }, error => {
       console.log("lỗi")
+      this.toarts.error('Có lỗi xảy ra', 'Èo')
     })
   }
 
+  openReload() {
+    setTimeout(() => {
+      location.reload()
+    }, 800)
+  }
+  open(){
+    if (localStorage.getItem('ROLE') == 'ROLE_ADMIN'){}
+  }
 }

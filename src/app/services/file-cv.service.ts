@@ -7,6 +7,7 @@ import {Recruitments} from "../models/recruitments";
 const API_URL = "http://localhost:8080/api/cvs";
 const API_URL_EDIT = "http://localhost:8080/api/cvs/editCV";
 const API_URL_CREATE = "http://localhost:8080/api/cvs/createCV";
+const API_URL_FIND_BY_USER = "http://localhost:8080/api/cvs/findCVByUserId";
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,15 @@ export class FileCVService {
     return this.http.get<FileCV[]>(API_URL)
   }
 
+  findByUser(id: any): Observable<FileCV[]> {
+    return this.http.get<FileCV[]>(API_URL_FIND_BY_USER + `?idUser=${id}`)
+  }
+
   getById(id: any): Observable<FileCV> {
     return this.http.get<FileCV>(API_URL + `/${id}`)
   }
 
-  create(fileCV: FileCV,id: any): Observable<FileCV> {
+  create(fileCV: FileCV, id: any): Observable<FileCV> {
     return this.http.post<FileCV>(API_URL_CREATE + `?idUser=${id}`, fileCV)
   }
 

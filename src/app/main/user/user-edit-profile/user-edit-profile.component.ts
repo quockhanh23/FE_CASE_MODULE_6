@@ -5,6 +5,7 @@ import {UserService} from "../../../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup} from "@angular/forms";
+import {DialogRulesComponent} from "../../../notification/dialog-rules/dialog-rules.component";
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -14,8 +15,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class UserEditProfileComponent implements OnInit {
 
   id = localStorage.getItem('ID');
-  idURLDetail!:string;
-  // userProfile!: ProfileUser
+
   userProfileForm: FormGroup = new FormGroup({
     fullName: new FormControl(''),
     phoneNumber: new FormControl(''),
@@ -29,17 +29,17 @@ export class UserEditProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      // @ts-ignore
-      this.userService.getById(this.id).subscribe(result => {
-        this.userProfileForm = new FormGroup({
-          id: new FormControl(result.id),
-          fullName: new FormControl(result.fullName),
-          phoneNumber: new FormControl(result.phoneNumber),
-        });
-        console.log(result)
-      }, error => {
-        console.log(error);
-      })
+    // @ts-ignore
+    this.userService.getById(this.id).subscribe(result => {
+      this.userProfileForm = new FormGroup({
+        id: new FormControl(result.id),
+        fullName: new FormControl(result.fullName),
+        phoneNumber: new FormControl(result.phoneNumber),
+      });
+      console.log(result)
+    }, error => {
+      console.log(error);
+    })
   }
 
   updateUser() {
@@ -50,11 +50,17 @@ export class UserEditProfileComponent implements OnInit {
     console.log(userNew)
     // @ts-ignore
     this.userService.update(this.id, userNew).subscribe(r => {
-      location.reload()
+      this.toarts.success('Bạn đã sửa thông tin thành công', 'Thông báo')
+      this.openReload()
       console.log(r + '...')
     }, error => {
       console.log("Lỗi")
     })
+  }
 
+  openReload() {
+    setTimeout(() => {
+      location.reload()
+    }, 800)
   }
 }

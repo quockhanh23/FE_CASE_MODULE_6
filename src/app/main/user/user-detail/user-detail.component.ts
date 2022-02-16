@@ -14,6 +14,7 @@ import {FileCVService} from "../../../services/file-cv.service";
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+
   id = localStorage.getItem('ID');
   userProfile!: ProfileUser
 

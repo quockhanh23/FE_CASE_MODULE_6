@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
+import {EnterpriseService} from "../../services/enterprise.service";
+import {ProfileEnterprise} from "../../models/profile-enterprise";
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,14 @@ import {AuthenticationService} from "../../services/authentication.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  id = localStorage.getItem('ID');
   username: string | null = ''
   role?: any
+  check = true
+  enterpriseProfile!: ProfileEnterprise
 
   constructor(private authService: AuthenticationService,
+              private enterpriseService: EnterpriseService
   ) {
   }
 

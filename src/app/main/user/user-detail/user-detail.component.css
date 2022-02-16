@@ -177,3 +177,15 @@ body {
   cursor: pointer;
   border: solid 1px #BA68C8
 }
+#alo1:hover{
+  color: #ffc107;
+}
+.a1{
+  cursor: pointer;
+}
+.a1:hover{
+  color: #ffc107;
+}
+.a2{
+  cursor: pointer;
+}

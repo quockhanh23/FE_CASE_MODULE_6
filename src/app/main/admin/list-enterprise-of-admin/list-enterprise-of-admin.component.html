@@ -13,7 +13,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-1">
-          <img style="width: 50px; height: 50px" src="{{en?.image}}" alt="">
+          <img  ngbTooltip="Xem chi tiết doanh nghiệp"  style="width: 50px; height: 50px" src="{{en?.image}}" alt="">
         </div>
         <div class="col-10">
           <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}
@@ -23,17 +23,17 @@
     </div>
     <div class="card-body">
       <h2 class="card-title">
-        <sub style="color: #3c32bb"><span ngbTooltip="Trạng thái" class="material-icons">lock_reset</span></sub>
+        <sub ngbTooltip="Trạng thái" style="color: #3c32bb"><span class="material-icons">lock_reset</span></sub>
         {{en.statusEnterpriseId?.name}}</h2>
       <p class="card-text">{{en.description}}</p>
       <!-- Button trigger modal 1 -->
-      <button type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary" data-toggle="modal"
+      <button ngbTooltip="Kích hoạt tài khoản" type="button" (click)="changeStatusActive(en?.id)" class="btn btn-primary" data-toggle="modal"
               data-target="#exampleModal">
         <!-- Button trigger modal 1 -->
         Kích hoạt doanh nghiệp
       </button>
       <!-- Button trigger modal 2 -->
-      <button style="margin-left: 20px" type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary"
+      <button ngbTooltip="khóa doanh nghiệp" style="margin-left: 20px" type="button" (click)="changeStatusLock(en?.id)" class="btn btn-primary"
               data-toggle="modal"
               data-target="#staticBackdrop">
         Khóa doanh nghiệp
@@ -41,12 +41,12 @@
         <button style="margin-left: 20px" type="button" class="btn btn-primary"
              data-toggle="modal"
              data-target="#staticBackdrop" *ngIf="en?.statusEnterpriseId?.id == '4'" >
-          <a class="heart_mark" (click)="changeStatusActive(en?.id)"><i class="fa-solid fa-arrow-down-short-wide"></i></a>
+          <a class="heart_mark" ngbTooltip="Bỏ VIP" (click)="changeStatusActive(en?.id)"><i class="fa-solid fa-arrow-down-short-wide"></i></a>
         </button>
         <button style="margin-left: 20px" type="button" class="btn btn-primary"
                 data-toggle="modal"
                 data-target="#staticBackdrop" *ngIf="en?.statusEnterpriseId?.id == '2'">
-          <a class="heart_mark" (click)="changeStatusVIP(en?.id)"><i class="fa-solid fa-arrow-up-short-wide"></i></a>
+          <a class="heart_mark" ngbTooltip="Xét VIP" (click)="changeStatusVIP(en?.id)"><i class="fa-solid fa-arrow-up-short-wide"></i></a>
         </button>
     </div>
 

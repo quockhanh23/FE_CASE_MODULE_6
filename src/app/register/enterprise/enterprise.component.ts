@@ -71,7 +71,6 @@ export class EnterpriseComponent implements OnInit {
               this.fb = url;
             }
             console.log(this.fb);
-            console.log("alo")
           });
         })
       )

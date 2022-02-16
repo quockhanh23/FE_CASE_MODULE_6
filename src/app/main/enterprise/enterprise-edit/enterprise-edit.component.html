@@ -1,0 +1,45 @@
+
+
+<div class="container rounded bg-white mt-5">
+  <div class="row">
+    <div class="">
+      <div class="p-3 py-5">
+        <form action="#" [formGroup]="enterpriseForm" (ngSubmit)="updateEnterprise()">
+          <div class="row mt-2">
+            <div class="col-md-6"><input type="text" formControlName="nameCompany" class="form-control"
+                                         placeholder="nameCompany"></div>
+            <div class="col-md-6"><input type="text" formControlName="description" class="form-control"
+                                         placeholder="description"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6"><input type="text" formControlName="addressCompany" class="form-control"
+                                         placeholder="addressCompany"
+            ></div>
+            <div class="col-md-6"><input type="text" formControlName="numberOfEmployees" class="form-control"
+
+                                         placeholder="Số lượng nhân viên"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6"><input type="text" formControlName="phoneNumbers" class="form-control"
+                                         placeholder="phoneNumbers"></div>
+            <div class="col-md-6"><input type="text" formControlName="linkWebsites" class="form-control"
+                                         placeholder="linkFacebook"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12"><input type="text" formControlName="linkFacebook" class="form-control"
+                                         placeholder="phoneNumbers"></div>
+
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12"><input type="text" formControlName="linkGoogleMaps" class="form-control"
+                                          placeholder="phoneNumbers"></div>
+
+          </div>
+          <div class="mt-5 text-right">
+            <button class="btn btn-primary profile-button" type="submit">Sửa thông tin</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

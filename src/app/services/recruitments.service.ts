@@ -20,7 +20,7 @@ export class RecruitmentsService {
   }
 
   listRecruitmentsAll(): Observable<Recruitments[]> {
-    return this.http.get<Recruitments[]>(API_URL + '/api/recruitments')
+    return this.http.get<Recruitments[]>(API_URL + '/api/recruitments/listRec')
   }
 
   findById(id: String): Observable<Recruitments> {
