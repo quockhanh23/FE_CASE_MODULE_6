@@ -5,6 +5,7 @@ import {Recruitments} from "../../../../models/recruitments";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {UserCreateCvComponent} from "../../../user/user-create-cv/user-create-cv.component";
+import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RecruitmentsDetailsComponent implements OnInit {
 
   recruitments!: Recruitments;
   check = true
-
+  idRec!: string
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
@@ -28,6 +29,8 @@ export class RecruitmentsDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(param => {
       const id = param.get('id')
+      this.idRec = "" + id
+      localStorage.setItem('idRec',this.idRec)
       // @ts-ignore
       this.recruitmentsService.findById(id).subscribe(res => {
         console.log(res)
@@ -42,5 +45,8 @@ export class RecruitmentsDetailsComponent implements OnInit {
   }
   openDialogCV(){
     this.dialog.open(UserCreateCvComponent)
+  }
+  applyNow(){
+    this.dialog.open(DialogApplyNowComponent)
   }
 }

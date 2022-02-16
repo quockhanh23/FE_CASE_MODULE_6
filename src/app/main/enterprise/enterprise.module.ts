@@ -28,7 +28,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
     EnterpriseRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbTooltipModule
+    NgbTooltipModule,
   ],
 })
 export class EnterpriseModule {

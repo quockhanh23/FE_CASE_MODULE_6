@@ -28,6 +28,7 @@ import { DialogRegisterImageComponent } from './notification/dialog-register-ima
 import { DialogLoginFailComponent } from './notification/dialog-login-fail/dialog-login-fail.component';
 import { DialogLogoutComponent } from './notification/dialog-logout/dialog-logout.component';
 import {UserCreateCvComponent} from "./main/user/user-create-cv/user-create-cv.component";
+import { DialogApplyNowComponent } from './notification/dialog-apply-now/dialog-apply-now.component';
 import { UserEditProfileComponent } from './main/user/user-edit-profile/user-edit-profile.component';
 
 
@@ -53,6 +54,7 @@ const DialogComponents = [
     HeaderComponent,
     LoginUserComponent,
     LoginEnterpriseComponent,
+    DialogApplyNowComponent,
     UserEditProfileComponent,
 
   ],
