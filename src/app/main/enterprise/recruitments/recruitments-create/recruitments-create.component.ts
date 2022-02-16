@@ -8,6 +8,9 @@ import {Work} from "../../../../models/work";
 import {PositionService} from "../../../../services/position.service";
 import {WorkService} from "../../../../services/work.service";
 import {Position} from "../../../../models/position";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogSuccessComponent} from "../../../../notification/dialog-success/dialog-success.component";
+import {DialogLoginFailComponent} from "../../../../notification/dialog-login-fail/dialog-login-fail.component";
 
 @Component({
   selector: 'app-recruitments-create',
@@ -35,7 +38,9 @@ export class RecruitmentsCreateComponent implements OnInit {
               private authenticationService: AuthenticationService,
               private recruitment: RecruitmentsService,
               private positionService : PositionService,
-              private workService : WorkService) { }
+              private workService : WorkService,
+              public dialog: MatDialog,
+              ) { }
 
   ngOnInit(): void {
     this.loadListPosition();
@@ -62,10 +67,11 @@ export class RecruitmentsCreateComponent implements OnInit {
     console.log(recruitment)
     this.id = localStorage.getItem("ENTERPRISE_ID")
     this.recruitment.register(recruitment,this.id).subscribe(() => {
-      alert("Tạo job thành công! Hãy đăng nhập !")
-      this.router.navigate([""])
+     this.dialog.open(DialogSuccessComponent)
+      this.router.navigate(["/enterprise/listJob"]).then()
     },error => {
       console.log(error)
+      this.dialog.open(DialogLoginFailComponent)
     })
   }
   loadListWork(){
