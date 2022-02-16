@@ -87,7 +87,26 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
         if (res.statusEnterpriseId?.id == '2') {
           this.toarts.error('Cảnh báo', 'Tài khoản đã được kích hoạt rồi!')
         } else {
-          this.toarts.success('Thông báo', 'Bạn đã kích hoạt thành công!')
+          this.toarts.success('Thông báo', 'Tài khoản chuyển sang trạng thái kích hoạt !')
+        }
+        this.ngOnInit()
+      }, error => {
+        console.log("Lỗi", error)
+        this.dialog.open(DialogFailComponent);
+      })
+    })
+  }
+
+  changeStatusVIP(id: any) {
+    this.enterpriseOfAdminService.getById(id).subscribe(res => {
+      console.log(res)
+      this.enterpriseOfAdminService.changeStatusVIP(id).subscribe(result => {
+        console.log(result)
+        this.router.navigateByUrl("/admin/list").then()
+        if (res.statusEnterpriseId?.id == '4') {
+          this.toarts.error('Cảnh báo', 'Tài khoản đã được lên đề xuất rồi!')
+        } else {
+          this.toarts.success('Thông báo', 'Doanh Nghiệp được lên đề xuất !')
         }
         this.ngOnInit()
       }, error => {

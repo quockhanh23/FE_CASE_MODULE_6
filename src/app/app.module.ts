@@ -29,6 +29,7 @@ import { DialogLoginFailComponent } from './notification/dialog-login-fail/dialo
 import { DialogLogoutComponent } from './notification/dialog-logout/dialog-logout.component';
 import {UserCreateCvComponent} from "./main/user/user-create-cv/user-create-cv.component";
 import { DialogApplyNowComponent } from './notification/dialog-apply-now/dialog-apply-now.component';
+import { UserEditProfileComponent } from './main/user/user-edit-profile/user-edit-profile.component';
 
 
 const DialogComponents = [
@@ -54,6 +55,7 @@ const DialogComponents = [
     LoginUserComponent,
     LoginEnterpriseComponent,
     DialogApplyNowComponent,
+    UserEditProfileComponent,
 
   ],
   imports: [
