@@ -3,6 +3,8 @@ import {Recruitments} from "../../../../models/recruitments";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {UserService} from "../../../../services/user.service";
+import {log} from "util";
 
 @Component({
   selector: 'app-recruitments-list',
@@ -11,6 +13,9 @@ import {ToastrService} from "ngx-toastr";
 })
 export class RecruitmentsListComponent implements OnInit {
   listJob: Recruitments[] = []
+  indexPagination: number = 0;
+  totalPagination?: number;
+  listRecruitmentsNotPagination: Recruitments[] = [];
 
   constructor(
     private recruitmentsService: RecruitmentsService,
@@ -21,17 +26,22 @@ export class RecruitmentsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadListAll()
-  }
+    this.recruitmentsService.getAllRecruitment(0).subscribe(data => {
+      // @ts-ignore
+      this.listJob = data.content;
+    });
+    this.recruitmentsService.getAll1().subscribe(data => {
+      console.log(data)
+      this.listRecruitmentsNotPagination = data;
 
-  loadListAll() {
-    this.recruitmentsService.listRecruitmentsAll().subscribe(result => {
-      console.log(result);
-      this.listJob = result;
-    }, loi => {
-      console.log(loi);
+      // @ts-ignore
+      if ((this.listRecruitmentsNotPagination.length % 5) != 0) {
+        // @ts-ignore
+        this.totalPagination = (Math.round(this.listRecruitmentsNotPagination.length / 5)) + 1;
+      }
     })
   }
+
 
   showDetails(id: string) {
     this.router.navigate([id + '/details'])
@@ -120,5 +130,60 @@ export class RecruitmentsListComponent implements OnInit {
     })
   }
 
+  nextPage() {
+   let totalPage= this.indexPagination ;
+    totalPage++
+    let b = this.listRecruitmentsNotPagination.length
+    let max = 0
+    for (let i = 0; i < b; i++) {
+      if (i % 5 == 0) {
+        if (i > max) {
+          max = i;
+        }
+      }
+    }
+    if (totalPage > (max / 5)) {
+      totalPage -= 1;
+    } else {
+      this.recruitmentsService.getAllRecruitment(this.indexPagination++).subscribe(data => {
+        // @ts-ignore
+        this.listJob = data.content;
+        console.error()
 
+      }, error => {
+        console.log(error)
+      })
+
+    }
+  }
+
+  previousPage() {
+    this.indexPagination = this.indexPagination - 1;
+    if (this.indexPagination == 0) {
+      this.indexPagination = 1;
+    } else {
+      this.recruitmentsService.getAllRecruitment(this.indexPagination - 1).subscribe((data: Recruitments[]) => {
+        // @ts-ignore
+        this.listJob = data.content;
+      })
+    }
+  }
+
+  lastPage() {
+    let b = this.listRecruitmentsNotPagination.length
+    let max = 0
+    for (let i = 0; i < b; i++) {
+      if (i % 5 == 0) {
+        if (i > max) {
+          max = i;
+        }
+      }
+    }
+    this.recruitmentsService.getAllRecruitment(max/5-1).subscribe(data => {
+      // @ts-ignore
+      this.listJob = data.content;
+      // @ts-ignore
+      console.log( data.content)
+    })
+  }
 }

@@ -62,10 +62,12 @@ export class RecruitmentsService {
   sortByNewRecruitments() {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sortNewJob')
   }
+
   sortByOldRecruitments() {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/sortOddJob')
   }
-  findRecruitmentLikeId(id:string) {
+
+  findRecruitmentLikeId(id: string) {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/findRecruitmentLikeId' + `/${id}`)
   }
 
@@ -108,5 +110,12 @@ export class RecruitmentsService {
   searchByAddress10() {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address10')
   }
-}
 
+  getAllRecruitment(index: number): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/paging/?page=` + index)
+  }
+
+  getAll1(): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/listRec')
+  }
+}
