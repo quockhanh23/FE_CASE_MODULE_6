@@ -75,7 +75,7 @@ export class LoginUserComponent implements OnInit {
           localStorage.setItem('EMAIL', data.username);
           // @ts-ignore
           localStorage.setItem('ID', data.id);
-
+          this.reLoad()
           if (data.roles[0].authority == "ROLE_ADMIN") {
             this.router.navigate([this.adminUrl]).then()
             this.openToartsLogoIn()
@@ -115,5 +115,11 @@ export class LoginUserComponent implements OnInit {
   }
   openDialogCheckLogin() {
     this.dialog.open(DialogCheckLoginComponent);
+  }
+  reLoad() {
+    setTimeout(() => {
+      location.reload()
+      console.log('alo')
+    }, 6000)
   }
 }

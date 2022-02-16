@@ -62,6 +62,7 @@ export class LoginEnterpriseComponent implements OnInit {
           localStorage.setItem('ENTERPRISE_ID' , data.id)
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
+          this.reLoad()
           console.log(data)
           this.openDialogRules()
           this.openToartsLogoIn()
@@ -93,5 +94,11 @@ export class LoginEnterpriseComponent implements OnInit {
   }
   openDialogCheckLogin() {
     this.dialog.open(DialogCheckLoginComponent);
+  }
+  reLoad() {
+    setTimeout(() => {
+      location.reload()
+      console.log('alo')
+    }, 6000)
   }
 }
