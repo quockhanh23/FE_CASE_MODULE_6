@@ -7,6 +7,7 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {first} from "rxjs";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
+import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
 
 @Component({
   selector: 'app-login-enterprise',
@@ -25,7 +26,8 @@ export class LoginEnterpriseComponent implements OnInit {
   error = '';
   loading = false;
   submitted = false;
-
+  checkDone = false
+  checkButton = true
   constructor(public dialog: MatDialog,
               private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -39,6 +41,9 @@ export class LoginEnterpriseComponent implements OnInit {
   }
 
   login() {
+    this.openDialogCheckLogin()
+    this.checkDone = true
+    this.checkButton = false
     this.submitted = true;
     this.loading = true;
     this.authenticationService.loginEnterprise(
@@ -47,6 +52,7 @@ export class LoginEnterpriseComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.dialog.closeAll()
           console.log(data)
           // @ts-ignore
           localStorage.setItem('ACCESS_TOKEN', data.accessToken);
@@ -62,6 +68,9 @@ export class LoginEnterpriseComponent implements OnInit {
           this.router.navigate(["/enterprise/listJob"]).then()
         },
         error => {
+          this.checkButton = true
+          this.checkDone = false
+          this.dialog.closeAll()
           console.log('error:' + error)
           this.openDialogLoginFail()
           this.loading = false;
@@ -81,5 +90,8 @@ export class LoginEnterpriseComponent implements OnInit {
 
   openDialogLoginFail() {
     this.dialog.open(DialogLoginFailComponent);
+  }
+  openDialogCheckLogin() {
+    this.dialog.open(DialogCheckLoginComponent);
   }
 }

@@ -14,6 +14,7 @@ import {DialogRegisterImageComponent} from "../../notification/dialog-register-i
 import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
 import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 import {HeaderComponent} from "../../shared/header/header.component";
+import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
 
 @Component({
   selector: 'app-login-user',
@@ -35,6 +36,8 @@ export class LoginUserComponent implements OnInit {
   error = '';
   loading = false;
   submitted = false;
+  checkDone = false
+  checkButton = true
 
   constructor(public dialog: MatDialog,
               private activatedRoute: ActivatedRoute,
@@ -51,6 +54,9 @@ export class LoginUserComponent implements OnInit {
   }
 
   login() {
+    this.openDialogCheckLogin()
+    this.checkDone = true
+    this.checkButton = false
     this.submitted = true;
     this.loading = true;
     this.authenticationService.login(
@@ -59,6 +65,7 @@ export class LoginUserComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          this.dialog.closeAll()
           console.log(data)
           // @ts-ignore
           localStorage.setItem('ACCESS_TOKEN', data.accessToken);
@@ -82,6 +89,9 @@ export class LoginUserComponent implements OnInit {
           console.log(data)
         },
         error => {
+          this.checkButton = true
+          this.checkDone = false
+          this.dialog.closeAll()
           console.log('error:' + error)
           this.openDialogLoginFail()
           this.loading = false;
@@ -102,5 +112,8 @@ export class LoginUserComponent implements OnInit {
 
   openDialogLoginFail() {
     this.dialog.open(DialogLoginFailComponent);
+  }
+  openDialogCheckLogin() {
+    this.dialog.open(DialogCheckLoginComponent);
   }
 }

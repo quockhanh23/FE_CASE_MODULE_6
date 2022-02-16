@@ -32,6 +32,8 @@ import { DialogApplyNowComponent } from './notification/dialog-apply-now/dialog-
 import { UserEditProfileComponent } from './main/user/user-edit-profile/user-edit-profile.component';
 import { DialogCheckRegisterComponent } from './notification/dialog-check-register/dialog-check-register.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { DialogCheckLoginComponent } from './notification/dialog-check-login/dialog-check-login.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 const DialogComponents = [
@@ -59,6 +61,7 @@ const DialogComponents = [
     DialogApplyNowComponent,
     UserEditProfileComponent,
     DialogCheckRegisterComponent,
+    DialogCheckLoginComponent,
 
   ],
     imports: [
@@ -73,6 +76,7 @@ const DialogComponents = [
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
         MatProgressBarModule,
+        MatProgressSpinnerModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
