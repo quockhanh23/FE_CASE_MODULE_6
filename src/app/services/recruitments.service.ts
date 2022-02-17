@@ -80,6 +80,10 @@ export class RecruitmentsService {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/findRecruitmentLikeId' + `/${id}`)
   }
 
+  searchByAddress(q: string): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/address/?q=${q}`)
+  }
+
   searchByAddress1() {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address1')
   }
