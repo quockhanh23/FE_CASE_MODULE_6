@@ -88,7 +88,15 @@ export class RecruitmentsListComponent implements OnInit {
       this.listJob = res
     })
   }
-
+  searchByAddress() {
+    // @ts-ignore
+    let name = document.getElementById('q').value
+    console.log(name)
+    // @ts-ignore
+    this.recruitmentsService.searchByName(name).subscribe(res => {
+      this.listJob = res
+    },)
+  }
 // Cụm tìm kiếm theo địa chỉ 1-10
   searchByAddress1() {
     this.recruitmentsService.searchByAddress1().subscribe(res => {
