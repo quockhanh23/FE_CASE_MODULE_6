@@ -84,51 +84,15 @@ export class RecruitmentsService {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/address/?q=${q}`)
   }
 
-  searchByAddress1() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address1')
-  }
-
-  searchByAddress2() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address2')
-  }
-
-  searchByAddress3() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address3')
-  }
-
-  searchByAddress4() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address4')
-  }
-
-  searchByAddress5() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address5')
-  }
-
-  searchByAddress6() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address6')
-  }
-
-  searchByAddress7() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address7')
-  }
-
-  searchByAddress8() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address8')
-  }
-
-  searchByAddress9() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address9')
-  }
-
-  searchByAddress10() {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/address10')
-  }
-
   getAllRecruitment(index: number): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/paging/?page=` + index)
   }
 
   getAll1(): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + '/listRec')
+  }
+
+  searchRecruitment(address: string, title: string, experience: string, min: number, max: number, name: string,): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/findRecruitment/?address=${address}&title=${title}&experience=${experience}&min=${min}&max=${max}&name=${name}`)
   }
 }
