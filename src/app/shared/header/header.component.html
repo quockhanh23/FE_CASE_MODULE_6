@@ -16,14 +16,14 @@
                     <li><a>Trang <i class="ti-angle-down"></i></a>
                       <ul class="submenu" style="border-radius: 5px">
                         <li><a [routerLink]="['/enterprise/listJob']">Danh sách việc làm</a></li>
-                        <li><a *ngIf="role=='ROLE_ADMIN' || role =='ROLE_ENTERPRISE'"
+                        <li><a *ngIf="role =='ROLE_ENTERPRISE'"
                                [routerLink]="['/enterprise/detail']">Trang doanh nghiệp</a></li>
-                        <li><a *ngIf="role=='ROLE_ADMIN'|| role=='ROLE_USER'" [routerLink]="['/user/detail/:id']">Trang
+                        <li><a *ngIf="role =='ROLE_USER'" [routerLink]="['/user/detail/:id']">Trang
                           người dùng</a></li>
                         <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/adminDetail']">Trang quản lý</a>
-                        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/list']">Quản lý d/s doanh nghiệp</a>
+                        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/list']">Quản lý doanh nghiệp</a>
                         </li>
-                        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/listJob']">Quản lý d/s đăng tin</a>
+                        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/listJob']">Quản lý tin tuyển dụng</a>
                         </li>
                       </ul>
                     </li>
