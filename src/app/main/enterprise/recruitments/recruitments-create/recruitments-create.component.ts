@@ -21,6 +21,7 @@ export class RecruitmentsCreateComponent implements OnInit {
   listWork: Work[] = []
   listPosition: Position[] = []
   id: any;
+
   recruitmentForm: FormGroup = new FormGroup({
     title: new FormControl("",[Validators.required]),
     salary: new FormControl(""),

@@ -1,47 +1,22 @@
-
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
-     <span ngbTooltip="Quay lại danh sách"
-           style="font-size: 25px" [routerLink]="['/enterprise/detail']"
-           class="material-icons a1">keyboard_backspace</span>
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="job_filter white-bg">
-          <div class="form_inner white-bg">
-            <h3>Filter</h3>
-            <form action="#">
-              <div class="row">
-              </div>
-            </form>
-          </div>
-
-          <div class="reset_btn">
-            <button class="boxed-btn3 w-100" type="submit">Reset</button>
-          </div>
-        </div>
+    <div class="row" class="breadcrumb">
+        <span ngbTooltip="Quay lại"
+              style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
+              class="title material-icons a1">keyboard_backspace</span>
+      <div class="col-4" align="center">
+        <h2 style="margin-top: 11px">Danh sách công việc đã đăng</h2>
       </div>
-      <div class="col-lg-9">
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
         <div class="recent_joblist_wrap">
-          <div class="recent_joblist white-bg ">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <h3>Danh sách việc làm của công ty bạn đã đăng</h3>
-              </div>
-              <div class="col-md-6">
-                <div class="serch_cat d-flex justify-content-end">
-                  <select>
-                    <option data-display="Most Recent">Nhiều người ứng tuyển nhất</option>
-                    <option value="1">Ngày hết hạn</option>
-                    <option value="2">Mới nhất</option>
-                    <option value="4">Cũ nhất</option>
-                  </select>
-                </div>
-              </div>
+          <div class="row align-items-center">
+            <div class="col-md-6">
             </div>
           </div>
         </div>
-
         <div class="job_lists m-0">
           <div class="row" *ngFor=" let job of myListJob ">
             <div class="col-lg-12 col-md-12">
@@ -51,11 +26,11 @@
                     <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
+                    <a [routerLink]="['/enterprise/']"><h4>{{job.title}}</h4></a>
                     <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
-                        <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
+                        <p style="color: #f7941d"><i class="fa fa-map-marker"></i> {{job?.address}}</p>
                       </div>
                       <div class="location">
                         <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
@@ -65,21 +40,25 @@
                 </div>
                 <div class="jobs_right">
                   <div class="apply_now">
-                    <div *ngIf="job?.statusRecruitmentId?.id == '1'" >
-                      <a class="heart_mark" (click)="changeStatusPublic(job?.id)"><i class="fa-solid fa-eye"></i></a>
-                      <a (click)="showEditForm(job?.id)" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+                    <div *ngIf="job?.statusRecruitmentId?.id == '1'">
+                      <a ngbTooltip="Công khai tuyển dụng" class="heart_mark" (click)="changeStatusPublic(job?.id)"><i
+                        class="fa-solid fa-eye"></i></a>
+                      <a ngbTooltip="Sửa tin tin tuyển dụng" (click)="showEditForm(job?.id)" class="heart_mark"><i
+                        class="fa-solid fa-screwdriver-wrench"></i></a>
                     </div>
                     <div *ngIf="job?.statusRecruitmentId?.id == '2' ||job?.statusRecruitmentId?.id == '3' ">
-                      <a class="heart_mark" (click)="changeStatusHidden(job?.id)"><i class="fas fa-eye-slash"></i></a>
-<!--                      <a routerLink="/enterprise{{job.id}}/edit" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
-                      <a (click)="showEditForm(job?.id)" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+                      <a ngbTooltip="Ẩn tin tuyển dụng" class="heart_mark" (click)="changeStatusHidden(job?.id)"><i
+                        class="fas fa-eye-slash"></i></a>
+                      <a ngbTooltip="Sửa tin tin tuyển dụng" (click)="showEditForm(job?.id)" class="heart_mark"><i
+                        class="fa-solid fa-screwdriver-wrench"></i></a>
                     </div>
-
-<!--                                        <a href="enterprise/{{job.id}}/edit" class="boxed-btn3">Edit</a>-->
-<!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
                   </div>
-                  <div class="date">
-                    <p style="margin-right: 28px">{{job.dateEnd | date : 'dd/MM/yyyy'}}</p>
+                  <div class="jobs_right">
+                    <div class="apply_now">
+                    </div>
+                    <div class="date">
+                      <p>Ngày hết hạn: {{job.dateEnd | date:"dd/MM/yyyy" }}</p>
+                    </div>
                   </div>
                 </div>
               </div>

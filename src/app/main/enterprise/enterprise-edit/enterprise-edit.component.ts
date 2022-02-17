@@ -18,14 +18,14 @@ export class EnterpriseEditComponent implements OnInit {
   id = localStorage.getItem('ENTERPRISE_ID')
 
   enterpriseForm: FormGroup = new FormGroup({
-    nameCompany: new FormControl(""),
-    description: new FormControl(""),
-    addressCompany: new FormControl("",),
-    numberOfEmployees: new FormControl(""),
-    phoneNumbers: new FormControl(""),
-    linkWebsites: new FormControl("",),
-    linkFacebook: new FormControl(""),
-    linkGoogleMaps: new FormControl(""),
+    nameCompany: new FormControl("", [Validators.required]),
+    description: new FormControl("",[Validators.required]),
+    addressCompany: new FormControl("",[Validators.required]),
+    numberOfEmployees: new FormControl("",[Validators.required]),
+    phoneNumbers: new FormControl("",[Validators.required]),
+    linkWebsites: new FormControl("",[Validators.required]),
+    linkFacebook: new FormControl("",[Validators.required]),
+    linkGoogleMaps: new FormControl("",[Validators.required]),
   });
 
   constructor(private activatedRoute: ActivatedRoute,

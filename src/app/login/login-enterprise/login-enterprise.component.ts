@@ -99,6 +99,6 @@ export class LoginEnterpriseComponent implements OnInit {
     setTimeout(() => {
       location.reload()
       console.log('alo')
-    }, 6000)
+    }, 5000)
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Recruitments} from "../../../../models/recruitments";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -7,6 +7,10 @@ import {Work} from "../../../../models/work";
 import {Position} from "../../../../models/position";
 import {PositionService} from "../../../../services/position.service";
 import {WorkService} from "../../../../services/work.service";
+import {ToastrService} from "ngx-toastr";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogSuccessComponent} from "../../../../notification/dialog-success/dialog-success.component";
+import {DialogFailComponent} from "../../../../notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-recruitment-edit',
@@ -21,21 +25,24 @@ export class RecruitmentEditComponent implements OnInit {
 
   recruitmentForm: FormGroup = new FormGroup({
     title: new FormControl("", [Validators.required]),
-    salary: new FormControl(""),
+    salary: new FormControl("", [Validators.required]),
     address: new FormControl("", [Validators.required]),
-    description: new FormControl(""),
-    experience: new FormControl(""),
+    description: new FormControl("", [Validators.required]),
+    experience: new FormControl("", [Validators.required]),
     numberOfRecruitments: new FormControl("", [Validators.required]),
-    dateEnd: new FormControl(""),
-    gender: new FormControl(""),
+    dateEnd: new FormControl("", [Validators.required]),
+    gender: new FormControl("", [Validators.required]),
     workId: new FormControl(),
-    positionId: new FormControl(""),
+    positionId: new FormControl("", [Validators.required]),
   });
 
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private positionService: PositionService,
-              private workService: WorkService
+              private workService: WorkService,
+              private toarts: ToastrService,
+              private router: Router,
+              public dialog: MatDialog,
   ) {
   }
 
@@ -70,10 +77,11 @@ export class RecruitmentEditComponent implements OnInit {
     //   const id = param.get('id')
     //   console.log(id)
     this.recruitmentsService.editRecruitment(recruitment, this.recruitment?.id).subscribe(() => {
-      alert("Sửa Bài đăng thành công!")
-      // this.router.navigate([""])
+      this.dialog.open(DialogSuccessComponent)
+      this.router.navigate(["/enterprise/myListJob"]).then()
     }, error => {
       console.log(error)
+      this.dialog.open(DialogFailComponent)
     })
     // })
   }
@@ -85,18 +93,18 @@ export class RecruitmentEditComponent implements OnInit {
       this.recruitmentsService.findById(id).subscribe(res => {
         console.log(res)
         this.recruitment = res
-    this.recruitmentForm = new FormGroup({
-      title: new FormControl(res.title ),
-      salary: new FormControl(res.salary),
-      address: new FormControl(res.address ),
-      description: new FormControl(res.description),
-      experience: new FormControl(res.experience),
-      numberOfRecruitments: new FormControl(res.numberOfRecruitments),
-      dateEnd: new FormControl(res.dateEnd),
-      gender: new FormControl(res.gender),
-      workId: new FormControl(res.workId?.id),
-      positionId: new FormControl(res.positionId?.id),
-    })
+        this.recruitmentForm = new FormGroup({
+          title: new FormControl(res.title),
+          salary: new FormControl(res.salary),
+          address: new FormControl(res.address),
+          description: new FormControl(res.description),
+          experience: new FormControl(res.experience),
+          numberOfRecruitments: new FormControl(res.numberOfRecruitments),
+          dateEnd: new FormControl(res.dateEnd),
+          gender: new FormControl(res.gender),
+          workId: new FormControl(res.workId?.id),
+          positionId: new FormControl(res.positionId?.id),
+        })
       })
     })
   }

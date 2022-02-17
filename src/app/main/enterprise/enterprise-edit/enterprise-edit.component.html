@@ -21,28 +21,52 @@
                 <input type="text" formControlName="nameCompany" class="form-control"
                        placeholder="nameCompany"></div>
             </div>
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['nameCompany'].errors?.['required']
+                           && enterpriseForm.controls['nameCompany'].touched">
+              Tên công ty là bắt buộc!
+            </div>
             <div class="row mt-3">
               <div class="col-md-12">
                 <span style="color: gray">Mô tả</span>
                 <input type="text" formControlName="description" class="form-control"
-                       placeholder="description"></div>
+                       placeholder="Mô tả"></div>
+            </div>
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['description'].errors?.['required']
+                           && enterpriseForm.controls['description'].touched">
+              Mô tả là bắt buộc!
             </div>
             <div class="row mt-3">
               <div class="col-md-12">
                 <span style="color: gray">Địa chỉ công ty</span>
                 <input type="text" formControlName="addressCompany" class="form-control"
-                       placeholder="addressCompany"></div>
+                       placeholder="Địa chỉ"></div>
             </div>
-
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['addressCompany'].errors?.['required']
+                           && enterpriseForm.controls['addressCompany'].touched">
+              Địa chỉ là bắt buộc!
+            </div>
             <div class="row mt-3">
               <div class="col-md-6">
                 <span style="color: gray">Số điện thoai</span>
                 <input type="text" formControlName="phoneNumbers" class="form-control"
                        placeholder="Số điện thoại"></div>
+              <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                   *ngIf="enterpriseForm.controls['phoneNumbers'].errors?.['required']
+                           && enterpriseForm.controls['phoneNumbers'].touched">
+                Số điện thoại là bắt buộc!
+              </div>
               <div class="col-md-6">
                 <span style="color: gray">Số nhân viên</span>
                 <input type="text" formControlName="numberOfEmployees" class="form-control"
                        placeholder="Số nhân viên"></div>
+              <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                   *ngIf="enterpriseForm.controls['numberOfEmployees'].errors?.['required']
+                           && enterpriseForm.controls['numberOfEmployees'].touched">
+                Số lượng nhân viên là bắt buộc!
+              </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12">
@@ -50,30 +74,45 @@
                 <input type="text" formControlName="linkWebsites" class="form-control"
                        placeholder="linkWebsites"></div>
             </div>
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['linkWebsites'].errors?.['required']
+                           && enterpriseForm.controls['linkWebsites'].touched">
+              link website là bắt buộc!
+            </div>
             <div class="row mt-3">
               <div class="col-md-12">
                 <span style="color: gray">link Facebook</span>
                 <input type="text" formControlName="linkFacebook" class="form-control"
-                                            placeholder="phoneNumbers"></div>
-
+                       placeholder="linkFacebook"></div>
+            </div>
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['linkFacebook'].errors?.['required']
+                           && enterpriseForm.controls['linkFacebook'].touched">
+              link facebook là bắt buộc!
             </div>
             <div class="row mt-3">
               <div class="col-md-12">
                 <span style="color: gray">link GoogleMaps</span>
                 <input type="text" formControlName="linkGoogleMaps" class="form-control"
-                                            placeholder="phoneNumbers"></div>
-
+                       placeholder="linkGoogleMaps"></div>
+            </div>
+            <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
+                 *ngIf="enterpriseForm.controls['linkFacebook'].errors?.['required']
+                           && enterpriseForm.controls['linkFacebook'].touched">
+              link google map là bắt buộc!
             </div>
             <div class="mt-5 text-right">
-              <button class="btn btn-primary profile-button" type="submit">Sửa thông tin</button>
+              <button [disabled]="!enterpriseForm.valid"
+                      class="btn btn-primary profile-button" type="submit">Sửa thông tin
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
     <div class="col-5">
-      <img style="width: 120%;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-           alt="">
+      <img style="width: 120%;"
+           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="">
     </div>
   </div>
 </div>
