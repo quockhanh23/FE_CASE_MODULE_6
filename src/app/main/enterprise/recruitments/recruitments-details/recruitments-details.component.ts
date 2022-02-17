@@ -17,10 +17,10 @@ import {ApplyNowService} from "../../../../services/apply-now.service";
 export class RecruitmentsDetailsComponent implements OnInit {
   currentUser = localStorage.getItem("currentUser");
   recruitments!: Recruitments;
-  idFileCv:  any;
   check = true
   idRec!: string
   checkApply = false
+
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
@@ -56,23 +56,23 @@ export class RecruitmentsDetailsComponent implements OnInit {
   applyNow() {
     this.dialog.open(DialogApplyNowComponent)
   }
-  checkApplyNow(){
-    console.log("vaof dau")
+
+  checkApplyNow() {
+    console.log("vào hàm")
     let idRec = localStorage.getItem("idRec")
     let idUser = localStorage.getItem("ID")
     this.applyNow1.findByIdUser(idUser).subscribe(res => {
       // @ts-ignore
-      console.log("id cuar Cv "+ res.id)
-    console.log(idRec)
+      console.log("id của Cv " + res.id)
+      console.log(idRec)
       // @ts-ignore
-    this.applyNow1.getById(idRec,res.id).subscribe(res => {
-      console.log(res)
-
-      if(res.length != 0){
-        this.checkApply = true
-        console.log("dmm")
-      }
-    })
+      this.applyNow1.getById(idRec, res.id).subscribe(res => {
+        console.log(res)
+        if (res.length != 0) {
+          this.checkApply = true
+          console.log("Lỗi")
+        }
+      })
     })
   }
 }
