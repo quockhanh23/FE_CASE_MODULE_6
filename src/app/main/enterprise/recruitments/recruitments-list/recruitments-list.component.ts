@@ -28,10 +28,10 @@ export class RecruitmentsListComponent implements OnInit {
     this.recruitmentsService.getAllRecruitment(0).subscribe(data => {
       // @ts-ignore
       this.listJob = data.content;
-      console.log(this.listJob)
+      // console.log("data 5 thang khi oninit"+this.listJob)
     });
     this.recruitmentsService.getAll1().subscribe(data => {
-      // console.log(data)
+      // console.log("lấy hết cả list"+data)
       this.listRecruitmentsNotPagination = data;
 
       // @ts-ignore
@@ -48,13 +48,33 @@ export class RecruitmentsListComponent implements OnInit {
   }
 
   searchByName() {
+    this.indexPagination = 0;
     // @ts-ignore
     let name = document.getElementById('search').value
-    console.log(name)
-    // @ts-ignore
-    this.recruitmentsService.searchByName(name).subscribe(res => {
-      this.listJob = res
-    },)
+    localStorage.setItem("search",name);
+    this.recruitmentsService.searchByName2(name).subscribe(data => {
+      // console.log(data)
+      if(data.length != 0){
+        this.listRecruitmentsNotPagination = data;
+      }
+      // @ts-ignore
+      if ((this.listRecruitmentsNotPagination.length % 5) != 0) {
+        // @ts-ignore
+        this.totalPagination = (Math.round(this.listRecruitmentsNotPagination.length / 5)) + 1;
+      }
+    })
+    if(name == ""){
+      // console.log("test")
+      this.ngOnInit()
+    } else {
+      // @ts-ignore
+      this.recruitmentsService.searchByName(name,0).subscribe(res => {
+        // @ts-ignore
+        this.listJob = res.content
+        // console.log(this.listJob)
+      },)
+    }
+
   }
 
   sortByNewRecruitments() {
@@ -141,22 +161,34 @@ export class RecruitmentsListComponent implements OnInit {
         }
       }
     }
-    console.log(max)
+    // console.log("độ dài mảng chưa phân trang "+b)
+    // console.log(max)
+    // console.log(this.indexPagination)
     if (this.indexPagination > (max / 5)) {
       this.indexPagination -= 1;
-      console.log("x")
-    } else {
+      // console.log("không có trang thứ 2")
+    } else if(localStorage.getItem("search") == "") {
       this.recruitmentsService.getAllRecruitment(this.indexPagination).subscribe(data => {
+
         // @ts-ignore
         this.listJob = data.content;
-        console.log(this.indexPagination)
         console.error()
-        console.log(this.listJob)
-
+        console.log("tìm all")
       }, error => {
         console.log(error)
       })
 
+    } else {
+      // @ts-ignore
+      let name = document.getElementById('search').value
+      localStorage.setItem("search",name);
+      // console.log(name)
+      // @ts-ignore
+      this.recruitmentsService.searchByName(name,this.indexPagination).subscribe(res => {
+        // @ts-ignore
+        this.listJob = res.content
+        // console.log("trang tiếp của list tìm theo tên")
+      })
     }
   }
 

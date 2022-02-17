@@ -36,10 +36,12 @@ export class RecruitmentsService {
     return this.http.put<Recruitments>(API_URL + '/api/recruitments/edit' + `?idRecruitment=${idRecruitment}`, recruitment);
   }
 
-  searchByName(name: string): Observable<Recruitments[]> {
-    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name/?q=${name}`)
+  searchByName(name: string,index: number): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name/${name}?page=`+ index)
   }
-
+  searchByName2(name: string): Observable<Recruitments[]> {
+    return this.http.get<Recruitments[]>(API_SEARCH_NAME_ALL + `/name2/?q=${name}`)
+  }
   listRecruitmentsAllOrderByDate(): Observable<Recruitments[]> {
     return this.http.get<Recruitments[]>(API_URL + '/api/recruitments/sort')
   }
