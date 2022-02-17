@@ -51,6 +51,7 @@ export class UserComponent implements OnInit {
       this.checkButton = true
       this.checkDone = false
       this.dialog.closeAll()
+      this.toarts.error('Tài khoản đã có người xử dụng', 'Thông báo')
       console.log("lỗi nè" + error)
       this.dialog.open(DialogRegisterFailComponent)
     })

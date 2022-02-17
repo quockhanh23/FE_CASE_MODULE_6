@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { UserListCvComponent } from './user-list-cv/user-list-cv.component';
 import {MatButtonModule} from "@angular/material/button";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import { UserDetailCvComponent } from './user-detail-cv/user-detail-cv.component';
 
 
 
@@ -16,6 +17,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
     UserDetailComponent,
     UserEditCvComponent,
     UserListCvComponent,
+    UserDetailCvComponent,
 
   ],
   exports: [
