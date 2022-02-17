@@ -14,6 +14,7 @@ import { EnterpriseEditComponent } from './enterprise-edit/enterprise-edit.compo
 import {MatButtonModule} from "@angular/material/button";
 import { EnterpriseDetailComponent } from './enterprise-detail/enterprise-detail.component';
 import { RecruitmentEditComponent } from './recruitments/recruitment-edit/recruitment-edit.component';
+import { RecruitmentListCvComponent } from './recruitments/recruitment-list-cv/recruitment-list-cv.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RecruitmentEditComponent } from './recruitments/recruitment-edit/recrui
     EnterpriseEditComponent,
     EnterpriseDetailComponent,
     RecruitmentEditComponent,
+    RecruitmentListCvComponent,
   ],
   exports: [
     RecruitmentsListComponent

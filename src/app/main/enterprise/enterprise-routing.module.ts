@@ -8,6 +8,7 @@ import {RecruitmentsCreateComponent} from "./recruitments/recruitments-create/re
 import {EnterpriseEditComponent} from "./enterprise-edit/enterprise-edit.component";
 import {EnterpriseDetailComponent} from "./enterprise-detail/enterprise-detail.component";
 import {RecruitmentEditComponent} from "./recruitments/recruitment-edit/recruitment-edit.component";
+import {RecruitmentListCvComponent} from "./recruitments/recruitment-list-cv/recruitment-list-cv.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path :'detail',
     component: EnterpriseDetailComponent
+  },
+  {
+    path :':id/myListCV',
+    component: RecruitmentListCvComponent
   },
 ];
 

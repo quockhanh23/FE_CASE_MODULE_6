@@ -53,4 +53,7 @@ export class RecruitmentsMyListComponent implements OnInit {
   showEditForm(id: any) {
     this.router.navigate(["/enterprise/" + id + "/edit"])
   }
+  mylistCV(id: any) {
+    this.router.navigate(["/enterprise/" + id + "/myListCV"])
+  }
 }
