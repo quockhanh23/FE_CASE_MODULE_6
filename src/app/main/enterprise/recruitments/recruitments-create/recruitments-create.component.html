@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <div class="row" class="breadcrumb">
+  <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
         <span ngbTooltip="Quay lại"
               style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
               class="title material-icons a1">keyboard_backspace</span>
@@ -8,7 +8,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-2"></div>
     <div class="col-8" align="">
       <form [formGroup]="recruitmentForm"
             (ngSubmit)="register()">
@@ -87,6 +86,9 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block mb-4">Tạo công việc</button>
       </form>
+    </div>
+    <div class="col-4">
+      <img style="width: 100%; border-radius: 10px; margin-top: 27px" src="https://wallpapercave.com/wp/wp6595896.jpg" alt="">
     </div>
    <div class="row" style="height: 100px;"></div>
   </div>

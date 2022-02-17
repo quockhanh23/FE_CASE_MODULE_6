@@ -22,4 +22,8 @@ export class DialogRulesComponent implements OnInit {
     }
     return false
   }
+
+  reLoad() {
+    location.reload()
+  }
 }

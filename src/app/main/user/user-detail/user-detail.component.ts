@@ -7,6 +7,7 @@ import {ProfileUser} from "../../../models/profile-user";
 import {UserCreateCvComponent} from "../user-create-cv/user-create-cv.component";
 import {UserEditProfileComponent} from "../user-edit-profile/user-edit-profile.component";
 import {FileCVService} from "../../../services/file-cv.service";
+import {UserDetailCvComponent} from "../user-detail-cv/user-detail-cv.component";
 
 @Component({
   selector: 'app-user-detail',
@@ -39,5 +40,8 @@ export class UserDetailComponent implements OnInit {
 
   openDialogEdit() {
     this.dialog.open(UserEditProfileComponent)
+  }
+  openDialogMyCV(){
+    this.dialog.open(UserDetailCvComponent)
   }
 }

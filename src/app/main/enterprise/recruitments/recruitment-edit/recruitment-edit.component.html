@@ -1,5 +1,5 @@
 <div class="container" style="padding-top: 40px">
-  <div class="row" class="breadcrumb">
+  <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
         <span ngbTooltip="Quay lại danh sách đã đăng"
               style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
               class="title material-icons a1">keyboard_backspace</span>
@@ -8,8 +8,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="row">
-      <div class="col-2"></div>
+
+
       <div class="col-lg-8 mt-3">
         <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
               (ngSubmit)="updateRecruitment()" id="contactForm">
@@ -108,7 +108,10 @@
           </div>
         </form>
       </div>
-    </div>
+      <div class="col-4">
+        <img style="width: 100%; border-radius: 10px; margin-top: 55px" src="https://wallpapercave.com/wp/wp6595896.jpg" alt="">
+      </div>
+
   </div>
 </div>
 

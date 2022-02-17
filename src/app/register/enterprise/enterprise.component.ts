@@ -44,6 +44,7 @@ export class EnterpriseComponent implements OnInit {
   checkDone = false
   checkButton = true
   checkDialog = false
+  checkImage = false
 
   constructor(private storage: AngularFireStorage,
               private activatedRoute: ActivatedRoute,
@@ -60,6 +61,7 @@ export class EnterpriseComponent implements OnInit {
   }
 
   onFileSelected1(event: any) {
+    this.checkImage = true
     let n = Date.now();
     const file = event.target.files[0];
     const filePath = `RoomsImages/${n}`;
@@ -73,6 +75,7 @@ export class EnterpriseComponent implements OnInit {
           this.downloadURL.subscribe(url => {
             if (url) {
               this.fb = url;
+              this.checkImage = false
             }
             console.log(this.fb);
           });
@@ -100,9 +103,10 @@ export class EnterpriseComponent implements OnInit {
       this.dialog.open(DialogRegisterSuccessComponent)
     }, error => {
       console.log("lỗi nè" + error)
+      this.dialog.closeAll()
       this.checkButton = true
       this.checkDone = false
-      this.dialog.closeAll()
+      this.toarts.error('Tài khoản đã có người xử dụng', 'Thông báo')
       if (this.enterprise1.image == undefined) {
         this.dialog.open(DialogRegisterImageComponent)
       } else {
@@ -110,6 +114,7 @@ export class EnterpriseComponent implements OnInit {
       }
     })
   }
+
   openDialogRegisterCheck() {
     this.dialog.open(DialogCheckRegisterComponent)
   }

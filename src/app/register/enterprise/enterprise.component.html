@@ -123,7 +123,9 @@
                    (change)="onFileSelected1($event)"
                    name="image" autocomplete="off"
                    />
+            <mat-spinner [diameter]="20" *ngIf="checkImage"></mat-spinner>
           </div>
+
           <div class="col alert alert-success" role="alert"
                *ngIf="enterpriseForm.valid">
             Email và mật khẩu xác nhận đã hợp lệ
