@@ -1,12 +1,14 @@
-<div class="row" style="height: 20px;background-color: gainsboro"></div>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-10">
+<div class="container" style="padding-top: 40px">
+  <div class="row" class="breadcrumb">
+        <span ngbTooltip="Quay lại danh sách đã đăng"
+              style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
+              class="title material-icons a1">keyboard_backspace</span>
+    <div class="col-3" align="center">
+      <h2 style="margin-top: 11px">Sửa công việc</h2>
+    </div>
+  </div>
+  <div class="row">
     <div class="row">
-      <a style="margin-left: 30px" class="button button-contactForm btn_4 boxed-btn" routerLink="/enterprise/myListJob">Quay lại</a>
-      <div class="col-12 text-center mt-3">
-        <h2 class="contact-title" style="font-size: 30px">Tạo Job cần tuyển</h2>
-      </div>
       <div class="col-2"></div>
       <div class="col-lg-8 mt-3">
         <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
@@ -34,7 +36,8 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <p>Số lượng nhân viên</p>
-                <input class="form-control" type="text" placeholder="Số lượng tuyển" formControlName="numberOfRecruitments">
+                <input class="form-control" type="text" placeholder="Số lượng tuyển"
+                       formControlName="numberOfRecruitments">
               </div>
             </div>
             <div class="col-sm-6">
@@ -60,7 +63,8 @@
               <div class="form-group">
                 <p>Ngày kết thúc</p>
                 <label for="monthEnd" class="sr-only"></label>
-                <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date" formControlName="dateEnd">
+                <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date"
+                       formControlName="dateEnd">
               </div>
             </div>
             <div class="col-sm-6">
@@ -84,14 +88,16 @@
             Email và mật khẩu xác nhận đã hợp lệ
           </div>
           <div class="form-group mt-3">
-            <button type="submit" [disabled]="!recruitmentForm.valid" class="button button-contactForm btn_4 boxed-btn">
-              Update
+            <button type="submit" [disabled]="!recruitmentForm.valid" class="btn btn-primary btn-block mb-4">Sửa công
+              việc
             </button>
+
+
           </div>
         </form>
       </div>
     </div>
   </div>
-
 </div>
+
 
