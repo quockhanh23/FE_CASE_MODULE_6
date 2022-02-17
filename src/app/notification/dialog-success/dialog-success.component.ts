@@ -11,7 +11,4 @@ export class DialogSuccessComponent implements OnInit {
 
   ngOnInit(): void {
   }
-reload(){
-    location.reload()
-}
 }

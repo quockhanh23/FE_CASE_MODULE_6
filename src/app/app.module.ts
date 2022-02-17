@@ -35,6 +35,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DialogCheckLoginComponent } from './notification/dialog-check-login/dialog-check-login.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { AdminEnterpriseNoActiveComponent } from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
+import { DialogSendCvComponent } from './notification/dialog-send-cv/dialog-send-cv.component';
+
 
 
 const DialogComponents = [
@@ -64,6 +66,7 @@ const DialogComponents = [
     DialogCheckRegisterComponent,
     DialogCheckLoginComponent,
     AdminEnterpriseNoActiveComponent,
+    DialogSendCvComponent,
 
   ],
     imports: [
