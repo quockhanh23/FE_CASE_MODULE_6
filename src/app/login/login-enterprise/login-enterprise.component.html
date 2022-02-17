@@ -64,10 +64,11 @@
               </div>
               <div class="col-4">
                 <div class="example-button-row">
-                  <button style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
+                  <button *ngIf="checkButton" style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
                           class="btn-primary btn" mat-button color="primary">
                     <span class="material-icons">touch_app</span>Đăng nhập
                   </button>
+                  <mat-spinner [diameter]="30" *ngIf="checkDone"></mat-spinner>
                 </div>
               </div>
             </div>

@@ -11,6 +11,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MaterialModule} from "../material/material.module";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
         MatTooltipModule,
         MaterialModule,
         NgbTooltipModule,
+        MatProgressSpinnerModule,
     ]
 })
 export class RegisterModule { }

@@ -2,40 +2,9 @@
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 45px">
-      <a style="font-size: 25px" class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a style="font-size: 25px" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a style="font-size: 25px" class="nav-link" href="#">Link</a>
-          </li>
-          <li style="font-size: 25px" class="nav-item active dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-               aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-<!--        <form class="form-inline my-2 my-lg-0">-->
-<!--          <input (input)="searchByName()" id="search"  class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">-->
-<!--          <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>-->
-<!--        </form>-->
-      </div>
-    </nav>
+     <span ngbTooltip="Quay lại danh sách"
+           style="font-size: 25px" [routerLink]="['/enterprise/detail']"
+           class="material-icons a1">keyboard_backspace</span>
     <div class="row">
       <div class="col-lg-3">
         <div class="job_filter white-bg">
@@ -47,14 +16,6 @@
             </form>
           </div>
 
-          <div class="range_wrap">
-            <label for="amount">Price range:</label>
-            <div id="slider-range"></div>
-            <p>
-              <input type="text" id="amount" readonly
-                     style="border:0; color:#7A838B; font-size: 14px; font-weight:400;">
-            </p>
-          </div>
           <div class="reset_btn">
             <button class="boxed-btn3 w-100" type="submit">Reset</button>
           </div>
@@ -65,15 +26,15 @@
           <div class="recent_joblist white-bg ">
             <div class="row align-items-center">
               <div class="col-md-6">
-                <h4>Job Listing</h4>
+                <h3>Danh sách việc làm của công ty bạn đã đăng</h3>
               </div>
               <div class="col-md-6">
                 <div class="serch_cat d-flex justify-content-end">
                   <select>
-                    <option data-display="Most Recent">Most Recent</option>
-                    <option value="1">Marketer</option>
-                    <option value="2">Wordpress</option>
-                    <option value="4">Designer</option>
+                    <option data-display="Most Recent">Nhiều người ứng tuyển nhất</option>
+                    <option value="1">Ngày hết hạn</option>
+                    <option value="2">Mới nhất</option>
+                    <option value="4">Cũ nhất</option>
                   </select>
                 </div>
               </div>
@@ -118,7 +79,7 @@
 <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
                   </div>
                   <div class="date">
-                    <p>{{job.dateEnd}}</p>
+                    <p style="margin-right: 28px">{{job.dateEnd | date : 'dd/MM/yyyy'}}</p>
                   </div>
                 </div>
               </div>
@@ -142,21 +103,3 @@
   </div>
 </div>
 <!-- job_listing_area_end  -->
-
-
-<!--<script>-->
-<!--  $(function () {-->
-<!--    $("#slider-range").slider({-->
-<!--      range: true,-->
-<!--      min: 0,-->
-<!--      max: 24600,-->
-<!--      values: [750, 24600],-->
-<!--      slide: function (event, ui) {-->
-<!--        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1] + "/ Year");-->
-<!--      }-->
-<!--    });-->
-<!--    $("#amount").val("$" + $("#slider-range").slider("values", 0) +-->
-<!--      " - $" + $("#slider-range").slider("values", 1) + "/ Year");-->
-<!--  });-->
-<!--</script>-->
-

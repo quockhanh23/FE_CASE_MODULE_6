@@ -1,45 +1,79 @@
+<div class="f1 container rounded bg-white mt-4">
+  <div class="row" class="breadcrumb">
 
-
-<div class="container rounded bg-white mt-5">
+    <div class="col-1">
+         <span ngbTooltip="Quay lại"
+               style="font-size: 25px; margin-top: 14px" routerLink="/enterprise/detail"
+               class="material-icons a1">keyboard_backspace</span>
+    </div>
+    <div class="col">
+      <h2 style="margin-right: 100px; margin-top: 11px" align="center">Sửa thông tin</h2>
+    </div>
+  </div>
   <div class="row">
-    <div class="">
-      <div class="p-3 py-5">
-        <form action="#" [formGroup]="enterpriseForm" (ngSubmit)="updateEnterprise()">
-          <div class="row mt-2">
-            <div class="col-md-6"><input type="text" formControlName="nameCompany" class="form-control"
-                                         placeholder="nameCompany"></div>
-            <div class="col-md-6"><input type="text" formControlName="description" class="form-control"
-                                         placeholder="description"></div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-6"><input type="text" formControlName="addressCompany" class="form-control"
-                                         placeholder="addressCompany"
-            ></div>
-            <div class="col-md-6"><input type="text" formControlName="numberOfEmployees" class="form-control"
+    <div class="col-7">
+      <div class="">
+        <div class="p-3">
+          <form action="#" [formGroup]="enterpriseForm" (ngSubmit)="updateEnterprise()">
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">Tên doanh nghiệp</span>
+                <input type="text" formControlName="nameCompany" class="form-control"
+                       placeholder="nameCompany"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">Mô tả</span>
+                <input type="text" formControlName="description" class="form-control"
+                       placeholder="description"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">Địa chỉ công ty</span>
+                <input type="text" formControlName="addressCompany" class="form-control"
+                       placeholder="addressCompany"></div>
+            </div>
 
-                                         placeholder="Số lượng nhân viên"></div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-6"><input type="text" formControlName="phoneNumbers" class="form-control"
-                                         placeholder="phoneNumbers"></div>
-            <div class="col-md-6"><input type="text" formControlName="linkWebsites" class="form-control"
-                                         placeholder="linkFacebook"></div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-12"><input type="text" formControlName="linkFacebook" class="form-control"
-                                         placeholder="phoneNumbers"></div>
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <span style="color: gray">Số điện thoai</span>
+                <input type="text" formControlName="phoneNumbers" class="form-control"
+                       placeholder="Số điện thoại"></div>
+              <div class="col-md-6">
+                <span style="color: gray">Số nhân viên</span>
+                <input type="text" formControlName="numberOfEmployees" class="form-control"
+                       placeholder="Số nhân viên"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">link Websites</span>
+                <input type="text" formControlName="linkWebsites" class="form-control"
+                       placeholder="linkWebsites"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">link Facebook</span>
+                <input type="text" formControlName="linkFacebook" class="form-control"
+                                            placeholder="phoneNumbers"></div>
 
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-12"><input type="text" formControlName="linkGoogleMaps" class="form-control"
-                                          placeholder="phoneNumbers"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <span style="color: gray">link GoogleMaps</span>
+                <input type="text" formControlName="linkGoogleMaps" class="form-control"
+                                            placeholder="phoneNumbers"></div>
 
-          </div>
-          <div class="mt-5 text-right">
-            <button class="btn btn-primary profile-button" type="submit">Sửa thông tin</button>
-          </div>
-        </form>
+            </div>
+            <div class="mt-5 text-right">
+              <button class="btn btn-primary profile-button" type="submit">Sửa thông tin</button>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
+    <div class="col-5">
+      <img style="width: 120%;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+           alt="">
     </div>
   </div>
 </div>

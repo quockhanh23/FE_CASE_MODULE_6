@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {EnterpriseService} from "../../services/enterprise.service";
 import {ProfileEnterprise} from "../../models/profile-enterprise";
+import {ActivatedRoute, Router} from "@angular/router";
+import {reload} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-header',
@@ -9,14 +11,17 @@ import {ProfileEnterprise} from "../../models/profile-enterprise";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  id = localStorage.getItem('ID');
+  checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
-  check = true
+  check1 = true
+  check2 = true
+  check3 = true
+
   enterpriseProfile!: ProfileEnterprise
 
   constructor(private authService: AuthenticationService,
-              private enterpriseService: EnterpriseService
+              private enterpriseService: EnterpriseService,
   ) {
   }
 
@@ -36,5 +41,11 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
     this.authService.logout();
+  }
+
+  openReload() {
+    setTimeout(() => {
+      location.reload()
+    }, 800)
   }
 }
