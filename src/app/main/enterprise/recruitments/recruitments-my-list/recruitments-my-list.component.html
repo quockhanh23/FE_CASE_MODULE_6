@@ -1,27 +1,19 @@
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
-     <span ngbTooltip="Quay lại danh sách"
-           style="font-size: 25px" [routerLink]="['/enterprise/detail']"
-           class="material-icons a1">keyboard_backspace</span>
+    <div class="row" class="breadcrumb">
+        <span ngbTooltip="Quay lại"
+              style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
+              class="title material-icons a1">keyboard_backspace</span>
+      <div class="col-4" align="center">
+        <h2 style="margin-top: 11px">Danh sách công việc đã đăng</h2>
+      </div>
+    </div>
     <div class="row">
       <div class="col-lg-12">
         <div class="recent_joblist_wrap">
-          <div class="recent_joblist white-bg ">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <h3>Danh sách việc làm của công ty bạn đã đăng</h3>
-              </div>
-              <div class="col-md-6">
-                <div class="serch_cat d-flex justify-content-end">
-                  <select>
-                    <option data-display="Most Recent">Nhiều người ứng tuyển nhất</option>
-                    <option value="1">Ngày hết hạn</option>
-                    <option value="2">Mới nhất</option>
-                    <option value="4">Cũ nhất</option>
-                  </select>
-                </div>
-              </div>
+          <div class="row align-items-center">
+            <div class="col-md-6">
             </div>
           </div>
         </div>
@@ -38,7 +30,7 @@
                     <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
-                        <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
+                        <p style="color: #f7941d"><i class="fa fa-map-marker"></i> {{job?.address}}</p>
                       </div>
                       <div class="location">
                         <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
