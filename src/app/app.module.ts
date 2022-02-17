@@ -69,21 +69,24 @@ const DialogComponents = [
     DialogSendCvComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ToastrModule.forRoot(),
-        BrowserAnimationsModule,
-        MaterialModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        NgbModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-        MatProgressBarModule,
-        MatProgressSpinnerModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+  ],
   providers: [],
+  exports: [
+    AdminEnterpriseNoActiveComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

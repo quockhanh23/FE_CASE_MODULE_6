@@ -13,7 +13,8 @@ import {UserService} from "../../../services/user.service";
   styleUrls: ['./admin-management.component.css']
 })
 export class AdminManagementComponent implements OnInit {
-  id = localStorage.getItem('ADMIN')
+  id = localStorage.getItem('ID')
+  role = localStorage.getItem('ROLE')
   profileUser!: ProfileUser
 
   constructor(private userService: UserService,
@@ -29,5 +30,9 @@ export class AdminManagementComponent implements OnInit {
       console.log(res+ 'alo')
       this.profileUser = res
     })
+  }
+  checkRole(){
+    if (this.role == 'ADMIN'){
+    }
   }
 }

@@ -49,7 +49,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   getAllStatusNotActive() {
     this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
       console.log(res)
-      this.router.navigate(["admin/list"]).then()
+      this.router.navigate(["admin/adminDetail"]).then()
     })
   }
 
@@ -64,7 +64,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       console.log(res)
       this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
         console.log(result)
-        this.router.navigateByUrl("/admin/list").then()
+        this.router.navigate(["admin/adminDetail"]).then()
         if (res.statusEnterpriseId?.id == '3') {
           this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
         } else {
@@ -83,7 +83,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       console.log(res)
       this.enterpriseOfAdminService.changeStatusActive(id).subscribe(result => {
         console.log(result)
-        this.router.navigateByUrl("/admin/list").then()
+        this.router.navigate(["admin/adminDetail"]).then()
         if (res.statusEnterpriseId?.id == '2') {
           this.toarts.error('Cảnh báo', 'Tài khoản đã được kích hoạt rồi!')
         } else {
@@ -102,7 +102,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       console.log(res)
       this.enterpriseOfAdminService.changeStatusVIP(id).subscribe(result => {
         console.log(result)
-        this.router.navigateByUrl("/admin/list").then()
+        this.router.navigate(["admin/adminDetail"]).then()
         if (res.statusEnterpriseId?.id == '4') {
           this.toarts.error('Cảnh báo', 'Tài khoản đã được lên đề xuất rồi!')
         } else {

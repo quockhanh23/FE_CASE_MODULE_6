@@ -1,13 +1,13 @@
 
 <div class="container">
-  <button (click)="getAllStatusByOne()">Các doanh nghiệp chưa được kích hoạt</button>
-  <button (click)="getAll()">Tất cả doanh nghiệp</button>
-  <form class="form-inline my-2 my-lg-0" style="padding-top: 20px">
-    <input class="form-control " type="search" placeholder="Tìm kiếm tên doanh nghiệp" aria-label="Search">
-    <button ngbTooltip="Tìm kiếm" mat-button type="submit"><span style="font-size: 45px; color: deeppink" class="alo1 material-icons">person_search</span></button>
-  </form>
-  <hr>
-  <h1 style="text-align: center; color: #1a237e">Danh sách doanh nghiệp</h1>
+  <div class="row">
+    <div class="col-6">
+      <h3 class="a1" style="color: #1a237e" (click)="getAllStatusByOne()">Các doanh nghiệp chưa được kích hoạt</h3>
+    </div>
+    <div class="a1 col-6"><h3 (click)="getAll()" style="text-align: center; color: #1a237e">Danh sách doanh nghiệp</h3>
+    </div>
+  </div>
+
 
   <div class="card" *ngFor="let en of enterprise" style="margin-top: 5px;">
     <div class="card-header">

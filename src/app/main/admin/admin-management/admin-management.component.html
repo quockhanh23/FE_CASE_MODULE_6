@@ -1,2 +1,27 @@
-{{profileUser.id}}
-{{profileUser.fullName}}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+  <div class="row">
+    <div class="profile-nav col-md-3">
+      <div class="panel">
+        <div class="user-heading round">
+          <a href="#">
+            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+          </a>
+          <h1>{{profileUser?.fullName}}</h1>
+          <p>{{profileUser?.email}}</p>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a> <i class="fa fa-user"></i>{{profileUser?.phoneNumber}}</a></li>
+        </ul>
+        <li><a> <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Admin</a></li>
+        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/listJob']">Quản lý danh sách tin tuyển dụng</a>
+        <li *ngIf="role=='ROLE_ADMIN'"><a [routerLink]="['/admin/list']">Quản lý lý danh sách doanh nghiệp</a>
+
+      </div>
+    </div>
+    <div class="profile-info col-md-9">
+      <app-list-enterprise-of-admin></app-list-enterprise-of-admin>
+    </div>
+  </div>
+</div>
+
