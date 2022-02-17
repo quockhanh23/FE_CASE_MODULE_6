@@ -9,6 +9,7 @@ import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatButtonModule} from "@angular/material/button";
 import { AdminRecruitmentsListComponent } from './admin-recruitments-list/admin-recruitments-list.component';
 import { AdminManagementComponent } from './admin-management/admin-management.component';
+import { WeatherComponent } from './weather/weather.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AdminManagementComponent } from './admin-management/admin-management.co
     EditStatusEnterpriseComponent,
     ListEnterpriseOfAdminComponent,
     AdminRecruitmentsListComponent,
-    AdminManagementComponent
+    AdminManagementComponent,
+    WeatherComponent
   ],
   imports: [
     CommonModule,

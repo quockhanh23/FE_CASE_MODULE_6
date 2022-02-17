@@ -1,14 +1,18 @@
 <!-- job_listing_area_start  -->
-<div class="job_listing_area" style="padding-top: 40px">
+<div class="job_listing_area" style="padding-top: 20px">
   <div class="container">
+    <nav aria-label="breadcrumb" class="main-breadcrumb" >
+      <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
+        <span ngbTooltip="Quay lại danh sách"
+              style="font-size: 25px; margin-top: 14px" [routerLink]="['/admin/adminDetail']"
+              class="title material-icons a1">keyboard_backspace</span>
+        <div class="col-3" align="right">
+          <h2 style="margin-top: 11px">Toàn bộ danh sách</h2>
+        </div>
+      </div>
+    </nav>
         <div class="recent_joblist_wrap">
-          <div class="recent_joblist white-bg ">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <h4>Danh sách toàn bộ công việc</h4>
-              </div>
-            </div>
-          </div>
+
         </div>
         <div class="job_lists m-0">
           <div class="row" *ngFor=" let job of listJob ">
