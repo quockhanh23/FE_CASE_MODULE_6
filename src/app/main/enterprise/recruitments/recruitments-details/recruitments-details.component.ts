@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {UserCreateCvComponent} from "../../../user/user-create-cv/user-create-cv.component";
 import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
+import {ApplyNowService} from "../../../../services/apply-now.service";
 
 
 @Component({
@@ -16,14 +17,16 @@ import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now
 export class RecruitmentsDetailsComponent implements OnInit {
   currentUser = localStorage.getItem("currentUser");
   recruitments!: Recruitments;
+  idFileCv:  any;
   check = true
   idRec!: string
-
+  checkApply = false
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
               public dialog: MatDialog,
               private toarts: ToastrService,
+              private applyNow1: ApplyNowService
   ) {
   }
 
@@ -34,10 +37,11 @@ export class RecruitmentsDetailsComponent implements OnInit {
       localStorage.setItem('idRec', this.idRec)
       // @ts-ignore
       this.recruitmentsService.findById(id).subscribe(res => {
-        console.log(res)
+        // console.log(res)
         this.recruitments = res
       })
     })
+    this.checkApplyNow()
   }
 
   report() {
@@ -51,5 +55,24 @@ export class RecruitmentsDetailsComponent implements OnInit {
 
   applyNow() {
     this.dialog.open(DialogApplyNowComponent)
+  }
+  checkApplyNow(){
+    console.log("vaof dau")
+    let idRec = localStorage.getItem("idRec")
+    let idUser = localStorage.getItem("ID")
+    this.applyNow1.findByIdUser(idUser).subscribe(res => {
+      // @ts-ignore
+      console.log("id cuar Cv "+ res.id)
+    console.log(idRec)
+      // @ts-ignore
+    this.applyNow1.getById(idRec,res.id).subscribe(res => {
+      console.log(res)
+
+      if(res.length != 0){
+        this.checkApply = true
+        console.log("dmm")
+      }
+    })
+    })
   }
 }
