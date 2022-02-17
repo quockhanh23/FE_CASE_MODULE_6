@@ -9,11 +9,11 @@
           <div class="single_jobs white-bg d-flex justify-content-between">
             <div class="jobs_left d-flex align-items-center">
               <div class="thumb">
-                <img ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments.profileEnterprise?.image}}" alt=""
+                <img ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments?.profileEnterprise?.image}}" alt=""
                      style="width: 48px;height: 48px">
               </div>
               <div class="jobs_conetent">
-                <a><h4>{{recruitments.title}} - Vị trí: {{recruitments.positionId?.name}} </h4></a>
+                <a><h4>{{recruitments?.title}} - Vị trí: {{recruitments?.positionId?.name}} </h4></a>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
                     <p><i class="fa fa-map-marker"></i> {{recruitments?.profileEnterprise?.addressCompany}}</p>
@@ -37,16 +37,16 @@
           <div class="single_wrap">
             <h4>Mô tả công việc: </h4>
             <p>
-              {{recruitments.description}}
+              {{recruitments?.description}}
             </p>
           </div>
           <div class="single_wrap">
             <h4>Kinh nghiệm</h4>
-            <p>{{recruitments.experience}}</p>
+            <p>{{recruitments?.experience}}</p>
           </div>
           <div class="single_wrap">
             <h4>Giới tính</h4>
-            <p>{{recruitments.gender}}</p>
+            <p>{{recruitments?.gender}}</p>
           </div>
         </div>
         <div class="apply_job_form white-bg">
@@ -68,13 +68,13 @@
           </div>
           <div class="job_content">
             <ul>
-              <li>Ngày đăng tin: <span>{{recruitments.dateBegin | date:"dd/MM/yyyy"}}</span></li>
-              <li>Ngày hết hạn: <span>{{recruitments.dateEnd | date:"dd/MM/yyyy"}}</span></li>
-              <li>Vị trí còn trống: <span>{{recruitments.numberOfRecruitments}}</span></li>
+              <li>Ngày đăng tin: <span>{{recruitments?.dateBegin | date:"dd/MM/yyyy"}}</span></li>
+              <li>Ngày hết hạn: <span>{{recruitments?.dateEnd | date:"dd/MM/yyyy"}}</span></li>
+              <li>Vị trí còn trống: <span>{{recruitments?.numberOfRecruitments}}</span></li>
 <!--              Đăng nhập mới thấy Lương-->
-              <li *ngIf="currentUser">Lương: <span>{{recruitments.salary | currency}}</span></li>
-              <li>Địa điểm: <span>{{recruitments.address}}</span></li>
-              <li>Thời gian: <span> {{recruitments.workId?.name}}</span></li>
+              <li *ngIf="currentUser">Lương: <span>{{recruitments?.salary | currency}}</span></li>
+              <li>Địa điểm: <span>{{recruitments?.address}}</span></li>
+              <li>Thời gian: <span> {{recruitments?.workId?.name}}</span></li>
             </ul>
           </div>
         </div>
