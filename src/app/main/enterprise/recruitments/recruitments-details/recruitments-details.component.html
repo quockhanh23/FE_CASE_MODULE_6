@@ -16,7 +16,7 @@
                 <a><h4>{{recruitments?.title}} - Vị trí: {{recruitments?.positionId?.name}} </h4></a>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
-                    <p><i class="fa fa-map-marker"></i> {{recruitments?.profileEnterprise?.addressCompany}}</p>
+                    <p><i class="fa fa-map-marker"></i> {{recruitments?.address}}</p>
                   </div>
                   <div class="location">
                     <p><i class="fa fa-clock-o"></i> {{recruitments?.workId?.name}}</p>
@@ -41,11 +41,11 @@
             </p>
           </div>
           <div class="single_wrap">
-            <h4>Kinh nghiệm</h4>
+            <h4>Yêu cầu kinh nghiệm:</h4>
             <p>{{recruitments?.experience}}</p>
           </div>
           <div class="single_wrap">
-            <h4>Giới tính</h4>
+            <h4>Yêu cầu giới tính:</h4>
             <p>{{recruitments?.gender}}</p>
           </div>
         </div>
