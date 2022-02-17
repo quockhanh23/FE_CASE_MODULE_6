@@ -1,152 +1,94 @@
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-10">
-    <div class="row">
-     <span ngbTooltip="Quay lại"
-           style="font-size: 25px" [routerLink]="['/enterprise/detail']"
-           class="material-icons a1">keyboard_backspace</span>
-      <div class="col-12 text-center mt-3">
-
-        <h2 class="contact-title" style="font-size: 30px">Tạo Job cần tuyển</h2>
-      </div>
-      <div class="col-2"></div>
-      <div class="col-lg-8 mt-3">
-        <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
-              (ngSubmit)="register()" id="contactForm">
-          <div class="row">
-            <div class="col-12">
-              <div class="form-group">
-                <input class="form-control " type="text" placeholder='Nhập lĩnh vực' formControlName="title">
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nhập địa chỉ làm việc"
-                       formControlName="address">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="text" placeholder="Yêu cầu kinh nghiệm" formControlName="experience">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="text" placeholder="Số lượng tuyển"
-                       formControlName="numberOfRecruitments">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="text" placeholder="Giới tính yêu cầu" formControlName="gender">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nhập mức lương"
-                       formControlName="salary">
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <p>Mô tả công việc</p>
-                <input class="form-control" type="text" style="height: 120px" formControlName="description">
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <p>Ngày kết thúc</p>
-                <label for="monthEnd" class="sr-only"></label>
-                <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date"
-                       formControlName="dateEnd">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <p>Hình thức làm việc</p>
-              <select style="width: 150px" formControlName="workId">
-                <!--                <option>Chọn</option>-->
-                <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
-              </select>
-            </div>
-            <div class="col-sm-6">
-              <p>Vị trí tuyển dụng</p>
-              <select style="width: 150px" formControlName="positionId">
-                <!--                <option>Chọn</option>-->
-                <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
-              </select>
-            </div>
-          </div>
-
-          <div style="margin-top: 10px" class="col alert alert-success" role="alert"
-               *ngIf="recruitmentForm.valid">
-            Email và mật khẩu xác nhận đã hợp lệ
-          </div>
-          <div class="form-group mt-3">
-            <button type="submit" [disabled]="!recruitmentForm.valid" mat-button class="btn btn-primary">
-              Tạo Công việc
-            </button>
-          </div>
-        </form>
-      </div>
+<div class="container mt-4">
+  <div class="row" class="breadcrumb">
+        <span ngbTooltip="Quay lại"
+              style="font-size: 25px; margin-top: 15px" [routerLink]="['/enterprise/detail']"
+              class="title material-icons a1">keyboard_backspace</span>
+    <div class="col-3" align="center">
+      <h2 style="margin-top: 11px">Đăng tuyển dụng</h2>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-2"></div>
-    <div class="col-8" align="center">
+    <div class="col-8" align="">
       <form [formGroup]="recruitmentForm"
             (ngSubmit)="register()">
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <label class="form-label" >Tiêu đề</label>
-          <input type="text" formControlName="title"  class="form-control" />
+          <label class="form-label">Hình thức công việc</label>
+          <input type="text" formControlName="title" class="form-control"/>
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
           <label class="form-label">Nơi làm việc</label>
-          <input formControlName="address" type="text"  class="form-control" />
+          <input formControlName="address" type="text" class="form-control"/>
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
           <label class="form-label">Mô tả công việc</label>
-          <input formControlName="description" type="text"  class="form-control" />
+          <input formControlName="description" type="text" class="form-control"/>
 
         </div>
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
               <label class="form-label">Mức lương</label>
-              <input formControlName="salary" type="text"  class="form-control" />
+              <input formControlName="salary" type="text" class="form-control"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label">Kinh nghiệm</label>
-              <input formControlName="experience" type="text"  class="form-control" />
+              <input formControlName="experience" type="text" class="form-control"/>
             </div>
           </div>
         </div>
-
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
               <label class="form-label">Số lượng tuyển</label>
-              <input formControlName="numberOfRecruitments" type="text"  class="form-control" />
+              <input formControlName="numberOfRecruitments" type="text" class="form-control"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
               <label class="form-label">Giới tính</label>
-              <input formControlName="gender" type="text"  class="form-control" />
+              <input formControlName="gender" type="text" class="form-control"/>
             </div>
           </div>
         </div>
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+        <div class="col-12">
+          <div class="form-group">
+            <p>Ngày kết thúc</p>
+            <label for="" class="sr-only"></label>
+            <input id="" class="form-control input-group-lg" name="dateOfBirth" type="date"
+                   formControlName="dateEnd">
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-6">
+              <p>Hình thức làm việc</p>
+              <select style="width: 150px" formControlName="workId">
+                <!--                <option>Chọn</option>-->
+                <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <p>Vị trí tuyển dụng</p>
+              <div class="col-sm-6">
+
+                <select style="width: 150px" formControlName="positionId">
+                  <!--                <option>Chọn</option>-->
+                  <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 100px;"></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Tạo công việc</button>
       </form>
     </div>
-    <div class="col-2"></div>
+   <div class="row" style="height: 100px;"></div>
   </div>
 </div>
