@@ -8,13 +8,15 @@ import {MatCardModule} from "@angular/material/card";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatButtonModule} from "@angular/material/button";
 import { AdminRecruitmentsListComponent } from './admin-recruitments-list/admin-recruitments-list.component';
+import { AdminManagementComponent } from './admin-management/admin-management.component';
 
 
 @NgModule({
   declarations: [
     EditStatusEnterpriseComponent,
     ListEnterpriseOfAdminComponent,
-    AdminRecruitmentsListComponent
+    AdminRecruitmentsListComponent,
+    AdminManagementComponent
   ],
   imports: [
     CommonModule,
