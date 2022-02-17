@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecruitmentsService} from "../../services/recruitments.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FileCVService} from "../../services/file-cv.service";
 import {Recruitments} from "../../models/recruitments";
+import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
+import {DialogFailComponent} from "../dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-dialog-apply-now',
@@ -19,19 +21,25 @@ export class DialogApplyNowComponent implements OnInit {
               private router: Router,
               public dialog: MatDialog,
               private recruitmentsService: RecruitmentsService,
-              private toarts: ToastrService,) { }
+              private toarts: ToastrService,) {
+  }
 
   ngOnInit(): void {
-      // @ts-ignore
-      this.recruitmentsService.findById(localStorage.getItem("idRec")).subscribe(res => {
-        console.log(res)
-        this.recruitments = res
-      })
-  }
-  applyNow(){
-    let idUser = localStorage.getItem("ID")
-    this.fileCVService.submitCv(idUser,this.recruitments).subscribe(res => {
+    // @ts-ignore
+    this.recruitmentsService.findById(localStorage.getItem("idRec")).subscribe(res => {
       console.log(res)
+      this.recruitments = res
+    })
+  }
+
+  applyNow() {
+    let idUser = localStorage.getItem("ID")
+    this.fileCVService.submitCv(idUser, this.recruitments).subscribe(res => {
+      this.dialog.open(DialogSuccessComponent)
+      console.log(res)
+    }, error => {
+      console.log(error)
+      this.dialog.open(DialogFailComponent)
     })
   }
 }

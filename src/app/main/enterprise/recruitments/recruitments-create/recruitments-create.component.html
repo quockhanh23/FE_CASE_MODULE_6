@@ -96,70 +96,52 @@
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8" align="center">
-      <form>
-
-
-
+      <form [formGroup]="recruitmentForm"
+            (ngSubmit)="register()">
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text"  class="form-control" />
-          <label class="form-label" >Company name</label>
+          <label class="form-label" >Tiêu đề</label>
+          <input type="text" formControlName="title"  class="form-control" />
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text"  class="form-control" />
-          <label class="form-label">Company name</label>
+          <label class="form-label">Nơi làm việc</label>
+          <input formControlName="address" type="text"  class="form-control" />
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text"  class="form-control" />
-          <label class="form-label">Company name</label>
+          <label class="form-label">Mô tả công việc</label>
+          <input formControlName="description" type="text"  class="form-control" />
+
         </div>
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">First name</label>
-              <input type="text"  class="form-control" />
+              <label class="form-label">Mức lương</label>
+              <input formControlName="salary" type="text"  class="form-control" />
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input type="text"  class="form-control" />
-              <label class="form-label">Last name</label>
+              <label class="form-label">Kinh nghiệm</label>
+              <input formControlName="experience" type="text"  class="form-control" />
             </div>
           </div>
         </div>
+
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">First name</label>
-              <input type="text"  class="form-control" />
+              <label class="form-label">Số lượng tuyển</label>
+              <input formControlName="numberOfRecruitments" type="text"  class="form-control" />
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="form6Example2" class="form-control" />
-              <label class="form-label" for="form6Example2">Last name</label>
+              <label class="form-label">Giới tính</label>
+              <input formControlName="gender" type="text"  class="form-control" />
             </div>
           </div>
-        </div>
-
-        <!-- Text input -->
-        <div class="form-outline mb-4">
-          <input type="text" id="form6Example4" class="form-control" />
-          <label class="form-label" for="form6Example4">Address</label>
-        </div>
-
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-          <input type="email" id="form6Example5" class="form-control" />
-          <label class="form-label" for="form6Example5">Email</label>
-        </div>
-
-        <!-- Number input -->
-        <div class="form-outline mb-4">
-          <input type="number" id="form6Example6" class="form-control" />
-          <label class="form-label" for="form6Example6">Phone</label>
         </div>
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
@@ -167,5 +149,4 @@
     </div>
     <div class="col-2"></div>
   </div>
-
 </div>
