@@ -4,6 +4,7 @@ import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
+
 @Component({
   selector: 'app-recruitments-list',
   templateUrl: './recruitments-list.component.html',
@@ -88,78 +89,47 @@ export class RecruitmentsListComponent implements OnInit {
       this.listJob = res
     })
   }
+
+  // tìm kiếm nhanh theo thành phố
   searchByAddress() {
     // @ts-ignore
-    let name = document.getElementById('q').value
-    console.log(name)
+    let key = document.getElementById('q').value
+    console.log(key)
     // @ts-ignore
-    this.recruitmentsService.searchByName(name).subscribe(res => {
+    this.recruitmentsService.searchByAddress(key).subscribe(res => {
       this.listJob = res
     },)
   }
-// Cụm tìm kiếm theo địa chỉ 1-10
-  searchByAddress1() {
-    this.recruitmentsService.searchByAddress1().subscribe(res => {
-      this.listJob = res
-    })
-  }
 
-  searchByAddress2() {
-    this.recruitmentsService.searchByAddress2().subscribe(res => {
-      this.listJob = res
-    })
-  }
+  // tìm kiếm nhanh theo các trường
 
-  searchByAddress3() {
-    this.recruitmentsService.searchByAddress3().subscribe(res => {
+  searchRecruitment() {
+    // @ts-ignore
+    let address = document.getElementById('address').value
+    console.log(address)
+    // @ts-ignore
+    let title = document.getElementById('title').value
+    console.log(title)
+    // @ts-ignore
+    let experience = document.getElementById('experience').value
+    console.log(experience)
+    // @ts-ignore
+    let min = +document.getElementById('min').value
+    console.log(min)
+    // // @ts-ignore
+    // let max = +document.getElementById('max').value
+    // console.log(max)
+    // @ts-ignore
+    let name = document.getElementById('name').value
+    console.log(name)
+    // @ts-ignore
+    this.recruitmentsService.searchRecruitment(address, title, experience, min, 1000000000000, name).subscribe(res => {
       this.listJob = res
-    })
-  }
-
-  searchByAddress4() {
-    this.recruitmentsService.searchByAddress4().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress5() {
-    this.recruitmentsService.searchByAddress5().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress6() {
-    this.recruitmentsService.searchByAddress6().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress7() {
-    this.recruitmentsService.searchByAddress7().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress8() {
-    this.recruitmentsService.searchByAddress8().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress9() {
-    this.recruitmentsService.searchByAddress9().subscribe(res => {
-      this.listJob = res
-    })
-  }
-
-  searchByAddress10() {
-    this.recruitmentsService.searchByAddress10().subscribe(res => {
-      this.listJob = res
-    })
+    },)
   }
 
   nextPage() {
-   this.indexPagination++ ;
+    this.indexPagination++;
     let b = this.listRecruitmentsNotPagination.length
     let max = 0
     for (let i = 0; i < b; i++) {
