@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FileCV} from "../../../../models/file-cv";
 import {ApplyNow} from "../../../../models/apply-now";
+import {DialogDetialCvComponent} from "../../../../notification/dialog-detial-cv/dialog-detial-cv.component";
 
 @Component({
   selector: 'app-recruitment-list-cv',
@@ -38,5 +39,14 @@ export class RecruitmentListCvComponent implements OnInit {
         this.listApply = res
       })
     })
+  }
+  openCv(){
+    this.dialog.open(DialogDetialCvComponent)
+  }
+  saveIdCv(id: any){
+    localStorage.setItem("idCv",id)
+  }
+  saveIdRec(id: any){
+    localStorage.setItem("idRec",id)
   }
 }

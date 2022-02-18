@@ -28,7 +28,6 @@ export class FileCVService {
   getById(id: any): Observable<FileCV> {
     return this.http.get<FileCV>(API_URL + `/${id}`)
   }
-
   create(fileCV: FileCV, id: any): Observable<FileCV> {
     return this.http.post<FileCV>(API_URL_CREATE + `?idUser=${id}`, fileCV)
   }
