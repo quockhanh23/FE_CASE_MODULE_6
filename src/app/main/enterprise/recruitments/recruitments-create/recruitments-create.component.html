@@ -55,12 +55,12 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="form-group">
+<!--          <div class="form-group">-->
             <p>Ngày kết thúc</p>
             <label for="" class="sr-only"></label>
-            <input id="" class="form-control input-group-lg" name="dateOfBirth" type="date"
+            <input id="" class="form-control input-group-lg" style="width: 100%" name="dateOfBirth" type="date"
                    formControlName="dateEnd">
-          </div>
+<!--          </div>-->
         </div>
         <div class="col-sm-12">
           <div class="row">
@@ -72,10 +72,9 @@
               </select>
             </div>
             <div class="col-6">
-              <p>Vị trí tuyển dụng</p>
+              <p style="margin-right: 30px">Vị trí tuyển dụng</p>
               <div class="col-sm-6">
-
-                <select style="width: 150px" formControlName="positionId">
+                <select style="width: 170px" formControlName="positionId">
                   <!--                <option>Chọn</option>-->
                   <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
                 </select>
