@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Recruitments} from "../../../../models/recruitments";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
+import {ApplyNowService} from "../../../../services/apply-now.service";
 
 @Component({
   selector: 'app-recruitments-my-list',
@@ -13,12 +14,13 @@ import {ToastrService} from "ngx-toastr";
 export class RecruitmentsMyListComponent implements OnInit {
   id = localStorage.getItem('ENTERPRISE_ID');
   myListJob: Recruitments[] = [];
-
+  check = "false"
   constructor(
     private activatedRoute: ActivatedRoute,
     private recruitmentsService: RecruitmentsService,
     private router: Router,
     public dialog: MatDialog,
+    private apply: ApplyNowService,
     private toarts: ToastrService,
   ) {
   }
@@ -31,6 +33,7 @@ export class RecruitmentsMyListComponent implements OnInit {
     this.recruitmentsService.myListRecruitments(this.id).subscribe(result => {
       console.log(result);
       this.myListJob = result;
+
     }, error => {
       console.log(error);
     })
@@ -55,5 +58,8 @@ export class RecruitmentsMyListComponent implements OnInit {
   }
   mylistCV(id: any) {
     this.router.navigate(["/enterprise/" + id + "/myListCV"])
+  }
+  showDetails(id: string) {
+    this.router.navigate([id + '/details'])
   }
 }

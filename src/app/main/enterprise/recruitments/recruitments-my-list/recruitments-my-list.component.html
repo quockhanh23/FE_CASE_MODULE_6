@@ -28,7 +28,8 @@
                     <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a [routerLink]="['/enterprise/']"><h4>{{job.title}}</h4></a>
+                    <a routerLink="/enterprise/listJob/{{job.id}}/details"><h4>{{job.title}}<span style="color: red"> !</span></h4></a>
+
                     <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
