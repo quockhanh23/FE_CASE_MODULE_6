@@ -30,7 +30,7 @@ export class EnterpriseDetailComponent implements OnInit {
       this.enterprise = res
       this.enterprise.statusEnterpriseId
       // @ts-ignore
-      if(this.enterprise.statusEnterpriseId?.id == 1 || this.enterprise.statusEnterpriseId?.id == 4){
+      if(this.enterprise.statusEnterpriseId?.id == 1 || this.enterprise.statusEnterpriseId?.id == 3){
         this.check = "true"
       }
     })
