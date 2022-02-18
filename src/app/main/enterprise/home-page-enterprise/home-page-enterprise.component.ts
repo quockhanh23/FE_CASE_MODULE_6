@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RecruitmentsService} from "../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {Recruitments} from "../../../models/recruitments";
+import {DialogClickDetailComponent} from "../../../notification/dialog-click-detail/dialog-click-detail.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-home-page-enterprise',
@@ -11,9 +13,10 @@ import {Recruitments} from "../../../models/recruitments";
 export class HomePageEnterpriseComponent implements OnInit {
   listJobOrderByDate: Recruitments[] = []
   listJobVIPOrderByDate: Recruitments[] = []
-
+  checkLogin = true
   constructor(private recruitmentsService: RecruitmentsService,
-              private router: Router) {
+              private router: Router,
+              public dialog: MatDialog,) {
   }
 
   ngOnInit(): void {
@@ -37,5 +40,14 @@ export class HomePageEnterpriseComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('EMAIL') != null) {
+      return true;
+    }
+    return false
+  }
+  clickDetail(){
+    this.dialog.open(DialogClickDetailComponent)
   }
 }

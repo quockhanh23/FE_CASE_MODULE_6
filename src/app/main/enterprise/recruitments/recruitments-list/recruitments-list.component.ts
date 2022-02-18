@@ -4,6 +4,7 @@ import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
+import {DialogClickDetailComponent} from "../../../../notification/dialog-click-detail/dialog-click-detail.component";
 
 @Component({
   selector: 'app-recruitments-list',
@@ -15,7 +16,9 @@ export class RecruitmentsListComponent implements OnInit {
   indexPagination: number = 0;
   totalPagination?: number;
   listRecruitmentsNotPagination: Recruitments[] = [];
-
+  checkRole = localStorage.getItem('ROLE');
+  role?: any
+  checkLogin = true
   constructor(
     private recruitmentsService: RecruitmentsService,
     private router: Router,
@@ -41,6 +44,8 @@ export class RecruitmentsListComponent implements OnInit {
         this.totalPagination = (Math.round(this.listRecruitmentsNotPagination.length / 5)) + 1;
       }
     })
+    this.role = localStorage.getItem("ROLE")
+    console.log(this.role)
   }
 
 
@@ -180,5 +185,14 @@ export class RecruitmentsListComponent implements OnInit {
         this.listJob = data.content;
       })
     }
+  }
+  clickDetail(){
+    this.dialog.open(DialogClickDetailComponent)
+  }
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('EMAIL') != null) {
+      return true;
+    }
+    return false
   }
 }

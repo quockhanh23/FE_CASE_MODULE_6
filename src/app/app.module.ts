@@ -36,6 +36,12 @@ import { DialogCheckLoginComponent } from './notification/dialog-check-login/dia
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { AdminEnterpriseNoActiveComponent } from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
 import { DialogDetialCvComponent } from './notification/dialog-detial-cv/dialog-detial-cv.component';
+import { DialogSendCvComponent } from './notification/dialog-send-cv/dialog-send-cv.component';
+import { ClockComponent } from './notification/clock/clock.component';
+import { DialogClickDetailComponent } from './notification/dialog-click-detail/dialog-click-detail.component';
+import { DialogCheckPostComponent } from './notification/dialog-check-post/dialog-check-post.component';
+import { DialogCheckCvComponent } from './notification/dialog-check-cv/dialog-check-cv.component';
+
 
 
 const DialogComponents = [
@@ -66,23 +72,31 @@ const DialogComponents = [
     DialogCheckLoginComponent,
     AdminEnterpriseNoActiveComponent,
     DialogDetialCvComponent,
+    DialogSendCvComponent,
+    ClockComponent,
+    DialogClickDetailComponent,
+    DialogCheckPostComponent,
+    DialogCheckCvComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ToastrModule.forRoot(),
-        BrowserAnimationsModule,
-        MaterialModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        NgbModule,
-        AngularFireStorageModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-        MatProgressBarModule,
-        MatProgressSpinnerModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+  ],
   providers: [],
+  exports: [
+    AdminEnterpriseNoActiveComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

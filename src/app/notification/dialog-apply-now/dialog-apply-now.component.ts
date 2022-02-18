@@ -7,6 +7,8 @@ import {FileCVService} from "../../services/file-cv.service";
 import {Recruitments} from "../../models/recruitments";
 import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
 import {DialogFailComponent} from "../dialog-fail/dialog-fail.component";
+import {DialogSendCvComponent} from "../dialog-send-cv/dialog-send-cv.component";
+import {DialogCheckCvComponent} from "../dialog-check-cv/dialog-check-cv.component";
 
 @Component({
   selector: 'app-dialog-apply-now',
@@ -35,11 +37,11 @@ export class DialogApplyNowComponent implements OnInit {
   applyNow() {
     let idUser = localStorage.getItem("ID")
     this.fileCVService.submitCv(idUser, this.recruitments).subscribe(res => {
-      this.dialog.open(DialogSuccessComponent)
+      this.dialog.open(DialogSendCvComponent)
       console.log(res)
     }, error => {
       console.log(error)
-      this.dialog.open(DialogFailComponent)
+      this.dialog.open(DialogCheckCvComponent)
     })
   }
 }

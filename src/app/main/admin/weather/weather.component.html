@@ -1,0 +1,30 @@
+<div id="divWeatherMain" *ngIf="weatherShow" style="height: 250px">
+
+  <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-sun sun"></i>
+  </div>
+  <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-moon moon"></i>
+  </div>
+  <div style="margin-top: 10px" class="weatherWidgetRow cloudDiv">
+
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 0px;">
+    {{WeatherData.temp_celcius}}°</div>
+  <div class="weatherWidgetRow" style="font-size: 12px;margin-top: 10px;">
+    {{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">Cảm thấy như:
+    {{WeatherData.temp_feels_like}}°</div>
+  <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">
+    {{WeatherData.name}}</div>
+  <div class="weatherWidgetRow" style="font-size: 12px;margin-top: 10px;">Độ ẩm:
+    {{WeatherData.main.humidity}}%</div>
+
+  <button mat-button class="alo1" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: white" (click)="change2()">&nbsp;Đóng</button>
+</div>
+<h2 class="alo1" *ngIf="button" style="color: #1a237e" (click)="change()">
+  <sub><span class="material-icons">light_mode</span></sub>&nbsp;Xem thời tiết</h2>
+
+

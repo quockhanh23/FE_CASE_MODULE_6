@@ -71,24 +71,25 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      class="feather feather-instagram mr-2 icon-inline text-danger">
+
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
-                Google
+                Instagram
               </h6>
-              <span class="text-secondary">{{enterprise?.linkGoogleMaps}}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="feather feather-facebook mr-2 icon-inline text-primary">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-                Facebook
+                <a href="{{enterprise?.linkFacebook}}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       class="feather feather-facebook mr-2 icon-inline text-primary">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                  Facebook
+                </a>
               </h6>
-              <span class="text-secondary"> {{enterprise?.linkFacebook}}</span>
             </li>
           </ul>
         </div>
@@ -137,10 +138,15 @@
                 <a class="btn btn-info " routerLink="/enterprise/edit"
                    href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Sửa thông tin</a>
                 <!--                target="__blank"-->
-                <a style="margin-left: 55px" class="btn btn-info " [routerLink]="['/enterprise/create']"
-                   href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Đăng tuyển nhân viên</a>
+                <a *ngIf="check == 'true'" style="margin-left: 45px">
+                  <button class="btn btn-info " (click)="openDialog()">Chưa kích hoạt</button>
+                </a>
+                <a *ngIf="check == 'false'" style="margin-left: 15px">
+                  <a   style="margin-left: 55px" class="btn btn-info " [routerLink]="['/enterprise/create']"
+                       href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Đăng tuyển nhân viên</a>
+                </a>
                 <a style="margin-left: 55px" class="btn btn-info " [routerLink]="['/enterprise/myListJob']"
-                   href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Danh sách công việc đã đăng</a>
+                   href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Công việc đã đăng</a>
               </div>
             </div>
           </div>

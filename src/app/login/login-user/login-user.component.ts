@@ -15,6 +15,7 @@ import {DialogRegisterFailComponent} from "../../notification/dialog-register-fa
 import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 import {HeaderComponent} from "../../shared/header/header.component";
 import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
+import {reload} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-login-user',
@@ -76,13 +77,13 @@ export class LoginUserComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('ID', data.id);
           if (data.roles[0].authority == "ROLE_ADMIN") {
-            this.router.navigate([this.adminUrl]).then()
-            this.openToartsLogoIn()
+            // this.router.navigate([this.adminUrl]).then()
+
+            this.reloadWindow()
           } else {
             this.router.navigate([this.returnUrl]).then()
             this.openToartsLogoIn()
             this.openDialogRules()
-
           }
           console.log(data)
         },
@@ -96,10 +97,20 @@ export class LoginUserComponent implements OnInit {
         });
   }
 
+  reloadWindow() {
+    window.location.href = 'http://localhost:4200/admin/adminDetail'
+    // @ts-ignore
+    if (event.target.readyState === "complete") {
+      alert("hi 2");
+    } else {
+    this.dialog.open(DialogSuccessComponent)
+    }
+  }
+
   openToartsLogoIn() {
     setTimeout(() => {
       this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
-    }, 0)
+    },)
   }
 
   openDialogRules() {
