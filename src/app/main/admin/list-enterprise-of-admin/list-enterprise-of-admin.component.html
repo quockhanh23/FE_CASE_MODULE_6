@@ -2,11 +2,14 @@
 <div class="container">
   <nav aria-label="breadcrumb" class="main-breadcrumb" >
     <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
-
-        <div class="col-6" style="margin-top: 15px">
-          <h3 class="a1" style="color: #1a237e" (click)="getAllStatusByOne()">Xem các doanh nghiệp chưa được kích hoạt</h3>
+    <span ngbTooltip="Quay lại"
+          style="font-size: 25px; margin-top: 14px" routerLink="/enterprise/detail"
+          class="material-icons a1">keyboard_backspace</span>
+        <div class="col-6" style="margin-top: 10px">
+          <button ngbTooltip="Danh sách các doanh nghiệp mới đăng kí" mat-button class="a1" style="color: #1a237e" (click)="getAllStatusByOne()">Kích hoạt tài khoản</button>
         </div>
-        <div class="a1 col-6" style="margin-top: 15px"><h3 (click)="getAll()" style="text-align: center; color: #1a237e">Danh sách doanh nghiệp</h3>
+        <div class="a1 col-5" style="margin-top: 10px" align="right">
+          <button ngbTooltip="Toàn bộ các doanh nghiệp" mat-button (click)="getAll()" style="text-align: center; color: #1a237e">Danh sách doanh nghiệp</button>
       </div>
     </div>
   </nav>
@@ -17,7 +20,7 @@
           <img  ngbTooltip="Xem chi tiết doanh nghiệp"  style="width: 50px; height: 50px" src="{{en?.image}}" alt="">
         </div>
         <div class="col-10">
-          <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span class="material-icons">content_paste_search</span></sub>&nbsp;{{en.nameCompany}}
+          <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span class="material-icons" >content_paste_search</span></sub>&nbsp;Tên doanh nghiệp: {{en.nameCompany}}
           </h2>
         </div>
       </div>

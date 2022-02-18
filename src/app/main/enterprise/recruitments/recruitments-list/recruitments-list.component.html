@@ -78,8 +78,9 @@
                          alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a ngbTooltip="Xem chi tiết" routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
-                    <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
+                    <a *ngIf="isLoggedIn()"   ngbTooltip="Xem chi tiết" routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
+                    <a *ngIf="!isLoggedIn()" (click)="clickDetail()" ngbTooltip="Xem chi tiết"><h4>{{job.title}}</h4></a>
+
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
                         <p style="color: #f7941d"><i

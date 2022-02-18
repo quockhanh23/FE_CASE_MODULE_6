@@ -37,6 +37,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { AdminEnterpriseNoActiveComponent } from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
 import { DialogSendCvComponent } from './notification/dialog-send-cv/dialog-send-cv.component';
 import { ClockComponent } from './notification/clock/clock.component';
+import { DialogClickDetailComponent } from './notification/dialog-click-detail/dialog-click-detail.component';
 
 
 
@@ -69,6 +70,7 @@ const DialogComponents = [
     AdminEnterpriseNoActiveComponent,
     DialogSendCvComponent,
     ClockComponent,
+    DialogClickDetailComponent,
 
   ],
   imports: [
