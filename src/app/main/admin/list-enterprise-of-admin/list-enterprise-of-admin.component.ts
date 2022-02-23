@@ -68,7 +68,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
         if (res.statusEnterpriseId?.id == '3') {
           this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
         } else {
-          this.toarts.success('Thông báo', 'Bạn đã khóa thành công!')
+          this.toarts.success('Thông báo', 'Đã khóa thành công!')
         }
         this.ngOnInit()
       }, error => {
@@ -87,7 +87,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
         if (res.statusEnterpriseId?.id == '2') {
           this.toarts.error('Cảnh báo', 'Tài khoản đã được kích hoạt rồi!')
         } else {
-          this.toarts.success('Thông báo', 'Tài khoản chuyển sang trạng thái kích hoạt !')
+          this.toarts.success('Thông báo', 'Đã kích hoạt tài khoản !')
         }
         this.ngOnInit()
       }, error => {
@@ -124,9 +124,5 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
 
   openToartError() {
     this.toarts.error('Có lỗi xảy ra', 'Èo')
-  }
-
-  openToartInFor() {
-    this.toarts.info('mes', 'title')
   }
 }

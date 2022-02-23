@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RecruitmentsListComponent} from "./main/enterprise/recruitments/recruitments-list/recruitments-list.component";
-import {LoginUserComponent} from "./login/login-user/login-user.component";
 
 const routes: Routes = [
   {

@@ -3,7 +3,6 @@ import {finalize, Observable} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
-import {UserService} from "../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {EnterpriseService} from "../../services/enterprise.service";
 import {ProfileEnterprise} from "../../models/profile-enterprise";
