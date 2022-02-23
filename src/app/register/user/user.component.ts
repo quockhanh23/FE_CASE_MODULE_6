@@ -48,7 +48,6 @@ export class UserComponent implements OnInit {
       this.dialog.open(DialogRegisterSuccessComponent)
       this.router.navigate(["login"]).then()
     }, error => {
-      this.dialog.open(DialogRegisterFailComponent)
       this.reOpenDialog()
       this.checkButton = true
       this.checkDone = false
