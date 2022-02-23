@@ -6,16 +6,9 @@ import {AuthenticationService} from "../../services/authentication.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
-import {DialogFailComponent} from "../../notification/dialog-fail/dialog-fail.component";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
-import {DialogLogoutComponent} from "../../notification/dialog-logout/dialog-logout.component";
-import {DialogRegisterImageComponent} from "../../notification/dialog-register-image/dialog-register-image.component";
-import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
-import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
-import {HeaderComponent} from "../../shared/header/header.component";
 import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
-import {reload} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-login-user',
@@ -103,7 +96,7 @@ export class LoginUserComponent implements OnInit {
     if (event.target.readyState === "complete") {
       alert("hi 2");
     } else {
-    this.dialog.open(DialogSuccessComponent)
+      this.dialog.open(DialogSuccessComponent)
     }
   }
 

@@ -57,14 +57,15 @@
             </div>
             <div class="row">
               <div class="col-2"></div>
-              <div class="col-4" style="margin-left: 11px">
-                <h2 class="a" style="color: greenyellow;" >
-                  <a ngbTooltip="Đăng ký ngay"  href="#" [routerLink]="['/register/enterprise']" class="a" ><sub><span class="material-icons" style="color: #007fff;">help</span></sub>
-                    Bạn chưa có tài khoản?</a></h2>
+              <div class="col-4">
+                <h4 class="a" style="color: #007fff; margin-left: 14px" align="left" >
+                  <a ngbTooltip="Đăng ký ngay" [routerLink]="['/register/user' ]" class="a" ><sub>
+                    <span class="material-icons" style="color: #0f1ba1">help</span></sub>
+                    Bạn chưa có tài khoản?</a></h4>
               </div>
               <div class="col-4">
                 <div class="example-button-row">
-                  <button *ngIf="checkButton" style="width: 190px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
+                  <button *ngIf="checkButton" style="width: 200px; margin-left: 60px" mat-raised-button matTooltip="Đăng nhập" [disabled]="!loginForm.valid"
                           class="btn-primary btn" mat-button color="primary">
                     <span class="material-icons">touch_app</span>Đăng nhập
                   </button>
