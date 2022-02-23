@@ -48,12 +48,13 @@ export class UserComponent implements OnInit {
       this.dialog.open(DialogRegisterSuccessComponent)
       this.router.navigate(["login"]).then()
     }, error => {
+      this.dialog.open(DialogRegisterFailComponent)
+      this.reOpenDialog()
       this.checkButton = true
       this.checkDone = false
       this.dialog.closeAll()
-      this.toarts.error('Tài khoản đã có người xử dụng', 'Thông báo')
       console.log("lỗi nè" + error)
-      this.dialog.open(DialogRegisterFailComponent)
+
     })
   }
   openDialogRegisterCheck() {
@@ -62,5 +63,10 @@ export class UserComponent implements OnInit {
 
   openDialogRegisterSuccess() {
     this.dialog.open(DialogRegisterSuccessComponent)
+  }
+  reOpenDialog() {
+    setTimeout(() => {
+      this.dialog.open(DialogRegisterFailComponent)
+    }, 200)
   }
 }
