@@ -17,6 +17,9 @@ import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail
 export class ListEnterpriseOfAdminComponent implements OnInit {
   closeResult!: string;
   enterprise!: ProfileEnterprise[]
+  checkRole = localStorage.getItem('ROLE');
+  username: string | null = ''
+  role?: any
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
@@ -124,5 +127,13 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
 
   openToartError() {
     this.toarts.error('Có lỗi xảy ra', 'Èo')
+  }
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem('EMAIL') != null) {
+      this.username = localStorage.getItem('EMAIL');
+      return true;
+    }
+    return false
   }
 }
