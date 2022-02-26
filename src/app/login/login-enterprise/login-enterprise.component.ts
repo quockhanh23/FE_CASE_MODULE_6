@@ -8,6 +8,7 @@ import {first} from "rxjs";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
+import {DialogLoginAdminComponent} from "../../notification/dialog-login-admin/dialog-login-admin.component";
 
 @Component({
   selector: 'app-login-enterprise',
@@ -28,6 +29,7 @@ export class LoginEnterpriseComponent implements OnInit {
   submitted = false;
   checkDone = false
   checkButton = true
+
   constructor(public dialog: MatDialog,
               private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -59,12 +61,12 @@ export class LoginEnterpriseComponent implements OnInit {
           // @ts-ignore
           localStorage.setItem('ROLE', data.roles[0].authority);
           // @ts-ignore
-          localStorage.setItem('ENTERPRISE_ID' , data.id)
+          localStorage.setItem('ENTERPRISE_ID', data.id)
           // @ts-ignore
           localStorage.setItem('EMAIL', data.username);
           console.log(data)
+          this.dialog.open(DialogLoginAdminComponent)
           this.openDialogRules()
-          this.openToartsLogoIn()
           this.router.navigate(["/enterprise/listJob"]).then()
         },
         error => {
@@ -77,20 +79,16 @@ export class LoginEnterpriseComponent implements OnInit {
         });
   }
 
-  openToartsLogoIn() {
-    setTimeout(() => {
-      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
-    }, 0)
-  }
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);
-    }, 500)
+    }, 600)
   }
 
   openDialogLoginFail() {
     this.dialog.open(DialogLoginFailComponent);
   }
+
   openDialogCheckLogin() {
     this.dialog.open(DialogCheckLoginComponent);
   }

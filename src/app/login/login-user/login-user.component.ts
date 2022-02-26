@@ -9,6 +9,7 @@ import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-s
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
+import {DialogLoginAdminComponent} from "../../notification/dialog-login-admin/dialog-login-admin.component";
 
 @Component({
   selector: 'app-login-user',
@@ -75,7 +76,7 @@ export class LoginUserComponent implements OnInit {
             this.reloadWindow()
           } else {
             this.router.navigate([this.returnUrl]).then()
-            this.openToartsLogoIn()
+            this.dialog.open(DialogLoginAdminComponent)
             this.openDialogRules()
           }
           console.log(data)
@@ -98,20 +99,14 @@ export class LoginUserComponent implements OnInit {
       console.log('if')
     } else {
       console.log('else')
-      this.dialog.open(DialogSuccessComponent)
     }
-  }
-
-  openToartsLogoIn() {
-    setTimeout(() => {
-      this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
-    },0)
+    this.dialog.open(DialogLoginAdminComponent)
   }
 
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);
-    }, 500)
+    }, 600)
   }
 
   openDialogLoginFail() {

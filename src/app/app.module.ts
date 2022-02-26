@@ -41,6 +41,7 @@ import { ClockComponent } from './notification/clock/clock.component';
 import { DialogClickDetailComponent } from './notification/dialog-click-detail/dialog-click-detail.component';
 import { DialogCheckPostComponent } from './notification/dialog-check-post/dialog-check-post.component';
 import { DialogCheckCvComponent } from './notification/dialog-check-cv/dialog-check-cv.component';
+import { DialogLoginAdminComponent } from './notification/dialog-login-admin/dialog-login-admin.component';
 
 
 
@@ -77,6 +78,7 @@ const DialogComponents = [
     DialogClickDetailComponent,
     DialogCheckPostComponent,
     DialogCheckCvComponent,
+    DialogLoginAdminComponent,
 
   ],
   imports: [
