@@ -85,7 +85,7 @@ export class LoginEnterpriseComponent implements OnInit {
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);
-    }, 800)
+    }, 500)
   }
 
   openDialogLoginFail() {

@@ -92,10 +92,12 @@ export class LoginUserComponent implements OnInit {
 
   reloadWindow() {
     window.location.href = 'http://localhost:4200/admin/adminDetail'
+    console.log('reload')
     // @ts-ignore
     if (event.target.readyState === "complete") {
-      alert("hi 2");
+      console.log('if')
     } else {
+      console.log('else')
       this.dialog.open(DialogSuccessComponent)
     }
   }
@@ -103,13 +105,13 @@ export class LoginUserComponent implements OnInit {
   openToartsLogoIn() {
     setTimeout(() => {
       this.toarts.success('Bạn đã đăng nhập thành công', 'Thông báo')
-    },)
+    },0)
   }
 
   openDialogRules() {
     setTimeout(() => {
       this.dialog.open(DialogRulesComponent);
-    }, 800)
+    }, 500)
   }
 
   openDialogLoginFail() {
