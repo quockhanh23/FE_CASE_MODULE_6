@@ -16,6 +16,7 @@ import {ApplyNowService} from "../../../../services/apply-now.service";
 })
 export class RecruitmentsDetailsComponent implements OnInit {
   currentUser = localStorage.getItem("currentUser");
+  checkRole = localStorage.getItem('ROLE');
   recruitments!: Recruitments;
   check = true
   idRec!: string
