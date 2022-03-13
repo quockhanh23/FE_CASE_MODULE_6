@@ -35,6 +35,8 @@ export class AuthenticationService {
     return this.http.post<any>(API_URL + '/login/user', {email, password})
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
+        console.log("Kiểu dữ liệu: " + JSON.stringify(user))
+        console.log("Kiểu dữ liệu: " + user)
         this.currentUserSubject.next(user);
         return user;
       }));

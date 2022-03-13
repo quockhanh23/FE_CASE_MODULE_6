@@ -17,6 +17,7 @@ export class ProfileEnterpriseOfAdminService {
 
   constructor(private httpClient: HttpClient) {
   }
+
   getAllStatusNotActive(): Observable<ProfileEnterprise[]> {
     return this.httpClient.get<ProfileEnterprise[]>(API_FIND_STATUS)
   }
@@ -40,6 +41,7 @@ export class ProfileEnterpriseOfAdminService {
   changeStatusVIP(id: any): Observable<ProfileEnterprise> {
     return this.httpClient.delete<ProfileEnterprise>(API_URL_VIP + `/${id}`)
   }
+
   getAllStatusByOne(): Observable<ProfileEnterprise[]> {
     return this.httpClient.get<ProfileEnterprise[]>(API_FIND_STATUS)
   }

@@ -1,9 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {MatDialog} from "@angular/material/dialog";
-import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
 import {ApplyNow} from "../models/apply-now";
 
 const API_URL_GET_ONE = "http://localhost:8080/api/cvs";
@@ -13,10 +10,7 @@ const API_URL_GET_ONE = "http://localhost:8080/api/cvs";
 })
 export class ApplyNowService {
 
-  constructor(private http: HttpClient,
-              public dialog: MatDialog,
-              private toarts: ToastrService,
-              private router: Router,) {
+  constructor(private http: HttpClient) {
   }
 
   getById(idRec: any, idCv: any): Observable<ApplyNow[]> {
