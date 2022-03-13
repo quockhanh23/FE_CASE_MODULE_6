@@ -1,12 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {ProfileEnterprise} from "../models/profile-enterprise";
 import {HttpClient} from "@angular/common/http";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
 import {ApplyNow} from "../models/apply-now";
-import {Recruitments} from "../models/recruitments";
 
 const API_URL_GET_ONE = "http://localhost:8080/api/cvs";
 
