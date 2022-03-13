@@ -5,7 +5,6 @@ import {ToastrService} from "ngx-toastr";
 import {AuthenticationService} from "../../services/authentication.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
-import {DialogSuccessComponent} from "../../notification/dialog-success/dialog-success.component";
 import {DialogRulesComponent} from "../../notification/dialog-rules/dialog-rules.component";
 import {DialogLoginFailComponent} from "../../notification/dialog-login-fail/dialog-login-fail.component";
 import {DialogCheckLoginComponent} from "../../notification/dialog-check-login/dialog-check-login.component";
@@ -122,5 +121,13 @@ export class LoginUserComponent implements OnInit {
       location.reload()
       console.log('alo')
     }, 5000)
+  }
+
+  checkLocal() {
+    if (typeof (Storage) !== "undefined") {
+      console.log("ok")
+    } else {
+      console.log("no")
+    }
   }
 }

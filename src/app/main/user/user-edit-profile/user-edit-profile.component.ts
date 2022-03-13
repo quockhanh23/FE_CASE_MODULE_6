@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileUser} from "../../../models/profile-user";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup} from "@angular/forms";
-import {DialogRulesComponent} from "../../../notification/dialog-rules/dialog-rules.component";
+import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -50,17 +49,17 @@ export class UserEditProfileComponent implements OnInit {
     console.log(userNew)
     // @ts-ignore
     this.userService.update(this.id, userNew).subscribe(r => {
-      this.toarts.success('Bạn đã sửa thông tin thành công', 'Thông báo')
       this.openReload()
+      this.dialog.open(DialogSuccessComponent)
       console.log(r + '...')
     }, error => {
-      console.log("Lỗi")
+      console.log("Lỗi" + error)
     })
   }
 
   openReload() {
     setTimeout(() => {
       location.reload()
-    }, 800)
+    }, 200)
   }
 }

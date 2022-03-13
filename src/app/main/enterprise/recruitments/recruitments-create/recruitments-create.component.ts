@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../../../services/authentication.service";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
-import {StatusRecruitment} from "../../../../models/status-recruitment";
 import {Work} from "../../../../models/work";
 import {PositionService} from "../../../../services/position.service";
 import {WorkService} from "../../../../services/work.service";

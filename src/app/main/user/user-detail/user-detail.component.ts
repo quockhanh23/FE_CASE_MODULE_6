@@ -41,7 +41,8 @@ export class UserDetailComponent implements OnInit {
   openDialogEdit() {
     this.dialog.open(UserEditProfileComponent)
   }
-  openDialogMyCV(){
+
+  openDialogMyCV() {
     this.dialog.open(UserDetailCvComponent)
   }
 }

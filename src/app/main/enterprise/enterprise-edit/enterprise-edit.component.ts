@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EnterpriseService} from "../../../services/enterprise.service";
 import {MatDialog} from "@angular/material/dialog";

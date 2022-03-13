@@ -5,9 +5,9 @@ import {AuthenticationService} from "../../../services/authentication.service";
 import {UserService} from "../../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
-import {FileCV} from "../../../models/file-cv";
 import {FileCVService} from "../../../services/file-cv.service";
-import {ProfileUser} from "../../../models/profile-user";
+import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
+import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-user-create-cv',
@@ -57,16 +57,18 @@ export class UserCreateCvComponent implements OnInit {
     // @ts-ignore
     this.fileCVService.create(CV, this.id).subscribe(() => {
       console.log("đã lưu cv")
-      this.toarts.success('Bạn đã tạo cv thành công', 'Thông báo')
+      this.dialog.open(DialogSuccessComponent)
+      this.closeDialog()
     }, error => {
       console.log("lỗi" + error)
-      this.toarts.error('Có lỗi xảy ra', 'Èo')
+      this.dialog.open(DialogFailComponent)
+      this.closeDialog()
     })
   }
 
-  openReload() {
+  closeDialog() {
     setTimeout(() => {
-      location.reload()
-    }, 800)
+      this.dialog.closeAll()
+    }, 1000)
   }
 }

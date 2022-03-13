@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfileEnterprise} from "../../../models/profile-enterprise";
-import {RecruitmentsService} from "../../../services/recruitments.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";

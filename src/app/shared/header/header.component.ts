@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {EnterpriseService} from "../../services/enterprise.service";
 import {ProfileEnterprise} from "../../models/profile-enterprise";
-import {ActivatedRoute, Router} from "@angular/router";
-import {reload} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-header',

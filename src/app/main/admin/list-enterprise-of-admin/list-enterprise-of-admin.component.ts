@@ -4,7 +4,6 @@ import {ProfileEnterpriseOfAdminService} from "../../../services/profile-enterpr
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
 
