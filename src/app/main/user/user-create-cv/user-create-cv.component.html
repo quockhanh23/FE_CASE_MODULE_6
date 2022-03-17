@@ -1,5 +1,3 @@
-<!--<h1 style="color: indigo; width: 300px" mat-dialog-title></h1>-->
-<!--<div mat-dialog-content></div>-->
 <div>
   <form class="form-contact contact_form" [formGroup]="CVForm"
         (ngSubmit)="createCV()" id="contactForm">
@@ -13,31 +11,38 @@
             <div class="row mt-2">
               <div class="col-md-6">
                 <label class="labels">Họ và tên</label>
-                <input style="border-radius: 5px" formControlName="fullName" type="text" class="form-control" placeholder="Họ tên"></div>
+                <input style="border-radius: 5px" formControlName="fullName" type="text" class="form-control"
+                       placeholder="Họ tên"></div>
               <div class="col-md-6">
                 <label class="labels">Tuổi</label>
-                <input style="border-radius: 5px" formControlName="age" type="text" class="form-control" placeholder="Tuổi"></div>
+                <input style="border-radius: 5px" formControlName="age" type="text" class="form-control"
+                       placeholder="Tuổi"></div>
             </div>
             <div class="row mt-2">
               <div class="col-md-6">
                 <label class="labels">Số điện thoại</label>
-                <input style="border-radius: 5px" formControlName="numberPhone" type="text" class="form-control" placeholder="Số điện thoại"></div>
+                <input style="border-radius: 5px" formControlName="numberPhone" type="text" class="form-control"
+                       placeholder="Số điện thoại"></div>
               <div class="col-md-6">
                 <label class="labels">Kinh nghiệm</label>
-                <input style="border-radius: 5px" formControlName="experience" type="text" class="form-control" placeholder="Kinh nghiệm"></div>
+                <input style="border-radius: 5px" formControlName="experience" type="text" class="form-control"
+                       placeholder="Kinh nghiệm"></div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="labels">Địa chỉ thường trú</label>
-                <input style="border-radius: 5px" formControlName="address" type="text" class="form-control" placeholder="Địa chỉ thường trú">
+                <input style="border-radius: 5px" formControlName="address" type="text" class="form-control"
+                       placeholder="Địa chỉ thường trú">
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12" style="margin-top: 10px">
                 <label class="labels">Nơi làm việc cũ</label>
-                <input style="border-radius: 5px" formControlName="oldWorkplace" type="text" class="form-control" placeholder="Nơi làm việc cũ">
+                <input style="border-radius: 5px" formControlName="oldWorkplace" type="text" class="form-control"
+                       placeholder="Nơi làm việc cũ">
               </div>
-              <div class="col-md-12">
+              <div class="col-md-12" style="margin-top: 10px">
                 <label class="labels">Sở thích</label>
-                <input style="border-radius: 5px" formControlName="interest" type="text" class="form-control" placeholder="Sở thích"></div>
+                <input style="border-radius: 5px" formControlName="interest" type="text" class="form-control"
+                       placeholder="Sở thích"></div>
             </div>
             <div class="mt-5 text-center">
             </div>
@@ -46,7 +51,8 @@
       </div>
     </div>
     <div mat-dialog-actions align="end">
-      <button class="btn btn-primary profile-button hoverDialog" type="submit" mat-button mat-dialog-close >Lưu CV</button>
+      <button class="btn btn-primary profile-button hoverDialog" type="submit" mat-button mat-dialog-close>Lưu CV
+      </button>
       <button class="btn btn-primary profile-button hoverDialog" mat-button mat-dialog-close>Đóng</button>
     </div>
   </form>

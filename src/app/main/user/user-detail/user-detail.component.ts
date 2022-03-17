@@ -6,7 +6,6 @@ import {UserService} from "../../../services/user.service";
 import {ProfileUser} from "../../../models/profile-user";
 import {UserCreateCvComponent} from "../user-create-cv/user-create-cv.component";
 import {UserEditProfileComponent} from "../user-edit-profile/user-edit-profile.component";
-import {FileCVService} from "../../../services/file-cv.service";
 import {UserDetailCvComponent} from "../user-detail-cv/user-detail-cv.component";
 
 @Component({
@@ -21,9 +20,7 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private router: Router,
               public dialog: MatDialog,
-              private toarts: ToastrService,
   ) {
   }
 
