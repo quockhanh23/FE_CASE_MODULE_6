@@ -14,11 +14,13 @@
       <div class="col-6">
         <h2 class="a3" ngbTooltip="Tên doanh nghiệp" class="a1" routerLink="{{job2.id}}/details"
             style="margin-left: 10px">
-          </h2>
+        </h2>
       </div>
       <div class="col-6" style="margin-top: 5px">
-        <span *ngIf="isLoggedIn()" class="a1" ngbTooltip="Xem chi tiết" routerLink="{{job2.id}}/details"  style="font-size: 15px">Xem ngay</span>
-        <span *ngIf="!isLoggedIn()" (click)="clickDetail()" class="a1" ngbTooltip="Xem chi tiết" style="font-size: 15px">Xem ngay</span>
+        <span *ngIf="isLoggedIn()" class="a1" ngbTooltip="Xem chi tiết" routerLink="{{job2.id}}/details"
+              style="font-size: 15px">Xem ngay</span>
+        <span *ngIf="!isLoggedIn()" (click)="clickDetail()" class="a1" ngbTooltip="Xem chi tiết"
+              style="font-size: 15px">Xem ngay</span>
       </div>
     </div>
     <img class="a3" style="height: 50px; width: 50px; border-radius: 3px" src="{{job2?.profileEnterprise?.image}}">

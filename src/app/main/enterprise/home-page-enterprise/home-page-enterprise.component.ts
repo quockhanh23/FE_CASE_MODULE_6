@@ -14,6 +14,7 @@ export class HomePageEnterpriseComponent implements OnInit {
   listJobOrderByDate: Recruitments[] = []
   listJobVIPOrderByDate: Recruitments[] = []
   checkLogin = true
+
   constructor(private recruitmentsService: RecruitmentsService,
               private router: Router,
               public dialog: MatDialog,) {
@@ -41,13 +42,15 @@ export class HomePageEnterpriseComponent implements OnInit {
       console.log(error);
     })
   }
+
   isLoggedIn(): boolean {
     if (localStorage.getItem('EMAIL') != null) {
       return true;
     }
     return false
   }
-  clickDetail(){
+
+  clickDetail() {
     this.dialog.open(DialogClickDetailComponent)
   }
 }

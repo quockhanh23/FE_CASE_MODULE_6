@@ -16,13 +16,11 @@ export class RecruitmentListCvComponent implements OnInit {
 
   listCV: FileCV[] = [];
 
-  listApply: ApplyNow[] =[]
+  listApply: ApplyNow[] = []
 
   constructor(private activatedRoute: ActivatedRoute,
               private applyNowService: ApplyNowService,
-              private router: Router,
               public dialog: MatDialog,
-              private toarts: ToastrService
   ) {
   }
 
@@ -40,13 +38,16 @@ export class RecruitmentListCvComponent implements OnInit {
       })
     })
   }
-  openCv(){
+
+  openCv() {
     this.dialog.open(DialogDetialCvComponent)
   }
-  saveIdCv(id: any){
-    localStorage.setItem("idCv",id)
+
+  saveIdCv(id: any) {
+    localStorage.setItem("idCv", id)
   }
-  saveIdRec(id: any){
-    localStorage.setItem("idRec",id)
+
+  saveIdRec(id: any) {
+    localStorage.setItem("idRec", id)
   }
 }

@@ -4,7 +4,6 @@ import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Recruitments} from "../../../../models/recruitments";
 import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
-import {UserCreateCvComponent} from "../../../user/user-create-cv/user-create-cv.component";
 import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 import {ApplyNowService} from "../../../../services/apply-now.service";
 
@@ -48,10 +47,6 @@ export class RecruitmentsDetailsComponent implements OnInit {
   report() {
     this.check = false
     this.toarts.info("Cảm ơn bạn đã trợ giúp. Chúng tôi sẽ xem xét lại thông tin", 'Thông báo !')
-  }
-
-  openDialogCV() {
-    this.dialog.open(UserCreateCvComponent)
   }
 
   applyNow() {

@@ -16,11 +16,10 @@ export class EnterpriseDetailComponent implements OnInit {
   id = localStorage.getItem('ENTERPRISE_ID')
   enterprise?: ProfileEnterprise
   check = "false";
+
   constructor(private activatedRoute: ActivatedRoute,
               private enterpriseService: EnterpriseService,
-              private router: Router,
               public dialog: MatDialog,
-              private toarts: ToastrService,
   ) {
   }
 
@@ -29,12 +28,13 @@ export class EnterpriseDetailComponent implements OnInit {
       this.enterprise = res
       this.enterprise.statusEnterpriseId
       // @ts-ignore
-      if(this.enterprise.statusEnterpriseId?.id == 1 || this.enterprise.statusEnterpriseId?.id == 3){
+      if (this.enterprise.statusEnterpriseId?.id == 1 || this.enterprise.statusEnterpriseId?.id == 3) {
         this.check = "true"
       }
     })
   }
-  openDialog(){
+
+  openDialog() {
     this.dialog.open(DialogCheckPostComponent)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../../../services/authentication.service";
@@ -22,31 +22,34 @@ export class RecruitmentsCreateComponent implements OnInit {
   id: any;
 
   recruitmentForm: FormGroup = new FormGroup({
-    title: new FormControl("",[Validators.required]),
+    title: new FormControl("", [Validators.required]),
     salary: new FormControl(""),
-    address: new FormControl("",[Validators.required]),
+    address: new FormControl("", [Validators.required]),
     description: new FormControl(""),
     experience: new FormControl(""),
-    numberOfRecruitments: new FormControl("",[Validators.required]),
+    numberOfRecruitments: new FormControl("", [Validators.required]),
     dateEnd: new FormControl(""),
     gender: new FormControl(""),
     workId: new FormControl(),
     positionId: new FormControl(""),
   });
+
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService,
               private recruitment: RecruitmentsService,
-              private positionService : PositionService,
-              private workService : WorkService,
+              private positionService: PositionService,
+              private workService: WorkService,
               public dialog: MatDialog,
-              ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.loadListPosition();
     this.loadListWork()
   }
-  register(){
+
+  register() {
     const recruitment = {
       title: this.recruitmentForm.value.title,
       salary: this.recruitmentForm.value.salary,
@@ -66,15 +69,16 @@ export class RecruitmentsCreateComponent implements OnInit {
 
     console.log(recruitment)
     this.id = localStorage.getItem("ENTERPRISE_ID")
-    this.recruitment.register(recruitment,this.id).subscribe(() => {
-     this.dialog.open(DialogSuccessComponent)
+    this.recruitment.register(recruitment, this.id).subscribe(() => {
+      this.dialog.open(DialogSuccessComponent)
       this.router.navigate(["/enterprise/listJob"]).then()
-    },error => {
+    }, error => {
       console.log(error)
       this.dialog.open(DialogLoginFailComponent)
     })
   }
-  loadListWork(){
+
+  loadListWork() {
     this.workService.getAll().subscribe(result => {
       console.log(result);
       this.listWork = result;
@@ -83,7 +87,8 @@ export class RecruitmentsCreateComponent implements OnInit {
       console.log(loi);
     })
   }
-  loadListPosition(){
+
+  loadListPosition() {
     this.positionService.getAll().subscribe(result => {
       console.log(result);
       this.listPosition = result;

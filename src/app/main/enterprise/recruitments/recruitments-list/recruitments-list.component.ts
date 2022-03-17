@@ -19,6 +19,7 @@ export class RecruitmentsListComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   role?: any
   checkLogin = true
+
   constructor(
     private recruitmentsService: RecruitmentsService,
     private router: Router,
@@ -57,10 +58,10 @@ export class RecruitmentsListComponent implements OnInit {
     this.indexPagination = 0;
     // @ts-ignore
     let name = document.getElementById('search').value
-    localStorage.setItem("search",name);
+    localStorage.setItem("search", name);
     this.recruitmentsService.searchByName2(name).subscribe(data => {
       // console.log(data)
-      if(data.length != 0){
+      if (data.length != 0) {
         this.listRecruitmentsNotPagination = data;
       }
       // @ts-ignore
@@ -69,12 +70,12 @@ export class RecruitmentsListComponent implements OnInit {
         this.totalPagination = (Math.round(this.listRecruitmentsNotPagination.length / 5)) + 1;
       }
     })
-    if(name == ""){
+    if (name == "") {
       // console.log("test")
       this.ngOnInit()
     } else {
       // @ts-ignore
-      this.recruitmentsService.searchByName(name,0).subscribe(res => {
+      this.recruitmentsService.searchByName(name, 0).subscribe(res => {
         // @ts-ignore
         this.listJob = res.content
         // console.log(this.listJob)
@@ -107,7 +108,6 @@ export class RecruitmentsListComponent implements OnInit {
   }
 
   // tìm kiếm nhanh theo các trường
-
   searchRecruitment() {
     // @ts-ignore
     let address = document.getElementById('address').value
@@ -150,7 +150,7 @@ export class RecruitmentsListComponent implements OnInit {
     if (this.indexPagination > (max / 5)) {
       this.indexPagination -= 1;
       // console.log("không có trang thứ 2")
-    } else if(localStorage.getItem("search") == "") {
+    } else if (localStorage.getItem("search") == "") {
       this.recruitmentsService.getAllRecruitment(this.indexPagination).subscribe(data => {
 
         // @ts-ignore
@@ -164,10 +164,10 @@ export class RecruitmentsListComponent implements OnInit {
     } else {
       // @ts-ignore
       let name = document.getElementById('search').value
-      localStorage.setItem("search",name);
+      localStorage.setItem("search", name);
       // console.log(name)
       // @ts-ignore
-      this.recruitmentsService.searchByName(name,this.indexPagination).subscribe(res => {
+      this.recruitmentsService.searchByName(name, this.indexPagination).subscribe(res => {
         // @ts-ignore
         this.listJob = res.content
         // console.log("trang tiếp của list tìm theo tên")
@@ -186,9 +186,11 @@ export class RecruitmentsListComponent implements OnInit {
       })
     }
   }
-  clickDetail(){
+
+  clickDetail() {
     this.dialog.open(DialogClickDetailComponent)
   }
+
   isLoggedIn(): boolean {
     if (localStorage.getItem('EMAIL') != null) {
       return true;

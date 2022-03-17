@@ -15,6 +15,7 @@ export class RecruitmentsMyListComponent implements OnInit {
   id = localStorage.getItem('ENTERPRISE_ID');
   myListJob: Recruitments[] = [];
   check = "false"
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private recruitmentsService: RecruitmentsService,
@@ -56,9 +57,11 @@ export class RecruitmentsMyListComponent implements OnInit {
   showEditForm(id: any) {
     this.router.navigate(["/enterprise/" + id + "/edit"])
   }
+
   mylistCV(id: any) {
     this.router.navigate(["/enterprise/" + id + "/myListCV"])
   }
+
   showDetails(id: string) {
     this.router.navigate([id + '/details'])
   }
