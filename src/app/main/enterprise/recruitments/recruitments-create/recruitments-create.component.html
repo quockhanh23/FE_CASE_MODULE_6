@@ -13,29 +13,29 @@
             (ngSubmit)="register()">
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <label class="form-label">Hình thức công việc</label>
+          <label class="form-label">Hình thức công việc:</label>
           <input type="text" formControlName="title" class="form-control"/>
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <label class="form-label">Nơi làm việc</label>
+          <label class="form-label">Nơi làm việc:</label>
           <input formControlName="address" type="text" class="form-control"/>
         </div>
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <label class="form-label">Mô tả công việc</label>
+          <label class="form-label">Mô tả công việc:</label>
           <input formControlName="description" type="text" class="form-control"/>
         </div>
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">Mức lương</label>
+              <label class="form-label">Mức lương:</label>
               <input formControlName="salary" type="text" class="form-control"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">Kinh nghiệm</label>
+              <label class="form-label">Kinh nghiệm:</label>
               <input formControlName="experience" type="text" class="form-control"/>
             </div>
           </div>
@@ -43,52 +43,45 @@
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">Số lượng tuyển</label>
+              <label class="form-label">Số lượng tuyển:</label>
               <input formControlName="numberOfRecruitments" type="text" class="form-control"/>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <label class="form-label">Giới tính</label>
+              <label class="form-label">Giới tính:</label>
               <input formControlName="gender" type="text" class="form-control"/>
             </div>
           </div>
         </div>
-        <div class="col-12">
-<!--          <div class="form-group">-->
-            <p>Ngày kết thúc</p>
-            <label for="" class="sr-only"></label>
-            <input id="" class="form-control input-group-lg" style="width: 100%" name="dateOfBirth" type="date"
-                   formControlName="dateEnd">
-<!--          </div>-->
-        </div>
-        <div class="col-sm-12">
-          <div class="row">
-            <div class="col-6">
-              <p>Hình thức làm việc</p>
-              <select style="width: 150px" formControlName="workId">
-                <!--                <option>Chọn</option>-->
-                <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
-              </select>
-            </div>
-            <div class="col-6">
-              <p style="margin-right: 30px">Vị trí tuyển dụng</p>
-              <div class="col-sm-6">
-                <select style="width: 170px" formControlName="positionId">
-                  <!--                <option>Chọn</option>-->
-                  <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
-                </select>
-              </div>
-            </div>
+        <div class="row ">
+          <div class="col-6">
+            <label class="form-label">Hình thức làm việc:</label>
+            <select style="width:350px;height: 37px;border-radius: 4px;" formControlName="workId">
+              <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
+            </select>
           </div>
-          <div class="row" style="height: 100px;"></div>
+          <div class="col-6">
+            <label class="form-label">Vị trí tuyển dụng:</label>
+            <select style="width: 350px; height: 37px;border-radius: 4px;" formControlName="positionId">
+              <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" style="height: 100px;"></div>
+        <div class="form-outline mb-4">
+          <label class="form-label">Ngày hết hạn:</label>
+          <label class="sr-only"></label>
+          <input class="form-control input-group-lg" style="width: 350px" name="dateOfBirth" type="date"
+                 formControlName="dateEnd">
         </div>
         <button type="submit" class="btn btn-primary btn-block mb-4">Tạo công việc</button>
       </form>
     </div>
     <div class="col-4">
-      <img style="width: 100%; border-radius: 10px; margin-top: 27px" src="https://wallpapercave.com/wp/wp6595896.jpg" alt="">
+      <img style="width: 100%; border-radius: 10px; margin-top: 27px" src="https://wallpapercave.com/wp/wp6595896.jpg"
+           alt="">
     </div>
-   <div class="row" style="height: 100px;"></div>
+    <div class="row" style="height: 100px;"></div>
   </div>
 </div>
