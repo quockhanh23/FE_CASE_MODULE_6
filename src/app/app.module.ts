@@ -8,41 +8,40 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogSuccessComponent} from './notification/dialog-success/dialog-success.component';
 import {MaterialModule} from "./material/material.module";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UploadComponent } from './upload/upload.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {UploadComponent} from './upload/upload.component';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
-import { DialogRulesComponent } from './notification/dialog-rules/dialog-rules.component';
-import { DialogFailComponent } from './notification/dialog-fail/dialog-fail.component';
-import { ModalOptionsComponent } from './notification/modal-options/modal-options.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { LoginUserComponent } from './login/login-user/login-user.component';
+import {DialogRulesComponent} from './notification/dialog-rules/dialog-rules.component';
+import {DialogFailComponent} from './notification/dialog-fail/dialog-fail.component';
+import {ModalOptionsComponent} from './notification/modal-options/modal-options.component';
+import {FooterComponent} from './shared/footer/footer.component';
+import {HeaderComponent} from './shared/header/header.component';
+import {LoginUserComponent} from './login/login-user/login-user.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { LoginEnterpriseComponent } from './login/login-enterprise/login-enterprise.component';
-import { DialogRegisterFailComponent } from './notification/dialog-register-fail/dialog-register-fail.component';
-import { DialogRegisterSuccessComponent } from './notification/dialog-register-success/dialog-register-success.component';
-import { DialogRegisterImageComponent } from './notification/dialog-register-image/dialog-register-image.component';
-import { DialogLoginFailComponent } from './notification/dialog-login-fail/dialog-login-fail.component';
-import { DialogLogoutComponent } from './notification/dialog-logout/dialog-logout.component';
+import {LoginEnterpriseComponent} from './login/login-enterprise/login-enterprise.component';
+import {DialogRegisterFailComponent} from './notification/dialog-register-fail/dialog-register-fail.component';
+import {DialogRegisterSuccessComponent} from './notification/dialog-register-success/dialog-register-success.component';
+import {DialogRegisterImageComponent} from './notification/dialog-register-image/dialog-register-image.component';
+import {DialogLoginFailComponent} from './notification/dialog-login-fail/dialog-login-fail.component';
+import {DialogLogoutComponent} from './notification/dialog-logout/dialog-logout.component';
 import {UserCreateCvComponent} from "./main/user/user-create-cv/user-create-cv.component";
-import { DialogApplyNowComponent } from './notification/dialog-apply-now/dialog-apply-now.component';
-import { UserEditProfileComponent } from './main/user/user-edit-profile/user-edit-profile.component';
-import { DialogCheckRegisterComponent } from './notification/dialog-check-register/dialog-check-register.component';
+import {DialogApplyNowComponent} from './notification/dialog-apply-now/dialog-apply-now.component';
+import {UserEditProfileComponent} from './main/user/user-edit-profile/user-edit-profile.component';
+import {DialogCheckRegisterComponent} from './notification/dialog-check-register/dialog-check-register.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { DialogCheckLoginComponent } from './notification/dialog-check-login/dialog-check-login.component';
+import {DialogCheckLoginComponent} from './notification/dialog-check-login/dialog-check-login.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { AdminEnterpriseNoActiveComponent } from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
-import { DialogDetialCvComponent } from './notification/dialog-detial-cv/dialog-detial-cv.component';
-import { DialogSendCvComponent } from './notification/dialog-send-cv/dialog-send-cv.component';
-import { ClockComponent } from './notification/clock/clock.component';
-import { DialogClickDetailComponent } from './notification/dialog-click-detail/dialog-click-detail.component';
-import { DialogCheckPostComponent } from './notification/dialog-check-post/dialog-check-post.component';
-import { DialogCheckCvComponent } from './notification/dialog-check-cv/dialog-check-cv.component';
-import { DialogLoginAdminComponent } from './notification/dialog-login-admin/dialog-login-admin.component';
-
+import {AdminEnterpriseNoActiveComponent} from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
+import {DialogDetialCvComponent} from './notification/dialog-detial-cv/dialog-detial-cv.component';
+import {DialogSendCvComponent} from './notification/dialog-send-cv/dialog-send-cv.component';
+import {ClockComponent} from './notification/clock/clock.component';
+import {DialogClickDetailComponent} from './notification/dialog-click-detail/dialog-click-detail.component';
+import {DialogCheckPostComponent} from './notification/dialog-check-post/dialog-check-post.component';
+import {DialogCheckCvComponent} from './notification/dialog-check-cv/dialog-check-cv.component';
+import {DialogLoginAdminComponent} from './notification/dialog-login-admin/dialog-login-admin.component';
 
 
 const DialogComponents = [
@@ -54,7 +53,15 @@ const DialogComponents = [
   DialogRegisterImageComponent,
   DialogLoginFailComponent,
   DialogLogoutComponent,
-  UserCreateCvComponent
+  DialogCheckPostComponent,
+  DialogCheckCvComponent,
+  DialogCheckRegisterComponent,
+  DialogCheckLoginComponent,
+  DialogClickDetailComponent,
+  DialogLoginAdminComponent,
+  DialogDetialCvComponent,
+  DialogSendCvComponent,
+  DialogApplyNowComponent,
 ]
 
 @NgModule({
@@ -67,19 +74,10 @@ const DialogComponents = [
     HeaderComponent,
     LoginUserComponent,
     LoginEnterpriseComponent,
-    DialogApplyNowComponent,
     UserEditProfileComponent,
-    DialogCheckRegisterComponent,
-    DialogCheckLoginComponent,
+    UserCreateCvComponent,
     AdminEnterpriseNoActiveComponent,
-    DialogDetialCvComponent,
-    DialogSendCvComponent,
     ClockComponent,
-    DialogClickDetailComponent,
-    DialogCheckPostComponent,
-    DialogCheckCvComponent,
-    DialogLoginAdminComponent,
-
   ],
   imports: [
     BrowserModule,
