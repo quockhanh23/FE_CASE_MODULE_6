@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 import {ApplyNowService} from "../../../../services/apply-now.service";
+import {EnterpriseService} from "../../../../services/enterprise.service";
 
 
 @Component({
@@ -20,13 +21,14 @@ export class RecruitmentsDetailsComponent implements OnInit {
   check = true
   idRec!: string
   checkApply = false
+  idEnterprise!: any
 
   constructor(private activatedRoute: ActivatedRoute,
               private recruitmentsService: RecruitmentsService,
               private router: Router,
               public dialog: MatDialog,
               private toarts: ToastrService,
-              private applyNow1: ApplyNowService
+              private applyNow1: ApplyNowService,
   ) {
   }
 
@@ -40,8 +42,11 @@ export class RecruitmentsDetailsComponent implements OnInit {
         // console.log(res)
         this.recruitments = res
       })
+      this.recruitmentsService.findById(this.idRec).subscribe(res => {
+        this.idEnterprise = res.profileEnterprise?.id
+        localStorage.setItem('idEnterprise', this.idEnterprise)
+      })
     })
-    this.checkApplyNow()
   }
 
   report() {

@@ -4,3 +4,8 @@
 .a1:hover{
   color: #ffc107;
 }
+.a3{
+  flex: 1 1 auto;
+  min-height: 1px;
+  border: 1px solid thistle;
+}

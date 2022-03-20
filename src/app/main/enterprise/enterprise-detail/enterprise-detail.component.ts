@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {ToastrService} from "ngx-toastr";
 import {EnterpriseService} from "../../../services/enterprise.service";
 import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {DialogCheckPostComponent} from "../../../notification/dialog-check-post/dialog-check-post.component";

@@ -10,10 +10,10 @@
             <div class="jobs_left d-flex align-items-center">
               <div class="thumb">
                 <img ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments?.profileEnterprise?.image}}" alt=""
-                     style="width: 48px;height: 48px">
-              </div>
+                     style="width: 48px;height: 48px"></div>
               <div class="jobs_conetent">
                 <a><h4>{{recruitments?.title}} - Vị trí: {{recruitments?.positionId?.name}} </h4></a>
+                <p style="color: green">Công ty: {{recruitments?.profileEnterprise?.nameCompany}} </p>
                 <div class="links_locat d-flex align-items-center">
                   <div class="location">
                     <p><i class="fa fa-map-marker"></i> {{recruitments?.address}}</p>
@@ -33,23 +33,21 @@
             </div>
           </div>
         </div>
-        <div class=" white-bg  justify-content-between">
+        <div class=" white-bg justify-content-between">
           <div class="row" *ngIf="checkRole =='ROLE_USER'">
             <div class="col-6"></div>
             <div class="col-6" *ngIf="checkApply">
-              <h2 align="right" style="margin-right: 20px">Đã nộp đơn</h2>
+              <h2 align="right" style="margin-right: 20px; color: deeppink">Đã nộp đơn</h2>
             </div>
             <div class="col-6" *ngIf="!checkApply">
-              <h2 align="right" style="margin-right: 20px">Chưa nộp đơn</h2>
+              <h2 align="right" style="margin-right: 20px; color: darkseagreen">Chưa nộp đơn</h2>
             </div>
           </div>
         </div>
         <div class="descript_wrap white-bg">
           <div class="single_wrap">
-            <h4>Mô tả công việc: </h4>
-            <p>
-              {{recruitments?.description}}
-            </p>
+            <h4>Mô tả công việc:</h4>
+            <p>{{recruitments?.description}}</p>
           </div>
           <div class="single_wrap">
             <h4>Yêu cầu kinh nghiệm:</h4>
