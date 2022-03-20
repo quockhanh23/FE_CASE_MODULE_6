@@ -1,7 +1,7 @@
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 20px">
   <div class="container">
-    <nav aria-label="breadcrumb" class="main-breadcrumb" >
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
       <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
         <span ngbTooltip="Quay lại danh sách"
               style="font-size: 25px; margin-top: 14px" [routerLink]="['/admin/adminDetail']"
@@ -11,69 +11,70 @@
         </div>
       </div>
     </nav>
-        <div class="recent_joblist_wrap">
-
-        </div>
-        <div class="job_lists m-0">
-          <div class="row" *ngFor=" let job of listJob ">
-            <div class="col-lg-12 col-md-12">
-              <div class="single_jobs white-bg d-flex justify-content-between">
-                <div class="jobs_left d-flex align-items-center">
-                  <div class="thumb">
-                    <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+    <div class="recent_joblist_wrap"></div>
+    <div class="job_lists m-0">
+      <div class="row" *ngFor=" let job of listJob ">
+        <div class="col-lg-12 col-md-12">
+          <div class="single_jobs white-bg d-flex justify-content-between">
+            <div class="jobs_left d-flex align-items-center">
+              <div class="thumb">
+                <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
+              </div>
+              <div class="jobs_conetent">
+                <h4>{{job?.title}}</h4>
+                <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
+                <div class="links_locat d-flex align-items-center">
+                  <div class="location">
+                    <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
                   </div>
-                  <div class="jobs_conetent">
-                    <a routerLink="{{job.id}}/details"><h4>{{job.title}}</h4></a>
-                    <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
-                    <div class="links_locat d-flex align-items-center">
-                      <div class="location">
-                        <p><i class="fa fa-map-marker"></i> {{job?.profileEnterprise?.addressCompany}}</p>
-                      </div>
-                      <div class="location">
-                        <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="jobs_right">
-                  <div class="apply_now">
-
-                  <div  *ngIf="job?.statusRecruitmentId?.id == '3'">
-                    <a ngbTooltip="Khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLock(job?.id)"><i class="fa-solid fa-lock"></i></a>
-                    <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusPublic(job?.id)"><i
-                      class="fa-solid fa-arrow-down-short-wide"></i></a>
-<!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
-                  </div>
-                  <div *ngIf="job?.statusRecruitmentId?.id == '2'">
-                    <a ngbTooltip="Khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLock(job?.id)"><i class="fa-solid fa-lock"></i></a>
-                    <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusVIP(job?.id)"><i
-                      class="fa-solid fa-arrow-up-short-wide"></i></a>
-<!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
-                  </div>
-                  <div *ngIf="job?.statusRecruitmentId?.id == '4'">
-                    <a ngbTooltip="Mở khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLockOpen(job?.id)"><i class="fa-solid fa-lock-open"></i></a>
-                  </div>
-                  </div>
-                  <div class="date">
-                    <p>{{job.dateEnd}}</p>
+                  <div class="location">
+                    <p><i class="fa fa-clock-o"></i> {{job?.workId?.name}}</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="pagination_wrap">
-                <ul>
-                  <li><a href="#"> <i class="ti-angle-left"></i> </a></li>
-                  <li><a href="#"><span>01</span></a></li>
-                  <li><a href="#"><span>02</span></a></li>
-                  <li><a href="#"> <i class="ti-angle-right"></i> </a></li>
-                </ul>
+            <div class="jobs_right">
+              <div class="apply_now">
+
+                <div class="a1" *ngIf="job?.statusRecruitmentId?.id == '3'">
+                  <a ngbTooltip="Khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLock(job?.id)"><i
+                    class="a1 fa-solid fa-lock"></i></a>
+                  <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusPublic(job?.id)"><i
+                    class="a1 fa-solid fa-arrow-down-short-wide"></i></a>
+                  <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
+                </div>
+                <div class="a1" *ngIf="job?.statusRecruitmentId?.id == '2'">
+                  <a ngbTooltip="Khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLock(job?.id)"><i
+                    class="a1 fa-solid fa-lock"></i></a>
+                  <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusVIP(job?.id)"><i
+                    class="a1 fa-solid fa-arrow-up-short-wide"></i></a>
+                  <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
+                </div>
+                <div class="a1" *ngIf="job?.statusRecruitmentId?.id == '4'">
+                  <a ngbTooltip="Mở khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLockOpen(job?.id)"><i
+                    class="fa-solid fa-lock-open"></i></a>
+                </div>
+              </div>
+              <div class="date">
+                <p>{{job.dateEnd}}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="pagination_wrap">
+            <ul>
+              <li><a href="#"> <i class="ti-angle-left"></i> </a></li>
+              <li><a href="#"><span>01</span></a></li>
+              <li><a href="#"><span>02</span></a></li>
+              <li><a href="#"> <i class="ti-angle-right"></i> </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
