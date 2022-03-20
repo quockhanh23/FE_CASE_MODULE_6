@@ -5,8 +5,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FileCVService} from "../../services/file-cv.service";
 import {Recruitments} from "../../models/recruitments";
-import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
-import {DialogFailComponent} from "../dialog-fail/dialog-fail.component";
 import {DialogSendCvComponent} from "../dialog-send-cv/dialog-send-cv.component";
 import {DialogCheckCvComponent} from "../dialog-check-cv/dialog-check-cv.component";
 
@@ -23,7 +21,7 @@ export class DialogApplyNowComponent implements OnInit {
               private router: Router,
               public dialog: MatDialog,
               private recruitmentsService: RecruitmentsService,
-              private toarts: ToastrService,) {
+  ) {
   }
 
   ngOnInit(): void {

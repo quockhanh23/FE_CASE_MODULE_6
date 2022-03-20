@@ -120,6 +120,7 @@ export class EnterpriseComponent implements OnInit {
   openDialogRegisterSuccess() {
     this.dialog.open(DialogRegisterSuccessComponent)
   }
+
   reOpenDialog() {
     setTimeout(() => {
       this.dialog.open(DialogRegisterFailComponent)

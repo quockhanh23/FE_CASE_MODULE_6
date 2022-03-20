@@ -1,11 +1,11 @@
-
 <div class="row al1">
   <div class="col-1"></div>
   <div class="col-10">
     <div class="row" style="height: 20px"></div>
     <div class="row">
       <h3 class="a">
-        <a ngbTooltip="Đăng nhập" href="#" [routerLink]="['/login/enterprise']" class="a" ><sub><span class="material-icons" style="color: #007fff;">help</span></sub>
+        <a ngbTooltip="Đăng nhập" href="#" [routerLink]="['/login/enterprise']" class="a"><sub><span
+          class="material-icons" style="color: #007fff;">help</span></sub>
           Bạn đã có tài khoản, đăng nhập ngay</a></h3>
       <div class="col-12 text-center">
         <h1 class="contact-title"><sub style="color: black">
@@ -18,8 +18,11 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label>Tên đăng nhập:</label><mat-hint style="color: gray;text-align: left" align="end"> &ensp; &ensp;ví dụ: khanh@gmail.com</mat-hint>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class=" form-control" type="text" placeholder='Nhập email *' formControlName="email">
+                <label>Tên đăng nhập:</label>
+                <mat-hint style="color: gray;text-align: left" align="end"> &ensp; &ensp;ví dụ: khanh@gmail.com
+                </mat-hint>
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class=" form-control"
+                       type="text" placeholder='Nhập email *' formControlName="email">
 
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['email'].errors?.['required']
@@ -36,7 +39,8 @@
             <div class="col-12">
               <div class="form-group">
                 <label>Mật khẩu</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" type="password" class="form-control" placeholder="Nhập mật khẩu *"
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" type="password"
+                       class="form-control" placeholder="Nhập mật khẩu *"
                        formControlName="password">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['password'].errors?.['required']
@@ -48,7 +52,8 @@
             <div class="col-12">
               <div class="form-group">
                 <label>Nhập lại mật khẩu</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" type="password" class="form-control" placeholder="Nhập lại mật khẩu *"
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" type="password"
+                       class="form-control" placeholder="Nhập lại mật khẩu *"
                        formControlName="confirmPassword">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['confirmPassword'].errors?.['required']
@@ -65,13 +70,15 @@
             <div class="col-12">
               <div class="form-group">
                 <label>Địa chỉ</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="Địa chỉ" formControlName="addressCompany">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="Địa chỉ" formControlName="addressCompany">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Tên công ty</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="Tên công ty *" formControlName="nameCompany">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="Tên công ty *" formControlName="nameCompany">
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['nameCompany'].errors?.['required']
                      && enterpriseForm.controls['nameCompany'].touched">
@@ -82,15 +89,18 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Số lượng nhân viên</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="Số nhân viên" formControlName="numberOfEmployees">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="Số nhân viên" formControlName="numberOfEmployees">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Số điện thoại</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="Số điện thoại *" formControlName="phoneNumbers">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="Số điện thoại *" formControlName="phoneNumbers">
                 <mat-hint style="color: gray;text-align: left" align="end">
-                  Ví dụ: 0353413219 (10 chữ số, bắt đầu bằng số 03 đến 09)</mat-hint>
+                  Ví dụ: 0353413219 (10 chữ số, bắt đầu bằng số 03 đến 09)
+                </mat-hint>
                 <div class="col alert alert-danger mt-2" role="alert"
                      *ngIf="enterpriseForm.controls['phoneNumbers'].errors?.['required']
                       && enterpriseForm.controls['phoneNumbers'].touched">
@@ -106,25 +116,29 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Link</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="linkWebsites" formControlName="linkWebsites">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="linkWebsites" formControlName="linkWebsites">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Link</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="linkFacebook" formControlName="linkFacebook">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="linkFacebook" formControlName="linkFacebook">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Link</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="linkGoogleMaps" formControlName="linkGoogleMaps">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="linkGoogleMaps" formControlName="linkGoogleMaps">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
                 <label>Mô tả</label>
-                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text" placeholder="Mô tả" formControlName="description">
+                <input style="border-radius: 5px; height: 45px;border: 1px solid #ccc;" class="form-control" type="text"
+                       placeholder="Mô tả" formControlName="description">
               </div>
             </div>
           </div>
@@ -133,7 +147,7 @@
             <input type="file" id="file" #userPhoto
                    (change)="onFileSelected1($event)"
                    name="image" autocomplete="off"
-                   />
+            />
             <mat-spinner [diameter]="20" *ngIf="checkImage"></mat-spinner>
           </div>
 
@@ -142,7 +156,8 @@
             Email và mật khẩu xác nhận đã hợp lệ
           </div>
           <div style="margin-top: 10px">
-            <button *ngIf="checkButton" style="width: 190px" mat-raised-button ngbTooltip="Đăng ký" [disabled]="!enterpriseForm.valid"
+            <button *ngIf="checkButton" style="width: 190px" mat-raised-button ngbTooltip="Đăng ký"
+                    [disabled]="!enterpriseForm.valid"
                     class="btn-primary btn" mat-button color="primary">
               <span class="material-icons">touch_app</span>Đăng ký
             </button>

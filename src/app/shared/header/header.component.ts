@@ -12,8 +12,6 @@ export class HeaderComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
-  check1 = true
-  check2 = true
   check3 = true
 
   enterpriseProfile!: ProfileEnterprise
