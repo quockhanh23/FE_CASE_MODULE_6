@@ -22,7 +22,7 @@
     <div class="card-header" style="padding-top: 0px; padding-bottom: 0px">
       <div class="row">
         <div class="col-1">
-          <img routerLink="/enterprise/detail" style="width: 60px; height: 60px" src="{{en?.image}}" alt="">
+          <img (click)="getOne(en?.id)" style="width: 60px; height: 60px" src="{{en?.image}}" alt="">
         </div>
         <div class="col-10">
           <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span

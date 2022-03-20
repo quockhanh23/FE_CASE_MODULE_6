@@ -19,6 +19,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
+  enterprise1?: ProfileEnterprise
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
@@ -34,7 +35,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       this.enterprise = result
       console.log(result)
     }, error => {
-      console.log(error)
+      console.log("Lỗi getAll" + error)
     })
     this.activatedRoute.paramMap.subscribe(paraMap => {
       const id = paraMap.get('id')
@@ -45,6 +46,8 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   getAll() {
     this.enterpriseOfAdminService.getAll().subscribe(result => {
       this.enterprise = result
+    }, error => {
+      console.log("Lỗi" + error)
     })
   }
 
@@ -52,12 +55,16 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
     this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
       console.log(res)
       this.router.navigate(["admin/adminDetail"]).then()
+    }, error => {
+      console.log("Lỗi" + error)
     })
   }
 
   getOne(id: any) {
     this.enterpriseOfAdminService.getById(id).subscribe(res => {
       console.log(res)
+      this.enterprise1 = res
+      this.router.navigate(["enterprise/detail"]).then()
     })
   }
 

@@ -22,22 +22,9 @@ export class AdminEnterpriseNoActiveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.enterpriseOfAdminService.getAll().subscribe(result => {
-      // @ts-ignore
-      this.enterprise = result
-      console.log(result)
-    }, error => {
-      console.log(error)
-    })
     this.activatedRoute.paramMap.subscribe(paraMap => {
       const id = paraMap.get('id')
       console.log(id);
-    })
-  }
-
-  getAll() {
-    this.enterpriseOfAdminService.getAll().subscribe(result => {
-      this.enterprise = result
     })
   }
 
@@ -47,5 +34,4 @@ export class AdminEnterpriseNoActiveComponent implements OnInit {
       this.router.navigate(["admin/list"]).then()
     })
   }
-
 }
