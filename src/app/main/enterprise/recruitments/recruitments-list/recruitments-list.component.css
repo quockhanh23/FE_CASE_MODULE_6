@@ -17,5 +17,8 @@
 .a1{
   cursor: pointer;
 }
+.a2:hover{
+  color: #ffc107;
+}
 
 
