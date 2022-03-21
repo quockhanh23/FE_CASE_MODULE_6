@@ -63,7 +63,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       this.enterpriseOfAdminService.changeStatusLock(id).subscribe(result => {
         console.log(result)
         this.router.navigate(["admin/adminDetail"]).then()
-        if (res.statusEnterpriseId?.id == '3') {
+        if (res.statusEnterpriseId?.id == result.statusEnterpriseId?.id) {
           this.toarts.error('Thông báo', 'Tài khoản đã bị khóa rồi!')
         } else {
           this.toarts.success('Thông báo', 'Đã khóa thành công!')
