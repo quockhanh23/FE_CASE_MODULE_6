@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute,} from "@angular/router";
 import {ApplyNowService} from "../../../../services/apply-now.service";
 import {MatDialog} from "@angular/material/dialog";
-import {ToastrService} from "ngx-toastr";
 import {FileCV} from "../../../../models/file-cv";
 import {ApplyNow} from "../../../../models/apply-now";
 import {DialogDetialCvComponent} from "../../../../notification/dialog-detial-cv/dialog-detial-cv.component";

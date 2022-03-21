@@ -9,13 +9,14 @@
   </div>
   <div class="row">
     <div class="col-lg-8 mt-3">
-      <form class="form-contact contact_form" action="contact_process.php" [formGroup]="recruitmentForm"
+      <form class="form-contact contact_form" [formGroup]="recruitmentForm"
             (ngSubmit)="updateRecruitment()" id="contactForm">
         <div class="row">
           <div class="col-12">
             <div class="form-group">
-              <p>Lĩnh vực</p>
-              <input class="form-control " type="text" placeholder='Nhập lĩnh vực' formControlName="title">
+              <label class="form-label">Lĩnh vực:</label>
+              <input class="input-type form-control" type="text" placeholder='Nhập lĩnh vực'
+                     formControlName="title">
             </div>
             <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
                  *ngIf="recruitmentForm.controls['title'].errors?.['required']
@@ -25,8 +26,8 @@
           </div>
           <div class="col-12">
             <div class="form-group">
-              <p>Địa chỉ nơi làm việc</p>
-              <input type="text" class="form-control" placeholder="Nhập Địa chỉ làm việc"
+              <label class="form-label">Địa chỉ nơi làm việc:</label>
+              <input type="text" class="input-type form-control" placeholder="Nhập Địa chỉ làm việc"
                      formControlName="address">
             </div>
             <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
@@ -37,8 +38,8 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <p>Kinh Nghiệm</p>
-              <input class="form-control" type="text"
+              <label class="form-label">Kinh Nghiệm:</label>
+              <input class="input-type form-control" type="text"
                      placeholder="Yêu cầu kinh nghiệm" formControlName="experience">
             </div>
           </div>
@@ -49,8 +50,8 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <p>Số lượng nhân viên</p>
-              <input class="form-control" type="text" placeholder="Số lượng tuyển"
+              <label class="form-label">Số lượng nhân viên:</label>
+              <input class="input-type form-control" type="text" placeholder="Số lượng tuyển"
                      formControlName="numberOfRecruitments">
             </div>
             <div class="col alert alert-danger mt-2" role="alert" style="width: 100%;height: 40px"
@@ -61,56 +62,54 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <p>Giới tính</p>
-              <input class="form-control" type="text" placeholder="Giới tính yêu cầu" formControlName="gender">
+              <label class="form-label">Giới tính:</label>
+              <input class="input-type form-control" type="text" placeholder="Giới tính yêu cầu"
+                     formControlName="gender">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <p>Mức Lương</p>
-              <input type="text" class="form-control" placeholder="Nhập mức lương" formControlName="salary"></div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <p>Mô tả công việc</p>
-              <input class="form-control" type="text" formControlName="description">
+              <label class="form-label">Mức Lương:</label>
+              <input type="text" class="input-type form-control" placeholder="Nhập mức lương"
+                     formControlName="salary">
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
-              <p>Ngày kết thúc</p>
-              <label for="monthEnd" class="sr-only"></label>
-              <input id="monthEnd" class="form-control input-group-lg" name="dateOfBirth" type="date"
-                     formControlName="dateEnd">
+              <label class="form-label">Mô tả công việc:</label>
+              <input class="input-type form-control" type="text" formControlName="description">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label class="form-label">Ngày kết thúc:</label>
+              <input id="monthEnd" style="width: 350px" class="input-type form-control input-group-lg"
+                     name="dateOfBirth" type="date" formControlName="dateEnd">
             </div>
           </div>
           <div class="col-sm-6">
-            <p>Hình thức làm việc</p>
-            <select style="width: 150px" formControlName="workId">
-              <!--                <option>Chọn</option>-->
+            <label class="form-label">Hình thức làm việc:</label>
+            <select class="input-select" formControlName="workId">
               <option *ngFor=" let work of listWork " value="{{work.id}}">{{work.name}}</option>
             </select>
           </div>
           <div class="col-sm-6">
-            <p>Vị trí tuyển dụng</p>
-            <select style="width: 150px" formControlName="positionId">
-              <!--                <option>Chọn</option>-->
+            <label class="form-label">Vị trí tuyển dụng:</label>
+            <select class="input-select" formControlName="positionId">
               <option *ngFor=" let position of listPosition " value="{{position.id}}">{{position.name}}</option>
             </select>
           </div>
         </div>
         <div class="form-group mt-3">
-          <button type="submit" [disabled]="!recruitmentForm.valid" class="btn btn-primary btn-block mb-4">Sửa công
-            việc
+          <button type="submit" [disabled]="!recruitmentForm.valid"
+                  class="btn btn-primary btn-block mb-4">Sửa công việc
           </button>
         </div>
       </form>
     </div>
     <div class="col-4">
-      <img style="width: 100%; border-radius: 10px; margin-top: 55px" src="https://wallpapercave.com/wp/wp6595896.jpg"
-           alt="">
+      <img id="img-edit" src="https://wallpapercave.com/wp/wp6595896.jpg" alt="">
     </div>
-
   </div>
 </div>
 

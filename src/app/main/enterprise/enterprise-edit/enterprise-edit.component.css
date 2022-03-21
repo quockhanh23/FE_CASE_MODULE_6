@@ -31,9 +31,15 @@ body {
   color: #682773;
   cursor: pointer
 }
-.a1{
+
+.a1 {
   cursor: pointer;
 }
-.a1:hover{
+
+.a1:hover {
   color: #ffc107;
+}
+
+.span-color {
+  color: gray
 }
