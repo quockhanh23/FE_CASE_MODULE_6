@@ -3,7 +3,6 @@ import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {ProfileEnterpriseOfAdminService} from "../../../services/profile-enterprise-of-admin.service";
-import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-admin-enterprise-detail',
@@ -17,7 +16,6 @@ export class AdminEnterpriseDetailComponent implements OnInit {
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
-              private toarts: ToastrService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
   ) {

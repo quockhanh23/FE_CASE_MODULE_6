@@ -6,7 +6,6 @@ import {ToastrService} from "ngx-toastr";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
-
 @Component({
   selector: 'app-list-enterprise-of-admin',
   templateUrl: './list-enterprise-of-admin.component.html',
@@ -30,7 +29,6 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.enterpriseOfAdminService.getAll().subscribe(result => {
-      // @ts-ignore
       this.enterprise = result
       console.log(result)
     }, error => {
