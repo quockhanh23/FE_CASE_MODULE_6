@@ -45,7 +45,7 @@
           class="material-icons">lock_reset</span></sub>
         {{en.statusEnterpriseId?.name}}</h2>
       <!-- Button trigger modal 1 -->
-      <button [disabled]="en.statusEnterpriseId?.id == '4'" ngbTooltip="Kích hoạt tài khoản" type="button"
+      <button [disabled]="en.statusEnterpriseId?.id == '4'" ngbTooltip="Kích hoạt tài khoản"
               (click)="changeStatusActive(en?.id)"
               class="btn btn-primary" data-toggle="modal"
               data-target="#exampleModal">
@@ -53,19 +53,19 @@
         Kích hoạt
       </button>
       <!-- Button trigger modal 2 -->
-      <button ngbTooltip="khóa doanh nghiệp" style="margin-left: 20px;width: 70px" type="button"
-              (click)="changeStatusLock(en?.id)" class="btn btn-primary"
+      <button ngbTooltip="khóa doanh nghiệp" class="button-style btn btn-primary"
+              (click)="changeStatusLock(en?.id)"
               data-toggle="modal"
               data-target="#staticBackdrop">
         Khóa
       </button>
-      <button style="margin-left: 20px" type="button" class="btn btn-primary"
+      <button type="button" class="button-style btn btn-primary"
               data-toggle="modal"
               data-target="#staticBackdrop" *ngIf="en?.statusEnterpriseId?.id == '4'">
         <a class="heart_mark" ngbTooltip="Bỏ VIP" (click)="changeStatusActive(en?.id)"><i
           class="fa-solid fa-arrow-down-short-wide"></i></a>
       </button>
-      <button style="margin-left: 20px; width: 70px" type="button" class="btn btn-primary"
+      <button type="button" class="button-style btn btn-primary"
               data-toggle="modal"
               data-target="#staticBackdrop" *ngIf="en?.statusEnterpriseId?.id == '2'">
         <a class="heart_mark" ngbTooltip="Xét VIP" (click)="changeStatusVIP(en?.id)"><i

@@ -2,13 +2,16 @@
   max-width: 400px;
   margin-bottom: 8px;
 }
+
 .alo1:hover {
   color: #ffc107;
 }
-.alo2{
+
+.alo2 {
   color: #0A8CFF;
 }
-.alo2:hover{
+
+.alo2:hover {
   color: #ffc107;
 }
 
@@ -17,15 +20,24 @@
   background-color: #292b2c;
   color: white;
 }
+
 .dark-modal .close {
   color: white;
 }
+
 .light-blue-backdrop {
   background-color: #5cb3fd;
 }
-.a1{
+
+.a1 {
   cursor: pointer;
 }
-.a1:hover{
+
+.a1:hover {
   color: #ffc107;
+}
+
+.button-style {
+  margin-left: 20px;
+  width: 70px
 }
