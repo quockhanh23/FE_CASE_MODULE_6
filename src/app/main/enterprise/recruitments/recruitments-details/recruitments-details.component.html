@@ -9,7 +9,7 @@
           <div class="single_jobs white-bg d-flex justify-content-between">
             <div class="jobs_left d-flex align-items-center">
               <div class="thumb">
-                <img ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments?.profileEnterprise?.image}}" alt=""
+                <img class="a1" routerLink="/user/detailEnterprise/{{recruitments?.profileEnterprise?.id}}" ngbTooltip="Xem thông tin doanh nghiệp" src="{{recruitments?.profileEnterprise?.image}}" alt=""
                      style="width: 48px;height: 48px"></div>
               <div class="jobs_conetent">
                 <a><h4>{{recruitments?.title}} - Vị trí: {{recruitments?.positionId?.name}} </h4></a>
@@ -37,10 +37,10 @@
           <div class="row" *ngIf="checkRole =='ROLE_USER'">
             <div class="col-6"></div>
             <div class="col-6" *ngIf="checkApply">
-              <h2 align="right" style="margin-right: 20px; color: deeppink">Đã nộp đơn</h2>
+              <h2 align="right" style="margin-right: 20px; color: deeppink">Đã ứng tuyển</h2>
             </div>
             <div class="col-6" *ngIf="!checkApply">
-              <h2 align="right" style="margin-right: 20px; color: darkseagreen">Chưa nộp đơn</h2>
+              <h2 align="right" style="margin-right: 20px; color: darkseagreen">Chưa ứng tuyển</h2>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="submit_btn" *ngIf="checkRole =='ROLE_USER'">
-                  <button (click)="applyNow()" class="boxed-btn3 w-100" type="button">Nộp đơn ngay</button>
+                  <button (click)="applyNow()" class="boxed-btn3 w-100" type="button">Ứng tuyển ngay</button>
                 </div>
               </div>
             </div>

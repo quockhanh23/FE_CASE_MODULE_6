@@ -12,6 +12,7 @@ import {ApplyNowService} from "../../../../services/apply-now.service";
   styleUrls: ['./recruitments-my-list.component.css']
 })
 export class RecruitmentsMyListComponent implements OnInit {
+
   id = localStorage.getItem('ENTERPRISE_ID');
   myListJob: Recruitments[] = [];
   check = "false"
@@ -34,7 +35,6 @@ export class RecruitmentsMyListComponent implements OnInit {
     this.recruitmentsService.myListRecruitments(this.id).subscribe(result => {
       console.log(result);
       this.myListJob = result;
-
     }, error => {
       console.log(error);
     })

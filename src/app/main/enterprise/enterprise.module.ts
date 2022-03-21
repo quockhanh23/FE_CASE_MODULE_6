@@ -30,7 +30,9 @@ import { RecruitmentListCvComponent } from './recruitments/recruitment-list-cv/r
     RecruitmentListCvComponent,
   ],
   exports: [
-    RecruitmentsListComponent
+    RecruitmentsListComponent,
+    HomePageEnterpriseComponent,
+    RecruitmentsMyListComponent
   ],
     imports: [
         CommonModule,

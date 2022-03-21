@@ -4,7 +4,6 @@ import {ListEnterpriseOfAdminComponent} from "./list-enterprise-of-admin/list-en
 import {AdminRecruitmentsListComponent} from "./admin-recruitments-list/admin-recruitments-list.component";
 import {AdminEnterpriseNoActiveComponent} from "./admin-enterprise-no-active/admin-enterprise-no-active.component";
 import {AdminManagementComponent} from "./admin-management/admin-management.component";
-import {WeatherComponent} from "./weather/weather.component";
 import {AdminEnterpriseDetailComponent} from "./admin-enterprise-detail/admin-enterprise-detail.component";
 
 const routes: Routes = [

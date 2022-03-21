@@ -14,6 +14,7 @@ import {ApplyNowService} from "../../../../services/apply-now.service";
   styleUrls: ['./recruitments-details.component.css']
 })
 export class RecruitmentsDetailsComponent implements OnInit {
+
   currentUser = localStorage.getItem("currentUser");
   checkRole = localStorage.getItem('ROLE');
   recruitments!: Recruitments;
@@ -36,15 +37,15 @@ export class RecruitmentsDetailsComponent implements OnInit {
       const id = param.get('id')
       this.idRec = "" + id
       localStorage.setItem('idRec', this.idRec)
-      // @ts-ignore
-      this.recruitmentsService.findById(id).subscribe(res => {
-        // console.log(res)
+      this.recruitmentsService.findById(<string>id).subscribe(res => {
+        console.log("recruitment " + res.id)
         this.recruitments = res
       })
       this.recruitmentsService.findById(this.idRec).subscribe(res => {
         this.idEnterprise = res.profileEnterprise?.id
         localStorage.setItem('idEnterprise', this.idEnterprise)
       })
+      this.checkApplyNow()
     })
   }
 
