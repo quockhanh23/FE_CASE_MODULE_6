@@ -96,8 +96,8 @@
                 </div>
                 <div class="jobs_right">
                   <div class="apply_now">
-                    <a *ngIf="isLoggedIn()" routerLink="{{job.id}}/details" class="boxed-btn3">Nộp đơn ngay</a>
-                    <a *ngIf="!isLoggedIn()" (click)="clickDetail()" class="boxed-btn3">Nộp đơn ngay</a>
+                    <a *ngIf="isLoggedIn()" routerLink="{{job.id}}/details" class="boxed-btn3">Ứng tuyển ngay</a>
+                    <a *ngIf="!isLoggedIn()" (click)="clickDetail()" class="boxed-btn3">Ứng tuyển ngay</a>
                   </div>
                   <div class="date">
                     <p>Ngày hết hạn: {{job.dateEnd | date:"dd/MM/yyyy" }}</p>

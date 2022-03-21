@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {ToastrTestComponent} from './notification/toastr-test/toastr-test.component';
@@ -35,7 +34,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {DialogCheckLoginComponent} from './notification/dialog-check-login/dialog-check-login.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {AdminEnterpriseNoActiveComponent} from './main/admin/admin-enterprise-no-active/admin-enterprise-no-active.component';
-import {DialogDetialCvComponent} from './notification/dialog-detial-cv/dialog-detial-cv.component';
+import {DialogDetailCvComponent} from './notification/dialog-detail-cv/dialog-detail-cv.component';
 import {DialogSendCvComponent} from './notification/dialog-send-cv/dialog-send-cv.component';
 import {ClockComponent} from './notification/clock/clock.component';
 import {DialogClickDetailComponent} from './notification/dialog-click-detail/dialog-click-detail.component';
@@ -59,7 +58,7 @@ const DialogComponents = [
   DialogCheckLoginComponent,
   DialogClickDetailComponent,
   DialogLoginAdminComponent,
-  DialogDetialCvComponent,
+  DialogDetailCvComponent,
   DialogSendCvComponent,
   DialogApplyNowComponent,
 ]

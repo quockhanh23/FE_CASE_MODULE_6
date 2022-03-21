@@ -5,11 +5,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ApplyNowService} from "../../services/apply-now.service";
 
 @Component({
-  selector: 'app-dialog-detial-cv',
-  templateUrl: './dialog-detial-cv.component.html',
-  styleUrls: ['./dialog-detial-cv.component.css']
+  selector: 'app-dialog-detail-cv',
+  templateUrl: './dialog-detail-cv.component.html',
+  styleUrls: ['./dialog-detail-cv.component.css']
 })
-export class DialogDetialCvComponent implements OnInit {
+export class DialogDetailCvComponent implements OnInit {
   fileCv1!: FileCV
   constructor( private fileCv: FileCVService,
                private activatedRoute: ActivatedRoute,

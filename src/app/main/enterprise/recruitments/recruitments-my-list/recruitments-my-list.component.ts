@@ -16,6 +16,7 @@ export class RecruitmentsMyListComponent implements OnInit {
   id = localStorage.getItem('ENTERPRISE_ID');
   myListJob: Recruitments[] = [];
   check = "false"
+  count?:any
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,6 +35,7 @@ export class RecruitmentsMyListComponent implements OnInit {
   loadMyListAll() {
     this.recruitmentsService.myListRecruitments(this.id).subscribe(result => {
       console.log(result);
+      this.count = result.length
       this.myListJob = result;
     }, error => {
       console.log(error);

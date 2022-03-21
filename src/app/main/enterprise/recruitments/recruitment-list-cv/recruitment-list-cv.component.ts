@@ -4,7 +4,7 @@ import {ApplyNowService} from "../../../../services/apply-now.service";
 import {MatDialog} from "@angular/material/dialog";
 import {FileCV} from "../../../../models/file-cv";
 import {ApplyNow} from "../../../../models/apply-now";
-import {DialogDetialCvComponent} from "../../../../notification/dialog-detial-cv/dialog-detial-cv.component";
+import {DialogDetailCvComponent} from "../../../../notification/dialog-detail-cv/dialog-detail-cv.component";
 
 @Component({
   selector: 'app-recruitment-list-cv',
@@ -39,7 +39,7 @@ export class RecruitmentListCvComponent implements OnInit {
   }
 
   openCv() {
-    this.dialog.open(DialogDetialCvComponent)
+    this.dialog.open(DialogDetailCvComponent)
   }
 
   saveIdCv(id: any) {

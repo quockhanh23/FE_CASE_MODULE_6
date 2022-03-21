@@ -134,20 +134,20 @@
             </div>
             <hr>
             <div>
-              <h3>Các tin tuyển dụng của doanh nghiệp</h3>
+              <h3>Các tin tuyển dụng của doanh nghiệp ({{count}})</h3>
             </div>
-            <div *ngFor=" let job of myListJob1 ">
-             <div class="row">
-               <div class="col">
-                 <p>{{job?.title}}</p>
-               </div>
-               <div class="col">
-                 <p>{{job?.address}}</p>
-               </div>
-               <div class="col">
-                 <p>{{job?.positionId?.name}}</p>
-               </div>
-             </div>
+            <div *ngFor=" let job of myListJobs ">
+              <div class="row">
+                <div class="col">
+                  <p>{{job?.title}}</p>
+                </div>
+                <div class="col">
+                  <p>{{job?.address}}</p>
+                </div>
+                <div class="col">
+                  <p>{{job?.positionId?.name}}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

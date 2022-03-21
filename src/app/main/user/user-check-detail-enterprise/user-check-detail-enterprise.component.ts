@@ -15,7 +15,8 @@ export class UserCheckDetailEnterpriseComponent implements OnInit {
   idEnterprise?: any
   enterprise?: ProfileEnterprise
   myListJob?: Recruitments;
-  myListJob1?: Recruitments[];
+  myListJobs?: Recruitments[];
+  count?:any
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
@@ -26,12 +27,6 @@ export class UserCheckDetailEnterpriseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("alo")
-    this.enterpriseOfAdminService.getAll().subscribe(result => {
-      console.log(result)
-    }, error => {
-      console.log(error)
-    })
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id');
       console.log(id)
@@ -39,8 +34,9 @@ export class UserCheckDetailEnterpriseComponent implements OnInit {
         localStorage.setItem('idEnterprise', <string>result.id)
         this.enterprise = result
         this.recruitmentsService.myListRecruitments(<string>result.id).subscribe(result => {
-          console.log("Đã vào myListRecruitments" + result)
-          this.myListJob1 = result;
+          console.log("Đã vào myListRecruitments: " + result.length)
+          this.count = result.length
+          this.myListJobs = result;
         }, error => {
           console.log("Lỗi myListRecruitments: " + error)
         })

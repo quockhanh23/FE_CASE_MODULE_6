@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogDetialCvComponent } from './dialog-detial-cv.component';
+import { DialogDetailCvComponent } from './dialog-detail-cv.component';
 
 describe('DialogDetialCvComponent', () => {
-  let component: DialogDetialCvComponent;
-  let fixture: ComponentFixture<DialogDetialCvComponent>;
+  let component: DialogDetailCvComponent;
+  let fixture: ComponentFixture<DialogDetailCvComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogDetialCvComponent ]
+      declarations: [ DialogDetailCvComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogDetialCvComponent);
+    fixture = TestBed.createComponent(DialogDetailCvComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
