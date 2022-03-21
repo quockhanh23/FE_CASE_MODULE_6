@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {RecruitmentsListComponent} from "./recruitments/recruitments-list/recruitments-list.component";
 import {RecruitmentsDetailsComponent} from "./recruitments/recruitments-details/recruitments-details.component";
 import {HomePageEnterpriseComponent} from "./home-page-enterprise/home-page-enterprise.component";
@@ -12,39 +12,39 @@ import {RecruitmentListCvComponent} from "./recruitments/recruitment-list-cv/rec
 
 const routes: Routes = [
   {
-    path :'listJob',
+    path: 'listJob',
     component: RecruitmentsListComponent
   },
   {
-    path :'myListJob',
+    path: 'myListJob',
     component: RecruitmentsMyListComponent
   },
   {
-    path :'listJob/:id/details',
+    path: 'listJob/:id/details',
     component: RecruitmentsDetailsComponent
   },
   {
-    path :'create',
+    path: 'create',
     component: RecruitmentsCreateComponent
   },
   {
-    path :':id/edit',
+    path: ':id/edit',
     component: RecruitmentEditComponent
   },
   {
-    path :'home-page',
+    path: 'home-page',
     component: HomePageEnterpriseComponent
   },
   {
-    path :'edit',
+    path: 'edit',
     component: EnterpriseEditComponent
   },
   {
-    path :'detail',
+    path: 'detail',
     component: EnterpriseDetailComponent
   },
   {
-    path :':id/myListCV',
+    path: ':id/myListCV',
     component: RecruitmentListCvComponent
   },
 ];
@@ -53,4 +53,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EnterpriseRoutingModule { }
+export class EnterpriseRoutingModule {
+}

@@ -1,9 +1,45 @@
-.a1{
+.a1 {
   cursor: pointer;
 }
-.a1:hover{
+
+.a1:hover {
   color: #ffc107;
 }
-.a3{
+
+.a3 {
   margin-left: 5px;
+}
+
+.a4 {
+  text-overflow: ellipsis;
+}
+
+#div1 {
+  margin-left: 50px;
+  width: 200px;
+  border-radius: 6px;
+  margin-top: 1px;
+}
+
+#div2 {
+  background-color: white;
+  border-radius: 5px;
+  height: 95px;
+  border: 1px solid;
+  color: greenyellow;
+}
+
+#div3 {
+  border-radius: 5px;
+  border: 1px solid;
+  color: greenyellow;
+  margin-top: 18px;
+  background-color: white;
+}
+
+#img1 {
+  border: 1px solid;
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
 }

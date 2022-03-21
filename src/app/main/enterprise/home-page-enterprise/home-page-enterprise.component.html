@@ -1,18 +1,15 @@
-<div style="margin-left: 50px; width: 200px; border-radius: 6px;">
-  <div style="background-color: white; border-radius: 5px; height: 95px">
-    <div style="height: 30px">
-    </div>
+<div id="div1">
+  <div id="div2">
+    <div style="height: 30px"></div>
     <h2 align="center" style="background-color: white;
   color: deeppink;border-radius: 15px"><sub style="color: deeppink">
       <span class="material-icons">local_offer</span></sub>&nbsp;Đề Xuất cho bạn</h2>
   </div>
 
-  <div *ngFor=" let job2 of listJobVIPOrderByDate"
-       style="border-radius: 5px; border: 1px solid;
-        color: greenyellow; margin-top: 18px; background-color: white;">
+  <div *ngFor=" let job2 of listJobVIPOrderByDate" id="div3">
     <div class="row">
       <div class="col-6">
-        <h2 class="a3" ngbTooltip="Tên doanh nghiệp" class="a1" routerLink="{{job2.id}}/details"
+        <h2 class="a3 a1" ngbTooltip="Tên doanh nghiệp" routerLink="{{job2.id}}/details"
             style="margin-left: 10px">
         </h2>
       </div>
@@ -23,10 +20,10 @@
               style="font-size: 15px">Xem ngay</span>
       </div>
     </div>
-    <img class="a3" style="height: 50px; width: 50px; border-radius: 3px" src="{{job2?.profileEnterprise?.image}}">
+    <img class="a3" id="img1" src="{{job2?.profileEnterprise?.image}}">
     <p class="a3">Điện thoại: {{job2?.profileEnterprise?.phoneNumbers}}</p>
     <p class="a3">Công ty: {{job2?.profileEnterprise?.nameCompany}}</p>
-    <h3 class="a1 a3" routerLink="{{job2.id}}/details" style="color: #1a237e">{{job2?.title}}</h3>
+    <h3 class="a1 a3 a4" routerLink="{{job2.id}}/details" style="color: #1a237e">{{job2?.title}}</h3>
     <p class="a3">{{job2?.profileEnterprise?.description}}</p>
   </div>
 </div>
