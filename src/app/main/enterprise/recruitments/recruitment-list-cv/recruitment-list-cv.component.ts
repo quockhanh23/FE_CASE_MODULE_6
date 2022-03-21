@@ -14,7 +14,7 @@ import {DialogDetailCvComponent} from "../../../../notification/dialog-detail-cv
 export class RecruitmentListCvComponent implements OnInit {
 
   listCV: FileCV[] = [];
-
+  count?: any
   listApply: ApplyNow[] = []
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -32,6 +32,7 @@ export class RecruitmentListCvComponent implements OnInit {
       const id = param.get('id')
       // @ts-ignore
       this.applyNowService.getByRec(id).subscribe(res => {
+        this.count = res.length
         console.log(res)
         this.listApply = res
       })
