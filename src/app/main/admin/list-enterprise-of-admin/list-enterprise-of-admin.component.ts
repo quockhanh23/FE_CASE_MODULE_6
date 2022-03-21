@@ -19,7 +19,6 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
-  enterprise1?: ProfileEnterprise
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
@@ -57,14 +56,6 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       this.router.navigate(["admin/adminDetail"]).then()
     }, error => {
       console.log("Lỗi" + error)
-    })
-  }
-
-  getOne(id: any) {
-    this.enterpriseOfAdminService.getById(id).subscribe(res => {
-      console.log(res)
-      this.enterprise1 = res
-      this.router.navigate(["enterprise/detail"]).then()
     })
   }
 

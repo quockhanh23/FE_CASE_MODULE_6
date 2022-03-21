@@ -22,10 +22,12 @@
     <div class="card-header" style="padding-top: 0px; padding-bottom: 0px">
       <div class="row">
         <div class="col-1">
-          <img (click)="getOne(en?.id)" style="width: 60px; height: 60px" src="{{en?.image}}" alt="">
+          <img class="a1" ngbTooltip="Xem chi tiết" routerLink="/admin/listEnterprise/{{en?.id}}"
+               style="width: 60px; height: 60px" src="{{en?.image}}" alt="">
         </div>
-        <div class="col-10">
-          <h2 style="margin-top: 8px;"><sub style="color: #f7941d;"><span
+        <div class="a1 col-10">
+          <h2 ngbTooltip="Xem chi tiết" routerLink="/admin/listEnterprise/{{en?.id}}" style="margin-top: 8px;"><sub
+            style="color: #f7941d;"><span
             class="material-icons">content_paste_search</span></sub>&nbsp;Tên doanh nghiệp: {{en.nameCompany}}
           </h2>
         </div>
@@ -33,11 +35,18 @@
     </div>
     <div class="card-body" style="padding-top: 0px; padding-bottom: 0px">
       <h2 class="card-title">
-        <sub ngbTooltip="Trạng thái" style="color: #3c32bb"><span class="material-icons">lock_reset</span></sub>
+        <sub ngbTooltip="Trạng thái" *ngIf="en.statusEnterpriseId?.id == '1'" style="color: #3c32bb"><span
+          class="material-icons">lock_reset</span></sub>
+        <sub ngbTooltip="Trạng thái" *ngIf="en.statusEnterpriseId?.id == '2'" style="color: #23b219"><span
+          class="material-icons">lock_reset</span></sub>
+        <sub ngbTooltip="Trạng thái" *ngIf="en.statusEnterpriseId?.id == '3'" style="color: #e70d44"><span
+          class="material-icons">lock_reset</span></sub>
+        <sub ngbTooltip="Trạng thái" *ngIf="en.statusEnterpriseId?.id == '4'" style="color: #ece00e"><span
+          class="material-icons">lock_reset</span></sub>
         {{en.statusEnterpriseId?.name}}</h2>
-      <p>{{en?.addressCompany}}</p>
       <!-- Button trigger modal 1 -->
-      <button ngbTooltip="Kích hoạt tài khoản" type="button" (click)="changeStatusActive(en?.id)"
+      <button [disabled]="en.statusEnterpriseId?.id == '4'" ngbTooltip="Kích hoạt tài khoản" type="button"
+              (click)="changeStatusActive(en?.id)"
               class="btn btn-primary" data-toggle="modal"
               data-target="#exampleModal">
         <!-- Button trigger modal 1 -->

@@ -5,6 +5,7 @@ import {AdminRecruitmentsListComponent} from "./admin-recruitments-list/admin-re
 import {AdminEnterpriseNoActiveComponent} from "./admin-enterprise-no-active/admin-enterprise-no-active.component";
 import {AdminManagementComponent} from "./admin-management/admin-management.component";
 import {WeatherComponent} from "./weather/weather.component";
+import {AdminEnterpriseDetailComponent} from "./admin-enterprise-detail/admin-enterprise-detail.component";
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'adminDetail', component: AdminManagementComponent
+  },
+  {
+    path: 'listEnterprise/:id', component: AdminEnterpriseDetailComponent
   },
 ];
 

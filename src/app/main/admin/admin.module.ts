@@ -10,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { AdminRecruitmentsListComponent } from './admin-recruitments-list/admin-recruitments-list.component';
 import { AdminManagementComponent } from './admin-management/admin-management.component';
 import { WeatherComponent } from './weather/weather.component';
+import { AdminEnterpriseDetailComponent } from './admin-enterprise-detail/admin-enterprise-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { WeatherComponent } from './weather/weather.component';
     ListEnterpriseOfAdminComponent,
     AdminRecruitmentsListComponent,
     AdminManagementComponent,
-    WeatherComponent
+    WeatherComponent,
+    AdminEnterpriseDetailComponent
   ],
   imports: [
     CommonModule,

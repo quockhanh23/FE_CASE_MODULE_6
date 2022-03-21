@@ -6,7 +6,6 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {DialogApplyNowComponent} from "../../../../notification/dialog-apply-now/dialog-apply-now.component";
 import {ApplyNowService} from "../../../../services/apply-now.service";
-import {EnterpriseService} from "../../../../services/enterprise.service";
 
 
 @Component({
