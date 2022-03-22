@@ -1,6 +1,7 @@
 <!-- job_listing_area_start  -->
 <div class="job_listing_area" style="padding-top: 40px">
   <div class="container">
+    <!-- Khu vực tìm kiếm -->
     <form style="margin-left: 12px" class="form-inline my-2 my-lg-0" (input)="searchRecruitment()">
       <input ngbTooltip="Tìm theo địa chỉ" id="address" class="form-control mr-sm-2" type="search"
              placeholder="Tìm kiếm theo thành phố " aria-label="Search">
@@ -14,7 +15,6 @@
              placeholder="Tìm kiếm theo mức lương" aria-label="Search">
     </form>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 45px">
-      <!--      <a style="font-size: 20px" class="navbar-brand">Tìm kiếm</a>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,18 +26,18 @@
             <select ngbTooltip="Tìm kiếm nhanh theo thành phố" id="q" class="form-control">
               <option data-display="Most Recent" value="">Tìm kiếm nhanh theo</option>
               <option value="Hà Nội">Hà Nội</option>
-              <option value="Sài Gòn">Sài Gòn</option>
+              <option value="Sài Gòn">Thái Bình</option>
               <option value="Đà Nẵng">Đà Nẵng</option>
             </select>
           </div>
         </ul>
-
         <span style="font-size: 25px; margin-right: 220px">Tìm kiếm</span>
         <form class="form-inline my-2 my-lg-0">
           <input ngbTooltip="Tìm theo tên, địa chỉ, lương" (input)="searchByName()" id="search"
                  class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm nhanh" aria-label="Search">
           <span style="font-size: 45px; color: deeppink" class="material-icons">content_paste_search</span>
         </form>
+        <!-- Khu vực tìm kiếm -->
       </div>
     </nav>
     <div class="row">
@@ -54,10 +54,9 @@
               <div class="a2 col-3" style="margin-top: 18px">
                 <div align="right">
                   <li style="font-size: 20px" class="nav-item active dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-expanded="false">
-                      Sắp xếp
-                    </a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown"
+                       role="button" data-toggle="dropdown"
+                       aria-expanded="false">Sắp xếp</a>
                     <div style="margin-left: 15px" class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a (click)="sortByNewRecruitments()" class="dropdown-item">Tin mới nhất</a>
                       <a (click)="sortByOldRecruitments()" class="dropdown-item">Tin cũ nhất</a>
@@ -71,7 +70,7 @@
         <div class="job_lists m-0">
           <div class="row" *ngFor=" let job of listJob ">
             <div class="col-lg-12 col-md-12">
-              <div class="single_jobs white-bg d-flex justify-content-between" >
+              <div class="single_jobs white-bg d-flex justify-content-between">
                 <div class="jobs_left d-flex align-items-center">
                   <div class="thumb">
                     <img ngbTooltip="Xem doanh nghiệp" class="a1"
