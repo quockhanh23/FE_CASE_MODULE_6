@@ -1,5 +1,8 @@
-<h2 *ngIf="role == 'ROLE_USER'|| role == 'ROLE_ENTERPRISE'|| !isLoggedIn()"
-    align="center">Bạn không có quyền truy cập</h2>
+<div id="div-error" align="center"
+     *ngIf="checkRole == 'ROLE_USER'|| checkRole == 'ROLE_ENTERPRISE'||!isLoggedIn()">
+  <h2 style="padding-top: 20px">Bạn không có quyền truy cập !!</h2>
+  <h2 class="a1" style="color: deeppink" [routerLink]="['/enterprise/listJob']">Quay lại danh sách tin tuyển dụng</h2>
+</div>
 <div class="container" *ngIf="checkRole == 'ROLE_ADMIN'">
   <nav aria-label="breadcrumb" class="main-breadcrumb">
     <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
@@ -8,12 +11,12 @@
           class="material-icons a1">keyboard_backspace</span>
       <div class="col-6" style="margin-top: 10px">
         <button ngbTooltip="Danh sách các doanh nghiệp mới đăng kí" mat-button class="a1" style="color: #1a237e"
-                (click)="getAllStatusByOne()">Kích hoạt tài khoản
+                (click)="getAllStatusByOne()">Kích hoạt tài khoản ({{count2}})
         </button>
       </div>
       <div class="a1 col-5" style="margin-top: 10px" align="right">
         <button ngbTooltip="Toàn bộ các doanh nghiệp" mat-button (click)="getAll()"
-                style="text-align: center; color: #1a237e">Danh sách doanh nghiệp
+                style="text-align: center; color: #1a237e">Danh sách doanh nghiệp  ({{count}})
         </button>
       </div>
     </div>

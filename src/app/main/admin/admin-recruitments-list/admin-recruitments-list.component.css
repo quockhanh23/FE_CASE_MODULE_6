@@ -4,3 +4,8 @@
 .a1:hover{
   color: #ffc107;
 }
+#div-error {
+  background-image: url("https://ctagency.vn/wp-content/uploads/2020/05/404.png");
+  width: 100%;
+  height: 750px;
+}

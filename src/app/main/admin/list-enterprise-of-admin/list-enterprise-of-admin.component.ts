@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfileEnterprise} from "../../../models/profile-enterprise";
 import {ProfileEnterpriseOfAdminService} from "../../../services/profile-enterprise-of-admin.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -18,6 +18,8 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
+  count?:any
+  count2?:any
 
   constructor(private enterpriseOfAdminService: ProfileEnterpriseOfAdminService,
               public dialog: MatDialog,
@@ -30,6 +32,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   ngOnInit(): void {
     this.enterpriseOfAdminService.getAll().subscribe(result => {
       this.enterprise = result
+      this.count = result.length
       console.log(result)
     }, error => {
       console.log("Lỗi getAll" + error)
@@ -38,6 +41,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
       const id = paraMap.get('id')
       console.log(id);
     })
+    this.getAllStatusNotActive()
   }
 
   getAll() {
@@ -51,6 +55,7 @@ export class ListEnterpriseOfAdminComponent implements OnInit {
   getAllStatusNotActive() {
     this.enterpriseOfAdminService.getAllStatusNotActive().subscribe(res => {
       console.log(res)
+      this.count2 = res.length
       this.router.navigate(["admin/adminDetail"]).then()
     }, error => {
       console.log("Lỗi" + error)

@@ -1,5 +1,8 @@
-<h2 *ngIf="role == 'ROLE_USER'|| role == 'ROLE_ENTERPRISE'|| !isLoggedIn()"
-    align="center">Bạn không có quyền truy cập</h2>
+<div id="div-error" align="center"
+     *ngIf="role == 'ROLE_USER'|| role == 'ROLE_ENTERPRISE'||!isLoggedIn()">
+  <h2 style="padding-top: 20px">Bạn không có quyền truy cập !!</h2>
+  <h2 class="a1" style="color: deeppink" [routerLink]="['/enterprise/listJob']">Quay lại danh sách tin tuyển dụng</h2>
+</div>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootstrap snippets bootdey" *ngIf="role == 'ROLE_ADMIN'">
   <div class="row">
