@@ -99,7 +99,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h3 class="title mb-0">Email</h3>
+                <h3 class="title mb-0">Email:</h3>
               </div>
               <div class="col-sm-9 text-secondary">
                 <h3 class="a1 mb-0">{{enterprise?.nameCompany}}</h3>
@@ -108,7 +108,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h3 class="title mb-0">Số điện thoại</h3>
+                <h3 class="title mb-0">Số điện thoại:</h3>
               </div>
               <div class="col-sm-9 text-secondary">
                 <h3 class="a1 mb-0">{{enterprise?.phoneNumbers}}</h3>
@@ -117,7 +117,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h3 class="title mb-0">Nhân viên hiện có</h3>
+                <h3 class="title mb-0">Nhân viên hiện có:</h3>
               </div>
               <div class="col-sm-9 text-secondary">
                 <h3 class="a1 title mb-0"> {{enterprise?.numberOfEmployees}}</h3>
@@ -126,7 +126,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h3 class="title mb-0">Địa chỉ công ty</h3>
+                <h3 class="title mb-0">Địa chỉ công ty:</h3>
               </div>
               <div class="col-sm-9 text-secondary">
                 <h3 class="a1 mb-0">{{enterprise?.addressCompany}}</h3>
@@ -134,12 +134,12 @@
             </div>
             <hr>
             <div>
-              <h3>Các tin tuyển dụng của doanh nghiệp ({{count}})</h3>
+              <h3>Các tin tuyển dụng của doanh nghiệp: ({{count}})</h3>
             </div>
             <div *ngFor=" let job of myListJobs ">
               <div class="row">
                 <div class="col">
-                  <p>{{job?.title}}</p>
+                  <p ngbTooltip="Xem ngay" class="a1" routerLink="/enterprise/listJob/{{job?.id}}/details">{{job?.title}}</p>
                 </div>
                 <div class="col">
                   <p>{{job?.address}}</p>

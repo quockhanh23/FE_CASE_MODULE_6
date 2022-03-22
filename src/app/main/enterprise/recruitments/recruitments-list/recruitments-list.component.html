@@ -74,8 +74,10 @@
               <div class="single_jobs white-bg d-flex justify-content-between">
                 <div class="jobs_left d-flex align-items-center">
                   <div class="thumb">
-                    <img src="{{job?.profileEnterprise?.image}}"
-                         alt="" style="width: 48px;height: 48px">
+                    <img ngbTooltip="Xem doanh nghiệp" class="a1"
+                         routerLink="/user/detailEnterprise/{{job?.profileEnterprise?.id}}"
+                         src="{{job?.profileEnterprise?.image}}"
+                         alt="Ảnh" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
                     <a *ngIf="isLoggedIn()" ngbTooltip="Xem chi tiết" routerLink="{{job.id}}/details">

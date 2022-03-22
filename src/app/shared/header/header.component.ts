@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
-import {EnterpriseService} from "../../services/enterprise.service";
 import {ProfileEnterprise} from "../../models/profile-enterprise";
 
 @Component({
@@ -12,12 +11,10 @@ export class HeaderComponent implements OnInit {
   checkRole = localStorage.getItem('ROLE');
   username: string | null = ''
   role?: any
-  check3 = true
 
   enterpriseProfile!: ProfileEnterprise
 
   constructor(private authService: AuthenticationService,
-              private enterpriseService: EnterpriseService,
   ) {
   }
 
