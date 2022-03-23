@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
-import {ToastrService} from "ngx-toastr";
 import {UserService} from "../../../services/user.service";
 import {ProfileUser} from "../../../models/profile-user";
 import {UserCreateCvComponent} from "../user-create-cv/user-create-cv.component";

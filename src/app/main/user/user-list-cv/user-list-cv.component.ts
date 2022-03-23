@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FileCV} from "../../../models/file-cv";
 import {FileCVService} from "../../../services/file-cv.service";
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list-cv',
@@ -13,20 +13,21 @@ import {Router} from "@angular/router";
 export class UserListCvComponent implements OnInit {
 
   id = localStorage.getItem('ID');
-  fileCVS!: FileCV[]
+  fileCVS?: FileCV
 
   constructor(private fileCVService: FileCVService,
-              private toarts: ToastrService,
               public dialog: MatDialog,
-              private router: Router,) {
+  ) {
   }
 
   ngOnInit(): void {
-    this.fileCVService.getAll().subscribe(result => {
-      this.fileCVS = result
+    console.log(this.id)
+    this.fileCVService.findByUser(<string>this.id).subscribe(result => {
       console.log(result)
+      // @ts-ignore
+      this.fileCVS = result
     }, error => {
-      console.log(error)
+      console.log("Lỗi: " + error)
     })
   }
 }
