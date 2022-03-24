@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogSuccessComponent} from "../dialog-success/dialog-success.component";
@@ -12,13 +12,16 @@ import {DialogRulesComponent} from "../dialog-rules/dialog-rules.component";
 })
 export class ToastrTestComponent implements OnInit {
   closeResult = '';
+
   constructor(private toarts: ToastrService,
               public dialog: MatDialog,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
   }
-  open(content:any) {
+
+  open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -39,9 +42,11 @@ export class ToastrTestComponent implements OnInit {
   openToarts() {
     this.toarts.success('mes', 'title')
   }
+
   openDialogSuccess() {
     this.dialog.open(DialogSuccessComponent);
   }
+
   openDialogRules() {
     this.dialog.open(DialogRulesComponent);
   }
