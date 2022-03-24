@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Recruitments} from "../../../../models/recruitments";
 import {RecruitmentsService} from "../../../../services/recruitments.service";
 import {Router} from "@angular/router";
-import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogClickDetailComponent} from "../../../../notification/dialog-click-detail/dialog-click-detail.component";
 
@@ -23,7 +22,6 @@ export class RecruitmentsListComponent implements OnInit {
   constructor(
     private recruitmentsService: RecruitmentsService,
     private router: Router,
-    private toarts: ToastrService,
     public dialog: MatDialog,
   ) {
 
