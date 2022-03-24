@@ -9,7 +9,7 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <div class="row" class="breadcrumb" style="background-color:palegoldenrod">
         <span ngbTooltip="Quay lại danh sách"
-              style="font-size: 25px; margin-top: 14px" [routerLink]="['/admin/adminDetail']"
+              style="font-size: 25px; margin-top: 15px" [routerLink]="['/admin/adminDetail']"
               class="title material-icons a1">keyboard_backspace</span>
         <div class="col-3" align="right">
           <h2 style="margin-top: 11px">Toàn bộ danh sách</h2>
@@ -44,14 +44,12 @@
                     class="a1 fa-solid fa-lock"></i></a>
                   <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusPublic(job?.id)"><i
                     class="a1 fa-solid fa-arrow-down-short-wide"></i></a>
-                  <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
                 </div>
                 <div class="a1" *ngIf="job?.statusRecruitmentId?.id == '2'">
                   <a ngbTooltip="Khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLock(job?.id)"><i
                     class="a1 fa-solid fa-lock"></i></a>
                   <a ngbTooltip="Đề xuất VIP" class="heart_mark" (click)="changeStatusVIP(job?.id)"><i
                     class="a1 fa-solid fa-arrow-up-short-wide"></i></a>
-                  <!--                    <a routerLink="#" class="heart_mark"><i class="fa-solid fa-screwdriver-wrench"></i></a>-->
                 </div>
                 <div class="a1" *ngIf="job?.statusRecruitmentId?.id == '4'">
                   <a ngbTooltip="Mở khóa tin tuyển dụng" class="heart_mark" (click)="changeStatusLockOpen(job?.id)"><i

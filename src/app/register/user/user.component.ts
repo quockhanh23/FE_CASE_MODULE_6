@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
 import {UserService} from "../../services/user.service";
-import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
 import {DialogRegisterSuccessComponent} from "../../notification/dialog-register-success/dialog-register-success.component";
 import {DialogRegisterFailComponent} from "../../notification/dialog-register-fail/dialog-register-fail.component";
@@ -16,7 +15,7 @@ import {DialogCheckRegisterComponent} from "../../notification/dialog-check-regi
 })
 export class UserComponent implements OnInit {
   userForm: FormGroup = new FormGroup({
-    email: new FormControl("", [Validators.required,Validators.email]),
+    email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required]),
     fullName: new FormControl("", [Validators.required]),
     phoneNumber: new FormControl("", [Validators.required,
@@ -30,7 +29,6 @@ export class UserComponent implements OnInit {
               private router: Router,
               private authenticationService: AuthenticationService,
               private user: UserService,
-              private toarts: ToastrService,
               public dialog: MatDialog,) {
   }
 
@@ -53,9 +51,9 @@ export class UserComponent implements OnInit {
       this.checkDone = false
       this.dialog.closeAll()
       console.log("lỗi nè" + error)
-
     })
   }
+
   openDialogRegisterCheck() {
     this.dialog.open(DialogCheckRegisterComponent)
   }
@@ -63,6 +61,7 @@ export class UserComponent implements OnInit {
   openDialogRegisterSuccess() {
     this.dialog.open(DialogRegisterSuccessComponent)
   }
+
   reOpenDialog() {
     setTimeout(() => {
       this.dialog.open(DialogRegisterFailComponent)

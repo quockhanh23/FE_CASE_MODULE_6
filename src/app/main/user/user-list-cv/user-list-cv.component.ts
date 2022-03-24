@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FileCV} from "../../../models/file-cv";
 import {FileCVService} from "../../../services/file-cv.service";
-import {ToastrService} from "ngx-toastr";
 import {MatDialog} from "@angular/material/dialog";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list-cv',
@@ -14,6 +12,7 @@ export class UserListCvComponent implements OnInit {
 
   id = localStorage.getItem('ID');
   fileCVS?: FileCV
+  check = false
 
   constructor(private fileCVService: FileCVService,
               public dialog: MatDialog,
@@ -28,6 +27,7 @@ export class UserListCvComponent implements OnInit {
       this.fileCVS = result
     }, error => {
       console.log("Lỗi: " + error)
+      this.check = true
     })
   }
 }
