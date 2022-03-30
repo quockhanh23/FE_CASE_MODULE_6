@@ -23,16 +23,15 @@
         <div style="border-radius: 5px" class="a3 job_lists m-0">
           <div class="row" *ngFor=" let job of myListJob ">
             <div class="col-lg-12 col-md-12">
-              <div class="single_jobs white-bg d-flex justify-content-between" style="padding:0px">
+              <div class="single_jobs white-bg d-flex justify-content-between"
+                   style="padding:0px; margin-bottom: 3px;">
                 <div class="jobs_left d-flex align-items-center">
                   <div class="thumb">
                     <img src="{{job?.profileEnterprise?.image}}" alt="" style="width: 48px;height: 48px">
                   </div>
                   <div class="jobs_conetent">
-                    <a routerLink="/enterprise/listJob/{{job.id}}/details"><h4 style="font-size: 20px">{{job.title}}
-                      <span style="color: red"> !</span></h4></a>
-
-                    <!--                    <a href="enterprise/{{job.id}}/details"><h4>{{job.title}}</h4></a>-->
+                    <a routerLink="/enterprise/listJob/{{job?.id}}/details">
+                      <h4 style="font-size: 20px">{{job?.title}}</h4></a>
                     <div class="links_locat d-flex align-items-center">
                       <div class="location">
                         <p style="color: #f7941d"><i class="fa fa-map-marker"></i> {{job?.address}}</p>
@@ -54,7 +53,8 @@
                         class="fa-solid fa-address-card"></i></a>
                     </div>
                     <div *ngIf="job?.statusRecruitmentId?.id == '2' ||job?.statusRecruitmentId?.id == '3' ">
-                      <a ngbTooltip="Ẩn tin tuyển dụng" class="heart_mark" (click)="changeStatusHidden(job?.id)"><i
+                      <a style="margin-top: 8px" ngbTooltip="Ẩn tin tuyển dụng" class="heart_mark"
+                         (click)="changeStatusHidden(job?.id)"><i
                         class="fas fa-eye-slash"></i></a>
                       <a ngbTooltip="Sửa tin tin tuyển dụng" (click)="showEditForm(job?.id)" class="heart_mark"><i
                         class="fa-solid fa-screwdriver-wrench"></i></a>
@@ -65,8 +65,8 @@
                   <div class="jobs_right">
                     <div class="apply_now">
                     </div>
-                    <div class="date">
-                      <p>Ngày hết hạn: {{job.dateEnd | date:"dd/MM/yyyy" }}</p>
+                    <div style="font-size: 10px">
+                      <p>Ngày hết hạn: {{job?.dateEnd | date:"dd/MM/yyyy" }}</p>
                     </div>
                   </div>
                 </div>

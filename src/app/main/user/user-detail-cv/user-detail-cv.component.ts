@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-user-detail-cv',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailCvComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  closeDialog() {
+    this.dialog.closeAll()
+  }
 }

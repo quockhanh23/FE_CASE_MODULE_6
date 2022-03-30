@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {FormControl, FormGroup} from "@angular/forms";
 import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
+import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-user-edit-profile',
@@ -22,9 +23,8 @@ export class UserEditProfileComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private router: Router,
               public dialog: MatDialog,
-              private toarts: ToastrService,) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -53,6 +53,7 @@ export class UserEditProfileComponent implements OnInit {
       this.dialog.open(DialogSuccessComponent)
       console.log(r + '...')
     }, error => {
+      this.dialog.open(DialogFailComponent)
       console.log("Lỗi" + error)
     })
   }

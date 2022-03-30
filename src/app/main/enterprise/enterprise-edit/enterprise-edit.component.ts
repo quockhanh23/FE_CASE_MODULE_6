@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ToastrService} from "ngx-toastr";
 import {DialogSuccessComponent} from "../../../notification/dialog-success/dialog-success.component";
 import {DialogLoginFailComponent} from "../../../notification/dialog-login-fail/dialog-login-fail.component";
+import {DialogFailComponent} from "../../../notification/dialog-fail/dialog-fail.component";
 
 @Component({
   selector: 'app-enterprise-edit',
@@ -74,7 +75,7 @@ export class EnterpriseEditComponent implements OnInit {
       this.router.navigate(["/enterprise/detail"]).then()
       console.log(r + 'ok')
     }, error => {
-      this.dialog.open(DialogLoginFailComponent)
+      this.dialog.open(DialogFailComponent)
       console.log("Lỗi" + error)
     })
   }

@@ -30,7 +30,6 @@ export class RecruitmentListCvComponent implements OnInit {
   loadMyListAll() {
     this.activatedRoute.paramMap.subscribe(param => {
       const id = param.get('id')
-      // @ts-ignore
       this.applyNowService.getByRec(id).subscribe(res => {
         this.count = res.length
         console.log(res)
