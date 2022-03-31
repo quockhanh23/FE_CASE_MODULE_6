@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+          <span ngbTooltip="Quay lại"
+                style="font-size: 25px; margin-top: 5px" [routerLink]="['/admin/listUser']"
+                class="title material-icons a1">keyboard_backspace</span>
+    </div>
+    <div class="col-6">
+      <h2 style="color: #0a70b9">Thông tin người dùng</h2>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h2>ID: {{userDetail?.id}}</h2>
+      <h3 class="card-title">Họ tên: {{userDetail?.fullName}}</h3>
+      <h3 class="card-text">Email: {{userDetail?.email}}</h3>
+      <h3>Số điện thoại: {{userDetail?.phoneNumber}}</h3>
+    </div>
+  </div>
+</div>
+

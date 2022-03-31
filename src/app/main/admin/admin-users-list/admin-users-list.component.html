@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+          <span ngbTooltip="Quay lại"
+                style="font-size: 25px; margin-top: 5px" [routerLink]="['/admin/adminDetail']"
+                class="title material-icons a1">keyboard_backspace</span>
+    </div>
+    <div class="col-6">
+      <h2 style="color: #0a70b9">Danh sách người dùng ({{count}})</h2>
+    </div>
+  </div>
+  <table style="color: purple" border="1px" width="100%">
+    <tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Email</th>
+      <th>Số điện thoại</th>
+      <th>Tác vụ khác</th>
+    </tr>
+    <tr *ngFor="let us of users index as i">
+      <td>{{i + 1}}</td>
+      <td class="a1" routerLink="/admin/userDetail/{{us?.id}}">{{us?.fullName}}</td>
+      <td>
+        {{us?.email}}
+      </td>
+      <td>{{us?.phoneNumber}}</td>
+    </tr>
+  </table>
+</div>
+
+

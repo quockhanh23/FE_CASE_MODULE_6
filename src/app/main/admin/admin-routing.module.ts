@@ -5,6 +5,8 @@ import {AdminRecruitmentsListComponent} from "./admin-recruitments-list/admin-re
 import {AdminEnterpriseNoActiveComponent} from "./admin-enterprise-no-active/admin-enterprise-no-active.component";
 import {AdminManagementComponent} from "./admin-management/admin-management.component";
 import {AdminEnterpriseDetailComponent} from "./admin-enterprise-detail/admin-enterprise-detail.component";
+import {AdminUsersListComponent} from "./admin-users-list/admin-users-list.component";
+import {AdminCheckDetailUserComponent} from "./admin-check-detail-user/admin-check-detail-user.component";
 
 const routes: Routes = [
   {
@@ -21,6 +23,12 @@ const routes: Routes = [
   },
   {
     path: 'listEnterprise/:id', component: AdminEnterpriseDetailComponent
+  },
+  {
+    path: 'listUser', component: AdminUsersListComponent
+  },
+  {
+    path: 'userDetail/:id', component: AdminCheckDetailUserComponent
   },
 ];
 

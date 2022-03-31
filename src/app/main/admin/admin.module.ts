@@ -11,6 +11,8 @@ import { AdminRecruitmentsListComponent } from './admin-recruitments-list/admin-
 import { AdminManagementComponent } from './admin-management/admin-management.component';
 import { WeatherComponent } from './weather/weather.component';
 import { AdminEnterpriseDetailComponent } from './admin-enterprise-detail/admin-enterprise-detail.component';
+import { AdminUsersListComponent } from './admin-users-list/admin-users-list.component';
+import { AdminCheckDetailUserComponent } from './admin-check-detail-user/admin-check-detail-user.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AdminEnterpriseDetailComponent } from './admin-enterprise-detail/admin-
     AdminRecruitmentsListComponent,
     AdminManagementComponent,
     WeatherComponent,
-    AdminEnterpriseDetailComponent
+    AdminEnterpriseDetailComponent,
+    AdminUsersListComponent,
+    AdminCheckDetailUserComponent
   ],
   imports: [
     CommonModule,
